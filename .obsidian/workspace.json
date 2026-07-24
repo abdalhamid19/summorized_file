@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "2b81c0afa7322e0d",
+    "type": "split",
+    "children": [
+      {
+        "id": "f291242e23cf1fe9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1d09c7e727e0028a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه"
+            }
+          },
+          {
+            "id": "ece74ca86d03ea49",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه"
+            }
+          },
+          {
+            "id": "89fbc07382200fef",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "تلقينة الفديوهات والملفات الصوتيه الشرعيه.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "تلقينة الفديوهات والملفات الصوتيه الشرعيه"
+            }
+          },
+          {
+            "id": "002eb37642101b66",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "تلقينة الفديوهات والملفات الصوتيه العلميه.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "تلقينة الفديوهات والملفات الصوتيه العلميه"
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "297f04800e024a27",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bf11f83b98de8bde",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b6414075b6bf9364",
+    "type": "split",
+    "children": [
+      {
+        "id": "7216838e2ee2c3cf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a8c5c552fbaef5fd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "88fc3709e4d2d094",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "0d7b58d6617fa1cd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a4be26e7ff0e1fa0",
+    "type": "split",
+    "children": [
+      {
+        "id": "59cd9d49c9c1f3a5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "edbba408ef10fb2e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "bd818f808f0d7e74",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "52eadb903b3f4469",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e4f8a35483184f1e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "7b877cb74fd5da9c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "002eb37642101b66",
+  "lastOpenFiles": [
+    "تلقينة الفديوهات والملفات الصوتيه الشرعيه.md",
+    "تلقينة الفديوهات والملفات الصوتيه العلميه.md",
+    "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه.md",
+    "بيتخدام التلقينه التي في هذا الملف تلقينة تلخيص الفديوهات والملفات الصوتيه.MD.md"
+  ]
+}
