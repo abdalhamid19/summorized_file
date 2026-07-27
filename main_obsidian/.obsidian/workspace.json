@@ -25,32 +25,14 @@
             "id": "90b5a36ee3eed5a4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "وسهلان.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "وسهلان"
-            }
-          },
-          {
-            "id": "9f2cfed48e5244ca",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه"
+              "title": "New tab"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "0971190c63673056",
@@ -228,10 +210,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "9f2cfed48e5244ca",
+  "active": "90b5a36ee3eed5a4",
   "lastOpenFiles": [
-    "bnldfbnl.md",
     "تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه.md",
+    "prompt/تلقينة تلخيص الفديوهات والملفات الصوتيه قديمه.md",
+    "prompt/تلقينة الفديوهات والملفات الصوتيه الشرعيه.md",
+    "prompt/تلقينة الفديوهات والملفات الصوتيه العلميه copy.md",
+    "prompt",
+    "bnldfbnl.md",
     "تلقينة الفديوهات والملفات الصوتيه الشرعيه.md",
     "Pasted image 20260725103347.png",
     "وسهلان.md",
