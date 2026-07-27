@@ -55,6 +55,18 @@ class TestFormatters(unittest.TestCase):
         self.assertIn("# Sample Title", md)
         self.assertIn("**`[00:00]`** Hello world", md)
 
+    def test_format_dispatch(self):
+        txt = TranscriptFormatter.format("txt", self.sample_transcript, title="Sample", video_id="abc123xyz89")
+        self.assertIn("[00:00] Hello world", txt)
+
+        json_out = TranscriptFormatter.format("json", self.sample_transcript, title="Sample", video_id="abc123xyz89")
+        parsed = json.loads(json_out)
+        self.assertEqual(parsed["metadata"]["title"], "Sample")
+
+    def test_invalid_format(self):
+        with self.assertRaises(ValueError):
+            TranscriptFormatter.format("invalid_fmt", self.sample_transcript)
+
 
 class TestExtractorIntegration(unittest.TestCase):
 
