@@ -6,7 +6,7 @@
       {
         "id": "0065d350e3c5032d",
         "type": "tabs",
-        "dimension": 71.00253807106598,
+        "dimension": 56.47208121827412,
         "children": [
           {
             "id": "358363eea7d9b18e",
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "youtube_extraction/شرح_مشروع_استخراج_تفريغ_يوتيوب.md",
+                "file": "summarized_video_and_audio/ما_هو_سر_نجاح_استخدام_Mysterium_VPN_مع_Dolphin_Anty.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "شرح_مشروع_استخراج_تفريغ_يوتيوب"
+              "title": "ما_هو_سر_نجاح_استخدام_Mysterium_VPN_مع_Dolphin_Anty"
             }
           }
         ],
@@ -56,7 +56,7 @@
       {
         "id": "0971190c63673056",
         "type": "tabs",
-        "dimension": 28.99746192893401,
+        "dimension": 43.52791878172589,
         "children": [
           {
             "id": "c3f500717663bf76",
@@ -230,9 +230,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "c3f500717663bf76",
+  "active": "5496004e7510feca",
   "lastOpenFiles": [
+    "Mysterium VPN.md",
+    "summarized_video_and_audio/ما_هو_سر_نجاح_استخدام_Mysterium_VPN_مع_Dolphin_Anty.md",
     "youtube_extraction/شرح_مشروع_استخراج_تفريغ_يوتيوب.md",
+    "summarized_video_and_audio",
+    "prompt/summarized_video_and_audio/تلقينة الفديوهات والملفات الصوتيه الشرعيه .md",
+    "prompt/summarized_video_and_audio/تلقينة الفديوهات والملفات الصوتيه الشرعيه الخاصه الوكلاء  copy.md",
+    "prompt/summarized_video_and_audio/تلقينة الفديوهات والملفات الصوتيه الشرعيه الخاصه الوكلاء .md",
+    "prompt/summarized_video_and_audio/تلقينة الفديوهات والملفات الصوتيه العلميه .md",
+    "prompt/summarized_video_and_audio/تلقينة الفديوهات والملفات الصوتيه العلميه الخاضه بالكولاء.md",
+    "prompt/summarized_video_and_audio/تلقينة الفديوهات والملفات الصوتيه العلميه copy 2.md",
     "ماقت.md",
     "youtube_extraction",
     "residential proxy/تحويل_VPN_إلى_Proxy.md",
