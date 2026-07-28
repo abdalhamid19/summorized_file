@@ -6,7 +6,6 @@
       {
         "id": "0065d350e3c5032d",
         "type": "tabs",
-        "dimension": 99.99999999999999,
         "children": [
           {
             "id": "358363eea7d9b18e",
@@ -229,7 +228,10 @@
   },
   "active": "c3f500717663bf76",
   "lastOpenFiles": [
+    "سورة تبارك السعدي.md",
+    "تفسير/سورة تبارك السعدي.md",
     "residential proxy/الفرق_بين_Residential_IP_و_Residential_Proxy.md",
+    "تفسير",
     "Mysterium VPN.md",
     "summarized_video_and_audio/ما_هو_سر_نجاح_استخدام_Mysterium_VPN_مع_Dolphin_Anty.md",
     "youtube_extraction/شرح_مشروع_استخراج_تفريغ_يوتيوب.md",
