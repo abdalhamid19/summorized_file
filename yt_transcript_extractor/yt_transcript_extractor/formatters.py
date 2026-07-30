@@ -33,7 +33,7 @@ class TranscriptFormatter:
         elif fmt_key == "txt":
             return cls.to_txt(transcript, title=title, video_id=video_id, language=language)
         else:
-            raise ValueError(f"صيغة غير مدعومة: '{fmt}'. الصيغ المدعومة: txt, json, srt, md.")
+            raise ValueError(f"Unsupported format: '{fmt}'. Supported formats: txt, json, srt, md.")
 
     @staticmethod
     def to_txt(
@@ -44,10 +44,10 @@ class TranscriptFormatter:
     ) -> str:
         lines = []
         if title:
-            lines.append(f"العنوان: {title}")
+            lines.append(f"Title: {title}")
         if video_id:
-            lines.append(f"معرّف الفيديو: {video_id}")
-            lines.append(f"الرابط: {YOUTUBE_WATCH_URL.format(video_id=video_id)}")
+            lines.append(f"Video ID: {video_id}")
+            lines.append(f"URL: {YOUTUBE_WATCH_URL.format(video_id=video_id)}")
         if title or video_id:
             lines.append("-" * 50)
 
@@ -104,13 +104,13 @@ class TranscriptFormatter:
         md = [f"# {title or 'YouTube Video Transcript'}\n"]
         if video_id:
             url = YOUTUBE_WATCH_URL.format(video_id=video_id)
-            md.append(f"- **رابط الفيديو (URL):** [{url}]({url})")
-            md.append(f"- **معرف الفيديو (Video ID):** `{video_id}`")
+            md.append(f"- **Video URL:** [{url}]({url})")
+            md.append(f"- **Video ID:** `{video_id}`")
         if language:
-            md.append(f"- **اللغة (Language):** `{language}`")
-        md.append(f"- **عدد الجمل/المقاطع:** `{len(transcript)}`\n")
+            md.append(f"- **Language:** `{language}`")
+        md.append(f"- **Total Entries:** `{len(transcript)}`\n")
         md.append("---\n")
-        md.append("## 📜 التفريغ النصي الكامل مع التوقيتات\n")
+        md.append("## 📜 Complete Transcript with Timestamps\n")
 
         for item in transcript:
             time_str = format_seconds(item["start"])

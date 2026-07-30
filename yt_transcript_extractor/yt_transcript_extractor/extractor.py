@@ -41,7 +41,7 @@ class YouTubeTranscriptExtractor:
         self.raw_input = video_url_or_id
         extracted_id = extract_video_id(video_url_or_id)
         if not extracted_id:
-            raise ValueError(f"معرّف الفيديو أو الرابط غير صحيح: {video_url_or_id}\nيرجى التأكد من صحة الرابط أو معرّف الفيديو.")
+            raise ValueError(f"Invalid video ID or URL: {video_url_or_id}\nPlease verify the URL or video ID is correct.")
 
         self.video_id = extracted_id
         self.metadata: Dict[str, Any] = {}

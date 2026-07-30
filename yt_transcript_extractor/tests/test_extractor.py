@@ -82,7 +82,7 @@ class TestExceptions(unittest.TestCase):
         exc = SubtitlesDisabledByOwner("rMORt-RUisY")
         self.assertEqual(exc.video_id, "rMORt-RUisY")
         self.assertIn("rMORt-RUisY", str(exc))
-        self.assertIn("صاحب القناة", str(exc))
+        self.assertIn("disabled by the channel owner", str(exc))
         # Must be a subclass of the base error
         self.assertIsInstance(exc, TranscriptExtractionError)
 
@@ -95,7 +95,7 @@ class TestExceptions(unittest.TestCase):
     def test_request_blocked(self):
         exc = RequestBlockedByYouTube("abc12345678")
         self.assertEqual(exc.video_id, "abc12345678")
-        self.assertIn("حظر", str(exc))
+        self.assertIn("blocked", str(exc))
         self.assertIsInstance(exc, TranscriptExtractionError)
 
     def test_video_not_found(self):
@@ -139,7 +139,7 @@ class TestExtractorIntegration(unittest.TestCase):
             # If no exception is raised, the video may have gained subtitles — that's fine.
         except SubtitlesDisabledByOwner as exc:
             self.assertEqual(exc.video_id, "rMORt-RUisY")
-            self.assertIn("صاحب القناة", str(exc))
+            self.assertIn("disabled by the channel owner", str(exc))
         except TranscriptExtractionError:
             # Any other typed error (blocked IP, etc.) is also acceptable.
             pass

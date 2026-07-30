@@ -17,9 +17,9 @@ class SubtitlesDisabledByOwner(TranscriptExtractionError):
     def __init__(self, video_id: str):
         self.video_id = video_id
         super().__init__(
-            f"الترجمات معطّلة من قِبَل صاحب القناة للفيديو '{video_id}'.\n"
-            "لا يمكن استخراج النص لأن صاحب المحتوى أوقف هذه الميزة.\n"
-            "الحل الوحيد الممكن: استخدام Whisper لتحويل الصوت إلى نص مباشرة."
+            f"Subtitles are disabled by the channel owner for video '{video_id}'.\n"
+            "The video owner has explicitly disabled this feature.\n"
+            "The only possible solution: Use Whisper to convert audio to text directly."
         )
 
 
@@ -31,9 +31,9 @@ class NoTranscriptAvailable(TranscriptExtractionError):
     def __init__(self, video_id: str):
         self.video_id = video_id
         super().__init__(
-            f"لا توجد ترجمات متاحة لأي لغة للفيديو '{video_id}'.\n"
-            "يوتيوب لم يولّد ترجمات تلقائية لهذا المحتوى.\n"
-            "الحل الممكن: استخدام Whisper لتحويل الصوت إلى نص."
+            f"No transcripts are available in any language for video '{video_id}'.\n"
+            "YouTube did not generate automatic captions for this content.\n"
+            "Possible solution: Use Whisper to convert audio to text."
         )
 
 
@@ -45,12 +45,12 @@ class RequestBlockedByYouTube(TranscriptExtractionError):
     def __init__(self, video_id: str):
         self.video_id = video_id
         super().__init__(
-            f"يوتيوب حظر الطلب للفيديو '{video_id}'.\n"
-            "السبب: عنوان IP الخاص بك (أو الخادم) تم التعرف عليه كروبوت.\n"
-            "الحلول المقترحة:\n"
-            "  1. استخدم Residential Proxy بدلاً من خادم سحابي.\n"
-            "  2. مرّر كوكيز المتصفح: yt-dlp --cookies-from-browser chrome\n"
-            "  3. انتظر بضع ساعات وأعد المحاولة مع تأخير بين الطلبات."
+            f"YouTube blocked the request for video '{video_id}'.\n"
+            "Reason: Your IP address (or server) was detected as a bot.\n"
+            "Suggested solutions:\n"
+            "  1. Use a Residential Proxy instead of a cloud server.\n"
+            "  2. Pass browser cookies: yt-dlp --cookies-from-browser chrome\n"
+            "  3. Wait a few hours and retry with delays between requests."
         )
 
 
@@ -61,8 +61,8 @@ class VideoNotFound(TranscriptExtractionError):
     def __init__(self, video_id: str):
         self.video_id = video_id
         super().__init__(
-            f"الفيديو '{video_id}' غير موجود أو تم حذفه أو أنه فيديو خاص (private).\n"
-            "تحقق من صحة الرابط أو معرّف الفيديو."
+            f"Video '{video_id}' was not found, has been deleted, or is private.\n"
+            "Please verify the link or video ID is correct."
         )
 
 
@@ -72,8 +72,8 @@ class YtDlpNotInstalled(TranscriptExtractionError):
     """
     def __init__(self):
         super().__init__(
-            "yt-dlp غير مثبّت في البيئة الحالية.\n"
-            "قم بتثبيته بالأمر: pip install yt-dlp"
+            "yt-dlp is not installed in the current environment.\n"
+            "Install it with: pip install yt-dlp"
         )
 
 
@@ -83,8 +83,8 @@ class NetworkError(TranscriptExtractionError):
     """
     def __init__(self, video_id: str, original_error: str = ""):
         self.video_id = video_id
-        detail = f"\nالخطأ الأصلي: {original_error}" if original_error else ""
+        detail = f"\nOriginal error: {original_error}" if original_error else ""
         super().__init__(
-            f"فشل الاتصال بالشبكة عند محاولة استخراج ترجمات الفيديو '{video_id}'.{detail}\n"
-            "تحقق من اتصالك بالإنترنت وأعد المحاولة."
+            f"Network connection failed when attempting to extract transcripts for video '{video_id}'.{detail}\n"
+            "Please check your internet connection and try again."
         )
