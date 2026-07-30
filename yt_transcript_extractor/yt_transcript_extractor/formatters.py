@@ -33,7 +33,7 @@ class TranscriptFormatter:
         elif fmt_key == "txt":
             return cls.to_txt(transcript, title=title, video_id=video_id, language=language)
         else:
-            raise ValueError(f"Unsupported format: '{fmt}'. Supported formats: txt, json, srt, md.")
+            raise ValueError(f"صيغة غير مدعومة: '{fmt}'. الصيغ المدعومة: txt, json, srt, md.")
 
     @staticmethod
     def to_txt(
@@ -44,10 +44,10 @@ class TranscriptFormatter:
     ) -> str:
         lines = []
         if title:
-            lines.append(f"Title: {title}")
+            lines.append(f"العنوان: {title}")
         if video_id:
-            lines.append(f"Video ID: {video_id}")
-            lines.append(f"URL: {YOUTUBE_WATCH_URL.format(video_id=video_id)}")
+            lines.append(f"معرّف الفيديو: {video_id}")
+            lines.append(f"الرابط: {YOUTUBE_WATCH_URL.format(video_id=video_id)}")
         if title or video_id:
             lines.append("-" * 50)
 
