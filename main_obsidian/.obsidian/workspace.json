@@ -27,26 +27,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "residential proxy/تحويل_VPN_إلى_Proxy.md",
+                "file": "summarized_video_and_audio/شرح كتاب المنهج/كتاب المنهاج من 115 ل119فقط.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "تحويل_VPN_إلى_Proxy"
+              "title": "كتاب المنهاج من 115 ل119فقط"
             }
           },
           {
-            "id": "5496004e7510feca",
+            "id": "5fdceb3500ae242c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/09 - ملخص المراجعة السريعة.md",
+                "file": "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/شرح_كتاب_المنهج_المحاضرة_الأولى_ملف_مجمع.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "09 - ملخص المراجعة السريعة"
+              "title": "شرح_كتاب_المنهج_المحاضرة_الأولى_ملف_مجمع"
             }
           }
         ],
@@ -70,7 +70,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -212,44 +214,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "5496004e7510feca",
+  "active": "5fdceb3500ae242c",
   "lastOpenFiles": [
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/10 - أسئلة المراجعة والاختبار الذاتي.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/01 - افتتاح الدرس وآية الأمر بالإيمان.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/00 - الفهرس والخطة.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/09 - ملخص المراجعة السريعة.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/08 - الأدلة الشرعية والخاتمة.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/07 - فاصل أبو بكر الصديق.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء_2_معنى_الفطرة_والقوى_الفطرية.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/06 - توظيف الدليل والأمثلة التطبيقية.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/05 - مقتضى الفطرة والقوى الفطرية.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/04 - فاصل الأدب قبل العلم.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/03 - معنى الفطرة لغة وشرعاً.md",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/02 - موقف الأمم من وجود الله والأدلة السبعة.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/main_obsidian/summarized_transcripts/ادلة_وجود_الله_الفطرة_v2/00 - الفهرس والخطة.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/main_obsidian/summarized_transcripts/ادلة_وجود_الله_الفطرة_v2",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/main_obsidian/summarized_transcripts",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/main_obsidian",
-    "summarized_transcripts/ادلة_وجود_الله_الفطرة_v2",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء_1_المقدمة_واركان_الايمان.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء 4 - الأدلة من الكتاب والسنة والخاتمة.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/MOC_ادلة_وجود_الله_دليل_الفطرة.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء_4_الأدلة_من_الكتاب_والسنة.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء_3_مقتضى_الفطرة_والأمثلة_التطبيقية.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء 3 - مقتضيات الفطرة والاعتراف بوجود الله.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء 2 - مفهوم الفطرة لغة وشرعاً.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/الجزء 1 - المقدمة وأركان الإيمان.md",
-    "summarized_transcripts/ادلة_وجود_الله_دليل_الفطرة/README_process.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/02 - مفهوم العقيدة وأركان الإيمان بالله.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/12 - الخاتمة.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/11 - الأدلة الشرعية على دليل الفطرة.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)/10 - فاصل - أبو بكر الصديق.md",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة (تلخيص محكم)",
-    "summarized_video_and_audio/دلائل وجود الله - دليل الفطرة",
-    "summarized_video_and_audio/أسباب_الانحراف_عن_العقيدة_الصحيحة",
-    "تفسير/سورة الملك",
-    "تفسير",
-    "summarized_video_and_audio",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/11 - ملخص المراجعة السريعة.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/شرح_كتاب_المنهج_المحاضرة_الأولى_ملف_مجمع.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/01 - المقدمة نعم الإسلام وموقع لبيب.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/08 - التربية بالقرآن القرآن هو الأصل.md",
+    "summarized_video_and_audio/شرح كتاب المنهج/التلخيص الشامل للمحاضره 1 المنهج.md",
+    "summarized_video_and_audio/شرح كتاب المنهج/كتاب المنهاج من 115 ل119فقط.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/12 - أسئلة المراجعة والاختبار الذاتي.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/04 - العنصر الأول الصبر.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/النص الحرفي الكامل.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/07 - العنصران الرابع والخامس الغفلة واتباع الهوى.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/10 - القرآن منطلق الصلاح وطريقة النبي.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/09 - ضبط الحال مع القرآن الأوراد والحفظ.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/03 - العناصر الخمسة الآية الجامعة.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/02 - التمهيد أبواب المنهج وتمييز الآيات.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/05 - العنصر الثاني إرادة وجه الله.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/06 - العنصر الثالث لا تعد عيناك عنهم.md",
+    "summarized_video_and_audio/شرح كتاب المنهج/summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/02 - قواعد التعامل مع المنهج والجمع بين العادة والعبادة.md",
+    "summarized_video_and_audio/شرح كتاب المنهج/summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/01 - المقدمة والافتتاحية ونعم الله.md",
+    "02 - قواعد التعامل مع المنهج والجمع بين العادة والعباده.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/00 - الفهرس والخطة.md",
+    "summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى",
+    "summarized_transcripts",
+    "summarized_video_and_audio/شرح كتاب المنهج/summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى/00 - الفهرس وخطة المعالجة.md",
+    "residential proxy/تحويل_VPN_إلى_Proxy.md",
+    "summarized_video_and_audio/شرح كتاب المنهج/كتاب المنهاج من 115 ل119فقطز",
+    "summarized_video_and_audio/شرح كتاب المنهج/كتاب المنهاج 115 ل",
+    "summarized_video_and_audio/تفسير/تفريغ اول ايتين من سورة الملك.md",
+    "summarized_video_and_audio/تفسير/سورة الملك/سورة الملك - الفهرس والتفسير المنظم.md",
+    "summarized_video_and_audio/تفسير/سورة الملك/سورة الملك - الجزء الثاني (الآيات 11-20).md",
+    "summarized_video_and_audio/تفسير/سورة الملك/سورة الملك - الجزء الثالث (الآيات 21-30).md",
+    "summarized_video_and_audio/تفسير/سورة الملك",
+    "summarized_video_and_audio/تفسير",
+    "summarized_video_and_audio/أسباب_الانحراف_عن_العقيدة_الصحيحة/تفسير/سورة الملك",
+    "summarized_video_and_audio/أسباب_الانحراف_عن_العقيدة_الصحيحة/تفسير",
+    "summarized_video_and_audio/شرح كتاب المنهج/summarized_transcripts/شرح_كتاب_المنهج_المحاضرة_الاولى",
+    "summarized_video_and_audio/شرح كتاب المنهج/summarized_transcripts",
     "Pasted image 20260725103347.png"
   ]
 }
