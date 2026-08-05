@@ -34,6 +34,18 @@
             }
           },
           {
+            "id": "d522b07e563fa925",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "دين/التزكية/البركة/ar_Albarakah.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "ar_Albarakah"
+            }
+          },
+          {
             "id": "d3ccabd3922081b8",
             "type": "leaf",
             "state": {
@@ -48,7 +60,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -214,9 +226,9 @@
   },
   "active": "d3ccabd3922081b8",
   "lastOpenFiles": [
-    "دين/التزكية/البركة/ar_Albarakah.pdf",
     "دين/التزكية/البركة/ar_Albarakah.md",
     "بحث البركة.md",
+    "دين/التزكية/البركة/ar_Albarakah.pdf",
     "دين/التزكية/البركة/tess_out/page_5.txt",
     "دين/التزكية/البركة/tess_out/page_4.txt",
     "دين/التزكية/البركة/tess_out/page_3.txt",
