@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "PDF OCR Extraction": {
+      "source": "claude-office-skills/skills",
+      "sourceType": "github",
+      "skillPath": "pdf-ocr/SKILL.md",
+      "computedHash": "7ceb0313ff7671b126c7cb1ed17030384ce880d922de2ed989d8707077f56c1f"
+    },
     "algorithmic-art": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -138,6 +144,12 @@
       "sourceType": "github",
       "skillPath": "skills/slack-gif-creator/SKILL.md",
       "computedHash": "a36e1ceb3f07eb37bdc259f1bfb18e48cc0e809b2e1651cb2369286cd66b2107"
+    },
+    "smart-ocr": {
+      "source": "claude-office-skills/skills",
+      "sourceType": "github",
+      "skillPath": "smart-ocr/SKILL.md",
+      "computedHash": "be9b5a5a010aeb768c5b648d3bcdcea3d04309678fa9c9ffc8319f6d43ab3ccc"
     },
     "summarize": {
       "source": "steipete/clawdis",
