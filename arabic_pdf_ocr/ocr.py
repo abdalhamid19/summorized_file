@@ -2,6 +2,7 @@ import os
 import re
 import shutil
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -25,6 +26,14 @@ KNOWN_PHRASES = (
 ARABIC_SCORE_WEIGHT = 2
 JUNK_SCORE_WEIGHT = 5
 PHRASE_BONUS = 50
+MAX_PARALLEL_STRATEGIES = 4
+
+STRATEGIES = (
+    ("enh_psm3", "enhanced", 3),
+    ("enh_psm6", "enhanced", 6),
+    ("bin_psm3", "binarized", 3),
+    ("orig_psm3", "source", 3),
+)
 
 
 @dataclass(frozen=True)
@@ -41,7 +50,7 @@ def _tesseract_env() -> dict:
 
 
 def run_tesseract(image_path: Path, output_base: Path, page_segmentation_mode: int) -> str:
-    subprocess.run(
+    result = subprocess.run(
         [str(TESSERACT_EXE), str(image_path), str(output_base), "-l", TESSERACT_LANGUAGE, "--psm", str(page_segmentation_mode)],
         env=_tesseract_env(),
         capture_output=True,
@@ -49,6 +58,8 @@ def run_tesseract(image_path: Path, output_base: Path, page_segmentation_mode: i
         encoding="utf-8",
         errors="replace",
     )
+    if result.returncode != 0:
+        return ""
     text_path = output_base.with_suffix(".txt")
     if not text_path.exists():
         return ""
@@ -71,23 +82,29 @@ def _ascii_safe_copy(source: Path, temp_dir: Path, page_number: int) -> Path:
     return destination
 
 
+def _prepare_images(source: Path, temp_dir: Path, page_number: int) -> dict:
+    return {
+        "enhanced": preprocessing.enhance(source, temp_dir / f"page_{page_number}_enh.png"),
+        "binarized": preprocessing.binarize(source, temp_dir / f"page_{page_number}_bin.png"),
+        "source": source,
+    }
+
+
+def _run_strategy(name: str, image: Path, psm: int, temp_dir: Path, page_number: int) -> OcrCandidate:
+    text = run_tesseract(image, temp_dir / f"{name}_{page_number}", psm)
+    return OcrCandidate(name=name, text=text, score=score_text(text))
+
+
 def ocr_page(image_path: Path, temp_dir: Path, page_number: int) -> OcrCandidate:
     temp_dir.mkdir(parents=True, exist_ok=True)
     source = _ascii_safe_copy(image_path, temp_dir, page_number)
+    images = _prepare_images(source, temp_dir, page_number)
 
-    enhanced = preprocessing.enhance(source, temp_dir / f"page_{page_number}_enh.png")
-    binarized = preprocessing.binarize(source, temp_dir / f"page_{page_number}_bin.png")
-
-    strategies = (
-        ("enh_psm3", enhanced, 3),
-        ("enh_psm6", enhanced, 6),
-        ("bin_psm3", binarized, 3),
-        ("orig_psm3", source, 3),
-    )
-
-    candidates = []
-    for name, image, psm in strategies:
-        text = run_tesseract(image, temp_dir / f"{name}_{page_number}", psm)
-        candidates.append(OcrCandidate(name=name, text=text, score=score_text(text)))
+    with ThreadPoolExecutor(max_workers=MAX_PARALLEL_STRATEGIES) as executor:
+        futures = [
+            executor.submit(_run_strategy, name, images[variant], psm, temp_dir, page_number)
+            for name, variant, psm in STRATEGIES
+        ]
+        candidates = [future.result() for future in futures]
 
     return max(candidates, key=lambda candidate: candidate.score)

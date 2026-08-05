@@ -22,7 +22,7 @@ def build_job_from_args() -> OcrJob:
     return job
 
 
-def main() -> None:
+def main() -> int:
     force_utf8_stdout()
     job = build_job_from_args()
     print(f"PDF: {job.pdf_path}")
@@ -30,7 +30,8 @@ def main() -> None:
     report = run(job)
     print()
     print(quality.format_report(report))
+    return 0 if report.is_high_quality else 1
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
