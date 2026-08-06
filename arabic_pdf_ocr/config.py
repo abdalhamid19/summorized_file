@@ -15,7 +15,7 @@ DEFAULT_OUTPUT = WORK_ROOT / "ar_Albarakah.md"
 TESSERACT_EXE = MINICONDA_ROOT / "Library" / "bin" / "tesseract.exe"
 TESSDATA_DIR = MINICONDA_ROOT / "Library" / "share" / "tessdata"
 
-RENDER_ZOOM = 3
+RENDER_ZOOM = 4
 TESSERACT_LANGUAGE = "ara"
 IMAGE_DPI = (300, 300)
 
@@ -27,6 +27,7 @@ class OcrJob:
     pages_dir: Path = field(default_factory=lambda: WORK_ROOT / "pages_png")
     temp_dir: Path = TEMP_ROOT
     page_count: int = 5
+    skip_existing_renders: bool = True
 
 
 def force_utf8_stdout() -> None:

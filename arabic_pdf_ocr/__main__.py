@@ -12,9 +12,10 @@ def build_job_from_args() -> OcrJob:
     parser.add_argument("--pdf", type=Path, default=None)
     parser.add_argument("--output", type=Path, default=None)
     parser.add_argument("--pages", type=int, default=5)
+    parser.add_argument("--force-render", action="store_true", help="أعد تصيير الصفحات حتى إن وُجدت")
     args = parser.parse_args()
 
-    job = OcrJob(page_count=args.pages)
+    job = OcrJob(page_count=args.pages, skip_existing_renders=not args.force_render)
     if args.pdf is not None:
         job = replace(job, pdf_path=args.pdf)
     if args.output is not None:
