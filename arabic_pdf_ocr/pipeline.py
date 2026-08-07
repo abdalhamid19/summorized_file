@@ -8,10 +8,11 @@ def preflight_check(job: OcrJob) -> None:
     if not job.pdf_path.exists():
         raise FileNotFoundError(f"ملف PDF غير موجود: {job.pdf_path}")
     if job.engine == "mistral":
-        if not mistral_engine.is_configured(job.mistral_api_key):
+        keys = job.mistral_api_keys or (job.mistral_api_key,)
+        if not mistral_engine.is_configured(keys):
             raise RuntimeError(
-                "محرك mistral يتطلب MISTRAL_API_KEY.\n"
-                "اضبطه عبر: $env:MISTRAL_API_KEY=\"...\""
+                "محرك mistral يتطلب MISTRAL_API_KEYS في البيئة أو .env.\n"
+                "أضف: MISTRAL_API_KEYS=key1,key2,..."
             )
         return
     if not TESSERACT_EXE.exists():
@@ -23,7 +24,8 @@ def preflight_check(job: OcrJob) -> None:
 
 def _ocr_page(job: OcrJob, image_path, page_number: int):
     if job.engine == "mistral":
-        return mistral_engine.ocr_page(image_path, job.mistral_api_key, job.mistral_model)
+        keys = job.mistral_api_keys or (job.mistral_api_key,)
+        return mistral_engine.ocr_page(image_path, keys, job.mistral_model)
     return ocr.ocr_page(image_path, job.temp_dir, page_number)
 
 
