@@ -1,4 +1,4 @@
-from . import benchmark, ocr, postprocessing, quality, quran_fix, renderer, spellfix
+from . import benchmark, mistral_engine, ocr, postprocessing, quality, quran_fix, renderer, spellfix
 from .config import OcrJob, TESSERACT_EXE
 
 PAGE_HEADER = "# الصفحة"
@@ -7,11 +7,35 @@ PAGE_HEADER = "# الصفحة"
 def preflight_check(job: OcrJob) -> None:
     if not job.pdf_path.exists():
         raise FileNotFoundError(f"ملف PDF غير موجود: {job.pdf_path}")
+    if job.engine == "mistral":
+        if not mistral_engine.is_configured(job.mistral_api_key):
+            raise RuntimeError(
+                "محرك mistral يتطلب MISTRAL_API_KEY.\n"
+                "اضبطه عبر: $env:MISTRAL_API_KEY=\"...\""
+            )
+        return
     if not TESSERACT_EXE.exists():
         raise FileNotFoundError(
             f"Tesseract غير موجود: {TESSERACT_EXE}\n"
             "ثبّته عبر: conda install -c conda-forge tesseract"
         )
+
+
+def _ocr_page(job: OcrJob, image_path, page_number: int):
+    if job.engine == "mistral":
+        return mistral_engine.ocr_page(image_path, job.mistral_api_key, job.mistral_model)
+    return ocr.ocr_page(image_path, job.temp_dir, page_number)
+
+
+def _clean_tesseract(text: str) -> str:
+    cleaned = postprocessing.postprocess(text)
+    return _ensure_canonical_verses(cleaned)
+
+
+def _ensure_canonical_verses(text: str) -> str:
+    cleaned = quran_fix.fix_cited_verses(text)
+    cleaned = quran_fix.fix_inline_citations(cleaned)
+    return quran_fix.fix_verses_by_content(cleaned)
 
 
 def run(job: OcrJob) -> quality.QualityReport:
@@ -26,26 +50,24 @@ def run(job: OcrJob) -> quality.QualityReport:
     markdown_pages = []
     review = []
     for page_number, image_path in enumerate(image_paths, start=1):
-        best = ocr.ocr_page(image_path, job.temp_dir, page_number)
-        print(f"  page {page_number}: best={best.name} score={best.score} low_conf={len(best.low_confidence_words)}")
-        cleaned = postprocessing.postprocess(best.text)
-        cleaned = quran_fix.fix_cited_verses(cleaned)
-        cleaned = quran_fix.fix_inline_citations(cleaned)
+        best = _ocr_page(job, image_path, page_number)
+        print(f"  page {page_number}: engine={job.engine} source={best.name}")
+        cleaned = _ensure_canonical_verses(best.text) if job.engine == "mistral" else _clean_tesseract(best.text)
         markdown_pages.append(f"{PAGE_HEADER} {page_number}\n\n{cleaned}")
         if best.low_confidence_words:
             sample = ", ".join(f"{w.text}({w.confidence:.0f})" for w in best.low_confidence_words[:8])
             review.append(f"- صفحة {page_number}: {len(best.low_confidence_words)} كلمة ضعيفة — {sample}")
 
     full_text = "\n".join(markdown_pages)
-    corrected, suggestions = spellfix.correct(full_text)
-    job.output_path.write_text(corrected, encoding="utf-8")
+    _, suggestions = spellfix.correct(full_text)
+    job.output_path.write_text(full_text, encoding="utf-8")
 
     review_path = job.output_path.with_name(job.output_path.stem + "_review.md")
     report_lines = [
         "# تقرير المراجعة",
         "",
         f"## آيات القرآن (CER)",
-        benchmark.format_cer_report(benchmark.check_verses(corrected)),
+        benchmark.format_cer_report(benchmark.check_verses(full_text)),
         "",
         f"## تصحيحات إملائية مقترحة ({len(suggestions)})",
     ]
@@ -54,4 +76,4 @@ def run(job: OcrJob) -> quality.QualityReport:
     report_lines += review if review else ["- لا شيء"]
     review_path.write_text("\n".join(report_lines) + "\n", encoding="utf-8")
 
-    return quality.verify(corrected)
+    return quality.verify(full_text)

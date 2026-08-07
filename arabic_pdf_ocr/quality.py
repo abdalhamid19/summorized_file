@@ -17,8 +17,13 @@ EXPECTED_PHRASES = {
     "موانع البركة": lambda t: "موانع البركة" in t,
 }
 
-ARABIC_LETTER = re.compile(r"[\u0600-\u06FF]")
+ARABIC_LETTER = re.compile(r"[؀-ۿ]")
+DIACRITICS = re.compile(r"[ً-ْٰـ]")
 MIN_ARABIC_WORD_RATIO = 0.85
+
+
+def _strip_diacritics(text: str) -> str:
+    return DIACRITICS.sub("", text)
 
 
 @dataclass(frozen=True)
@@ -42,7 +47,8 @@ class QualityReport:
 
 
 def verify(text: str) -> QualityReport:
-    phrase_results = {name: check(text) for name, check in EXPECTED_PHRASES.items()}
+    normalized = _strip_diacritics(text)
+    phrase_results = {name: check(normalized) for name, check in EXPECTED_PHRASES.items()}
     lines = [line for line in text.split("\n") if line.strip() and not line.startswith("#")]
     words = " ".join(lines).split()
     arabic_words = sum(1 for word in words if ARABIC_LETTER.search(word))

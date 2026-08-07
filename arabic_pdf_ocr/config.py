@@ -15,6 +15,9 @@ DEFAULT_OUTPUT = WORK_ROOT / "ar_Albarakah.md"
 TESSERACT_EXE = MINICONDA_ROOT / "Library" / "bin" / "tesseract.exe"
 TESSDATA_DIR = MINICONDA_ROOT / "Library" / "share" / "tessdata"
 
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY", "")
+MISTRAL_MODEL = os.environ.get("MISTRAL_OCR_MODEL", "mistral-ocr-4-0")
+
 RENDER_ZOOM = 4
 TESSERACT_LANGUAGE = "ara"
 IMAGE_DPI = (300, 300)
@@ -28,6 +31,9 @@ class OcrJob:
     temp_dir: Path = TEMP_ROOT
     page_count: int = 5
     skip_existing_renders: bool = True
+    engine: str = "mistral"
+    mistral_api_key: str = MISTRAL_API_KEY
+    mistral_model: str = MISTRAL_MODEL
 
 
 def force_utf8_stdout() -> None:

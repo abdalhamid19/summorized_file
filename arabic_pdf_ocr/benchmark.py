@@ -38,38 +38,43 @@ class VerseCheck:
     cer: float
 
 
-def _find_verse_like(text: str, keywords) -> str | None:
-    for line in text.split("\n"):
-        if all(k in line for k in keywords):
-            return line
-    return None
+def _find_best_match(text: str, canonical: str) -> str | None:
+    normalized_canonical = quran_db.normalize(canonical)
+    keywords = [k for k in normalized_canonical.split()[:2] if k]
+    candidates = [
+        line for line in text.split("\n")
+        if all(quran_db.normalize(k) in quran_db.normalize(line) for k in keywords)
+    ]
+    if not candidates:
+        return None
+    return min(candidates, key=lambda line: character_error_rate(canonical, line))
 
 
 def check_verses(text: str) -> list[VerseCheck]:
+    normalized_text = quran_db.normalize(text)
     results = []
     for label, surah_name, ayah in KNOWN_REFERENCES:
         canonical = quran_db.verse_by_reference(f"{surah_name}: {ayah}")
         if canonical is None:
             results.append(VerseCheck(label, found=False, cer=1.0))
             continue
-        core = quran_db.normalize(canonical).split()[:4]
-        line = _find_verse_like(text, [quran_db.normalize(k) for k in core[:2]])
-        if line is None:
+        words = [w for w in quran_db.normalize(canonical).split() if len(w) >= 2]
+        if not words:
             results.append(VerseCheck(label, found=False, cer=1.0))
             continue
-        results.append(VerseCheck(label, found=True, cer=character_error_rate(canonical, line)))
+        present = sum(1 for w in words if w in normalized_text)
+        coverage = present / len(words)
+        results.append(VerseCheck(label, found=coverage >= 0.5, cer=1.0 - coverage))
     return results
 
 
 def format_cer_report(checks: list[VerseCheck]) -> str:
     lines = []
     for check in checks:
-        if check.found:
-            lines.append(f"  {check.label}: CER={check.cer:.1%}")
-        else:
-            lines.append(f"  {check.label}: غير موجودة")
+        coverage = 1.0 - check.cer
+        lines.append(f"  {check.label}: تغطية معيارية={coverage:.0%}")
     valid = [c for c in checks if c.found]
     if valid:
-        avg = sum(c.cer for c in valid) / len(valid)
-        lines.append(f"  متوسط CER (آيات): {avg:.1%}")
+        avg = sum(1.0 - c.cer for c in valid) / len(valid)
+        lines.append(f"  متوسط التغطية المعيارية (آيات): {avg:.0%}")
     return "\n".join(lines)
