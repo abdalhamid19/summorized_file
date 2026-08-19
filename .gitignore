@@ -12,3 +12,4 @@ dist/
 build/
 ocr_tmp/
 *.traineddata
+*.mp3
