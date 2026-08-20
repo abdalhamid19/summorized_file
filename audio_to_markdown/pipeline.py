@@ -14,7 +14,7 @@ def run(audio_file: Path = None, output_md: Path = None) -> Path:
 
     cleaned_text = _save_transcripts(full_text)
     sections = auditor.audit_all(cleaned_text)
-    markdown = markdown_builder.build_markdown(sections)
+    markdown = markdown_builder.build_markdown(sections, title=audio_file.stem, source=audio_file.name)
 
     output_md.parent.mkdir(parents=True, exist_ok=True)
     output_md.write_text(markdown, encoding="utf-8")
