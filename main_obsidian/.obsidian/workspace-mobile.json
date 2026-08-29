@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "تفسير/سورة الملك/سورة الملك - الجزء الأول (الآيات 1-10).md",
+                "file": "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "سورة الملك - الجزء الأول (الآيات 1-10)"
+              "title": "09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق"
             }
           }
         ]
@@ -37,7 +37,9 @@
           "type": "file-explorer",
           "state": {
             "sortOrder": "alphabetical",
-            "autoReveal": false
+            "autoReveal": false,
+            "showSearch": false,
+            "searchQuery": ""
           },
           "icon": "lucide-folder-closed",
           "title": "Files"
@@ -112,7 +114,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "تفسير/سورة الملك/سورة الملك - الجزء الأول (الآيات 1-10).md",
+            "file": "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -169,5 +171,34 @@
     }
   },
   "active": "edf5cb1de5930d5d",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/08 - دليل الخلق والإيجاد.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/07 - دعوة الأنبياء للتوحيد والاستدلال بالفطرة.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/06 - فاصل تعليمي - ترجمة الإمام الطبري.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/05 - أول واجب على المكلف.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/04 - إنكار المعتزلة والأشاعرة والإيمان بالإعانة.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/03 - المفهوم الخاطئ الثاني - الفطرة موافقة القدر السابق.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/02 - المفهوم الخاطئ الأول - الفطرة مجرد القابلية.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/01 - المقدمة ومراجعة دليل الفطرة.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/Vibe_Coding_Course_1_ملف_مجمع.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/README_process.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/MOC_Vibe_Coding_الدرس_الأول.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/14 - خطة العمل التطبيقية.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/13 - أسئلة المراجعة والاختبار الذاتي.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/12 - ملخص المراجعة السريعة.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/11 - Railway والخلاصة وبوابة الدرس القادم.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/10 - Docker وPortainer وNginx Proxy Manager.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/09 - لوحة التقنيات والـ Servers Hetzner وVultr.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/08 - VS Code وCursor وربط GitHub.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/07 - Backend API وقاعدة البيانات والبحث.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/06 - Deployment Serverless مقابل الـ Server الخاص.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/05 - استراتيجيات Rendering واختيار Framework.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/04 - كيف تعمل صفحة الويب Routing و Authentication.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/03 - المفاهيم Frontend و Backend و Headless.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/02 - الست مهارات وصورة Vibe Coder.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/01 - تعريف الكورس والمجاني والمدفوع.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/00 - الفهرس والخطة.md",
+    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1",
+    "vibe_coding"
+  ]
 }

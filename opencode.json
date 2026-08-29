@@ -4,7 +4,7 @@
   "provider": {
     "cometapi": {
       "options": {
-        "apiKey": "sk-ITpIaXBqvp3hRnajstToO7Wos9Lrlg1ocbIFqQH3zGfTPHWU",
+        "apiKey": "sk-z8EgmPFKPEMURaU4rlEnSV7Oien02UJ6RCmvXD0SMx765RC1",
         "baseURL": "https://api.cometapi.com/v1"
       },
       "models": {
