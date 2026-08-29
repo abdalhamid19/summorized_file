@@ -11,14 +11,12 @@
             "id": "edf5cb1de5930d5d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق.md",
-                "mode": "source",
-                "source": false
+                "file": "دين/حديث/معالم السنه النبوية.pdf"
               },
-              "icon": "lucide-file",
-              "title": "09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق"
+              "icon": "lucide-file-text",
+              "title": "معالم السنه النبوية"
             }
           }
         ]
@@ -114,7 +112,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق.md",
+            "file": "دين/حديث/معالم السنه النبوية.pdf",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -172,33 +170,41 @@
   },
   "active": "edf5cb1de5930d5d",
   "lastOpenFiles": [
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/08 - دليل الخلق والإيجاد.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/07 - دعوة الأنبياء للتوحيد والاستدلال بالفطرة.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/06 - فاصل تعليمي - ترجمة الإمام الطبري.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/05 - أول واجب على المكلف.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/04 - إنكار المعتزلة والأشاعرة والإيمان بالإعانة.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/03 - المفهوم الخاطئ الثاني - الفطرة موافقة القدر السابق.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/02 - المفهوم الخاطئ الأول - الفطرة مجرد القابلية.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/01 - المقدمة ومراجعة دليل الفطرة.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/Vibe_Coding_Course_1_ملف_مجمع.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/README_process.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/MOC_Vibe_Coding_الدرس_الأول.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/14 - خطة العمل التطبيقية.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/13 - أسئلة المراجعة والاختبار الذاتي.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/12 - ملخص المراجعة السريعة.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/11 - Railway والخلاصة وبوابة الدرس القادم.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/10 - Docker وPortainer وNginx Proxy Manager.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/09 - لوحة التقنيات والـ Servers Hetzner وVultr.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/08 - VS Code وCursor وربط GitHub.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/07 - Backend API وقاعدة البيانات والبحث.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/06 - Deployment Serverless مقابل الـ Server الخاص.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/05 - استراتيجيات Rendering واختيار Framework.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/04 - كيف تعمل صفحة الويب Routing و Authentication.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/03 - المفاهيم Frontend و Backend و Headless.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/02 - الست مهارات وصورة Vibe Coder.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/01 - تعريف الكورس والمجاني والمدفوع.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1/00 - الفهرس والخطة.md",
-    "vibe_coding/summarized_transcripts_Vibe_Coding_Course_1",
-    "vibe_coding"
+    "دين/التزكية/الشيخ طه/المحاضرة 1/summarized_transcripts_الشيخ_طه_المحاضرة_1/01 - واجبات المرحلة وفقه الأولويات.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 9 زاد نقاش جول الفطرة/summarized_transcripts_end/المحاضرة_9_زاد_نقاش_حول_الفطرة/09 - تفصيل الدليل - العالم مخلوق ولكل مخلوق خالق.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/ملف_مصطلح_المحاضرة_2_مجمع.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/06 - خطة تطبيق الدروس.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/05 - المسند والمحدث والحافظ والحاكم.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/04 - التصحيح والتضعيف والاجتهاد.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/03 - الإسناد والسند والمتن.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/02 - الحديث والخبر والأثر.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/01 - تعريف علم المصطلح والسند والمتن.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2/00 - فهرس المحاضرة.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/تفريغ مصطلح حديث المحاضرة 2.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2/summarized_transcripts_مصطلح_المحاضرة_2",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/المحاضرة 2",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/ملخص المراجعة السريعة.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/ادلة وجود الله الاتقان المحاضرة 10 تفريغ .md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/ادلة وجود الله الاتقان المحاضرة 10 - ملف مجمع.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/أسئلة المراجعة والاختبار الذاتي.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/07 - خطة تطبيق الدروس.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/06 - دليل التقدير والخاتمة.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/05 - دليل التخصيص.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/04 - دليل الإحكام والإتقان.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/03 - دليل الخلق - الرد على الطبيعة.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/02 - دليل الخلق والإيجاد - المقدمات.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/01 - دليل الفطرة (تفصيل).md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10/00 - مقدمة وخطة الأجزاء ومراجعة سابقة.md",
+    "دين/العقيدة/زاد عقيدة/المحاضرة 10",
+    "دين/التزكية/شرح كتاب المنهج/المحاضرة 3/summarized_transcripts_كتاب_المنهج_المحاضرة_الثالثة/MOC_كتاب_المنهج_المحاضرة_الثالثة.md",
+    "دين/التزكية/شرح كتاب المنهج/المحاضرة 3/summarized_transcripts_كتاب_المنهج_المحاضرة_الثالثة/11 - أسئلة المراجعة والاختبار الذاتي.md",
+    "دين/التزكية/شرح كتاب المنهج/المحاضرة 3/summarized_transcripts_كتاب_المنهج_المحاضرة_الثالثة/10 - ملخص المراجعة السريعة.md",
+    "دين/التزكية/شرح كتاب المنهج/المحاضرة 3/summarized_transcripts_كتاب_المنهج_المحاضرة_الثالثة",
+    "دين/التزكية/شرح كتاب المنهج/المحاضرة 3",
+    "دين/التزكية/الشيخ طه/المحاضرة 1/summarized_transcripts_الشيخ_طه_المحاضرة_1",
+    "دين/التزكية/الشيخ طه/المحاضرة 1",
+    "دين/التزكية/الشيخ طه",
+    "دين/حديث/معالم السنه النبوية.pdf",
+    "دين/حديث"
   ]
 }
