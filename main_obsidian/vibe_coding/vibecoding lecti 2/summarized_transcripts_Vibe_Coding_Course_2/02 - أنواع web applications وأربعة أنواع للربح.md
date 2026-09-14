@@ -23,12 +23,12 @@
 
 ### 3) طرق الربح الأربعة من Web Applications
 
-| الطريقة | الشرح |
-|---------|--------|
-| <span style="color:#0D9488; font-weight:bold;">Direct Payment</span> | اشتراك مباشر (مدفوع شهريًا، مثل SaaS أو اشتراك E-commerce). |
-| <span style="color:#0D9488; font-weight:bold;">Affiliate Marketing</span> | عرض منتجات شركات أخرى وأخذ عمولة عند البيع. |
-| <span style="color:#0D9488; font-weight:bold;">AdSense</span> | إعلانات AdSense. يحتاج اليوم أحد الخيارات التالية: Directory، SaaS، أو Chrome Extension (المدوّنات لم تعد تُحقّق دخلًا كافيًا). |
-| <span style="color:#0D9488; font-weight:bold;">بيع المنصة</span> | بيع الأداة/المنصة كاملة لمشترٍ مهتم (بعد بناء عدد مستخدمين أو نجاح ملحوظ). |
+| الطريقة                                                                   | الشرح                                                                                                       |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| <span style="color:#0D9488; font-weight:bold;">Direct Payment</span>      | اشتراك مباشر (مدفوع شهريًا، مثل SaaS أو اشتراك E-commerce).                                                 |
+| <span style="color:#0D9488; font-weight:bold;">Affiliate Marketing</span> | عرض منتجات شركات أخرى وأخذ عمولة عند البيع.                                                                 |
+| <span style="color:#0D9488; font-weight:bold;">AdSense</span>             | إعلانات AdSense. يحتاج اليوم أحد الخيارات التالية: Directory، SaaS، (المدوّنات لم تعد تُحقّق دخلًا كافيًا). |
+| <span style="color:#0D9488; font-weight:bold;">بيع المنصة</span>          | بيع الأداة/المنصة كاملة لمشترٍ مهتم (بعد بناء عدد مستخدمين أو نجاح ملحوظ).                                  |
 
 > 💡 **مثال البيع:** SessionBuddy — إضافة Chrome بسيطة مبنيّة على صفحة WordPress واحدة، عدد مستخدمين مليون، بيعت بمبلغ كبير رغم أنها مجانية 100% (الهدف كان الـ tracking).
 
