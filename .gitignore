@@ -14,3 +14,4 @@ ocr_tmp/
 *.traineddata
 *.mp3
 *.m4a
+.vscode/
