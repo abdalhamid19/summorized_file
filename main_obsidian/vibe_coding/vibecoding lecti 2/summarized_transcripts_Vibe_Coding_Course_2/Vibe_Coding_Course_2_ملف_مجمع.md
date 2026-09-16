@@ -52,16 +52,17 @@
 | <span style="color:#0D9488; font-weight:bold;">Static Website</span> | موقع يعرض بيانات ثابتة (موقع شركة، صيدلية، عيادة...). |
 | <span style="color:#0D9488; font-weight:bold;">Blog / WordPress</span> | مدوّنة الكاتب فقط هو من يتفاعل، القارئ لا يُنتج بيانات. |
 
-> <span style="color:#D97706; font-weight:bold;">جوهر الـ Web Application:</span> الزائر هو الذي يُحرّك التطبيق ويُخرج البيانات منه.
+> ا <span style="color:#D97706; font-weight:bold;">جوهر الـ Web Application:</span> الزائر هو الذي يُحرّك التطبيق ويُخرج البيانات منه.
 
 #### أشهر أنواع Web Applications
 
-| النوع | الشرح |
-|-------|--------|
+| النوع                                                                          | الشرح                                                           |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------- |
 | <span style="color:#0D9488; font-weight:bold;">E-commerce / Marketplace</span> | متجر إلكتروني أو سوق يتصفّح المنتجات ويطلب الشراء ([[Amazon]]). |
-| <span style="color:#0D9488; font-weight:bold;">Directory</span> | دليل مواقع أو خدمات يتفاعل معه الزائر ويقارن. |
-| <span style="color:#0D9488; font-weight:bold;">SaaS Application</span> | خدمة سحابية باشتراك ([[ChatGPT]]، Notion...). |
-| <span style="color:#0D9488; font-weight:bold;">Chrome Extension</span> | إضافة للمتصفّح تُقدّم خدمة معيّنة. |
+| <span style="color:#0D9488; font-weight:bold;">Directory</span>                | دليل مواقع أو خدمات يتفاعل معه الزائر ويقارن.                   |
+| <span style="color:#0D9488; font-weight:bold;">SaaS Application</span>         | خدمة سحابية باشتراك ([[ChatGPT]]، Notion...).                   |
+| <span style="color:#0D9488; font-weight:bold;">Chrome Extension</span>         | إضافة للمتصفّح تُقدّم خدمة معيّنة.                              |
+|                                                                                |                                                                 |
 
 #### طرق الربح الأربعة
 

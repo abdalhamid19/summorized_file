@@ -250,11 +250,11 @@ Native React يُستخدم لمن يركز على Mobile Application. الشغ�
 > الـ Default يختلف: Next أكثره Server-side لأنه نابع من React؛ Astro أصله static مع إمكانية Server-side. يمكن التعديل على الـ Default.
 
 ![[Pasted image 20260829125526.png]]
-### Caching بعد Rendering
+### ا Caching بعد Rendering
 
 كل Request متكرر يحتاج [[Caching]]:
 - على **CDN** لملفات HTML/JS المتكررة.
-- **HTTP caching** لـ API request المتكرر على **Redis** أو نظام Caching.
+- **ا HTTP caching** لـ API request المتكرر على **Redis** أو نظام Caching.
 بعد الـ loading: JS عند Client (React أو Server-side) تجلب الداتا بحسب Action الزبون.
 
 ---
@@ -265,7 +265,7 @@ Native React يُستخدم لمن يركز على Mobile Application. الشغ�
 
 ---
 ![[Pasted image 20260829125333.png]]
-# 06 - Deployment: Serverless مقابل الـ Server الخاص
+# 06 -ا  Deployment: Serverless مقابل الـ Server الخاص
 
 طريقان للDeployment بعد اختيار Rendering:
 
@@ -327,7 +327,7 @@ Native React يُستخدم لمن يركز على Mobile Application. الشغ�
 
 ---
 
-# 07 - Backend: API وقاعدة البيانات والبحث
+# 07 -ا  Backend: API وقاعدة البيانات والبحث
 
 الـ Backend غالبًا: [[API]] + قاعدة بيانات + بحث. عند المبرمجين «كله API».
 
