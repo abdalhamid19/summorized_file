@@ -1,7 +1,7 @@
 ---
 title: "Dry-run وApply والكتابة في e-Plus"
 date: 2026-09-26
-tags: [PharmaSupplyBot, e-Plus, dry-run, SQL]
+tags: [eplus_purchase, e-Plus, dry-run, SQL]
 aliases: ["إرسال فاتورة شراء إلى e-Plus"]
 ---
 
@@ -18,7 +18,11 @@ aliases: ["إرسال فاتورة شراء إلى e-Plus"]
 
 ## ما الذي يحدث في Dry-run؟
 
-ينفذ `service.process_order(..., apply=False)` جلب الطلب والتحقق وبناء `PendingBill`. يستدعي بعد ذلك `erp_write.insert_pending_bill(..., apply=False)`. في كود `erp_write.py` يعرض هذا المسار محتوى الفاتورة ثم يرجع قبل جزء `INSERT`:
+Dry-run في CLI يمرر سياسة <code>store_matches=False</code> و<code>queue_unresolved=False</code>، وتستخدم معاينة الواجهة القيمتين <code>False</code>. لذلك لا يكتب المساران فاتورة في e-Plus ولا يحفظان خريطة مطابقة أو طابور مراجعة بسبب المعاينة. ويسجل مسار الخدمة نتيجة CLI بحالة <code>dry_run</code> في <code>tawreed_imported_orders</code> بقاعدة SQLite؛ هذا سجل تدقيق محلي، لا فاتورة ERP.
+
+أما Item Mapping فيستدعي <code>bootstrap_order</code> بالقيم الافتراضية: يمكن أن يحفظ مطابقة exact/منسقة مؤهلة ويضيف غير المحلول إلى الطابور. وفي مسار Apply تمر سياسة التحقق بقيم <code>True</code>، لذلك قد تحفظ المطابقات المؤهلة وتكتب أسطر المراجعة محليًا قبل أن تحسم بوابة الفاتورة حالة PARTIAL أو تمنع ERP write. استدعاء <code>verify_bill</code> مباشرة يستخدم سياسة افتراضية تسمح بالتخزين أيضًا.
+
+تفاصيل الجداول والقرارات في [[مطابقة الأصناف/04 - المراجعة اليدوية والحفظ وآثار التشغيل]].
 
 ~~~python
 if not apply:
@@ -26,8 +30,7 @@ if not apply:
     return None
 ~~~
 
-هذا يمنع كتابة سجل فاتورة في e-Plus. قد يسجل التطبيق نتيجة `dry_run` في قاعدة التدقيق المحلية، وقد يحفظ ربط صنف في قاعدة المطابقات المحلية عندما تتحقق شروطه؛ هذان السجلان المحليان ليسا فاتورة e-Plus.
-
+بوابة <code>erp_write.insert_pending_bill</code> توقف الكتابة في ERP عند <code>apply=False</code>. لا تخلط بين عدم إنشاء فاتورة خارجية وبين احتمال وجود آثار محلية في مسار آخر.
 ## ما الذي يكتبه Apply؟
 
 يكتب `erp_write.insert_pending_bill(..., apply=True)` سجلين مترابطين:
@@ -77,9 +80,9 @@ if not apply:
 
 ## المصادر
 
-- [service.py: ترتيب الجلب والمطابقة والتحقق ثم الكتابة](https://github.com/AnasMahrous/eplus_purchase/blob/a5c8572c3271b88a2cb2848d0a478d2b74d933f7/eplus_purchase/service.py)
-- [erp_write.py: بوابة apply ومعاملة SQL والجداول](https://github.com/AnasMahrous/eplus_purchase/blob/a5c8572c3271b88a2cb2848d0a478d2b74d933f7/eplus_purchase/erp_write.py)
-- [ui.py: أزرار Dry-run وApply والتأكيد](https://github.com/AnasMahrous/eplus_purchase/blob/a5c8572c3271b88a2cb2848d0a478d2b74d933f7/eplus_purchase/ui.py)
-- [db.py في مستودع tawreed-importer: قاعدة التدقيق والربط المحلي](https://github.com/AnasMahrous/tawreed-importer/blob/34d9148381da8cd207e6a95659b9a3559b99fc7c/purchase_importer/db.py)
+- [service.py: ترتيب الجلب والمطابقة والتحقق ثم الكتابة](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/service.py)
+- [erp_write.py: بوابة apply ومعاملة SQL والجداول](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/erp_write.py)
+- [ui.py: أزرار Dry-run وApply والتأكيد](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/ui.py)
+- [storage.py: مخطط SQLite المحلي](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/storage.py)
 
 **عدد الأجزاء التقنية:** 4 · **الجزء الحالي:** 4 · **المتبقي:** 0

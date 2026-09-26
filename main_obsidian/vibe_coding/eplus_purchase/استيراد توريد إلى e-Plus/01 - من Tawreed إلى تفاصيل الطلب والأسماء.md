@@ -1,7 +1,7 @@
 ---
 title: "من Tawreed إلى تفاصيل الطلب والأسماء"
 date: 2026-09-26
-tags: [PharmaSupplyBot, Tawreed, API, product-data]
+tags: [eplus_purchase, Tawreed, API, product-data]
 aliases: ["قراءة طلب Tawreed"]
 ---
 
@@ -11,7 +11,7 @@ aliases: ["قراءة طلب Tawreed"]
 
 تبدأ العملية بقراءة الطلب من API توريد. القائمة تعطي بيانات الطلب الأساسية، ثم تُجلب تفاصيل الطلب المختار بما فيها سطور الأصناف والأسعار. وللحصول على الاسم الإنجليزي الرسمي، يستدعي التطبيق واجهة كتالوج المنتجات باستخدام معرّف منتج توريد.
 
-تُنفذ هذه الخطوات في `purchase_importer/tawreed.py`، ويستدعيها مسار الاستيراد في `eplus_purchase/service.py` وواجهة `eplus_purchase/ui.py`.
+تُنفذ هذه الخطوات في `eplus_purchase/tawreed.py`، ويستدعيها مسار الاستيراد في `eplus_purchase/service.py` وواجهة `eplus_purchase/ui.py`.
 
 ا <span style="color:#0D9488; font-weight:bold;">قاعدة التمييز:</span> اسم المنتج الرسمي واسم المورد حقلان مختلفان؛ واجهة الكتالوج هي مصدر الاسم الإنجليزي الرسمي.
 
@@ -67,9 +67,9 @@ name_en = product.get("productNameEn") or ""
 
 في الكود الفعلي، تجمع الدالة `enrich_order_product_names` معرّفات المنتجات الفريدة، وتطلب سجل الكتالوج لكل معرّف، ثم تضع `productName` في `item.product_name` و`productNameEn` في `item.product_name_en`. الاسم الإنجليزي لا يُستنتج بالترجمة؛ بل يُقرأ من حقل منفصل في رد API.
 
-## مثال حي
+## مثال سابق موثق — ليس تشغيلًا حاليًا
 
-في الطلب `3053985` ظهر السطر الآتي في المعاينة:
+في الطلب `3053985` ظهر السطر الآتي في معاينة موثقة ضمن شرح الإصدار السابق. لم نعد تشغيله على النسخة الحالية:
 
 | مصدر الاسم | القيمة |
 |---|---|
@@ -103,8 +103,8 @@ name_en = product.get("productNameEn") or ""
 
 ## مصادر الكود
 
-- [tawreed.py في مستودع tawreed-importer — commit 34d9148](https://github.com/AnasMahrous/tawreed-importer/blob/34d9148381da8cd207e6a95659b9a3559b99fc7c/purchase_importer/tawreed.py)
-- [service.py في مستودع eplus_purchase — commit a5c8572](https://github.com/AnasMahrous/eplus_purchase/blob/a5c8572c3271b88a2cb2848d0a478d2b74d933f7/eplus_purchase/service.py)
-- [ui.py في مستودع eplus_purchase — commit a5c8572](https://github.com/AnasMahrous/eplus_purchase/blob/a5c8572c3271b88a2cb2848d0a478d2b74d933f7/eplus_purchase/ui.py)
+- [tawreed.py: قراءة قائمة الطلب وتفاصيله وإثراء الاسم الإنجليزي](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/tawreed.py)
+- [service.py: استدعاء جلب الطلب والتحقق](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/service.py)
+- [ui.py: شاشة الطلبات والمعاينة](https://github.com/AnasMahrous/eplus_purchase/blob/b9bb6ef987d86e272c4022a2ea07d8144cf121ad/eplus_purchase/ui.py)
 
 **عدد الأجزاء التقنية:** 4 · **الجزء الحالي:** 1 · **المتبقي:** 3
