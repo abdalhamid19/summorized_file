@@ -15,3 +15,6 @@ ocr_tmp/
 *.mp3
 *.m4a
 .vscode/
+
+# Large raw backups
+**/النسخه الاصليه/
