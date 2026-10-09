@@ -665,5 +665,5 @@ Public IPv4 مجاني على Vultr. نقطة SSH أمنية ذكرها ولم �
 
 [[Vibe Coding]] ← [[Headless]] ← [[Rendering]] ← [[Deployment]] ← [[Docker]] / [[Railway]]
 
-- الأجزاء: [[00 - الفهرس والخطة]]
+- الأجزاء: [[vibe_coding/vibecoding lecti 1/summarized_transcripts_Vibe_Coding_Course_1/00 - الفهرس والخطة]]
 - الخريطة: [[MOC_Vibe_Coding_الدرس_الأول]]
