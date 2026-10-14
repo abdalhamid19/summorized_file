@@ -42,3 +42,7 @@ python tests\test_quality.py                      # فحص جودة الناتج
 ## transcribe_audio.py
 
 تفريغ صوتي عربي عبر Whisper API مع تقسيم الملفات الطويلة إلى مقاطع.
+
+## أتمتة Firefox
+
+أداة Selenium مستقلة لعرض التبويبات وفتح الروابط داخل حاويات Firefox، مع [تعليمات التشغيل](browser_automation/firefox_selenium/README.md). تقرير تشخيص رفض تسجيل الدخول إلى Google موجود في [ملف البحث](docs/research/browser/google-signin-automation-error.md).
