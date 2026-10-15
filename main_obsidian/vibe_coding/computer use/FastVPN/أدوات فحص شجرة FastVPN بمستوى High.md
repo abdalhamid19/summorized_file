@@ -15,7 +15,7 @@ tags:
 
 هذا جرد للأدوات المنشورة التي يمكن أن تساعد في قراءة شجرة عناصر واجهة FastVPN، ثم مقارنة النتيجة عندما يعمل قارئ الشجرة بمستوى الصلاحية نفسه للتطبيق. المقصود بـ«كل الأدوات» هنا الأدوات العملية التي أمكن التحقق من وظائفها في وثائق Microsoft أو المشروع الأصلي؛ لا توجد قائمة مغلقة تشمل كل البرامج التجارية والداخلية.
 
-**النتيجة السابقة التي نقارن بها:** في 15 أكتوبر 2026 أعادت أداة `sky` ذات المستوى `Medium` نافذة FastVPN الرئيسية فقط. قيس FastVPN وقتها على أنه `High`، لكن لم يُجرَ بعد فحص شجرة بواسطة قارئ مستقل جرى التحقق من رمز وصوله على أنه `High`.
+**نتيجة المقارنة الحالية:** على PID FastVPN `8744` نفسه وبالأمر والعمق نفسيهما، أعاد قارئ `Medium` عنصرًا واحدًا، وأعاد قارئ `High` عدد `961` عنصرًا. التفاصيل والحدود أدناه.
 
 | العملية المقاسة سابقًا | المستوى وقت القياس | الملاحظة |
 |---|---|---|
@@ -23,6 +23,51 @@ tags:
 | `node.exe`، PID `2652` و`7880` | Medium | عمليتان مرتبطتان بأداة التحكم. |
 | `ChatGPT.exe` و`codex.exe` | Medium | لا تُستخدم هذه القياسات لإثبات مستوى قارئ مستقل سيبدأ لاحقًا. |
 | `FastVPN.exe`، PID `6052` بحسب المحضر السابق | High، SID `S-1-16-12288` | أعد اكتشاف PID إذا أعيد تشغيل التطبيق؛ الأرقام تتغير. |
+
+## نتيجة تجربة WinApp CLI المحلية
+
+ثُبّت `Windows App Development CLI` بالإصدار `0.7.1`. فُحصت شجرة FastVPN بأمر القراءة فقط `winapp ui inspect` مع `--json` والعمق `8`؛ لم تُستخدم أوامر النقر أو التفعيل.
+
+### المحاولة الأولى: تشغيل Medium
+
+في 15 أكتوبر 2026 قرأ PID `33244` نافذة FastVPN PID `6052` وهو يعمل بمستوى `Medium`:
+
+| العملية | PID | Integrity Level وSID | TokenElevation | TokenElevationType | TokenUIAccess |
+|---|---:|---|---|---|---|
+| `winapp.exe` | `33244` | Medium، `S-1-16-8192` | `False` | `Limited` | `False` |
+| `FastVPN.exe` | `6052` | High، `S-1-16-12288` | `True` | `Full` | `False` |
+
+```powershell
+winapp ui inspect -a 6052 --depth 8 --json
+```
+
+انتهى الأمر برمز `0`، لكنه أعاد عنصرًا واحدًا فقط (`Window` باسم `FastVPN`) من دون عناصر داخلية. كان PID `33244` متوسطًا لأنني شغّلت CLI من عملية عادية بمستوى `Medium` ولم أطلب تشغيل نسخة جديدة عبر UAC. Windows لا يرفع رمز عملية حية بعد إنشائها.
+
+### إعادة الاختبار على PID نفسه بمستويي Medium وHigh
+
+للتأكد من أثر الصلاحية، قورنت القراءتان على PID FastVPN نفسه `8744`، في جلسة المستخدم نفسها، مع CLI `0.7.1` والأمر والعمق نفسيهما. أُطلقت نسخة PowerShell جديدة عبر `RunAs` بعد موافقة UAC؛ بقيت عملية Codex وأداة `node_repl` على `Medium`.
+
+| العملية وقت الفحص | PID | Integrity Level وSID | TokenElevation | TokenElevationType | TokenUIAccess |
+|---|---:|---|---|---|---|
+| `powershell.exe`، مشغّل المقارنة Medium | `3924` | Medium، `S-1-16-8192` | `False` | `Limited` | `False` |
+| `winapp.exe`، قراءة Medium عند 14:17:33 | `16680` | Medium، `S-1-16-8192` | `False` | `Limited` | `False` |
+| `winapp.exe`، قراءة High عند 14:16:52 | `10488` | High، `S-1-16-12288` | `True` | `Full` | `False` |
+| `FastVPN.exe`، الهدف في القراءتين | `8744` | High، `S-1-16-12288` | `True` | `Full` | `False` |
+
+```powershell
+winapp ui inspect -a 8744 --depth 8 --json
+```
+
+| نتيجة القراءة على الهدف نفسه | Medium | High |
+|---|---:|---:|
+| النوافذ | 1 | 1 |
+| `elementCount` والعناصر المعدودة فعليًا | 1 | 961 |
+| رمز الخروج | 0 | 0 |
+| `stderr` | فارغ | فارغ |
+
+تضمنت شجرة High `4` أزرار، و`474` عنصر نص، و`248` صورة، و`118` عنصرًا مخصصًا، و`112` عنصر قائمة، وعنصر `List` واحد، و`3` فواصل، وعنصر `Window` واحد. من الأمثلة زر `Connect VPN` بمعرّف `Connect`، والموقع `United States` والمدينة `Boston`، وعناصر `Locations` و`Settings` و`Account`. يبيّن JSON أن `102` عنصرًا موسوم بـ`isOffscreen=true`، وأن `859` موسوم بـ`false`؛ كما أن `interactive=false`، أي إن الاختبار قرأ الشجرة ولم ينفّذ تفاعلًا.
+
+الفرق الكبير على PID الهدف نفسه وبالوسيطات نفسها يدعم بقوة أن تشغيل القارئ عند `Medium` كان سبب غياب العناصر الداخلية في هذه المقارنة. لكنه لا يثبت أن كل عنصر مرئي أو قابل للتفاعل، ولا يثبت أن مضيف Codex صار مرتفعًا: العملية المرتفعة كانت `winapp.exe` مستقلة أُنشئت بموافقة UAC. `TokenUIAccess=False` للقارئ المرتفع أيضًا؛ نجاح تعداد الشجرة هنا لا يتطلب أن يكون `UIAccess` مفعّلًا.
 
 > [!important] تحديث قاعدة الأذونات
 > أفاد المستخدم أن دعم Namecheap أكد أن `Everyone: Allow FullControl` قاعدة متوقعة وصحيحة في هذا التثبيت ولا تمثل مخالفة. لم نطّلع بأنفسنا على نص التذكرة أو رد الدعم؛ وبناءً على هذه الإفادة نسحب التحذير السابق الذي عامل القاعدة كخلل مؤكد أو شرط يمنع اختبار قارئ UIA مرتفع. لا نوصي بتعديل ACL يدويًا اعتمادًا على التحليل السابق. هذا التوضيح لا يغيّر قياس `High` ولا يثبت سبب نقص الشجرة.
@@ -43,7 +88,7 @@ tags:
 
 1. **للفحص المرئي الموثق للتطبيق الإداري:** Accessibility Insights for Windows، بوضع `Live Inspect`. توثق الأداة صراحة أن التطبيقات التي تعمل كمسؤول تحتاج إلى تشغيل Accessibility Insights كمسؤول في كل جلسة، أو إلى إعداد UIAccess الخاص بها. [الأسئلة الشائعة: فحص التطبيقات الإدارية](https://accessibilityinsights.io/docs/windows/reference/faq/) · [دليل Live Inspect](https://accessibilityinsights.io/docs/windows/getstarted/inspect/)
 2. **أداة مثبتة على هذا الجهاز:** Power Automate for desktop. أظهر فحص الحزم المحلي في 15 أكتوبر 2026 الحزمة `Microsoft.PowerAutomateDesktop` بالإصدار `11.2609.183.0`. وتوثق Microsoft أن أداة `Inspect UI elements` تعرض الشجرة، وأنه إذا كان التطبيق المستهدف مرتفعًا فيُعاد تشغيل Power Automate بصلاحيات مرتفعة. استخدم نافذة الفحص للقراءة فقط، ولا تنشئ تدفقًا ينفّذ أفعالًا. [دليل Inspect UI elements](https://learn.microsoft.com/en-us/power-automate/desktop-flows/inspect-ui-elements)
-3. **أفضل لقطة نصية أو JSON للمقارنة:** `winapp ui inspect`. يستهدف PID أو اسم التطبيق ويطبع شجرة UIA؛ يدعم `--json` للحفظ والمقارنة. لكنه في `Public Preview` (معاينة عامة قد تتغير أوامره وبنية JSON)، ويضم أوامر أخرى للنقر والتفعيل؛ لا تستخدم في هذه التجربة إلا `inspect`. لم يظهر `winapp` في فحص `PATH` المحلي وقت إعداد هذه الملاحظة، لذا لم يُثبت أنه مثبت على هذا الجهاز. [توثيق CLI وحالة المعاينة](https://learn.microsoft.com/en-us/windows/apps/dev-tools/winapp-cli/) · [دليل UI automation وJSON والاستهداف بـPID](https://github.com/microsoft/winappCli/blob/main/docs/ui-automation.md)
+3. **أفضل لقطة نصية أو JSON للمقارنة:** `winapp ui inspect`. يستهدف PID أو اسم التطبيق ويطبع شجرة UIA؛ يدعم `--json` للحفظ والمقارنة. لكنه في `Public Preview` (معاينة عامة قد تتغير أوامره وبنية JSON)، ويضم أوامر أخرى للنقر والتفعيل؛ لا تستخدم في هذه التجربة إلا `inspect`. **تحديث 15 أكتوبر 2026:** ثُبّت محليًا من WinGet بالمعرف `Microsoft.WinAppCli`، ونجح تشغيل الإصدار `0.7.1`. [توثيق CLI وحالة المعاينة](https://learn.microsoft.com/en-us/windows/apps/dev-tools/winapp-cli/) · [دليل UI automation وJSON والاستهداف بـPID](https://github.com/microsoft/winappCli/blob/main/docs/ui-automation.md)
 4. **مفتش رسومي مستقل مفتوح المصدر:** `FlaUInspect`. يعرض شجرة وخصائص UIA، ويتيح الاختيار بين `UIA2` و`UIA3`. هو مشروع مجتمع مبني على FlaUI، وليس منتج Microsoft. يجب تشغيل ملف الفحص نفسه عبر UAC ثم قياس رمز عمليته؛ لا نفترض أن مجرد وجود نافذة الأداة يعني أنها `High`. [المستودع والإصدارات](https://github.com/FlaUI/FlaUInspect)
 
 > [!warning] Power Automate وUIAccess
