@@ -1,0 +1,48 @@
+﻿{
+    "time":  "2026-10-15T14:36:39.1859939+03:00",
+    "targetPid":  8744,
+    "targetTokenBefore":  {
+                              "pid":  8744,
+                              "integritySid":  "S-1-16-12288",
+                              "tokenElevation":  1,
+                              "tokenElevationType":  2,
+                              "tokenUIAccess":  0
+                          },
+    "elevatedPowerShell":  {
+                               "pid":  5500,
+                               "integritySid":  "S-1-16-12288",
+                               "tokenElevation":  1,
+                               "tokenElevationType":  2,
+                               "tokenUIAccess":  0
+                           },
+    "click":  {
+                  "pid":  17420,
+                  "token":  {
+                                "pid":  17420,
+                                "integritySid":  "S-1-16-12288",
+                                "tokenElevation":  1,
+                                "tokenElevationType":  2,
+                                "tokenUIAccess":  0
+                            },
+                  "exitCode":  0,
+                  "stdout":  "",
+                  "stderr":  ""
+              },
+    "postActionInspection":  {
+                                 "pid":  29724,
+                                 "token":  {
+                                               "pid":  29724,
+                                               "integritySid":  "S-1-16-12288",
+                                               "tokenElevation":  1,
+                                               "tokenElevationType":  2,
+                                               "tokenUIAccess":  0
+                                           },
+                                 "exitCode":  1,
+                                 "stdout":  "",
+                                 "stderr":  "Cannot specify both --quiet and --json options together.\r\n"
+                             },
+    "postActionElementCount":  0,
+    "matchingPostActionElements":  [
+
+                                   ]
+}
