@@ -47,12 +47,12 @@ tags:
 
 ## سكربت إعادة الاختبار
 
-أُضيف [[FastVPN-High-Control.ps1|سكربت التحكم المحدود]] بثلاثة أوضاع مسموحة: `Inspect` لفحص العناصر التفاعلية، و`OpenSettings` لفتح الإعدادات، و`OpenLocations` لفتح قائمة المواقع. يستخدم `OpenLocations` المحدد الفريد `LocationsTitle`؛ فالاسم العام `Locations` يطابق صورة وعنوانًا معًا في نسخة CLI المثبتة. يرفض السكربت العمل إذا لم يجد رمز **High**، ويستهدف عملية FastVPN الوحيدة الموجودة. لا يتضمن إيقاف عمليات Codex أو `node_repl`، ولا أمر الاتصال أو تغيير الموقع.
+يوجد سكربت التحكم المحدود في جذر المشروع بهذا المسار: `scripts/fastvpn/FastVPN-High-Control.ps1`. له ثلاثة أوضاع مسموحة: `Inspect` لفحص العناصر التفاعلية، و`OpenSettings` لفتح الإعدادات، و`OpenLocations` لفتح قائمة المواقع. يستخدم `OpenLocations` المحدد الفريد `LocationsTitle`؛ فالاسم العام `Locations` يطابق صورة وعنوانًا معًا في نسخة CLI المثبتة. يرفض السكربت العمل إذا لم يجد رمز **High**، ويستهدف عملية FastVPN الوحيدة الموجودة. لا يتضمن إيقاف عمليات Codex أو `node_repl`، ولا أمر الاتصال أو تغيير الموقع.
 
 شغّل هذا الأمر من PowerShell عادي؛ سيظهر طلب **UAC** (نافذة موافقة Windows على تشغيل العملية بصلاحيات مسؤول). وافق عليه لتشغيل اختبار فتح الإعدادات:
 
 ```powershell
-Start-Process -FilePath "$env:WINDIR\System32\WindowsPowerShell\v1.0\powershell.exe" -Verb RunAs -ArgumentList '-NoProfile -File "C:\pc\py\pyreview\summorized_file\main_obsidian\vibe_coding\computer use\FastVPN\FastVPN-High-Control.ps1" -Action OpenSettings -Pause' -Wait
+Start-Process -FilePath "$env:WINDIR\System32\WindowsPowerShell\v1.0\powershell.exe" -Verb RunAs -ArgumentList '-NoProfile -File "C:\pc\py\pyreview\summorized_file\scripts\fastvpn\FastVPN-High-Control.ps1" -Action OpenSettings -Pause' -Wait
 ```
 
 للفحص دون نقرة، غيّر `OpenSettings` إلى `Inspect`. يكتب السكربت سجلًا وصورًا قبل النقرة وبعدها في `%TEMP%`، ويُظهر مساراتها في نافذة PowerShell المرتفعة. لا تستخدم `-ExecutionPolicy Bypass`؛ الأمر أعلاه لا يتجاوز سياسة التنفيذ.
