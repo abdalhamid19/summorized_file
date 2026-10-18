@@ -49,6 +49,12 @@
       "skillPath": "skills/clean-code-guard/SKILL.md",
       "computedHash": "4dc02501857f29bb42d740b1d01124a99a1621762562750ef5bc00d6229715e2"
     },
+    "debate-practice-coach": {
+      "source": "travisjneuman/.claude",
+      "sourceType": "github",
+      "skillPath": "skills/debate-practice-coach/SKILL.md",
+      "computedHash": "03e845b57fff1241d02fdb5e59e80fa2db43245b8032bca1d87cbeaabab670b1"
+    },
     "doc-coauthoring": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -66,6 +72,12 @@
       "sourceType": "github",
       "skillPath": "skills/frontend-design/SKILL.md",
       "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
+    },
+    "influence-and-negotiation": {
+      "source": "samber/cc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/influence-and-negotiation/SKILL.md",
+      "computedHash": "3e71d71d0d50d64e998f3729ea58d848152ba9c1f5c60210c5e42cd91764f72b"
     },
     "internal-comms": {
       "source": "anthropics/skills",

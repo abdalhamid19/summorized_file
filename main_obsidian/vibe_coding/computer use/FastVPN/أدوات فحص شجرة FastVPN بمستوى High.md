@@ -114,33 +114,33 @@ winapp ui inspect -a 8744 --depth 8 --json
 
 ## أدوات قياس الرمز وليست قارئات شجرة
 
-- **Sysinternals AccessChk:** أداة سطر أوامر لفحص رمز عملية بعينها. توثيق Microsoft يشرح `-p` لاستهداف عملية أو PID، و`-f` لعرض معلومات الرمز الكاملة، و`-v` لإضافة `Integrity Level`. مثال القراءة:
+- ا **Sysinternals AccessChk:** أداة سطر أوامر لفحص رمز عملية بعينها. توثيق Microsoft يشرح `-p` لاستهداف عملية أو PID، و`-f` لعرض معلومات الرمز الكاملة، و`-v` لإضافة `Integrity Level`. مثال القراءة:
 
   `accesschk64.exe -p -f -v <PID>`
 
   شغّل AccessChk نفسه بصلاحية تسمح له بقراءة العملية المستهدفة، وتأكد أن `<PID>` هو PID القارئ الفعلي. AccessChk يعرض مستوى السلامة، لكنه ليس وحده إثباتًا لحقلي `TokenElevation` و`TokenUIAccess`. [توثيق AccessChk](https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk)
-- **Process Explorer:** يعرض العمليات وخصائصها، ويمكنه المساعدة في مراجعة `Integrity Level` وهوية الملف. لا يعرض شجرة UIA، ولا يغني عن قراءة حقول Token المطلوبة عند توثيق المقارنة. [Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer) · [فيديو Microsoft عن Process Explorer ومستويات السلامة](https://learn.microsoft.com/en-us/shows/defrag-tools/2-process-explorer)
-- **Windows API `GetTokenInformation`:** الوسيلة الدقيقة لاستعلام `TokenIntegrityLevel` و`TokenElevation` و`TokenElevationType` و`TokenUIAccess` من رمز العملية. `TokenElevationTypeFull` يعني أن الرمز مرتفع. قد تحتاج إلى كود مساعد؛ لا تخلط بين `UIAccess=True` وبين `High`. [GetTokenInformation](https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-gettokeninformation) · [حقول TOKEN_INFORMATION_CLASS](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-token_information_class) · [أنواع الرفع](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-token_elevation_type)
+- ا **Process Explorer:** يعرض العمليات وخصائصها، ويمكنه المساعدة في مراجعة `Integrity Level` وهوية الملف. لا يعرض شجرة UIA، ولا يغني عن قراءة حقول Token المطلوبة عند توثيق المقارنة. [Process Explorer](https://learn.microsoft.com/en-us/sysinternals/downloads/process-explorer) · [فيديو Microsoft عن Process Explorer ومستويات السلامة](https://learn.microsoft.com/en-us/shows/defrag-tools/2-process-explorer)
+- ا **Windows API `GetTokenInformation`:** الوسيلة الدقيقة لاستعلام `TokenIntegrityLevel` و`TokenElevation` و`TokenElevationType` و`TokenUIAccess` من رمز العملية. `TokenElevationTypeFull` يعني أن الرمز مرتفع. قد تحتاج إلى كود مساعد؛ لا تخلط بين `UIAccess=True` وبين `High`. [GetTokenInformation](https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-gettokeninformation) · [حقول TOKEN_INFORMATION_CLASS](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-token_information_class) · [أنواع الرفع](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ne-winnt-token_elevation_type)
 
 ## أدوات تعرض معلومات نافذة مختلفة عن شجرة UIA
 
-- **Spy++** يعرض شجرة النوافذ والعمليات والخيوط ورسائل Win32؛ يفيد لمعرفة تقسيم النوافذ، لكنه ليس بديلًا لشجرة UIA الدلالية. [دليل Spy++ من Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/using-spy-increment)
-- **AutoIt Window Info (Au3Info)** يعرض عناوين النوافذ والنص والفئة والحجم وعناصر Win32 تحت المؤشر؛ ليس بديلًا لشجرة UIA الدلالية. [توثيق Au3Info](https://www.autoitscript.com/autoit3/docs/intro/au3spy.htm)
+- ا **Spy++** يعرض شجرة النوافذ والعمليات والخيوط ورسائل Win32؛ يفيد لمعرفة تقسيم النوافذ، لكنه ليس بديلًا لشجرة UIA الدلالية. [دليل Spy++ من Visual Studio](https://learn.microsoft.com/en-us/visualstudio/debugger/using-spy-increment)
+- ا **AutoIt Window Info (Au3Info)** يعرض عناوين النوافذ والنص والفئة والحجم وعناصر Win32 تحت المؤشر؛ ليس بديلًا لشجرة UIA الدلالية. [توثيق Au3Info](https://www.autoitscript.com/autoit3/docs/intro/au3spy.htm)
 
 ## ما المقصود بإثبات أن الفاحص High؟
 
 لا يكفي ظهور نافذة UAC أو كون الطرفية الأم مرتفعة. يجب أن نسجل العملية التي نفذت قراءة UIA نفسها، لأن بعض الأدوات تنشئ عملية مساعدة:
 
-| الحقل | ما يسجل في التجربة |
-|---|---|
-| اسم الأداة ونسختها | مثال: Accessibility Insights أو `winapp` مع الإصدار. |
-| PID القارئ | PID لعملية الفحص التي استعلمت عن UIA، مع PID العملية الأم/المساعدة إن وجدت. |
-| موافقة UAC | نعم/لا ووقت بدء العملية؛ لا تُؤتمت شاشة سطح المكتب الآمن. |
-| `TokenIntegrityLevel` | يجب أن يظهر `High`؛ والـSID المتوقع `S-1-16-12288`. |
-| `TokenElevation` أو `TokenElevationType` | سجّل `True` أو `TokenElevationTypeFull` لإثبات الرفع. سجّل Integrity منفصلًا. |
-| `TokenUIAccess` | سجله مستقلًا كـ`True` أو `False`؛ لا تستنتج منه مستوى High. |
-| العملية المستهدفة | PID ومسار `FastVPN.exe` ووقت القياس؛ أعد اكتشاف PID بعد إعادة التشغيل ولا تعتمد على PID قديم. |
-| نتيجة الشجرة | لقطة Raw/Control/Content أو JSON، وعمق القراءة، والمرشحات، وهل ظهرت عناصر داخلية. |
+| الحقل                                    | ما يسجل في التجربة                                                                              |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| اسم الأداة ونسختها                       | مثال: Accessibility Insights أو `winapp` مع الإصدار.                                            |
+| PID القارئ                               | PID لعملية الفحص التي استعلمت عن UIA، مع PID العملية الأم/المساعدة إن وجدت.                     |
+| موافقة UAC                               | نعم/لا ووقت بدء العملية؛ لا تُؤتمت شاشة سطح المكتب الآمن.                                       |
+| `TokenIntegrityLevel`                    | يجب أن يظهر `High`؛ والـSID المتوقع `S-1-16-12288`.                                             |
+| `TokenElevation` أو `TokenElevationType` | سجّل `True` أو `TokenElevationTypeFull` لإثبات الرفع. سجّل Integrity منفصلًا.                   |
+| `TokenUIAccess`                          | سجله مستقلًا كـ`True` أو `False`؛ لا تستنتج منه مستوى High.                                     |
+| العملية المستهدفة                        | ا PID ومسار `FastVPN.exe` ووقت القياس؛ أعد اكتشاف PID بعد إعادة التشغيل ولا تعتمد على PID قديم. |
+| نتيجة الشجرة                             | لقطة Raw/Control/Content أو JSON، وعمق القراءة، والمرشحات، وهل ظهرت عناصر داخلية.               |
 
 تؤكد Microsoft أن `GetTokenInformation` يقرأ بيانات الرمز، وأن `UIAccess` امتياز خاص ببرامج تقنيات المساعدة وله شروط توقيع وموقع تثبيت. [معلومات رمز الوصول](https://learn.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-gettokeninformation) · [اعتبارات أمان UI Automation وUIAccess](https://learn.microsoft.com/en-us/windows/win32/winauto/uiauto-securityoverview) · [سياسة UIPI وUIAccess](https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/user-account-control-allow-uiaccess-applications-to-prompt-for-elevation-without-using-the-secure-desktop)
 
@@ -168,6 +168,10 @@ winapp ui inspect -a 8744 --depth 8 --json
 - **قِس رمز قارئ الشجرة نفسه قبل المقارنة**؛ المتوقع لـHigh هو `S-1-16-12288` مع `TokenElevation=True` أو `TokenElevationTypeFull`. سجّل `TokenUIAccess` منفصلًا.
 - لا يوجد ضمان أن الشجرة ستصبح كاملة بعد الرفع؛ ظهور العناصر يعتمد أيضًا على الـProvider ومنظور القراءة.
 - إفادة المستخدم عن Namecheap تنفي اعتبار قاعدة ACL مخالفة أو شرطًا سابقًا لهذا الاختبار؛ لم نتحقق من نص رد الدعم مباشرة ولم نعدّل ACL.
+
+## اختيار أداة لبناء سكربت عام
+
+لإنشاء سكربت Python قابل لإعادة الاستخدام لبرامج Windows، نختار `pywinauto` مع `backend="uia"`؛ فهو مكتبة برمجية مستقرة تناسب كتابة أوامر مخصصة. يظل `winapp ui` مناسبًا لفحص FastVPN والتجارب السريعة، وقد نجح محليًا، لكنه ما يزال `Public Preview`. يتضمن [[اختيار أفضل أداة لبناء سكربت تحكم عام - 2026-10-17]] مقارنة الأدوات، ويربط [[مشروع Windows UIA Automation]] المشروع التنفيذي المستقل خارج الـvault، بما في ذلك الفحص الافتراضي للقراءة فقط وحدود الصلاحيات. لا تضمن أي أداة التحكم الكامل بكل برنامج؛ نجاحها يعتمد على عناصر UIA التي يكشفها التطبيق.
 
 ## مواد مرجعية إضافية: كتاب، مقال، وفيديو
 

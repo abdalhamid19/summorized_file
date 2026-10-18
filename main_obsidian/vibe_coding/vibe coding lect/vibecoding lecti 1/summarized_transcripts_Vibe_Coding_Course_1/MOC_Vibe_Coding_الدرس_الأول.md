@@ -65,4 +65,4 @@ aliases:
 - [[Server Administration]]
 
 ## العودة إلى الفهرس
-- [[vibe_coding/vibecoding lecti 1/summarized_transcripts_Vibe_Coding_Course_1/00 - الفهرس والخطة]]
+- [[vibe_coding/vibe coding lect/vibecoding lecti 1/summarized_transcripts_Vibe_Coding_Course_1/00 - الفهرس والخطة]]

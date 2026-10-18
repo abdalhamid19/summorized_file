@@ -129,8 +129,8 @@ flowchart LR
 
 ### روابط مرتبطة في الـ Vault
 
-- [[vibe_coding/vibecoding lecti 1/summarized_transcripts_Vibe_Coding_Course_1/08 - VS Code وCursor وربط GitHub|ربط VS Code وCursor بـ GitHub]].
-- [[vibe_coding/vibecoding lecti 1/summarized_transcripts_Vibe_Coding_Course_1/06 - Deployment Serverless مقابل الـ Server الخاص|Deployment والاستضافة]].
+- [[08 - VS Code وCursor وربط GitHub|ربط VS Code وCursor بـ GitHub]].
+- [[06 - Deployment Serverless مقابل الـ Server الخاص|Deployment والاستضافة]].
 - [[vibe_coding/git worktrees/summarized_transcripts_git_worktrees/03 - الأتمتة عبر Warp agent mode|أتمتة مهام التطوير]].
 - مفاهيم مرتبطة: **Git**، **Pull Request**، **YAML**، **Build**، **Testing**، **Deployment**.
 
