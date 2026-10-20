@@ -1,0 +1,10 @@
+{
+  "editor:toggle-highlight-orange": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "F"
+    }
+  ]
+}
