@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>حل تكليفات CSS — Border, Outline, Display</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18212f;
+      --muted: #586579;
+      --paper: #f4f1ec;
+      --panel: #fffdf9;
+      --line: #ded8ce;
+      --accent: #e55474;
+      --teal: #108d83;
+      font-family: "Noto Sans Arabic", "Cairo", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    .shell { width: min(1240px, calc(100% - 36px)); margin: 0 auto; }
+    .hero { padding: 48px 0 34px; color: #f8f5ef; background: #17273b; }
+    .eyebrow { color: #c6d7e7; font: 700 12px/1.5 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 12px 0 10px; font-size: clamp(30px, 5vw, 52px); line-height: 1.2; }
+    .hero p { max-width: 760px; margin: 0; color: #d6dfeb; font-size: 17px; line-height: 1.9; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .pills span { padding: 6px 12px; border: 1px solid #52647a; border-radius: 99px; color: #e7edf4; font: 600 13px Arial, sans-serif; }
+    main { padding: 28px 0 54px; }
+    .task { margin: 0 0 28px; padding: clamp(18px, 3vw, 30px); border: 1px solid var(--line); border-radius: 18px; background: var(--panel); box-shadow: 0 12px 32px #2432470c; }
+    .task-heading { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+    .task-number { color: var(--accent); font: 800 14px Arial, sans-serif; letter-spacing: .08em; }
+    h2 { margin: 0; font-size: 25px; }
+    h3 { margin: 0 0 10px; font-size: 16px; }
+    .brief { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .92fr); gap: 20px; align-items: center; margin-bottom: 22px; }
+    .brief-copy { padding: 16px 18px; border-right: 4px solid var(--accent); border-radius: 10px; background: #f8f4ed; }
+    .brief-copy p, .brief-copy li { color: var(--muted); font-size: 15px; line-height: 1.8; }
+    .brief-copy p { margin: 0; }
+    .brief-copy ul { margin: 8px 0 0; padding-right: 20px; }
+    figure { margin: 0; }
+    .reference { padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: white; }
+    .reference img { display: block; width: 100%; height: auto; }
+    figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .solution { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+    .preview-card, .code-card { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .card-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; color: var(--muted); font: 700 11px Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .card-label strong { color: var(--ink); font: 700 14px "Noto Sans Arabic", "Cairo", Arial, sans-serif; letter-spacing: 0; text-transform: none; }
+    .stage { min-height: 155px; display: flex; align-items: center; justify-content: center; overflow: auto; padding: 10px; border: 1px dashed #d7d1c8; border-radius: 8px; background-color: #fbfaf7; }
+    .shape-row { display: block; direction: ltr; white-space: nowrap; }
+    .shape { display: inline-block; margin: 20px; padding: 20px; background: #d3d3d3; color: #111; font: 20px/1.4 Arial, sans-serif; }
+    .shape-one { border: 5px solid red; outline: 5px solid black; }
+    .shape-two { border: 5px solid; border-color: blue green; }
+    .shape-three { border: 5px dashed; border-color: red green blue yellow; }
+    .task-two-stage { display: block; min-height: 280px; padding: 1px 12px; direction: ltr; }
+    .note { width: 400px; max-width: 100%; margin: 20px 0; padding: 10px; background: #eee; color: #111; direction: ltr; text-align: left; font: 18px/1.55 Arial, sans-serif; }
+    .note-one { border-left: 5px solid #e91e63; }
+    .note-hidden { border-left: 5px solid #e91e63; visibility: hidden; }
+    .note-three { border-left: 5px solid #009688; }
+    pre { max-height: 360px; overflow: auto; margin: 0; padding: 16px; border-radius: 8px; background: #17273b; color: #f1f4f8; direction: ltr; text-align: left; white-space: pre; }
+    code { font: 13px/1.75 "DejaVu Sans Mono", "Liberation Mono", monospace; }
+    .explanation { margin: 13px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .source-line { padding: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .source-line a { color: #176f7e; }
+    @media (max-width: 760px) {
+      .brief, .solution { grid-template-columns: 1fr; }
+      .shape-row { white-space: normal; text-align: center; }
+      .shape { margin: 12px; }
+      .stage { min-height: 175px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <div class="eyebrow">ELZERO · CSS ASSIGNMENTS 09—12</div>
+      <h1>Border, Outline, and Display</h1>
+      <p>حلّان عمليان يوضحان الحدود الملونة، والفرق بين `border` و`outline`، وكيف تحافظ خاصية `visibility` على مساحة العنصر المخفي.</p>
+      <div class="pills"><span>border</span><span>outline</span><span>display: inline-block</span><span>visibility</span></div>
+    </div>
+  </header>
+  <main class="shell">
+    <section class="task" id="task-01">
+      <div class="task-heading"><span class="task-number">TASK 01</span><h2>حدود بألوان وأنماط مختلفة</h2></div>
+      <div class="brief">
+        <div class="brief-copy">
+          <h3>المطلوب</h3>
+          <ul>
+            <li>إنشاء ثلاثة عناصر من نوع `div` من دون تعيين عرض لها.</li>
+            <li>عرضها بجانب بعضها مع خلفية رمادية وحواف سمكها `5px`.</li>
+            <li>مطابقة المثال: حد أحمر مع `outline` أسود، وحدود متبادلة الألوان، وحد متقطع بأربعة ألوان.</li>
+          </ul>
+        </div>
+        <figure class="reference"><img src="assets/reference-task-01.png" alt="الصورة المرجعية للتكليف الأول"><figcaption>الرسم المرجعي كما يظهر في صفحة التكليف.</figcaption></figure>
+      </div>
+      <div class="solution">
+        <figure class="preview-card" id="solution-task-01">
+          <div class="card-label"><strong>معاينة الناتج</strong><span>LIVE CSS</span></div>
+          <div class="stage">
+            <div class="shape-row"><div class="shape shape-one">Shape 1</div><div class="shape shape-two">Shape 2</div><div class="shape shape-three">Shape 3</div></div>
+          </div>
+          <figcaption>كل عنصر يأخذ عرضه الطبيعي من النص و`padding`، وتضعه `inline-block` بجانب العنصر التالي.</figcaption>
+        </figure>
+        <div class="code-card">
+          <div class="card-label"><strong>HTML وCSS</strong><span>ANSWER</span></div>
+          <pre><code>&lt;div class="shape shape-one"&gt;Shape 1&lt;/div&gt;
+&lt;div class="shape shape-two"&gt;Shape 2&lt;/div&gt;
+&lt;div class="shape shape-three"&gt;Shape 3&lt;/div&gt;
+
+.shape {
+  display: inline-block;
+  padding: 20px;
+  margin: 20px;
+  background-color: #d3d3d3;
+}
+
+.shape-one {
+  border: 5px solid red;
+  outline: 5px solid black;
+}
+
+.shape-two {
+  border: 5px solid;
+  border-color: blue green;
+}
+
+.shape-three {
+  border: 5px dashed;
+  border-color: red green blue yellow;
+}</code></pre>
+          <p class="explanation">قيمة لونين في `border-color` تعني أن الأزرق للأعلى والأسفل والأخضر لليمين واليسار. ومع أربعة ألوان يكون الترتيب: أعلى، يمين، أسفل، يسار. يمتد `outline` حول الحد الأحمر من الخارج ولا يغيّر أبعاد العنصر في تخطيط الصفحة.</p>
+        </div>
+      </div>
+    </section>
+    <section class="task" id="task-02">
+      <div class="task-heading"><span class="task-number">TASK 02</span><h2>إخفاء العنصر مع الاحتفاظ بمكانه</h2></div>
+      <div class="brief">
+        <div class="brief-copy">
+          <h3>المطلوب</h3>
+          <ul>
+            <li>الإبقاء على بنية HTML المعطاة كما هي.</li>
+            <li>تحديد عرض العناصر بـ`400px` وإضافة الشريط الملون في يسار كل عنصر ظاهر.</li>
+            <li>إخفاء العنصر الثاني مع إبقاء المساحة التي يشغلها.</li>
+          </ul>
+        </div>
+        <figure class="reference"><img src="assets/reference-task-02.png" alt="الصورة المرجعية للتكليف الثاني"><figcaption>الرسم المرجعي: يظهر العنصر الأول والثالث وبينهما المساحة المحجوزة للثاني.</figcaption></figure>
+      </div>
+      <div class="solution">
+        <figure class="preview-card" id="solution-task-02">
+          <div class="card-label"><strong>معاينة الناتج</strong><span>LIVE CSS</span></div>
+          <div class="stage task-two-stage">
+            <div class="note note-one">This Is Important Note</div>
+            <div class="note note-hidden">This Is Important Note</div>
+            <div class="note note-three">This Is Important Note</div>
+          </div>
+          <figcaption>مكان العنصر الأوسط فارغ، وتبقى المسافة بين الملاحظة الأولى والثالثة.</figcaption>
+        </figure>
+        <div class="code-card">
+          <div class="card-label"><strong>HTML المعطى وCSS</strong><span>ANSWER</span></div>
+          <pre><code>&lt;div class="element element-1"&gt;This Is Important Note&lt;/div&gt;
+&lt;div class="element element-2"&gt;This Is Important Note&lt;/div&gt;
+&lt;div class="element element-3"&gt;This Is Important Note&lt;/div&gt;
+
+.element {
+  box-sizing: border-box;
+  width: 400px;
+  max-width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+  background-color: #eee;
+}
+
+.element-1 {
+  border-left: 5px solid #e91e63;
+}
+
+.element-2 {
+  visibility: hidden;
+}
+
+.element-3 {
+  border-left: 5px solid #009688;
+}</code></pre>
+          <p class="explanation">تخفي `visibility: hidden` محتوى العنصر الثاني مع بقاء صندوقه ضمن التخطيط، لذلك تظل مساحته محجوزة. تستخدم `box-sizing: border-box` حتى يشمل العرض الكلي `400px` الحشو والحد أيضًا.</p>
+        </div>
+      </div>
+    </section>
+    <p class="source-line">المصدر: <a href="https://elzero.org/css-assignments-lesson-from-9-to-12/">صفحة تكليفات CSS للدروس 09–12</a>.</p>
+  </main>
+</body>
+</html>

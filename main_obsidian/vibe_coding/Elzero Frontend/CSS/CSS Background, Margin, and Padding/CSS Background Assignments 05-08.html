@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Lab — Background, Margin, and Padding</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #10283b;
+      --ink-soft: #24475e;
+      --paper: #f2f5f6;
+      --white: #fff;
+      --line: #d6e0e5;
+      --muted: #587080;
+      --violet: #8a2be2;
+      --cyan: #46d6cf;
+      --grid: url("assets/background-grid.png");
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Noto Sans Arabic", Tahoma, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--ink);
+      background-image: linear-gradient(115deg, rgba(16, 40, 59, .97), rgba(16, 40, 59, .88)), var(--grid);
+      background-size: auto, 200px 200px;
+      color: var(--white);
+      border-bottom: 5px solid var(--violet);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 240px;
+      gap: 52px;
+      align-items: center;
+      max-width: 1320px;
+      margin-inline: auto;
+      padding: 62px 32px 56px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--cyan);
+      font: 700 12px/1.4 "DejaVu Sans Mono", monospace;
+      letter-spacing: .12em;
+      direction: ltr;
+      text-align: right;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.2;
+      letter-spacing: -.04em;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: #d4e0e7;
+      font-size: 17px;
+    }
+
+    .hero-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .hero-index a {
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: var(--white);
+      text-decoration: none;
+      font: 600 12px/1.4 "DejaVu Sans Mono", monospace;
+      direction: ltr;
+    }
+
+    .hero-index a:hover {
+      background: var(--violet);
+      border-color: var(--violet);
+    }
+
+    .hero-specimen {
+      position: relative;
+      width: 220px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, .35);
+      background-color: #153a54;
+      background-image: var(--grid);
+      background-size: 200px 200px;
+      box-shadow: 16px 16px 0 var(--violet);
+    }
+
+    .hero-specimen::before,
+    .hero-specimen::after {
+      position: absolute;
+      content: "";
+      border: 1px solid var(--cyan);
+      pointer-events: none;
+    }
+
+    .hero-specimen::before {
+      inset: 18px;
+    }
+
+    .hero-specimen::after {
+      inset: 38px;
+      border-color: rgba(255, 255, 255, .55);
+    }
+
+    main {
+      width: min(1320px, 100%);
+      margin-inline: auto;
+      padding: 38px 24px 70px;
+    }
+
+    .assignment {
+      margin: 0 0 34px;
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--ink);
+      box-shadow: 0 10px 28px rgba(16, 40, 59, .055);
+      scroll-margin-top: 20px;
+    }
+
+    .assignment-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .task-no {
+      display: grid;
+      flex: 0 0 52px;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      background: var(--violet);
+      color: var(--white);
+      font: 700 20px/1 "DejaVu Sans Mono", monospace;
+      direction: ltr;
+    }
+
+    .assignment-head h2 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.35;
+    }
+
+    .assignment-head p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 10px 13px;
+      background: #f4f8fa;
+      border-inline-start: 3px solid var(--cyan);
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .rule code,
+    .shape-label,
+    .code-heading,
+    pre {
+      font-family: "DejaVu Sans Mono", monospace;
+    }
+
+    .color-stack {
+      width: max-content;
+      max-width: 100%;
+      margin: 22px auto;
+    }
+
+    .assign-1-shape-1,
+    .assign-1-shape-2,
+    .assign-1-shape-3 {
+      width: 500px;
+      max-width: calc(100vw - 112px);
+      padding: 20px;
+      margin: 18px auto;
+      box-sizing: content-box;
+      color: white;
+    }
+
+    .assign-1-shape-1 {
+      background-color: blueviolet;
+      background-color: rgb(138, 43, 226);
+      background-color: hsl(271.17, 75.93%, 52.75%);
+      background-color: #8a2be2;
+    }
+
+    .assign-1-shape-2 {
+      background-color: rgba(138, 43, 226, 0.5);
+    }
+
+    .assign-1-shape-3 {
+      background-color: rgba(138, 43, 226, 0.1);
+      color: var(--ink);
+    }
+
+    .value-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 0;
+    }
+
+    .value-strip code {
+      padding: 6px 9px;
+      background: #eff4f6;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      direction: ltr;
+    }
+
+    .shape-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 430px));
+      justify-content: center;
+      gap: 22px;
+      margin: 24px auto;
+      direction: ltr;
+    }
+
+    .shape-card {
+      min-width: 0;
+      padding: 12px;
+      background: #f0f3f4;
+      border: 1px solid var(--line);
+    }
+
+    .shape-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      direction: ltr;
+    }
+
+    .tile {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 400px;
+      height: 400px;
+      max-width: 100%;
+      padding: 16px;
+      color: white;
+      direction: ltr;
+    }
+
+    .tile span {
+      padding: 5px 8px;
+      background: rgba(16, 40, 59, .78);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .assign-2-shape-1,
+    .assign-2-shape-2,
+    .assign-2-shape-3,
+    .assign-2-shape-4,
+    .assign-3-shape-1,
+    .assign-3-shape-2,
+    .assign-3-shape-3,
+    .assign-3-shape-4,
+    .assign-4-shape-1,
+    .assign-4-shape-2,
+    .assign-4-shape-3,
+    .assign-4-shape-4 {
+      background-image: var(--grid);
+    }
+
+    .assign-2-shape-1 { background-repeat: no-repeat; }
+    .assign-2-shape-2 { background-repeat: repeat-y; }
+    .assign-2-shape-3 { background-repeat: repeat-x; }
+    .assign-2-shape-4 { background-repeat: repeat; }
+
+    .assign-3-shape-1 { background-repeat: no-repeat; }
+    .assign-3-shape-2 { background-repeat: repeat-y; background-position: right top; }
+    .assign-3-shape-3 { background-repeat: repeat-x; background-position: left bottom; }
+    .assign-3-shape-4 { background-repeat: repeat; }
+
+    .assign-4-shape-1 { background-repeat: no-repeat; background-size: 80% 80%; }
+    .assign-4-shape-2 { background-repeat: no-repeat; background-size: 80% 100%; background-position: right top; }
+    .assign-4-shape-3 { background-repeat: no-repeat; background-size: 100% 80%; background-position: left bottom; }
+    .assign-4-shape-4 { background-repeat: no-repeat; background-size: 50% 50%; background-position: right bottom; }
+
+    .code-panel {
+      overflow: hidden;
+      margin-top: 22px;
+      background: #0d1c27;
+      border: 1px solid #284253;
+      direction: ltr;
+    }
+
+    .code-heading {
+      padding: 8px 14px;
+      background: #19364a;
+      border-bottom: 1px solid #284253;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin: 0;
+      padding: 18px;
+      color: #e1edf3;
+      font-size: 12px;
+      line-height: 1.75;
+      tab-size: 2;
+      white-space: pre;
+    }
+
+    .footnote {
+      margin: 18px 0 0;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footnote a {
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 24px;
+      background: var(--ink);
+      color: #c8d7df;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 42px 22px;
+      }
+
+      .hero-specimen {
+        width: 150px;
+        justify-self: start;
+      }
+
+      main {
+        padding: 22px 14px 44px;
+      }
+
+      .assignment {
+        padding: 18px 14px;
+      }
+
+      .shape-grid {
+        grid-template-columns: minmax(0, 400px);
+      }
+
+      .tile {
+        width: min(400px, 100%);
+        height: auto;
+        aspect-ratio: 1;
+      }
+
+      .assign-1-shape-1,
+      .assign-1-shape-2,
+      .assign-1-shape-3 {
+        width: calc(100vw - 92px);
+      }
+
+      pre {
+        font-size: 11px;
+      }
+    }
+
+    @media (min-width: 761px) and (max-width: 940px) {
+      .shape-grid {
+        grid-template-columns: minmax(0, 430px);
+      }
+    }
+
+    @media print {
+      body { background: white; }
+      .hero-index { display: none; }
+      .assignment { break-inside: avoid; box-shadow: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">ELZERO · CSS ASSIGNMENTS / 05—08</p>
+        <h1>الخلفية تصنع شكل الصفحة</h1>
+        <p class="hero-copy">حل بصري لأربع تمارين عن اللون والشفافية، تكرار صورة الخلفية، تغيير موضعها، والتحكم في حجمها.</p>
+        <nav class="hero-index" aria-label="انتقل إلى التكليف">
+          <a href="#task-01">TASK 01 · COLOR</a>
+          <a href="#task-02">TASK 02 · REPEAT</a>
+          <a href="#task-03">TASK 03 · POSITION</a>
+          <a href="#task-04">TASK 04 · SIZE</a>
+        </nav>
+      </div>
+      <div class="hero-specimen" aria-label="نموذج من شبكة الخلفية"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="assignment" id="task-01">
+      <div class="assignment-head">
+        <span class="task-no">01</span>
+        <div>
+          <h2>Background Color &amp; Alpha</h2>
+          <p>لون blueviolet بثلاث صيغ، ثم شفافية بنسبتين.</p>
+        </div>
+      </div>
+      <div class="rule"><code>500px</code> عرض المحتوى <span>·</span> <code>20px</code> حشو داخلي <span>·</span> توسيط أفقي</div>
+      <div class="color-stack">
+        <div class="assign-1-shape-1">Normal Div</div>
+        <div class="assign-1-shape-2">Normal Div · alpha 0.5</div>
+        <div class="assign-1-shape-3">Normal Div · alpha 0.1</div>
+      </div>
+      <div class="value-strip" aria-label="صيغ اللون المتكافئة">
+        <code>rgb(138, 43, 226)</code>
+        <code>hsl(271.17, 75.93%, 52.75%)</code>
+        <code>#8a2be2</code>
+      </div>
+      <div class="code-panel">
+        <div class="code-heading">CSS / COLOR + ALPHA</div>
+        <pre><code>.assign-1-shape-1,
+.assign-1-shape-2,
+.assign-1-shape-3 {
+  width: 500px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.assign-1-shape-1 {
+  background-color: blueviolet;
+  background-color: rgb(138, 43, 226);
+  background-color: hsl(271.17, 75.93%, 52.75%);
+  background-color: #8a2be2;
+}
+
+.assign-1-shape-2 { background-color: rgba(138, 43, 226, 0.5); }
+.assign-1-shape-3 { background-color: rgba(138, 43, 226, 0.1); }</code></pre>
+      </div>
+    </section>
+
+    <section class="assignment" id="task-02">
+      <div class="assignment-head">
+        <span class="task-no">02</span>
+        <div>
+          <h2>Background Repeat</h2>
+          <p>الصورة نفسها، وأربع قواعد مختلفة للتكرار.</p>
+        </div>
+      </div>
+      <div class="rule"><code>400px × 400px</code><span>·</span> أربع حالات للتكرار</div>
+      <div class="shape-grid">
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 1</span><span>no-repeat</span></div><div class="tile assign-2-shape-1"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 2</span><span>repeat-y</span></div><div class="tile assign-2-shape-2"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 3</span><span>repeat-x</span></div><div class="tile assign-2-shape-3"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 4</span><span>repeat</span></div><div class="tile assign-2-shape-4"><span>Normal Div</span></div></div>
+      </div>
+      <div class="code-panel">
+        <div class="code-heading">CSS / BACKGROUND REPEAT</div>
+        <pre><code>.assign-2-shape-1,
+.assign-2-shape-2,
+.assign-2-shape-3,
+.assign-2-shape-4 {
+  width: 400px;
+  height: 400px;
+  background-image: url("assets/background-grid.png");
+}
+
+.assign-2-shape-1 { background-repeat: no-repeat; }
+.assign-2-shape-2 { background-repeat: repeat-y; }
+.assign-2-shape-3 { background-repeat: repeat-x; }
+.assign-2-shape-4 { background-repeat: repeat; }</code></pre>
+      </div>
+    </section>
+
+    <section class="assignment" id="task-03">
+      <div class="assignment-head">
+        <span class="task-no">03</span>
+        <div>
+          <h2>Background Repeat &amp; Position</h2>
+          <p>حاذِ التكرار الرأسي إلى اليمين، والأفقي إلى الأسفل.</p>
+        </div>
+      </div>
+      <div class="rule"><code>repeat-y</code> بمحاذاة اليمين <span>·</span> <code>repeat-x</code> بمحاذاة الأسفل</div>
+      <div class="shape-grid">
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 1</span><span>no-repeat</span></div><div class="tile assign-3-shape-1"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 2</span><span>repeat-y · right</span></div><div class="tile assign-3-shape-2"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 3</span><span>repeat-x · bottom</span></div><div class="tile assign-3-shape-3"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 4</span><span>repeat</span></div><div class="tile assign-3-shape-4"><span>Normal Div</span></div></div>
+      </div>
+      <div class="code-panel">
+        <div class="code-heading">CSS / BACKGROUND POSITION</div>
+        <pre><code>.assign-3-shape-1,
+.assign-3-shape-2,
+.assign-3-shape-3,
+.assign-3-shape-4 {
+  width: 400px;
+  height: 400px;
+  background-image: url("assets/background-grid.png");
+}
+
+.assign-3-shape-1 { background-repeat: no-repeat; }
+.assign-3-shape-2 {
+  background-repeat: repeat-y;
+  background-position: right top;
+}
+.assign-3-shape-3 {
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+.assign-3-shape-4 { background-repeat: repeat; }</code></pre>
+      </div>
+    </section>
+
+    <section class="assignment" id="task-04">
+      <div class="assignment-head">
+        <span class="task-no">04</span>
+        <div>
+          <h2>Background Size &amp; Position</h2>
+          <p>تحكم في نسبة أبعاد الصورة ومكان ظهورها داخل العنصر.</p>
+        </div>
+      </div>
+      <div class="rule"><code>80% × 80%</code> في الشكل 1 <span>·</span> <code>50% × 50%</code> في الشكل 4</div>
+      <div class="shape-grid">
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 1</span><span>80% × 80%</span></div><div class="tile assign-4-shape-1"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 2</span><span>80% × 100% · right</span></div><div class="tile assign-4-shape-2"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 3</span><span>100% × 80% · bottom</span></div><div class="tile assign-4-shape-3"><span>Normal Div</span></div></div>
+        <div class="shape-card"><div class="shape-label"><span>SHAPE 4</span><span>50% × 50% · bottom right</span></div><div class="tile assign-4-shape-4"><span>Normal Div</span></div></div>
+      </div>
+      <div class="code-panel">
+        <div class="code-heading">CSS / BACKGROUND SIZE</div>
+        <pre><code>.assign-4-shape-1,
+.assign-4-shape-2,
+.assign-4-shape-3,
+.assign-4-shape-4 {
+  width: 400px;
+  height: 400px;
+  background-image: url("assets/background-grid.png");
+  background-repeat: no-repeat;
+}
+
+.assign-4-shape-1 { background-size: 80% 80%; }
+.assign-4-shape-2 {
+  background-size: 80% 100%;
+  background-position: right top;
+}
+.assign-4-shape-3 {
+  background-size: 100% 80%;
+  background-position: left bottom;
+}
+.assign-4-shape-4 {
+  background-size: 50% 50%;
+  background-position: right bottom;
+}</code></pre>
+      </div>
+      <p class="footnote">تُظهر الصورة المرجعية للشكل 4 الخلفية في الركن السفلي الأيمن؛ لذلك حُدد موضعها بـ <code>right bottom</code>.</p>
+    </section>
+  </main>
+
+  <footer>CSS BACKGROUND LAB · ELZERO LESSONS 05—08</footer>
+</body>
+</html>
