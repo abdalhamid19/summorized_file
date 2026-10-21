@@ -15,7 +15,9 @@ aliases:
 # CSS Selectors — Class, ID, and Type
 
 > [!question] السؤال
-> <p dir="rtl">اكتب تعليقًا يوضح ما الذي يختاره كل <bdi dir="ltr"><code>CSS Selector</code></bdi> (محدد <bdi dir="ltr"><code>CSS</code></bdi>: نمط يختار عناصر الصفحة المطلوب تنسيقها). أكمل التعليقات الناقصة:</p>
+> أكمل التعليقات الناقصة، واكتب تعليقًا يوضح وظيفة المصطلح التالي:
+>
+> `selector`
 >
 > ```css
 > /* Any Element With Class Title */
@@ -38,33 +40,57 @@ aliases:
 > [!success]- الإجابة وشرح الحل — اضغط لفتحهما
 >
 > ```css
-> /* أي عنصر يحمل الصنف title */
+> /* Any element with class title */
 > .title {
 > }
 >
-> /* العنصر الذي يحمل المعرّف nav */
+> /* Element with ID nav */
 > #nav {
 > }
 >
-> /* جميع عناصر div */
+> /* All div elements */
 > div {
 > }
 >
-> /* جميع عناصر h2 */
+> /* All h2 elements */
 > h2 {
 > }
 > ```
 >
-> <ul dir="rtl">
-> <li dir="rtl">يختار المحدد <bdi dir="ltr"><code>.title</code></bdi> أي عنصر يحمل <bdi dir="ltr"><code>class="title"</code></bdi>؛ ويُسمّى <bdi dir="ltr"><code>class selector</code></bdi> (محدد الصنف). ويمكن لعناصر متعددة حمل الصنف نفسه.</li>
-> <li dir="rtl">يختار المحدد <bdi dir="ltr"><code>#nav</code></bdi> العنصر الذي يحمل <bdi dir="ltr"><code>id="nav"</code></bdi>؛ ويُسمّى <bdi dir="ltr"><code>ID selector</code></bdi> (محدد المعرّف).</li>
-> <li dir="rtl">يختار المحدد <bdi dir="ltr"><code>div</code></bdi> أو <bdi dir="ltr"><code>h2</code></bdi> كل الوسوم التي تحمل الاسم نفسه؛ ويُسمّى <bdi dir="ltr"><code>type selector</code></bdi> (محدد نوع الوسم).</li>
-> </ul>
+> ### `class selector`
 >
-> <p dir="rtl"><strong>قاعدة سريعة:</strong> الصنف <bdi dir="ltr"><code>class</code></bdi> تسبقه النقطة <bdi dir="ltr"><code>.</code></bdi>، والمعرّف <bdi dir="ltr"><code>id</code></bdi> تسبقه العلامة <bdi dir="ltr"><code>#</code></bdi>، أما <bdi dir="ltr"><code>type selector</code></bdi> فيستخدم اسم الوسم.</p>
+> يختار كل عنصر يحمل قيمة الصنف التالية:
+>
+> `class="title"`
+>
+> وصيغته في هذا المثال:
+>
+> `.title`
+>
+> ### `ID selector`
+>
+> يختار العنصر الذي يحمل المعرّف التالي:
+>
+> `id="nav"`
+>
+> وصيغته في هذا المثال:
+>
+> `#nav`
+>
+> ### `type selector`
+>
+> يختار جميع العناصر التي تحمل أحد الاسمين التاليين:
+>
+> `div`
+>
+> `h2`
+>
+> **قاعدة سريعة:** النقطة تدل على الصنف، وعلامة الهاش تدل على المعرّف، واسم الوسم يختار جميع العناصر من نوعه.
 
 ## HTML Lesson Reference
 
-<p dir="rtl">المحدد الأخير يختار الوسم <bdi dir="ltr"><code>h2</code></bdi> لعنوان من المستوى الثاني.</p>
+المحدد الأخير يختار الوسم التالي لعنوان من المستوى الثاني:
+
+`h2`
 
 راجع [[vibe_coding/Elzero Frontend/HTML 2021/07 - العناوين واستخداماتها/02 - ملخص مختصر|درس العناوين]] للاستزادة.
