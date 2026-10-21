@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "vibe_coding/Elzero Frontend/CSS/تكليف 01 - CSS Selectors/الحل.md",
+                "file": "vibe_coding/Elzero Frontend/CSS/CSS Selectors/01 - CSS Selectors - Class, ID, and Type.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "الحل"
+              "title": "01 - CSS Selectors - Class, ID, and Type"
             }
           }
         ],
@@ -95,7 +95,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 389.5
   },
   "right": {
     "id": "d64c7174864d8303",
@@ -203,6 +203,15 @@
   "active": "a85687c173ab52c0",
   "lastOpenFiles": [
     "دين/العقيدة/زاد عقيدة/المحاضرة 17/تفريغ المحاضرة 17.md",
+    "vibe_coding/Elzero Frontend/CSS/محددات CSS/00 - فهرس محددات CSS.md",
+    "vibe_coding/Elzero Frontend/CSS/CSS Selectors/01 - CSS Selectors - Class, ID, and Type.md",
+    "vibe_coding/Elzero Frontend/CSS/CSS Selectors/00 - CSS Selectors Index.md",
+    "vibe_coding/Elzero Frontend/CSS/CSS Selectors",
+    "vibe_coding/Elzero Frontend/CSS/محددات CSS/00 - CSS Selectors Index.md",
+    "vibe_coding/Elzero Frontend/CSS/محددات CSS/01 - محددات الصنف والمعرّف واسم الوسم.md",
+    "vibe_coding/Elzero Frontend/CSS/محددات CSS/01 - CSS Selectors - Class, ID, and Type.md",
+    "vibe_coding/Elzero Frontend/CSS/تكليف 01 - CSS Selectors/الحل.md",
+    "vibe_coding/Elzero Frontend/CSS/محددات CSS",
     "دين/العقيدة/زاد عقيدة/المحاضرة 24/تفريغ المحاضرة 24.md",
     "دين/العقيدة/زاد عقيدة/المحاضرة 24",
     "دين/العقيدة/زاد عقيدة/المحاضرة 23/تفريغ المحاضرة 23.md",
@@ -228,18 +237,9 @@
     "دين/العقيدة/زاد عقيدة/المحاضرة 16/09 - الحكم الفاصل في دعاء المقبورين والتدرج الشيطاني في الغلو وتفنيد الشبهات.md",
     "دين/العقيدة/زاد عقيدة/المحاضرة 16/08 - دلالة أحاديث الجهاد الصريحة وتفسير النبي لمعنى لا إله إلا الله.md",
     "دين/العقيدة/زاد عقيدة/المحاضرة 16/07 - فاصل خلق الحلم وضبط النفس وآثاره الإيمانية والاجتماعية.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 16/06 - حديث وفاة أبي طالب ومناقضة لا إله إلا الله لملة عبد المطلب.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 16/05 - دعوة خاتم المرسلين ونصوص القرآن المحكمة وفهم مشركي قريش.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 16/04 - دعوة موسى وعيسى عليهما السلام ونصوص القرآن في كفر من اتخذهما آلهة.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 16/03 - فاصل اسم الله الحكم والعدل الإلهي في التشريع والجزاء.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 13/المحاضرة 13 - توحيد الربوبية حقيقته وأدلته ومكانته - ملف مجمع.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 16/02 - دعوة إبراهيم والكلمة الباقية في عقبه.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 13/ملخص المراجعة السريعة.md",
     "دين/العقيدة/زاد عقيدة/المحاضرة 16",
-    "vibe_coding/Elzero Frontend/HTML 2021/07 - العناوين واستخداماتها",
     "vibe_coding/computer use/FastVPN/FastVPN-pywinauto-locations-final-20261017.jpg",
     "vibe_coding/computer use/FastVPN/FastVPN-pywinauto-settings-20261017.jpg",
-    "vibe_coding/computer use/FastVPN/__pycache__/Windows UIA Automation.cpython-313.pyc",
     "vibe_coding/computer use/FastVPN/FastVPN-HighControl-OpenLocations-before-20261017.png",
     "vibe_coding/computer use/FastVPN/FastVPN-HighControl-OpenLocations-after-20261017.png",
     "vibe_coding/computer use/FastVPN/FastVPN-high-control-before-20261017.png",
