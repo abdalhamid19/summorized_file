@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CSS Transitions and Variables — Assignments 42–45</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:28px;font:16px Arial,sans-serif}.task{max-width:900px;margin:0 auto 35px;padding:20px;border:1px solid #ddd}.task h2{font-size:18px}.t1{height:310px;margin-top:45px;background:#f4f4f6;padding:20px;transition:transform .5s ease}.t1:hover{transform:translateY(-40px)}.t1 .child{margin-top:20px;padding:35px;text-align:center;background:#ddd;transition:transform .5s ease .5s}.t1:hover .child{transform:translateY(40px)}.t2{display:block!important;width:400px!important;margin:0 auto!important;padding:20px!important;border:1px solid blue!important;background:red!important;color:white!important;font-size:0!important;text-align:center}.t2::before{content:"Elzero";font-size:20px}.t3:not(.fallback){--mainColor:#009688;--mainPadding:10px}.t3 div{color:var(--mainColor,red);border:5px solid var(--mainColor,#000);padding:var(--mainPadding,10px);margin:20px 0;font-size:30px}
+</style>
+<section class="task"><h2>01 — Hover transition, parent and child delay</h2><div class="t1"><div style="text-align:center;padding:15px">Will Go Up On Hover in Half Second</div><div class="child">Will Go Down After Half Second</div></div></section>
+<section class="task"><h2>02 — Replace inline text with ::before</h2><div class="t2">Hello Div</div></section>
+<section class="task"><h2>03 — Variables and fallbacks</h2><div class="t3"><div>Element</div><div>Element</div><div>Element</div></div><div class="t3 fallback"><div>Element</div><div>Element</div><div>Element</div></div></section>
+</html>

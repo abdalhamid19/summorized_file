@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS All Course Assignments 09–16</title>
+  <style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 22px; background: #eee; color: #222; font-family: Arial, sans-serif; }
+.sheet { max-width: 1500px; margin: 0 auto; }
+.page-header { margin: 0 0 20px; padding: 22px 26px; background: #fff; border: 1px solid #ddd; }
+.page-header h1 { margin: 0 0 8px; font-size: 28px; }
+.page-header p { margin: 0; color: #666; }
+.assignment-block { display: grid; grid-template-columns: minmax(300px, 38%) minmax(0, 1fr); gap: 24px; align-items: start; margin: 20px 0; padding: 22px; background: #fff; border: 1px solid #ddd; }
+.assignment-block h2 { margin: 0 0 14px; font-size: 20px; }
+.reference img { display: block; width: 100%; height: auto; background: #eee; }
+.demo { min-width: 0; overflow: auto; padding: 20px; background: #eee; }
+.demo09 .text { color: transparent; font: 700 clamp(24px, 4.1vw, 68px) / 1 Arial, sans-serif; white-space: nowrap; text-align: center; text-transform: capitalize; background-image: linear-gradient(to bottom, #f0440a, #bd8c0e); -webkit-background-clip: text; background-clip: text; }
+.demo10 .container { display: grid; grid-template-columns: repeat(8, 1fr); width: min(100%, 810px); aspect-ratio: 1; border: 5px solid #000; }
+.demo10 .white { background-color: #fff; }
+.demo10 .black { background-color: #000; }
+.demo11 table { width: min(100%, 600px); margin: 24px auto; border-spacing: 2px; table-layout: fixed; color: #111; font: 16px Arial, sans-serif; }
+.demo11 th, .demo11 td { padding: 18px 10px; border: 1px solid #ccc; text-align: center; }
+.demo11 tr:not(:first-child):has(td:hover) > td { background-color: #f4f4f4; }
+.demo11 table:has(tr:not(:first-child) > td:nth-child(1):hover) tr:not(:first-child) > td:nth-child(1), .demo11 table:has(tr:not(:first-child) > td:nth-child(2):hover) tr:not(:first-child) > td:nth-child(2), .demo11 table:has(tr:not(:first-child) > td:nth-child(3):hover) tr:not(:first-child) > td:nth-child(3) { background-color: #f4f4f4; }
+.demo11 td:hover { border-color: #2196f3; color: #2196f3; }
+.demo12 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 1200px; margin: 50px auto; padding: 0 16px; }
+.demo12 .plan-card { position: relative; display: flex; flex-direction: column; align-items: center; min-height: 548px; padding: 55px 18px 38px; border: 1px solid #ccc; background: #fff; text-align: center; }
+.demo12 .plan-card h3 { margin: 0 0 30px; font-size: 30px; }
+.demo12 .price { display: flex; align-items: baseline; gap: 2px; margin: 0 0 30px; color: #197beb; }
+.demo12 .price span { font-size: 30px; }
+.demo12 .price strong { font-size: 50px; }
+.demo12 .price small { color: #888; font-size: 16px; }
+.demo12 .plan-card ul { display: grid; gap: 22px; width: 100%; margin: 0; padding: 0; color: #888; list-style: none; font-size: 16px; }
+.demo12 .plan-card button { width: 140px; margin-top: auto; padding: 18px 12px; border: 0; border-radius: 32px; background: #197beb; color: #fff; font-weight: 700; }
+.demo12 .ribbon { position: absolute; top: -21px; left: 10%; width: 80%; padding: 15px 8px; background: #197beb; color: #fff; font-weight: 700; }
+.demo12 .ribbon::before { position: absolute; top: 0; left: -18px; border-top: 21px solid #0e67cd; border-left: 18px solid transparent; content: ""; }
+.demo13 .capacity-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 860px; margin: 25px auto; font-family: Arial, sans-serif; }
+.demo13 .capacity-card { position: relative; min-height: 170px; padding: 20px; border: 2px solid transparent; border-radius: 12px; background: #fff; box-shadow: 0 7px 17px #0003; color: #555; }
+.demo13 .capacity-card.active, .demo13 .capacity-card:hover { border-color: #3171ff; }
+.demo13 .indicator { position: absolute; top: 16px; right: 16px; width: 20px; height: 20px; border-radius: 50%; background: #ccc; }
+.demo13 .capacity-card.active .indicator, .demo13 .capacity-card:hover .indicator { background: #3171ff; }
+.demo13 .capacity-card h3 { margin: 0 0 12px; font-size: 18px; }
+.demo13 .capacity { margin: 0 0 10px; }
+.demo13 .capacity strong { font-size: 48px; }
+.demo13 .capacity b { font-size: 28px; }
+.demo13 .capacity small { color: #888; font-size: 16px; }
+.demo13 .rate { margin: 0; font-size: 16px; }
+.demo13 .rate strong { font-size: 18px; }
+.demo14 .camera { position: relative; width: min(100%, 600px); height: 460px; margin: 60px auto 0; }
+.demo14 .camera__body { position: absolute; inset: 60px 0 0; border-radius: 20px; background: linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%); }
+.demo14 .camera__viewfinder { position: absolute; z-index: 2; top: 0; left: calc(50% - 97px); width: 194px; height: 60px; border-radius: 24px 24px 0 0; background: #607d8b; clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); }
+.demo14 .camera__window { position: absolute; top: 14px; left: 37px; display: grid; width: 120px; height: 30px; place-items: center; border-radius: 10px; background: #ccc; }
+.demo14 .camera__screen { width: 40px; height: 15px; border-radius: 3px; background: #607d8b; }
+.demo14 .camera__shutter { position: absolute; z-index: 3; top: 38px; left: 30px; width: 80px; height: 22px; border-radius: 18px 18px 0 0; background: #607d8b; }
+.demo14 .camera__button { position: absolute; z-index: 4; top: 37px; left: 42px; width: 57px; height: 22px; border-radius: 4px 4px 0 0; background: #e91e63; }
+.demo14 .camera__lens { position: absolute; z-index: 5; top: 42px; left: 50%; display: grid; width: 315px; height: 315px; transform: translateX(-50%); place-items: center; border: 20px solid #eee; border-radius: 50%; background: #ccc; box-shadow: 0 4px 16px #0006; }
+.demo14 .camera__ring { display: grid; width: 100%; height: 100%; place-items: center; border-radius: 50%; background: #3e3e3e; }
+.demo14 .camera__glass { position: relative; width: 150px; height: 150px; border-radius: 50%; background: #358fb6; }
+.demo14 .camera__glare { position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #75c2df; }
+.demo15 h2 { margin: 0; color: #9c27b0; font: 700 clamp(38px, 7vw, 88px) / 1 Arial, sans-serif; -webkit-text-fill-color: transparent; -webkit-text-stroke: 2px #9c27b0; }
+.demo16 table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; table-layout: fixed; background: #fff; font: 16px Arial, sans-serif; }
+.demo16 th:first-child, .demo16 td:first-child { width: 34%; }
+.demo16 th:nth-child(2), .demo16 td:nth-child(2) { width: 21%; }
+.demo16 th:nth-child(3), .demo16 td:nth-child(3) { width: 14%; }
+.demo16 th:nth-child(n + 4), .demo16 td:nth-child(n + 4) { width: 10.33%; }
+.demo16 th, .demo16 td { padding: 14px 8px; border: 2px solid #eee; text-align: center; }
+.demo16 th { background: #ddd; }
+.demo16 tfoot td { font-weight: 700; }
+.demo16 tfoot td:first-child { background: #ffe400; }
+.demo16 tfoot td:not(:first-child) { background: #009aff; color: #fff; }
+.demo16 caption { caption-side: bottom; padding: 14px; background: #ccc; font-size: 22px; font-weight: 700; }
+#assignment-12, #assignment-16 { grid-template-columns: 1fr; }
+#assignment-12 .reference { max-width: 1236px; margin: 0 auto; }
+#assignment-16 .reference { max-width: 1063px; margin: 0 auto; }
+@media (max-width: 900px) {
+  body { padding: 12px; }
+  .assignment-block { grid-template-columns: 1fr; }
+  .reference { max-width: 100%; }
+  .demo12 .plans, .demo13 .capacity-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="page-header">
+    <h1>CSS All Course Assignments — 09–16</h1>
+    <p>مرجع التكليف الرسمي والمعاينة المنفذة لكل حل.</p>
+  </header>
+  <section class="assignment-block" id="assignment-09">
+  <div class="reference">
+    <h2>Assignment 09 — Gradient Text: المرجع الرسمي</h2>
+    <img src="assets/assignment-09-reference.png" alt="الصورة المرجعية للتكليف 09">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo09">
+      <div class="text">elzero web school</div>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-10">
+  <div class="reference">
+    <h2>Assignment 10 — Checkerboard: المرجع الرسمي</h2>
+    <img src="assets/assignment-10-reference.png" alt="الصورة المرجعية للتكليف 10">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo10">
+      <div class="container">
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+  <div class="black"></div>
+  <div class="white"></div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-11">
+  <div class="reference">
+    <h2>Assignment 11 — Table Hover Row and Column: المرجع الرسمي</h2>
+    <img src="assets/assignment-11-reference.png" alt="الصورة المرجعية للتكليف 11">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo11">
+      <table>
+  <tr>
+    <th>Language</th>
+    <th>Created By</th>
+    <th>Created Year</th>
+  </tr>
+  <tr>
+    <td>Python</td>
+    <td>Guido van Rossum</td>
+    <td>1991</td>
+  </tr>
+  <tr>
+    <td>Java</td>
+    <td>James Gosling</td>
+    <td>1995</td>
+  </tr>
+  <tr>
+    <td>JavaScript</td>
+    <td>Brendan Eich</td>
+    <td>1995</td>
+  </tr>
+  <tr>
+    <td>PHP</td>
+    <td>Rasmus Lerdorf</td>
+    <td>1995</td>
+  </tr>
+  <tr>
+    <td>Swift</td>
+    <td>Chris Lattner</td>
+    <td>2014</td>
+  </tr>
+</table>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-12">
+  <div class="reference">
+    <h2>Assignment 12 — Pricing Plans: المرجع الرسمي</h2>
+    <img src="assets/assignment-12-reference.png" alt="الصورة المرجعية للتكليف 12">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo12">
+      <div class="plans">
+  <article class="plan-card">
+    <h3>Personal</h3>
+    <p class="price"><span>$</span><strong>10</strong><small>/ Mo</small></p>
+    <ul>
+      <li><strong>Free</strong> Weekly Meeting</li>
+      <li><strong>1x</strong> Monthly Call</li>
+      <li><strong>Unlimited</strong> Messenger Chats</li>
+      <li><strong>Free</strong> Control Panel Access</li>
+      <li><strong>1x</strong> Face to Face Meeting</li>
+    </ul>
+    <button>Buy Now</button>
+  </article>
+  <article class="plan-card featured">
+    <div class="ribbon">Most Popular</div>
+    <h3>Business</h3>
+    <p class="price"><span>$</span><strong>15</strong><small>/ Mo</small></p>
+    <ul>
+      <li><strong>Free</strong> Weekly Meeting</li>
+      <li><strong>2x</strong> Monthly Call</li>
+      <li><strong>Unlimited</strong> Messenger Chats</li>
+      <li><strong>Free</strong> Control Panel Access</li>
+      <li><strong>2x</strong> Face to Face Meeting</li>
+    </ul>
+    <button>Buy Now</button>
+  </article>
+  <article class="plan-card">
+    <h3>Enterprise</h3>
+    <p class="price"><span>$</span><strong>20</strong><small>/ Mo</small></p>
+    <ul>
+      <li><strong>Free</strong> Daily Meeting</li>
+      <li><strong>3x</strong> Monthly Call</li>
+      <li><strong>Unlimited</strong> Messenger Chats</li>
+      <li><strong>Free</strong> Control Panel Access</li>
+      <li><strong>3x</strong> Face to Face Meeting</li>
+    </ul>
+    <button>Buy Now</button>
+  </article>
+</div>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-13">
+  <div class="reference">
+    <h2>Assignment 13 — Active Storage Plan: المرجع الرسمي</h2>
+    <img src="assets/assignment-13-reference.png" alt="الصورة المرجعية للتكليف 13">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo13">
+      <div class="capacity-grid">
+  <article class="capacity-card active">
+    <span class="indicator" aria-hidden="true"></span>
+    <h3>Standard</h3>
+    <p class="capacity"><strong>1</strong> <b>TB</b> <small>(1000gb)</small></p>
+    <p class="rate"><strong>$40</strong>/month</p>
+  </article>
+  <article class="capacity-card">
+    <span class="indicator" aria-hidden="true"></span>
+    <h3>Pro</h3>
+    <p class="capacity"><strong>2</strong> <b>TB</b> <small>(2000gb)</small></p>
+    <p class="rate"><strong>$70</strong>/month</p>
+  </article>
+  <article class="capacity-card">
+    <span class="indicator" aria-hidden="true"></span>
+    <h3>Ultimate</h3>
+    <p class="capacity"><strong>5</strong> <b>TB</b> <small>(5000gb)</small></p>
+    <p class="rate"><strong>$100</strong>/month</p>
+  </article>
+</div>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-14">
+  <div class="reference">
+    <h2>Assignment 14 — CSS Camera: المرجع الرسمي</h2>
+    <img src="assets/assignment-14-reference.png" alt="الصورة المرجعية للتكليف 14">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo14">
+      <div class="camera" aria-label="CSS illustration of a camera">
+  <div class="camera__viewfinder">
+    <span class="camera__window"><span class="camera__screen"></span></span>
+  </div>
+  <span class="camera__shutter"></span>
+  <span class="camera__button"></span>
+  <div class="camera__body">
+    <div class="camera__lens">
+      <div class="camera__ring">
+        <div class="camera__glass"><span class="camera__glare"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-15">
+  <div class="reference">
+    <h2>Assignment 15 — Outlined Text: المرجع الرسمي</h2>
+    <img src="assets/assignment-15-reference.png" alt="الصورة المرجعية للتكليف 15">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo15">
+      <h2>Elzero Web School</h2>
+    </div>
+  </div>
+</section>
+<section class="assignment-block" id="assignment-16">
+  <div class="reference">
+    <h2>Assignment 16 — Company Data Table: المرجع الرسمي</h2>
+    <img src="assets/assignment-16-reference.png" alt="الصورة المرجعية للتكليف 16">
+  </div>
+  <div class="result">
+    <h2>المعاينة المحلولة</h2>
+    <div class="demo demo16">
+      <table>
+  <caption>
+    Company Data
+  </caption>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td>600</td>
+      <td>600</td>
+      <td>600</td>
+    </tr>
+  </tfoot>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Contact</th>
+      <th>Country</th>
+      <th>Revenue</th>
+      <th>Cost</th>
+      <th>Profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Ernst Handel</td>
+      <td>Roland Mendel</td>
+      <td>Austria</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Island Trading</td>
+      <td>Helen Bennett</td>
+      <td>UK</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Laughing Bacchus Winecellars</td>
+      <td>Yoshi Tannamuri</td>
+      <td>Canada</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Magazzini Alimentari Riuniti</td>
+      <td>Giovanni Rovelli</td>
+      <td>Italy</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</section>
+</main>
+</body>
+</html>

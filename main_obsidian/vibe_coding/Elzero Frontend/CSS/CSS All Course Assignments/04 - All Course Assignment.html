@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Course Assignment 04</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #eee; font-family: Arial, sans-serif; }
+    .input-box { display: flex; width: min(900px, calc(100% - 32px)); height: 110px; overflow: hidden; border: 3px solid #ddd; border-radius: 12px; background: #fff; }
+    .prefix { flex: 0 0 130px; display: grid; place-items: center; color: #fff; background: #009688; font-size: 42px; }
+    .input-box input { flex: 1; min-width: 0; border: 0; border-left: 1px solid #009688; outline: 0; padding: 0 28px; font-size: 40px; }
+    .input-box input::placeholder { color: #757575; opacity: 1; }
+  </style>
+</head>
+<body>
+<div class="input-box">
+  <span class="prefix">+20</span>
+  <input type="tel" placeholder="1011001100" />
+</div>
+</body>
+</html>

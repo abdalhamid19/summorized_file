@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Float and Opacity Assignments 27–29</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; background: #edf1f5; color: #222; font-family: Arial, sans-serif; }
+    main { max-width: 1100px; margin: auto; }
+    h1 { margin: 0 0 24px; }
+    .task { margin: 18px 0; padding: 20px; background: white; border: 1px solid #ccd3dc; border-radius: 12px; overflow: auto; }
+    .task h2 { font-size: 18px; margin: 0 0 16px; }
+    .stage { min-height: 130px; display: flow-root; }
+    p { margin: 10px; }
+    .task .stage { direction: ltr; text-align: left; }
+#task-01 .parent {
+  width: 800px;
+  margin: 0 auto;
+  --gap: 15px;
+}
+#task-01 .parent::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#task-01 .item {
+  float: left;
+  box-sizing: border-box;
+  width: calc((100% - 3 * var(--gap)) / 4);
+  display: grid;
+  place-items: center;
+  min-height: 100px;
+  margin: 0 var(--gap) var(--gap) 0;
+  background: #e8f1f6;
+  border: 2px solid #fff;
+}
+#task-01 .item:nth-child(4n) { margin-right: 0; }
+@media (min-width: 900px) {
+  #task-01 .parent { width: 1000px; }
+}
+
+#task-02 .stage > div {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 14px auto;
+  padding: 20px;
+  color: #111;
+  font: 700 16px Arial, sans-serif;
+  background-color: #009688;
+}
+#task-02 .stage > .one,
+#task-02 .stage > .two {
+  background-color: rgba(0, 150, 136, 0.1);
+}
+  </style>
+</head>
+<body><main>
+<h1>CSS Float and Opacity Assignments 27–29</h1>
+<p>ملاحظة: القيم اللونية أو بعض تفاصيل التخطيط قد تكون تقريبية عندما تعتمد على صورة المصدر غير المتاحة.</p>
+<section class="task" id="task-01">
+  <h2>التكليف 01: Dynamic Float Grid with Calc</h2>
+  <div class="stage"><div class="parent"><div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div><div class="item">6</div><div class="item">7</div><div class="item">8</div></div></div>
+</section><section class="task" id="task-02">
+  <h2>التكليف 02: Transparent Background without Fading Text</h2>
+  <div class="stage"><div class="normal">Normal</div><div class="one">One</div><div class="two">Two</div></div>
+</section>
+<p><a href="https://elzero.org/css-assignments-lesson-from-27-to-29/">صفحة المصدر الرسمية</a></p>
+</main></body>
+</html>

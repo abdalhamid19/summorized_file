@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Selectors Assignments 78-82</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px; color: #000; font-family: Arial, sans-serif; }
+    main { max-width: 1100px; margin: auto; }
+    .task { margin: 0 0 24px; padding: 16px; border: 1px solid #ddd; }
+    .task h2 { margin: 0 0 12px; color: #333; font: 16px Arial, sans-serif; }
+    .reference { display: block; max-width: 100%; height: auto; margin: 0 0 12px; }
+    .output { position: relative; overflow: hidden; background: #fff; color: #000; font-family: "Times New Roman", serif; }
+    .output > * { margin: 0; white-space: nowrap; font-weight: 400; }
+    .output-01 { width: 276px; height: 399px; padding: 66px 0 0 60px; font-size: 40px; line-height: 55px; }
+    .output-02 { width: 249px; height: 299px; padding: 39px 0 0 45px; font-size: 40px; line-height: 53px; }
+    .output-03 { width: 252px; height: 396px; padding: 34px 0 0 45px; font-size: 40px; line-height: 55px; }
+    .output-04 { width: 262px; height: 845px; padding: 38px 0 0 49px; font-size: 40px; line-height: 55px; }
+    .output-05 { width: 198px; height: 817px; padding: 32px 0 0 38px; font-size: 36px; line-height: 47px; }
+    .output-06 { width: 209px; height: 732px; padding: 29px 0 0 37px; font-size: 36px; line-height: 47px; }
+    .output-07 { width: 129px; height: 824px; padding: 17px 0 0 28px; font-size: 20px; line-height: 27px; }
+    .output-08 { width: 213px; height: 458px; padding: 38px 0 0 30px; font-size: 40px; line-height: 55px; }
+    .output-02 > .parent, .output-02 > .parent > div,
+    .output-03 > .parent, .output-03 .parent > div, .output-03 .parent > div > div,
+    .output-04 > .parent, .output-05 > div, .output-06 > div, .output-07 > div, .output-08 > div { display: contents; }
+    .output-07 h3, .output-08 h3 { margin: 0; font-size: inherit; font-weight: 400; line-height: inherit; }
+    .output-01 div.main.red { color: #f00; font-weight: 700; }
+    .output-02 .parent > .child:nth-of-type(2) { color: #f00; font-weight: 700; }
+    .output-03 .parent > .baby:only-child { color: #f00; font-weight: 700; }
+    .output-04 > div[title]:not(.no-need) { color: #f00; font-weight: 700; }
+    .output-05 > div:nth-of-type(2) > div[title="Elzero"] { color: #f00; font-weight: 700; }
+    .output-06 > div:first-of-type > div:nth-child(3), .output-06 > div:nth-of-type(2) > div:nth-child(4) { color: #f00; font-weight: 700; }
+    .output-07 > div:first-of-type > h3:nth-of-type(3) + div { color: #f00; font-weight: 700; }
+    .output-08 > div > div:not(:first-child):not(:last-child), .output-08 > div > p:not(:first-child):not(:last-child) { color: #f00; font-weight: 700; }
+  </style>
+</head>
+<body>
+<main>
+  <section class="task">
+    <h2>Task 01 — Combined classes</h2>
+    <img class="reference" src="assets/reference-task-01.png" alt="Official reference for task 1">
+    <div class="output output-01">
+      <div class="main red">Elzero</div>
+      <div class="main">Testing</div>
+      <div class="red">Testing</div>
+      <div class="main red">Elzero</div>
+      <p class="main red">Testing</p>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 02 — Direct child</h2>
+    <img class="reference" src="assets/reference-task-02.png" alt="Official reference for task 2">
+    <div class="output output-02">
+      <div class="parent">
+        <div class="child">Testing</div>
+        <div class="child">Elzero</div>
+      </div>
+      <div class="parent">
+        <div><div class="child">Testing</div></div>
+      </div>
+      <div class="child">Testing</div>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 03 — Only child</h2>
+    <img class="reference" src="assets/reference-task-03.png" alt="Official reference for task 3">
+    <div class="output output-03">
+      <div class="parent"><div class="baby">Testing</div><div class="baby">Testing</div></div>
+      <div class="parent"><div class="baby">Elzero</div></div>
+      <div class="parent"><div><div>Testing</div></div><div class="baby">Testing</div></div>
+      <div class="baby">Testing</div>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 04 — Attribute existence and exclusion</h2>
+    <img class="reference" src="assets/reference-task-04.png" alt="Official reference for task 4">
+    <div class="output output-04">
+      <p>Testing</p>
+      <div>Testing</div>
+      <div>Testing</div>
+      <div title="Elzero">Elzero</div>
+      <div title="Hello">Elzero</div>
+      <div title="HTML">Elzero</div>
+      <div>Testing</div>
+      <div class="no-need" title="Elzero">Testing</div>
+      <div class="parent">
+        <div>Testing</div><p>Testing</p><div>Testing</div><div title="Elzero">Testing</div><div>Testing</div><div title="Elzero">Testing</div>
+      </div>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 05 — Attribute on second group</h2>
+    <img class="reference" src="assets/reference-task-05.png" alt="Official reference for task 5">
+    <div class="output output-05">
+      <div><p>Testing</p><div title="Elzero">Testing</div><p>Testing</p></div>
+      <div><p>Testing</p><div title="Elzero">Elzero</div></div>
+      <div class="no-need"><p>Testing</p><div title="Elzero">Testing</div></div>
+      <div><p>Testing</p><p>Testing</p><div class="no-need" title="Elzero">Testing</div></div>
+      <div><p title="Elzero">Testing</p><p title="Elzero">Testing</p><div>Testing</div></div>
+      <div><p>Testing</p><div>Testing</div><div>Testing</div></div>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 06 — Two element positions</h2>
+    <img class="reference" src="assets/reference-task-06.png" alt="Official reference for task 6">
+    <div class="output output-06">
+      <div><div>Testing</div><div>Testing</div><div>Elzero</div><div>Testing</div></div>
+      <div><div>Testing</div><div>Testing</div><div>Testing</div><div>Elzero</div><div>Testing</div><p>Testing</p></div>
+      <div class="no-need"><div>Testing</div><div>Testing</div><div>Testing</div><div>Testing</div></div>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 07 — Third heading and following div</h2>
+    <img class="reference" src="assets/reference-task-07.png" alt="Official reference for task 7">
+    <div class="output output-07">
+      <div><h3>Testing</h3><div>Testing</div><h3>Testing</h3><h3>Testing</h3><div>Elzero</div><div>Testing</div></div>
+      <div><h3>Testing</h3><div>Testing</div><h3>Testing</h3><p>Testing</p><div>Testing</div><div>Testing</div></div>
+      <div><div>Testing</div><h3>Testing</h3><div>Testing</div><h3>Testing</h3><div class="no-need">Testing</div><div>Testing</div><div>Testing</div></div>
+      <div class="no-need"><h3>Testing</h3><div>Testing</div><h3>Testing</h3><div>Testing</div><div>Testing</div></div>
+      <div class="no-need-2"><h3>Testing</h3><div>Testing</div><h3>Testing</h3><div>Testing</div><div>Testing</div></div>
+    </div>
+  </section>
+  <section class="task">
+    <h2>Task 08 — :not() only</h2>
+    <img class="reference" src="assets/reference-task-08.png" alt="Official reference for task 8">
+    <div class="output output-08">
+      <div><div>Testing</div><div>Elzero</div><div>Elzero</div><h3>Testing</h3><p>Elzero</p><h3>Testing</h3><div>Testing</div></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

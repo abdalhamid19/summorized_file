@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Course Assignment 01</title>
+  <style>
+    :root { --line-size: 5px; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #fff; }
+    .elzero-lines { position: relative; display: grid; place-items: center; width: min(400px, calc(100% - 40px)); min-height: 68px; box-sizing: border-box; border: var(--line-size) solid red; outline: var(--line-size) solid #000; outline-offset: calc(var(--line-size) + var(--line-size)); font: 700 14px/1 Georgia, serif; }
+    .elzero-lines::before { content: ""; position: absolute; inset: calc(0px - var(--line-size) - var(--line-size)); border: var(--line-size) solid blue; outline: var(--line-size) solid green; pointer-events: none; }
+  </style>
+</head>
+<body>
+<div class="elzero-lines">Lines</div>
+</body>
+</html>

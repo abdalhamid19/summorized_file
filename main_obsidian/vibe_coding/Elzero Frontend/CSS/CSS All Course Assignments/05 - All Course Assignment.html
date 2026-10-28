@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Course Assignment 05</title>
+  <style>
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; background: #eee; }
+    .menu { position: relative; width: 180px; height: 138px; cursor: pointer; }
+    .menu span { position: absolute; left: 0; width: 180px; height: 30px; border-radius: 20px; background: #000; transition: top 0.4s ease, transform 0.4s ease, background-color 0.4s ease, opacity 0.3s ease; }
+    .menu span:nth-child(1) { top: 0; }
+    .menu span:nth-child(2) { top: 54px; }
+    .menu span:nth-child(3) { top: 108px; }
+    .menu:hover span:nth-child(1) { top: 54px; transform: rotate(45deg); background: #f00; }
+    .menu:hover span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu:hover span:nth-child(3) { top: 54px; transform: rotate(-45deg); background: #f00; }
+  </style>
+</head>
+<body>
+<div class="menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+</body>
+</html>

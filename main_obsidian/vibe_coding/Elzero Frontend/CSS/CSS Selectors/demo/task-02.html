@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Selectors Assignment 02</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font: inherit; }
+    body { width: 249px; height: 299px; overflow: hidden; padding: 39px 0 0 45px; background: #fff; color: #000; font: normal 40px/53px "Times New Roman", serif; }
+    .parent > .child:nth-of-type(2) { color: #f00; font-weight: 700; }
+  </style>
+</head>
+<body>
+<div class="parent">
+  <div class="child">Testing</div>
+  <div class="child">Elzero</div>
+</div>
+<div class="parent">
+  <div>
+    <div class="child">Testing</div>
+  </div>
+</div>
+<div class="child">Testing</div>
+</body>
+</html>

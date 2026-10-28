@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Jomhuria&family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
+  <title>CSS Inheritance and Typography — 22–26</title>
+  <style>
+    html { font-size: 20px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 26px; background: #f2f5f9; color: #1e293b; font: 16px/1.7 "Segoe UI", Tahoma, Arial, sans-serif; }
+    main { max-width: 980px; margin: auto; }
+    section { margin-bottom: 20px; padding: 22px; border: 1px solid #dbe3ee; border-radius: 14px; background: white; box-shadow: 0 10px 26px rgb(15 23 42 / 5%); }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    h2 { margin: 0 0 8px; font-size: 22px; }
+    .hint { margin: 0 0 15px; color: #64748b; }
+    .inherit-parent { padding: 18px; border: 3px solid #147d73; background: #edf8f6; }
+    .inherit-parent > p { padding: inherit; border: inherit; margin: 0; background: white; }
+    .font-row { margin: 8px 0; padding: 10px 14px; border-right: 4px solid #147d73; background: #f8fafc; direction: ltr; text-align: left; }
+    .open-sans { font-family: "Open Sans", sans-serif; font-size: 28px; font-weight: 300; font-style: italic; }
+    .cairo { font-family: "Cairo", sans-serif; font-size: 28px; font-weight: 700; }
+    .jomhuria { font-family: "Jomhuria", cursive; font-size: 40px; font-weight: 400; }
+    .sample { margin: 8px 0; padding: 5px 12px; border-right: 4px solid #147d73; border-radius: 5px; background: #edf8f6; direction: ltr; text-align: left; }
+    .first { font-size: 2.5rem; }
+    .second { font-size: 2rem; }
+    .third { font-size: 1.5rem; }
+    pre { overflow: auto; margin: 15px 0 0; padding: 13px; border-radius: 8px; background: #1e293b; color: #e2e8f0; direction: ltr; text-align: left; font: 12px/1.6 Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="task-01">
+      <h1>التكليف 01 — Inheritance</h1>
+      <p class="hint">الفقرة ترث الحشو والحد من الأب. قيم اللون والسماكة هنا توضيحية.</p>
+      <div class="inherit-parent"><p>الابن يرث padding وborder من الأب</p></div>
+      <pre>.parent { padding: 18px; border: 3px solid #147d73; }
+.parent &gt; p { padding: inherit; border: inherit; }</pre>
+    </section>
+    <section id="task-02">
+      <h2>التكليف 02 — Font Families</h2>
+      <p class="hint">ثلاث عائلات خط مختلفة مع الأوزان والميل المحددة.</p>
+      <p class="font-row open-sans">elzero Web school</p>
+      <p class="font-row cairo">elzero Web school</p>
+      <p class="font-row jomhuria">elzero Web school</p>
+    </section>
+    <section id="task-03">
+      <h2>التكليف 03 — Root Font Size and rem</h2>
+      <p class="hint">العنصر الجذر 20px، وباقي الأحجام محسوبة منه.</p>
+      <div class="sample first">50px = 2.5rem</div>
+      <div class="sample second">40px = 2rem</div>
+      <div class="sample third">30px = 1.5rem</div>
+    </section>
+  </main>
+</body>
+</html>

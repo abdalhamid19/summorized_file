@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Text Formatting Assignments 17–21</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; background: #edf1f5; color: #222; font-family: Arial, sans-serif; }
+    main { max-width: 1100px; margin: auto; }
+    h1 { margin: 0 0 24px; }
+    .task { margin: 18px 0; padding: 20px; background: white; border: 1px solid #ccd3dc; border-radius: 12px; overflow: auto; }
+    .task h2 { font-size: 18px; margin: 0 0 16px; }
+    .stage { min-height: 130px; display: flow-root; }
+    p { margin: 10px; }
+    .task .stage { direction: ltr; text-align: left; }
+#task-01 .text-shadow {
+  color: #222;
+  text-shadow:
+    2px 2px 0 #e91e63,
+    -2px -2px 0 #2196f3,
+    4px 4px 0 #ff9800;
+}
+
+#task-02 .stage { text-align: center; }
+#task-02 .one { text-transform: uppercase; font-size: 48px; }
+#task-02 .two { text-transform: capitalize; font-size: 36px; }
+#task-02 .three { text-transform: lowercase; font-size: 24px; }
+
+#task-03 .stage > div {
+  box-sizing: border-box;
+  width: 400px;
+  margin: 12px auto;
+  padding: 12px;
+  border: 2px solid #009688;
+  color: #222;
+}
+#task-03 .ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#task-04 {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
+}
+#task-04 a {
+  padding: 18px 30px;
+  border-radius: 8px;
+  background: #009688;
+  color: #fff;
+  font: 700 24px Arial, sans-serif;
+  text-decoration: none;
+}
+  </style>
+</head>
+<body><main>
+<h1>CSS Text Formatting Assignments 17–21</h1>
+<p>ملاحظة: القيم اللونية أو بعض تفاصيل التخطيط قد تكون تقريبية عندما تعتمد على صورة المصدر غير المتاحة.</p>
+<section class="task" id="task-01">
+  <h2>التكليف 01: Multiple Text Shadows</h2>
+  <div class="stage"><h2 class="text-shadow">Elzero</h2></div>
+</section><section class="task" id="task-02">
+  <h2>التكليف 02: Text Transform</h2>
+  <div class="stage"><p class="one">elzero Web school</p><p class="two">elzero Web school</p><p class="three">elzero Web school</p></div>
+</section><section class="task" id="task-03">
+  <h2>التكليف 03: Text Overflow Ellipsis</h2>
+  <div class="stage"><div class="normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea itaque fugit vitae incidunt quis dolores? Id alias eveniet sequi perspiciatis iusto impedit, accusamus maxime reprehenderit blanditiis adipisci sapiente hic velit.</div><div class="short">Short text fits here.</div><div class="ellipsis">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea itaque fugit vitae incidunt quis dolores? Id alias eveniet sequi perspiciatis iusto impedit, accusamus maxime reprehenderit blanditiis adipisci sapiente hic velit.</div></div>
+</section><section class="task" id="task-04">
+  <h2>التكليف 04: Centered Styled Link</h2>
+  <div class="stage"><a href="https://elzero.org">elzero</a></div>
+</section>
+<p><a href="https://elzero.org/css-assignments-lesson-from-17-to-21/">صفحة المصدر الرسمية</a></p>
+</main></body>
+</html>

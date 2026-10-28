@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All Course Assignment 07</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 13px 18px 18px; background: #eee; color: #000; font: 28px/1.2 Arial, sans-serif; }
+    body > ul { margin: 0; padding: 0; list-style: none; counter-reset: main-item; }
+    body > ul > li { min-height: 80px; margin-bottom: 10px; padding: 10px; background: #fff; line-height: 60px; counter-increment: main-item; }
+    body > ul > li::before { content: counter(main-item); display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; margin-right: 20px; background: #ddd; font-weight: 700; vertical-align: top; line-height: 1; }
+    body > ul > li:nth-child(4) { padding-bottom: 40px; background: #ddd; }
+    body > ul > li:nth-child(4)::before { background: #fff; }
+    body > ul > li > ul { margin: 30px 0 0 30px; padding: 0; list-style: none; counter-reset: sub-item; }
+    body > ul > li > ul > li { height: 80px; margin: 10px 0; padding: 10px; background: #fff; line-height: 60px; counter-increment: sub-item; }
+    body > ul > li > ul > li::before { content: counter(main-item) "." counter(sub-item); display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; margin-right: 20px; color: #fff; background: #009688; font-weight: 700; vertical-align: top; line-height: 1; }
+  </style>
+</head>
+<body>
+<ul>
+  <li>List item</li>
+  <li>List item</li>
+  <li>List item</li>
+  <li>
+    List item
+    <ul>
+      <li>Sub List item</li>
+      <li>Sub List item</li>
+      <li>Sub List item</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

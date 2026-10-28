@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f7f5fc;
+  color: #2b2140;
+  font: 16px/1.6 Arial, sans-serif;
+}
+
+main {
+  max-width: 48rem;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+h1 {
+  color: #5b3aa4;
+}
+
+.notice {
+  padding: 1rem 1.25rem;
+  border-left: 5px solid #5b3aa4;
+  border-radius: 0.35rem;
+  background: #ebe4fa;
+}
