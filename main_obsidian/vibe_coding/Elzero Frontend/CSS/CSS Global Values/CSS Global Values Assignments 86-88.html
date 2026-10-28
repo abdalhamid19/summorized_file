@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تكليفات CSS 86–88 — Global Values</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f2f5f9; color: #1e293b; font: 16px/1.7 "Segoe UI", Tahoma, Arial, sans-serif; }
+    header { padding: 30px max(20px, calc((100% - 960px) / 2)); background: #17212b; color: white; }
+    header p { margin: 0; color: #cbd5e1; }
+    main { width: min(960px, calc(100% - 32px)); margin: 26px auto; }
+    section { margin-bottom: 22px; padding: 24px; border: 1px solid #dbe3ee; border-radius: 14px; background: white; box-shadow: 0 10px 28px rgb(15 23 42 / 6%); }
+    h1 { margin: 0 0 6px; font-size: 30px; }
+    h2 { margin: 0 0 8px; font-size: 22px; }
+    .desc { color: #64748b; }
+    .utility-demo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .demo { position: relative; min-height: 155px; border: 1px dashed #94a3b8; border-radius: 10px; background: #f8fafc; }
+    .center-flex { display: flex; justify-content: center; align-items: center; }
+    .center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .circle-100, .circle-200 { display: grid; place-items: center; border-radius: 50%; background: #147d73; color: white; }
+    .circle-100 { width: 100px; height: 100px; }
+    .circle-200 { width: 200px; height: 200px; }
+    .demo-title { position: absolute; top: 8px; right: 12px; color: #64748b; font-size: 12px; }
+    .circle-row { display: flex; min-height: 240px; align-items: center; justify-content: space-around; grid-column: 1 / -1; overflow: hidden; }
+    .arrow-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 20px; direction: ltr; }
+    .arrow {
+      --arrow-color: #e91e63;
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 110px;
+      place-items: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+    .arrow::before { position: absolute; top: 50%; left: 50%; width: 0; height: 0; border: 14px solid transparent; content: ""; transform: translate(-50%, -50%); }
+    .arrow.top::before { border-bottom-color: var(--arrow-color); }
+    .arrow.right::before { border-left-color: var(--arrow-color); }
+    .arrow.bottom::before { border-top-color: var(--arrow-color); }
+    .arrow.left::before { border-right-color: var(--arrow-color); }
+    .label { position: absolute; top: 6px; left: 8px; color: #64748b; font-size: 11px; }
+    pre { overflow: auto; margin: 16px 0 0; padding: 14px; border-radius: 8px; background: #1e293b; color: #e2e8f0; direction: ltr; text-align: left; font: 12px/1.6 Consolas, monospace; }
+    @media (max-width: 680px) { .utility-demo { grid-template-columns: 1fr; } .arrow-row { grid-template-columns: repeat(2, 1fr); } .circle-row { grid-column: auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CSS Global Values — الدروس 86–88</h1>
+    <p>أصناف مساعدة للتوسيط والأشكال، ثم مثلثات اتجاهية تتوسط عناصر بأبعاد مختلفة.</p>
+  </header>
+  <main>
+    <section id="task-01">
+      <h2>التكليف 01 — Utility Classes</h2>
+      <p class="desc">يحتاج العنصر الأب إلى <code>position: relative</code> عند توسيط عنصر باستخدام <code>center-position</code>.</p>
+      <div class="utility-demo">
+        <div class="demo center-flex"><span class="demo-title">center-flex</span><b>المحتوى في المنتصف</b></div>
+        <div class="demo"><span class="demo-title">center-position</span><b class="center-position">عنصر متمركز</b></div>
+        <div class="demo circle-row"><div class="circle-100">100 × 100</div><div class="circle-200">200 × 200</div></div>
+      </div>
+      <pre>.center-flex { display: flex; justify-content: center; align-items: center; }
+.center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.circle-100 { width: 100px; height: 100px; border-radius: 50%; }
+.circle-200 { width: 200px; height: 200px; border-radius: 50%; }</pre>
+    </section>
+    <section id="task-02">
+      <h2>التكليف 02 — Directional Arrows</h2>
+      <p class="desc">تتوسط الأسهم صناديقها، ويُطبَّق كل اتجاه مع الصنف الأساسي <code>arrow</code>.</p>
+      <div class="arrow-row">
+        <div class="arrow top"><span class="label">arrow top</span></div>
+        <div class="arrow right"><span class="label">arrow right</span></div>
+        <div class="arrow bottom"><span class="label">arrow bottom</span></div>
+        <div class="arrow left"><span class="label">arrow left</span></div>
+      </div>
+      <pre>.arrow.top::before { border-bottom-color: var(--arrow-color); }
+.arrow.right::before { border-left-color: var(--arrow-color); }
+.arrow.bottom::before { border-top-color: var(--arrow-color); }
+.arrow.left::before { border-right-color: var(--arrow-color); }</pre>
+    </section>
+  </main>
+</body>
+</html>
