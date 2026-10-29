@@ -43,6 +43,6 @@ python tests\test_quality.py                      # فحص جودة الناتج
 
 تفريغ صوتي عربي عبر Whisper API مع تقسيم الملفات الطويلة إلى مقاطع.
 
-## أتمتة Firefox
+## أدوات الأتمتة
 
-أداة Selenium مستقلة لعرض التبويبات وفتح الروابط داخل حاويات Firefox، مع [تعليمات التشغيل](browser_automation/firefox_selenium/README.md). تقرير تشخيص رفض تسجيل الدخول إلى Google موجود في [ملف البحث](docs/research/browser/google-signin-automation-error.md).
+نُقلت أدوات أتمتة المتصفح وواجهات Windows وتعليماتها إلى [مشروع Automation of B-Connect](https://github.com/abdalhamid19/automation-of-b-connect).
