@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>حل تكليفات CSS 13–16 — الزيرو</title>
+  <title>CSS Nesting and Grouped Selectors — التكليف 01</title>
   <style>
     :root {
       color-scheme: light;
@@ -275,6 +275,45 @@
       margin: 0 26px 18px;
     }
 
+    .solution-accordion {
+      margin: 0 26px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .solution-accordion summary {
+      padding: 12px 16px;
+      color: #334155;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .solution-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .solution-accordion summary::after {
+      content: "+";
+      float: left;
+      color: var(--accent);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .solution-accordion[open] summary::after {
+      content: "−";
+    }
+
+    .solution-accordion .solution-explanation {
+      margin: 0;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+    }
+
     .solution-explanation {
       margin: 0 16px 18px;
       padding: 14px 18px 8px;
@@ -472,8 +511,8 @@
 <body>
   <header class="page-header">
     <p class="eyebrow">ELZERO · CSS 2021</p>
-    <h1>حل تكليفات CSS من الدرس 13 إلى 16</h1>
-    <p>تطبيق محددات العناصر المتداخلة، وتقييد الأبعاد، وقص المحتوى الخارج عن الصندوق.</p>
+    <h1>CSS Nesting and Grouped Selectors</h1>
+    <p>الحل المرئي للتكليف 01: تطبيق CSS Nesting وتجميع المحددات مع المحافظة على بنية HTML.</p>
   </header>
 
   <main>
@@ -551,8 +590,9 @@
             <li><strong>نطاق التطبيق:</strong> نحصر القواعد في لوحة المعاينة حتى لا تؤثر في بقية الصفحة.</li>
           </ol>
         </div>
-        <div class="solution-explanation symbol-explanation">
-          <h4>معاني الرموز المستخدمة في الحل</h4>
+        <details class="solution-accordion">
+          <summary>معاني الرموز المستخدمة في الحل</summary>
+          <div class="solution-explanation symbol-explanation">
           <section class="symbol-group">
             <h5>CSS Nesting</h5>
             <div class="symbol-entry"><h6 class="technical-term" lang="en">nesting selector</h6><pre>&amp;</pre><p>يشير هذا الرمز إلى محدد الأب المحيط بالقاعدة الحالية. في هذا الحل يعود إلى قاعدة العنصر الأب.</p></div>
@@ -576,9 +616,11 @@
             <h5>علامات HTML</h5>
             <div class="symbol-entry"><h6 class="technical-term" lang="en">HTML angle brackets</h6><pre>&lt;div&gt;...&lt;/div&gt;</pre><p>تحيط علامتا الزاوية باسم وسم HTML، وتظهر الشرطة المائلة في وسم الإغلاق. أما علامة العلاقة في محدد CSS فوظيفتها اختيار الابن المباشر.</p></div>
           </section>
-        </div>
-        <div class="solution-explanation">
-          <h4>شرح الحل سطرًا بسطر</h4>
+          </div>
+        </details>
+        <details class="solution-accordion">
+          <summary>شرح الحل سطرًا بسطر</summary>
+          <div class="solution-explanation">
           <ol>
             <li><pre>#task-01-preview {</pre><p>يحدد لوحة المعاينة فقط، حتى يظل تأثير الألوان داخل التكليف.</p></li>
             <li><pre>  .parent {</pre><p>يبدأ قاعدة العنصر الأب، وتُكتب المحددات التابعة داخل هذه القاعدة.</p></li>
@@ -595,60 +637,13 @@
             <li><pre>  }</pre><p>يغلق قاعدة العنصر الأب.</p></li>
             <li><pre>}</pre><p>يغلق نطاق لوحة المعاينة.</p></li>
           </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="task-card" id="task-02">
-      <div class="task-heading">
-        <span class="task-number">التكليف 02</span>
-        <h2>Dimensions and Overflow</h2>
-        <p>نترك عناصر <code>div</code> على <code>display: block</code>، ونضع حدًا أقصى للعرض ونخفي النص الزائد.</p>
-      </div>
-      <div class="task-two-layout">
-        <div class="panel">
-          <h3 class="panel-title">HTML وCSS</h3>
-          <pre>&lt;div class="box"&gt;Title One&lt;/div&gt;
-&lt;div class="box"&gt;Title Two With More Words&lt;/div&gt;
-&lt;div class="box"&gt;Title Three With Many Many Many Words&lt;/div&gt;
-&lt;div class="box"&gt;
-  Title Three With Many Many Many Words Title Three With Many Many Many Words
-  Title Three With Many Many Many Words Title Three With Many Many Many Words
-&lt;/div&gt;
-
-.box {
-  box-sizing: border-box;
-  width: fit-content;
-  max-width: 400px;
-  margin: 15px 0;
-  padding: 15px;
-  background-color: brown;
-  color: white;
-  font: 16px / 1.2 "Times New Roman", serif;
-}
-
-.box:last-child {
-  height: 72px;
-  overflow: hidden;
-}</pre>
-        </div>
-        <div class="panel">
-          <h3 class="panel-title">معاينة الناتج</h3>
-          <div class="task-two-preview" id="task-02-preview">
-            <div class="box">Title One</div>
-            <div class="box">Title Two With More Words</div>
-            <div class="box">Title Three With Many Many Many Words</div>
-            <div class="box">Title Three With Many Many Many Words Title Three With Many Many Many Words Title Three With Many Many Many Words Title Three With Many Many Many Words</div>
           </div>
-        </div>
-      </div>
-      <p class="note">ارتفاع `72px` اختيار توضيحي لأن التكليف يطلب إخفاء الجزء الخارج ولا يحدد ارتفاعًا بعينه. لا يوجد تصريح `display` في الحل.</p>
-      <div class="task-heading">
-        <a class="source-link" href="https://elzero.org/wp-content/uploads/2021/02/css-assignments-lessons-13-16-1.png" target="_blank" rel="noreferrer">افتح صورة التكليف الأصلية على موقع الزيرو</a>
+        </details>
       </div>
     </section>
+
   </main>
 
-  <footer>المصدر: أكاديمية الزيرو — تكليفات CSS للدروس 13–16</footer>
+  <footer>المصدر: أكاديمية الزيرو — التكليف 01: Nesting and Grouped Selectors</footer>
 </body>
 </html>

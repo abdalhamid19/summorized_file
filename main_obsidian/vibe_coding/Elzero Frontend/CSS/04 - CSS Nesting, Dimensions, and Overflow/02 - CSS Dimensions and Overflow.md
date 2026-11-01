@@ -59,7 +59,7 @@ aliases:
 >
 > ![[vibe_coding/Elzero Frontend/CSS/04 - CSS Nesting, Dimensions, and Overflow/assets/solution-task-02.png|900]]
 >
-> [[vibe_coding/Elzero Frontend/CSS/04 - CSS Nesting, Dimensions, and Overflow/CSS Nesting Dimensions Overflow Assignments 13-16.html|افتح صفحة تنفيذ الحلين]]
+> [[vibe_coding/Elzero Frontend/CSS/04 - CSS Nesting, Dimensions, and Overflow/02 - CSS Dimensions and Overflow.html|افتح صفحة التكليف الثاني]]
 
 ## المصدر
 
