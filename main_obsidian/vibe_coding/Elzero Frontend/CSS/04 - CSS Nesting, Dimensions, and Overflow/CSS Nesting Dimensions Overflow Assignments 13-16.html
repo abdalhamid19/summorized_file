@@ -255,14 +255,27 @@
     }
 
     .solution-explanation li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #edf0f5;
     }
 
-    .solution-explanation code {
-      color: #0f766e;
-      direction: ltr;
-      font-family: Consolas, "Courier New", monospace;
-      unicode-bidi: isolate;
+    .solution-explanation li:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .solution-explanation li pre {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 7px;
+      padding: 7px 12px;
+      border-radius: 6px;
+    }
+
+    .solution-explanation li p {
+      margin-bottom: 0;
     }
 
     .source-link {
@@ -380,22 +393,23 @@
         <div class="solution-explanation">
           <h4>شرح الحل سطرًا بسطر</h4>
           <ol>
-            <li>السطر <code>#task-01-preview {</code> يحدد لوحة المعاينة فقط، حتى يظل تأثير الألوان داخل التكليف.</li>
-            <li>السطر <code>.parent {</code> يبدأ قاعدة العنصر الأب، وتوضع المحددات التابعة داخلها باستخدام <code>CSS Nesting</code>.</li>
-            <li>السطر <code>.child .title {</code> يختار عنصر <code>.title</code> الموجود داخل <code>.child</code> داخل <code>.parent</code>.</li>
-            <li>السطر <code>color: red;</code> يلوّن كلمة <code>Title</code> الداخلية بالأحمر.</li>
-            <li>القوس <code>}</code> يغلق قاعدة المحدد <code>.child .title</code>.</li>
-            <li>السطر <code>&amp; &gt; .title {</code> يجعل <code>&amp;</code> تشير إلى <code>.parent</code>، ويعني <code>&gt;</code> أن <code>.title</code> ابن مباشر؛ لذلك يطابق <code>Child Title</code>.</li>
-            <li>السطر <code>color: blue;</code> يلوّن الابن المباشر بالأزرق.</li>
-            <li>القوس <code>}</code> يغلق قاعدة الابن المباشر.</li>
-            <li>السطر <code>p,</code> يبدأ تجميع محددين؛ وهذا الجزء يختار الفقرة داخل <code>.parent</code>.</li>
-            <li>السطر <code>&amp; ~ .title {</code> يختار عنصر <code>.title</code> الشقيق الذي يأتي بعد <code>.parent</code>، وهو عنوان القسم.</li>
-            <li>السطر <code>color: green;</code> يلوّن الفقرة وعنوان القسم بالأخضر لأن المحددين مجموعان في القاعدة نفسها.</li>
-            <li>القوس <code>}</code> يغلق قاعدة اللون الأخضر، ثم يغلق القوسان التاليان قاعدة <code>.parent</code> وغلاف المعاينة <code>#task-01-preview</code>.</li>
+            <li><pre>#task-01-preview {</pre><p>يحدد لوحة المعاينة فقط، حتى يظل تأثير الألوان داخل التكليف.</p></li>
+            <li><pre>  .parent {</pre><p>يبدأ قاعدة العنصر الأب؛ وكتابة المحددات التابعة داخلها هي أسلوب <strong>CSS Nesting</strong>، أي التداخل داخل قاعدة الأب.</p></li>
+            <li><pre>    .child .title {</pre><p>يختار عنصر العنوان الموجود داخل العنصر الابن.</p></li>
+            <li><pre>      color: red;</pre><p>يلوّن كلمة <span lang="en" dir="ltr">Title</span> الداخلية بالأحمر.</p></li>
+            <li><pre>    }</pre><p>يغلق قاعدة العنوان الداخلي.</p></li>
+            <li><pre>    &amp; &gt; .title {</pre><p>يستخدم <strong>nesting selector</strong> (محدد التداخل) للإشارة إلى العنصر الأب، ثم يشترط أن يكون العنوان ابنًا مباشرًا له؛ لذلك يطابق هذا السطر <span lang="en" dir="ltr">Child Title</span>.</p></li>
+            <li><pre>      color: blue;</pre><p>يلوّن الابن المباشر بالأزرق.</p></li>
+            <li><pre>    }</pre><p>يغلق قاعدة الابن المباشر.</p></li>
+            <li><pre>    p,</pre><p>يبدأ مجموعة المحددات، ويختار الفقرة داخل العنصر الأب.</p></li>
+            <li><pre>    &amp; ~ .title {</pre><p>يختار عنوان القسم باستخدام <strong>general sibling combinator</strong> (محدد الشقيق العام)، الذي يستهدف عنصرًا يشارك العنصر الأب الحاوية نفسها ويأتي بعده.</p></li>
+            <li><pre>      color: green;</pre><p>يلوّن الفقرة وعنوان القسم بالأخضر لأنهما ضمن مجموعة المحددات نفسها.</p></li>
+            <li><pre>    }</pre><p>يغلق قاعدة اللون الأخضر.</p></li>
+            <li><pre>  }</pre><p>يغلق قاعدة العنصر الأب.</p></li>
+            <li><pre>}</pre><p>يغلق نطاق لوحة المعاينة.</p></li>
           </ol>
         </div>
       </div>
-      <p class="note">يشير محدد التداخل <code>&amp;</code> إلى العنصر الأب <code>.parent</code>؛ ويجمع المحددان <code>p</code> و<code>&amp; ~ .title</code> لأن كليهما يحتاج اللون الأخضر.</p>
     </section>
 
     <section class="task-card" id="task-02">
