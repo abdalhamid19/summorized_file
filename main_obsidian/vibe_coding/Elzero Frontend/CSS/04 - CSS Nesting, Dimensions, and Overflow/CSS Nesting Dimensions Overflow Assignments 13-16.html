@@ -151,6 +151,63 @@
       font-size: 18px;
     }
 
+    .before-after-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .before-after-state {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .before-after-state h4 {
+      margin: 0;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--line);
+      color: #334155;
+      font-size: 13px;
+    }
+
+    .before-after-state .preview-frame-task-1 {
+      min-height: 190px;
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    #task-01-before .parent,
+    #task-01-preview .parent {
+      margin-bottom: 14px;
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+    }
+
+    #task-01-before .child,
+    #task-01-preview .child {
+      margin-bottom: 10px;
+    }
+
+    #task-01-before p,
+    #task-01-preview p {
+      margin-bottom: 0;
+    }
+
+    .before-after-caption {
+      margin: 0 14px 14px;
+      padding: 10px 12px;
+      border-right: 3px solid var(--accent);
+      border-radius: 6px;
+      background: #edf8f6;
+      color: #334155;
+      font-size: 13px;
+    }
+
     #task-02 .panel pre {
       white-space: pre-wrap;
       overflow-wrap: anywhere;
@@ -171,21 +228,6 @@
           color: green;
         }
       }
-    }
-
-    #task-01-preview .parent {
-      margin-bottom: 14px;
-      padding: 16px;
-      border: 1px solid #e2e8f0;
-      background: #f8fafc;
-    }
-
-    #task-01-preview .child {
-      margin-bottom: 10px;
-    }
-
-    #task-01-preview p {
-      margin-bottom: 0;
     }
 
     .task-two-layout {
@@ -393,6 +435,10 @@
         grid-template-columns: 1fr;
       }
 
+      .before-after-layout {
+        grid-template-columns: 1fr;
+      }
+
       .page-header {
         padding: 28px 20px;
       }
@@ -449,16 +495,33 @@
 &lt;/div&gt;
 &lt;div class="title"&gt;Section Title&lt;/div&gt;</pre>
         </div>
-        <div class="panel" id="task-01-preview">
-          <h3 class="panel-title">معاينة الناتج</h3>
-          <div class="preview-frame-task-1">
-            <div class="parent">
-              <div class="child">This Is Child <span class="title">Title</span></div>
-              <span class="title">Child Title</span>
-              <p>Paragraph Content</p>
-            </div>
-            <div class="title">Section Title</div>
+        <div class="panel">
+          <h3 class="panel-title">قبل وبعد تطبيق الحل</h3>
+          <div class="before-after-layout">
+            <section class="before-after-state" id="task-01-before">
+              <h4>قبل تطبيق قواعد الألوان</h4>
+              <div class="preview-frame-task-1">
+                <div class="parent">
+                  <div class="child">This Is Child <span class="title">Title</span></div>
+                  <span class="title">Child Title</span>
+                  <p>Paragraph Content</p>
+                </div>
+                <div class="title">Section Title</div>
+              </div>
+            </section>
+            <section class="before-after-state" id="task-01-preview">
+              <h4>بعد تطبيق قواعد الألوان</h4>
+              <div class="preview-frame-task-1">
+                <div class="parent">
+                  <div class="child">This Is Child <span class="title">Title</span></div>
+                  <span class="title">Child Title</span>
+                  <p>Paragraph Content</p>
+                </div>
+                <div class="title">Section Title</div>
+              </div>
+            </section>
           </div>
+          <p class="before-after-caption">بنية HTML هي نفسها في الجهتين؛ الذي تغيّر هو تطبيق محددات CSS على العناصر المطلوبة.</p>
         </div>
       </div>
       <div class="panel solution-panel">
