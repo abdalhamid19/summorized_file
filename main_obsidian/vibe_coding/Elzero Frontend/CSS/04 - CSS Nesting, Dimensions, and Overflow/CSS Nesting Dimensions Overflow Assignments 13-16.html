@@ -278,6 +278,53 @@
       margin-bottom: 0;
     }
 
+    .symbol-explanation .symbol-group {
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      border-right: 3px solid var(--accent);
+      border-radius: 7px;
+      background: #f8fafc;
+    }
+
+    .symbol-explanation .symbol-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .symbol-explanation .symbol-group h5 {
+      margin: 0 0 10px;
+      color: #0f766e;
+      font-size: 15px;
+    }
+
+    .symbol-explanation .symbol-entry {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e7edf2;
+    }
+
+    .symbol-explanation .symbol-entry:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .symbol-explanation .symbol-entry h6 {
+      margin: 0 0 5px;
+      font-size: 13px;
+    }
+
+    .symbol-explanation .symbol-entry pre {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 0 6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .symbol-explanation .symbol-entry p {
+      margin: 0;
+    }
+
     .solution-core-idea {
       margin: 16px 16px 18px;
       padding: 14px 18px 10px;
@@ -443,18 +490,29 @@
         </div>
         <div class="solution-explanation symbol-explanation">
           <h4>معاني الرموز المستخدمة في الحل</h4>
-          <ol>
-            <li><pre>&amp; &gt; .title</pre><p class="technical-term" lang="en">nesting selector</p><p>يشير محدد التداخل إلى قاعدة الأب المحيطة به. في هذا الحل يعود إلى قاعدة العنصر الأب.</p></li>
-            <li><pre>.child .title</pre><p class="technical-term" lang="en">descendant combinator</p><p>المسافة بين المحددين تعني أن العنوان يقع داخل العنصر الابن، ولا تشترط أن يكون ابنًا مباشرًا.</p></li>
-            <li><pre>&amp; &gt; .title</pre><p class="technical-term" lang="en">child combinator</p><p>تشترط علامة العلاقة أن يكون العنصر المختار ابنًا مباشرًا للعنصر الأب.</p></li>
-            <li><pre>&amp; ~ .title</pre><p class="technical-term" lang="en">general sibling combinator</p><p>تختار علامة العلاقة عنصرًا شقيقًا يأتي بعد العنصر الأب ويشاركه الحاوية نفسها؛ وهنا تطابق عنوان القسم.</p></li>
-            <li><pre>p,
-&amp; ~ .title</pre><p class="technical-term" lang="en">grouped selectors</p><p>تفصل الفاصلة المحددات التي ستأخذ القاعدة نفسها؛ هنا تجمع الفقرة مع عنوان القسم ليأخذا اللون الأخضر.</p></li>
-            <li><pre>.title</pre><p class="technical-term" lang="en">class selector</p><p>تسبق النقطة اسم الصنف؛ لذلك يختار المحدد العناصر التي تحمل الصنف الموضح في السطر أعلاه.</p></li>
-            <li><pre>#task-01-preview</pre><p class="technical-term" lang="en">ID selector</p><p>تختار علامة الهاش عنصرًا بمعرّف محدد. استخدمها غلافًا للمعاينة حتى تظل ألوان الحل محصورة في التكليف الأول داخل الصفحة.</p></li>
-            <li><pre>.parent { }</pre><p class="technical-term" lang="en">CSS rule block</p><p>يحدد القوسان بداية القاعدة ونهايتها، ويبيّنان نطاق التصريحات التابعة لها.</p></li>
-            <li><pre>&lt;div&gt;...&lt;/div&gt;</pre><p class="technical-term" lang="en">HTML angle bracket</p><p>تستخدم علامتا الزاوية لإحاطة اسم وسم HTML، وتضاف الشرطة المائلة في وسم الإغلاق. أما علامة العلاقة في محدد CSS فوظيفتها اختيار الابن المباشر كما في المثال أعلاه.</p></li>
-          </ol>
+          <section class="symbol-group">
+            <h5>CSS Nesting</h5>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">nesting selector</h6><pre>&amp;</pre><p>يشير هذا الرمز إلى محدد الأب المحيط بالقاعدة الحالية. في هذا الحل يعود إلى قاعدة العنصر الأب.</p></div>
+          </section>
+          <section class="symbol-group">
+            <h5>المحددات والعلاقات بين العناصر</h5>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">class selector</h6><pre>.title</pre><p>تسبق النقطة اسم الصنف؛ لذلك يختار المحدد العناصر التي تحمل الصنف الموضح في السطر أعلاه.</p></div>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">descendant combinator</h6><pre>.child .title</pre><p>المسافة بين المحددين تعني أن العنوان يقع داخل العنصر الابن، ولا تشترط أن يكون ابنًا مباشرًا.</p></div>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">child combinator</h6><pre>&amp; &gt; .title</pre><p>تشترط علامة العلاقة أن يكون العنصر المختار ابنًا مباشرًا للعنصر الأب.</p></div>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">general sibling combinator</h6><pre>&amp; ~ .title</pre><p>تختار علامة العلاقة عنصرًا شقيقًا يأتي بعد العنصر الأب ويشاركه الحاوية نفسها؛ وهنا تطابق عنوان القسم.</p></div>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">grouped selectors</h6><pre>p,
+&amp; ~ .title</pre><p>تفصل الفاصلة المحددات التي ستأخذ القاعدة نفسها؛ هنا تجمع الفقرة مع عنوان القسم ليأخذا اللون الأخضر.</p></div>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">ID selector</h6><pre>#task-01-preview</pre><p>تختار علامة الهاش عنصرًا بمعرّف محدد. استخدمها غلافًا للمعاينة حتى تظل ألوان الحل محصورة في التكليف الأول داخل الصفحة.</p></div>
+          </section>
+          <section class="symbol-group">
+            <h5>قواعد CSS وتصريحاتها</h5>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">CSS rule block</h6><pre>.parent { }</pre><p>يحدد القوسان بداية القاعدة ونهايتها، ويبيّنان نطاق التصريحات التابعة لها.</p></div>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">CSS declaration</h6><pre>color: red;</pre><p>تفصل النقطتان خاصية اللون عن قيمتها، وتنهي الفاصلة المنقوطة هذا التصريح.</p></div>
+          </section>
+          <section class="symbol-group">
+            <h5>علامات HTML</h5>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">HTML angle brackets</h6><pre>&lt;div&gt;...&lt;/div&gt;</pre><p>تحيط علامتا الزاوية باسم وسم HTML، وتظهر الشرطة المائلة في وسم الإغلاق. أما علامة العلاقة في محدد CSS فوظيفتها اختيار الابن المباشر.</p></div>
+          </section>
         </div>
         <div class="solution-explanation">
           <h4>شرح الحل سطرًا بسطر</h4>
