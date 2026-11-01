@@ -278,6 +278,48 @@
       margin-bottom: 0;
     }
 
+    .solution-core-idea {
+      margin: 16px 16px 18px;
+      padding: 14px 18px 10px;
+      border: 1px solid var(--line);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      background: #edf8f6;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .solution-core-idea h4 {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .solution-core-idea ol {
+      margin: 0;
+      padding-right: 22px;
+      padding-left: 0;
+    }
+
+    .solution-core-idea li {
+      margin-bottom: 6px;
+    }
+
+    .solution-core-idea li:last-child {
+      margin-bottom: 0;
+    }
+
+    .solution-core-idea li p {
+      margin: 6px 0 0;
+    }
+
+    .solution-core-idea .technical-term,
+    .solution-explanation .technical-term {
+      color: #0f766e;
+      direction: ltr;
+      font-weight: 700;
+      text-align: right;
+    }
+
     .source-link {
       display: inline-block;
       margin-top: 10px;
@@ -390,19 +432,28 @@
     }
   }
 }</pre>
+        <div class="solution-core-idea">
+          <h4>الفكرة الأساسية</h4>
+          <ol>
+            <li><strong>الهدف:</strong> نحافظ على بنية HTML كما هي، ونلوّن النصوص وفق موقع كل عنصر داخلها.</li>
+            <li><strong>طريقة الاختيار:</strong> نكتب المحددات التابعة داخل قاعدة العنصر الأب.<p class="technical-term" lang="en">CSS Nesting</p><p>هذا هو أسلوب التداخل داخل قاعدة الأب، مع التمييز بين الابن المباشر وبقية العناصر.</p></li>
+            <li><strong>تجميع اللون:</strong><p class="technical-term" lang="en">Grouped Selectors</p><p>نجمع الفقرة وعنوان القسم في قاعدة واحدة لأن اللون المطلوب لهما واحد.</p></li>
+            <li><strong>نطاق التطبيق:</strong> نحصر القواعد في لوحة المعاينة حتى لا تؤثر في بقية الصفحة.</li>
+          </ol>
+        </div>
         <div class="solution-explanation">
           <h4>شرح الحل سطرًا بسطر</h4>
           <ol>
             <li><pre>#task-01-preview {</pre><p>يحدد لوحة المعاينة فقط، حتى يظل تأثير الألوان داخل التكليف.</p></li>
-            <li><pre>  .parent {</pre><p>يبدأ قاعدة العنصر الأب؛ وكتابة المحددات التابعة داخلها هي أسلوب <strong>CSS Nesting</strong>، أي التداخل داخل قاعدة الأب.</p></li>
+            <li><pre>  .parent {</pre><p>يبدأ قاعدة العنصر الأب، وتُكتب المحددات التابعة داخل هذه القاعدة.</p></li>
             <li><pre>    .child .title {</pre><p>يختار عنصر العنوان الموجود داخل العنصر الابن.</p></li>
             <li><pre>      color: red;</pre><p>يلوّن كلمة <span lang="en" dir="ltr">Title</span> الداخلية بالأحمر.</p></li>
             <li><pre>    }</pre><p>يغلق قاعدة العنوان الداخلي.</p></li>
-            <li><pre>    &amp; &gt; .title {</pre><p>يستخدم <strong>nesting selector</strong> (محدد التداخل) للإشارة إلى العنصر الأب، ثم يشترط أن يكون العنوان ابنًا مباشرًا له؛ لذلك يطابق هذا السطر <span lang="en" dir="ltr">Child Title</span>.</p></li>
+            <li><p class="technical-term" lang="en">nesting selector</p><pre>    &amp; &gt; .title {</pre><p>يشير محدد التداخل إلى العنصر الأب، ويشترط أن يكون العنوان ابنًا مباشرًا له؛ لذلك يطابق هذا السطر <span lang="en" dir="ltr">Child Title</span>.</p></li>
             <li><pre>      color: blue;</pre><p>يلوّن الابن المباشر بالأزرق.</p></li>
             <li><pre>    }</pre><p>يغلق قاعدة الابن المباشر.</p></li>
             <li><pre>    p,</pre><p>يبدأ مجموعة المحددات، ويختار الفقرة داخل العنصر الأب.</p></li>
-            <li><pre>    &amp; ~ .title {</pre><p>يختار عنوان القسم باستخدام <strong>general sibling combinator</strong> (محدد الشقيق العام)، الذي يستهدف عنصرًا يشارك العنصر الأب الحاوية نفسها ويأتي بعده.</p></li>
+            <li><p class="technical-term" lang="en">general sibling combinator</p><pre>    &amp; ~ .title {</pre><p>يختار عنوان القسم؛ فهذا المحدد يستهدف عنصرًا يشارك العنصر الأب الحاوية نفسها ويأتي بعده.</p></li>
             <li><pre>      color: green;</pre><p>يلوّن الفقرة وعنوان القسم بالأخضر لأنهما ضمن مجموعة المحددات نفسها.</p></li>
             <li><pre>    }</pre><p>يغلق قاعدة اللون الأخضر.</p></li>
             <li><pre>  }</pre><p>يغلق قاعدة العنصر الأب.</p></li>
