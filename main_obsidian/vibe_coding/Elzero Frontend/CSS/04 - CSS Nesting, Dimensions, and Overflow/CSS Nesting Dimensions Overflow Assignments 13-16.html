@@ -148,6 +148,8 @@
       padding: 26px;
       color: #222;
       font-size: 18px;
+      direction: ltr;
+      text-align: left;
     }
 
     .before-after-layout {
@@ -495,8 +497,9 @@
     .solution-explanation .technical-term {
       color: #0f766e;
       direction: ltr;
+      unicode-bidi: isolate;
       font-weight: 700;
-      text-align: right;
+      text-align: left;
     }
 
     .source-link {
@@ -571,21 +574,21 @@
 </head>
 <body>
   <header class="page-header">
-    <p class="eyebrow">ELZERO · CSS 2021</p>
-    <h1>CSS Nesting and Grouped Selectors</h1>
-    <p>الحل المرئي للتكليف 01: تطبيق CSS Nesting وتجميع المحددات مع المحافظة على بنية HTML.</p>
+    <p class="eyebrow" lang="en" dir="ltr">ELZERO · CSS 2021</p>
+    <h1 lang="en" dir="ltr">CSS Nesting and Grouped Selectors</h1>
+    <p>الحل المرئي للتكليف 01: تطبيق <bdi lang="en" dir="ltr">CSS Nesting</bdi> وتجميع المحددات مع المحافظة على بنية <bdi lang="en" dir="ltr">HTML</bdi>.</p>
   </header>
 
   <main>
     <section class="task-card" id="task-01">
       <div class="task-heading">
         <span class="task-number">التكليف 01</span>
-        <h2>Nesting and Grouped Selectors</h2>
-        <p>تلوين أجزاء البنية المعطاة مع إبقاء HTML كما هو وتجميع المحددات ذات اللون المشترك.</p>
+        <h2 lang="en" dir="ltr">Nesting and Grouped Selectors</h2>
+        <p>تلوين أجزاء البنية المعطاة مع إبقاء <bdi lang="en" dir="ltr">HTML</bdi> كما هو وتجميع المحددات ذات اللون المشترك.</p>
       </div>
       <div class="columns">
         <div class="panel">
-          <h3 class="panel-title">HTML الأصلي</h3>
+          <h3 class="panel-title"><bdi lang="en" dir="ltr">HTML</bdi> الأصلي</h3>
           <pre>&lt;div class="parent"&gt;
   &lt;div class="child"&gt;This Is Child
     &lt;span class="title"&gt;Title&lt;/span&gt;
@@ -621,11 +624,11 @@
               </div>
             </section>
           </div>
-          <p class="before-after-caption">بنية HTML هي نفسها في الجهتين؛ الذي تغيّر هو تطبيق محددات CSS على العناصر المطلوبة.</p>
+          <p class="before-after-caption">بنية <bdi lang="en" dir="ltr">HTML</bdi> هي نفسها في الجهتين؛ الذي تغيّر هو تطبيق محددات <bdi lang="en" dir="ltr">CSS</bdi> على العناصر المطلوبة.</p>
         </div>
       </div>
       <div class="panel solution-panel">
-        <h3 class="panel-title">CSS الحل — Nesting and Grouped Selectors</h3>
+        <h3 class="panel-title"><bdi lang="en" dir="ltr">CSS</bdi> الحل — <bdi lang="en" dir="ltr">Nesting and Grouped Selectors</bdi></h3>
         <div class="solution-layout">
           <aside class="solution-code-sticky" aria-label="الكود الكامل للحل">
             <h4>الكود الكامل</h4>
@@ -650,7 +653,7 @@
         <div class="solution-core-idea">
           <h4>الفكرة الأساسية</h4>
           <ol>
-            <li><strong>الهدف:</strong> نحافظ على بنية HTML كما هي، ونلوّن النصوص وفق موقع كل عنصر داخلها.</li>
+            <li><strong>الهدف:</strong> نحافظ على بنية <bdi lang="en" dir="ltr">HTML</bdi> كما هي، ونلوّن النصوص وفق موقع كل عنصر داخلها.</li>
             <li><strong>طريقة الاختيار:</strong> نكتب المحددات التابعة داخل قاعدة العنصر الأب.<p class="technical-term" lang="en">CSS Nesting</p><p>هذا هو أسلوب التداخل داخل قاعدة الأب، مع التمييز بين الابن المباشر وبقية العناصر.</p></li>
             <li><strong>تجميع اللون:</strong><p class="technical-term" lang="en">Grouped Selectors</p><p>نجمع الفقرة وعنوان القسم في قاعدة واحدة لأن اللون المطلوب لهما واحد.</p></li>
             <li><strong>نطاق التطبيق:</strong> نحصر القواعد في لوحة المعاينة حتى لا تؤثر في بقية الصفحة.</li>
@@ -660,7 +663,7 @@
           <summary>معاني الرموز المستخدمة في الحل</summary>
           <div class="solution-explanation symbol-explanation">
           <section class="symbol-group">
-            <h5>CSS Nesting</h5>
+            <h5 class="technical-term" lang="en" dir="ltr">CSS Nesting</h5>
             <div class="symbol-entry"><h6 class="technical-term" lang="en">nesting selector</h6><pre>&amp;</pre><p>يشير هذا الرمز إلى محدد الأب المحيط بالقاعدة الحالية. في هذا الحل يعود إلى قاعدة العنصر الأب.</p></div>
           </section>
           <section class="symbol-group">
@@ -674,13 +677,13 @@
             <div class="symbol-entry"><h6 class="technical-term" lang="en">ID selector</h6><pre>#task-01-preview</pre><p>تختار علامة الهاش عنصرًا بمعرّف محدد. استخدمها غلافًا للمعاينة حتى تظل ألوان الحل محصورة في التكليف الأول داخل الصفحة.</p></div>
           </section>
           <section class="symbol-group">
-            <h5>قواعد CSS وتصريحاتها</h5>
+            <h5>قواعد <bdi lang="en" dir="ltr">CSS</bdi> وتصريحاتها</h5>
             <div class="symbol-entry"><h6 class="technical-term" lang="en">CSS rule block</h6><pre>.parent { }</pre><p>يحدد القوسان بداية القاعدة ونهايتها، ويبيّنان نطاق التصريحات التابعة لها.</p></div>
             <div class="symbol-entry"><h6 class="technical-term" lang="en">CSS declaration</h6><pre>color: red;</pre><p>تفصل النقطتان خاصية اللون عن قيمتها، وتنهي الفاصلة المنقوطة هذا التصريح.</p></div>
           </section>
           <section class="symbol-group">
-            <h5>علامات HTML</h5>
-            <div class="symbol-entry"><h6 class="technical-term" lang="en">HTML angle brackets</h6><pre>&lt;div&gt;...&lt;/div&gt;</pre><p>تحيط علامتا الزاوية باسم وسم HTML، وتظهر الشرطة المائلة في وسم الإغلاق. أما علامة العلاقة في محدد CSS فوظيفتها اختيار الابن المباشر.</p></div>
+            <h5>علامات <bdi lang="en" dir="ltr">HTML</bdi></h5>
+            <div class="symbol-entry"><h6 class="technical-term" lang="en">HTML angle brackets</h6><pre>&lt;div&gt;...&lt;/div&gt;</pre><p>تحيط علامتا الزاوية باسم وسم <bdi lang="en" dir="ltr">HTML</bdi>، وتظهر الشرطة المائلة في وسم الإغلاق. أما علامة العلاقة في محدد <bdi lang="en" dir="ltr">CSS</bdi> فوظيفتها اختيار الابن المباشر.</p></div>
           </section>
           </div>
         </details>
@@ -712,6 +715,6 @@
 
   </main>
 
-  <footer>المصدر: أكاديمية الزيرو — التكليف 01: Nesting and Grouped Selectors</footer>
+  <footer>المصدر: أكاديمية الزيرو — التكليف 01: <bdi lang="en" dir="ltr">Nesting and Grouped Selectors</bdi></footer>
 </body>
 </html>
