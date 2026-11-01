@@ -98,6 +98,27 @@
       color: var(--muted);
     }
 
+    .problem-statement {
+      margin: 0 26px 18px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      background: #edf8f6;
+    }
+
+    .problem-statement h3 {
+      margin: 0 0 6px;
+      color: #0b625b;
+      font-size: 16px;
+    }
+
+    .problem-statement p {
+      margin: 0;
+      color: #334155;
+      font-size: 14px;
+    }
+
     .columns {
       display: grid;
       grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -475,8 +496,9 @@
     }
 
     .solution-core-idea h4 {
-      margin-bottom: 10px;
-      font-size: 15px;
+      margin-bottom: 12px;
+      color: #1e293b;
+      font-size: 18px;
     }
 
     .solution-core-idea ol {
@@ -495,6 +517,24 @@
 
     .solution-core-idea li p {
       margin: 6px 0 0;
+    }
+
+    .solution-core-idea .core-concept-title {
+      margin: 0 0 7px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: #e7f5f2;
+      color: #0b625b;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .solution-core-idea li pre {
+      width: fit-content;
+      max-width: 100%;
+      margin: 8px auto 0 0;
+      padding: 8px 12px;
+      border-radius: 6px;
     }
 
     .solution-core-idea .technical-term,
@@ -530,6 +570,12 @@
       .columns,
       .task-two-layout {
         grid-template-columns: 1fr;
+      }
+
+      .problem-statement {
+        margin-right: 18px;
+        margin-left: 18px;
+        padding: 12px 14px;
       }
 
       .solution-layout {
@@ -590,6 +636,10 @@
         <h2 lang="en" dir="ltr">Nesting and Grouped Selectors</h2>
         <p>تلوين أجزاء البنية المعطاة مع إبقاء <bdi lang="en" dir="ltr">HTML</bdi> كما هو وتجميع المحددات ذات اللون المشترك.</p>
       </div>
+      <section class="problem-statement" aria-labelledby="task-01-requirement-title">
+        <h3 id="task-01-requirement-title">المطلوب</h3>
+        <p>حافظ على بنية <bdi lang="en" dir="ltr">HTML</bdi> كما هي. لوّن كلمة <bdi lang="en" dir="ltr">Title</bdi> بالأحمر، وجملة <bdi lang="en" dir="ltr">Child Title</bdi> بالأزرق، وجملتي <bdi lang="en" dir="ltr">Paragraph Content</bdi> و<bdi lang="en" dir="ltr">Section Title</bdi> بالأخضر، ثم اجمع المحددات التي تستخدم اللون نفسه.</p>
+      </section>
       <div class="columns">
         <div class="panel">
           <h3 class="panel-title"><bdi lang="en" dir="ltr">HTML</bdi> الأصلي</h3>
@@ -657,10 +707,29 @@
         <div class="solution-core-idea">
           <h4>الفكرة الأساسية</h4>
           <ol>
-            <li><strong>الهدف:</strong> نحافظ على بنية <bdi lang="en" dir="ltr">HTML</bdi> كما هي، ونلوّن النصوص وفق موقع كل عنصر داخلها.</li>
-            <li><strong>طريقة الاختيار:</strong> نكتب المحددات التابعة داخل قاعدة العنصر الأب.<p class="technical-term" lang="en">CSS Nesting</p><p>هذا هو أسلوب التداخل داخل قاعدة الأب، مع التمييز بين الابن المباشر وبقية العناصر.</p></li>
-            <li><strong>تجميع اللون:</strong><p class="technical-term" lang="en">Grouped Selectors</p><p>نجمع الفقرة وعنوان القسم في قاعدة واحدة لأن اللون المطلوب لهما واحد.</p></li>
-            <li><strong>نطاق التطبيق:</strong> نحصر القواعد في لوحة المعاينة حتى لا تؤثر في بقية الصفحة.</li>
+            <li>
+              <h5 class="core-concept-title" lang="en" dir="ltr">CSS Nesting</h5>
+              <p>نكتب محددات العناصر التابعة داخل قاعدة العنصر الأب. يختار <bdi lang="en" dir="ltr">.child .title</bdi> عنوانًا داخل <bdi lang="en" dir="ltr">.child</bdi>، بينما يختار <bdi lang="en" dir="ltr">&amp; &gt; .title</bdi> عنوانًا ابنًا مباشرًا للأب.</p>
+              <pre>.parent {
+  .child .title {
+    color: red;
+  }
+
+  &amp; &gt; .title {
+    color: blue;
+  }
+}</pre>
+              <p>يرمز <bdi lang="en" dir="ltr">&amp;</bdi> إلى <bdi lang="en" dir="ltr">.parent</bdi>، وتشترط <bdi lang="en" dir="ltr">&gt;</bdi> أن يكون العنوان ابنًا مباشرًا.</p>
+            </li>
+            <li>
+              <h5 class="core-concept-title" lang="en" dir="ltr">Grouped Selectors</h5>
+              <p>إذا احتاج محددان إلى اللون نفسه، نفصل بينهما بفاصلة ونضعهما في قاعدة واحدة.</p>
+              <pre>p,
+&amp; ~ .title {
+  color: green;
+}</pre>
+              <p>هنا تأخذ الفقرة <bdi lang="en" dir="ltr">p</bdi> وعنوان القسم المحدد بـ<bdi lang="en" dir="ltr">&amp; ~ .title</bdi> اللون الأخضر نفسه.</p>
+            </li>
           </ol>
         </div>
         <details class="solution-accordion">
