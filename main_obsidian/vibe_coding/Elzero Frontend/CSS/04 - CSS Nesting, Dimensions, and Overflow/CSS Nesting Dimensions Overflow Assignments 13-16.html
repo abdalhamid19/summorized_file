@@ -156,17 +156,21 @@
       overflow-wrap: anywhere;
     }
 
-    #task-01-preview .parent .child .title {
-      color: red;
-    }
+    #task-01-preview {
+      .parent {
+        .child .title {
+          color: red;
+        }
 
-    #task-01-preview .parent > .title {
-      color: blue;
-    }
+        & > .title {
+          color: blue;
+        }
 
-    #task-01-preview .parent p,
-    #task-01-preview .preview-frame-task-1 > .title {
-      color: green;
+        p,
+        & ~ .title {
+          color: green;
+        }
+      }
     }
 
     #task-01-preview .parent {
@@ -225,6 +229,10 @@
       font-size: 14px;
     }
 
+    .solution-panel {
+      margin: 0 26px 18px;
+    }
+
     .source-link {
       display: inline-block;
       margin-top: 10px;
@@ -263,6 +271,11 @@
       }
 
       .note {
+        margin-right: 18px;
+        margin-left: 18px;
+      }
+
+      .solution-panel {
         margin-right: 18px;
         margin-left: 18px;
       }
@@ -307,7 +320,26 @@
           </div>
         </div>
       </div>
-      <p class="note">الأحمر يطابق كلمة العنوان داخل العنصر المتداخل، والأزرق يطابق الابن المباشر للعنصر الأب، وتجميع المحددات يلوّن الفقرة وعنوان القسم بالأخضر.</p>
+      <div class="panel solution-panel">
+        <h3 class="panel-title">CSS الحل — Nesting and Grouped Selectors</h3>
+        <pre>#task-01-preview {
+  .parent {
+    .child .title {
+      color: red;
+    }
+
+    &amp; &gt; .title {
+      color: blue;
+    }
+
+    p,
+    &amp; ~ .title {
+      color: green;
+    }
+  }
+}</pre>
+      </div>
+      <p class="note">يشير محدد التداخل `&amp;` إلى العنصر الأب `.parent`. يلوّن المحدد المتداخل كلمة `Title` بالأحمر والابن المباشر بالأزرق، ثم يجمع الفقرة والعنوان الشقيق التالي في قاعدة خضراء واحدة.</p>
     </section>
 
     <section class="task-card" id="task-02">
