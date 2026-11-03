@@ -13,6 +13,12 @@
       "skillPath": "skills/algorithmic-art/SKILL.md",
       "computedHash": "987b24aa98171a0d3690420173b2cdb6eaafd57981ed716b5d50371affa82ea3"
     },
+    "archify": {
+      "source": "alksnd/archify",
+      "sourceType": "github",
+      "skillPath": "archify/SKILL.md",
+      "computedHash": "29400d01d56698336987b8710b58dd97a76b4cf2dbf4c260d3b358a4ee839f81"
+    },
     "baoyu-youtube-transcript": {
       "source": "jimliu/baoyu-skills",
       "sourceType": "github",
