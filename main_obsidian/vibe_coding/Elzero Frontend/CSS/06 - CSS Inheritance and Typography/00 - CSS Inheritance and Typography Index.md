@@ -28,6 +28,10 @@ aliases:
 - [[02 - CSS Font Families and Weights.html|التكليف 02 — Font Families and Weights]]
 - [[CSS Root Font Size Rem Assignment 22-26.html|التكليف 03 — Root Font Size and rem]]
 
+## شروحات الدروس
+
+- [[Typography Font Style Variant And Weight Lesson|Typography — Font Style, Variant, and Weight]]
+
 ## المصدر
 
 [تكليفات CSS للدروس 22–26](https://elzero.org/css-assignments-lesson-from-22-to-26/)

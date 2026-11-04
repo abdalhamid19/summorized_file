@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تجربة خصائص نمط الخط في CSS</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page-text: var(--text-normal, CanvasText);
+      --page-muted: var(--text-muted, GrayText);
+      --page-border: var(--background-modifier-border, GrayText);
+      --page-highlight: var(--interactive-accent, Highlight);
+      --page-surface: var(--background-secondary, Canvas);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 1rem;
+      color: var(--page-text);
+      background: transparent;
+      font: 16px/1.5 system-ui, sans-serif;
+    }
+    main { max-width: 760px; margin-inline: auto; }
+    h1 { margin: 0 0 1rem; font-size: 1.35rem; }
+    .controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+    label { display: grid; gap: 0.3rem; }
+    select, input { width: 100%; }
+    .sample { display: grid; gap: 0.7rem; margin-top: 1rem; }
+    .sample-row { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: 0.7rem; padding-block: 0.55rem; border-block-end: 1px solid var(--page-border); }
+    .sample-row code { color: var(--page-muted); }
+    .sample-row > :last-child { min-width: 0; overflow-wrap: anywhere; border-inline-start: 3px solid var(--page-highlight); padding-inline-start: 0.6rem; }
+    pre { margin: 1rem 0 0; padding: 0.7rem; border-radius: 0.45rem; background: var(--page-surface); color: var(--page-text); white-space: pre-wrap; overflow-wrap: anywhere; }
+    @media (max-width: 480px) {
+      .controls { grid-template-columns: minmax(0, 1fr); }
+      body { padding: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>جرّب خصائص شكل الخط</h1>
+    <div class="controls">
+      <label for="style">ميلان الخط <bdi dir="ltr">font-style</bdi>
+        <select id="style" dir="ltr">
+          <option value="normal">normal</option>
+          <option value="italic">italic</option>
+          <option value="oblique">oblique</option>
+        </select>
+      </label>
+      <label for="variant">شكل الحروف <bdi dir="ltr">font-variant</bdi>
+        <select id="variant" dir="ltr">
+          <option value="small-caps" selected>small-caps</option>
+          <option value="normal">normal</option>
+        </select>
+      </label>
+      <label for="weight">سماكة الخط <bdi dir="ltr">font-weight</bdi>: <output id="weight-value">bold (700)</output>
+        <input id="weight" type="range" min="100" max="900" step="100" value="700" dir="ltr">
+      </label>
+      <label for="transform">حالة الأحرف <bdi dir="ltr">text-transform</bdi>
+        <select id="transform" dir="ltr">
+          <option value="uppercase" selected>uppercase</option>
+          <option value="lowercase">lowercase</option>
+          <option value="capitalize">capitalize</option>
+          <option value="none">none</option>
+        </select>
+      </label>
+    </div>
+    <section class="sample" aria-live="polite">
+      <div class="sample-row">
+        <code dir="ltr">div</code>
+        <div id="div-sample">elzero web school</div>
+      </div>
+      <div class="sample-row">
+        <code dir="ltr">p</code>
+        <p id="p-sample">Elzero Web School</p>
+      </div>
+    </section>
+    <pre dir="ltr"><code id="css-output"></code></pre>
+  </main>
+  <script>
+    const styleControl = document.getElementById("style");
+    const variantControl = document.getElementById("variant");
+    const weightControl = document.getElementById("weight");
+    const weightValue = document.getElementById("weight-value");
+    const transformControl = document.getElementById("transform");
+    const divSample = document.getElementById("div-sample");
+    const pSample = document.getElementById("p-sample");
+    const cssOutput = document.getElementById("css-output");
+    function cssWeight(weight) {
+      if (weight === "700") return "bold";
+      if (weight === "400") return "normal";
+      return weight;
+    }
+    function update() {
+      const style = styleControl.value;
+      const variant = variantControl.value;
+      const weight = weightControl.value;
+      const transform = transformControl.value;
+      divSample.style.fontStyle = style;
+      divSample.style.fontVariantCaps = variant;
+      divSample.style.fontWeight = weight;
+      pSample.style.textTransform = transform;
+      weightValue.textContent = weight + (weight === "700" ? " (bold)" : weight === "400" ? " (normal)" : "");
+      const declarations = [];
+      if (style !== "normal") declarations.push("  font-style: " + style + ";");
+      declarations.push("  font-variant: " + variant + ";");
+      declarations.push("  font-weight: " + cssWeight(weight) + ";");
+      cssOutput.textContent = "div {\n" + declarations.join("\n") + "\n}\np {\n  text-transform: " + transform + ";\n}";
+    }
+    [styleControl, variantControl, weightControl, transformControl].forEach((control) => {
+      control.addEventListener("input", update);
+    });
+    update();
+  </script>
+</body>
+</html>
