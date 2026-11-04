@@ -1,0 +1,126 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>01 - CSS Reusable Utility Classes — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 01</p><h1>CSS Reusable Utility Classes</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> مأخوذ من المعاينة المحلية</h3><pre dir='ltr'><code>&lt;section id=&quot;task-01&quot;&gt;
+      &lt;h2&gt;التكليف 01 — Utility Classes&lt;/h2&gt;
+      &lt;p class=&quot;desc&quot;&gt;يحتاج العنصر الأب إلى &lt;code&gt;position: relative&lt;/code&gt; عند توسيط عنصر باستخدام &lt;code&gt;center-position&lt;/code&gt;.&lt;/p&gt;
+      &lt;div class=&quot;utility-demo&quot;&gt;
+        &lt;div class=&quot;demo center-flex&quot;&gt;&lt;span class=&quot;demo-title&quot;&gt;center-flex&lt;/span&gt;&lt;b&gt;المحتوى في المنتصف&lt;/b&gt;&lt;/div&gt;
+        &lt;div class=&quot;demo&quot;&gt;&lt;span class=&quot;demo-title&quot;&gt;center-position&lt;/span&gt;&lt;b class=&quot;center-position&quot;&gt;عنصر متمركز&lt;/b&gt;&lt;/div&gt;
+        &lt;div class=&quot;demo circle-row&quot;&gt;&lt;div class=&quot;circle-100&quot;&gt;100 × 100&lt;/div&gt;&lt;div class=&quot;circle-200&quot;&gt;200 × 200&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;.center-flex { display: flex; justify-content: center; align-items: center; }
+.center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.circle-100 { width: 100px; height: 100px; border-radius: 50%; }
+.circle-200 { width: 200px; height: 200px; border-radius: 50%; }&lt;/pre&gt;
+    &lt;/section&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>أنشئ مجموعة أصناف قابلة لإعادة الاستخدام:</p><p dir='rtl'>- <bdi dir='ltr'><code>center-flex</code></bdi> لتوسيط محتويات العنصر بالطول والعرض باستخدام <bdi dir='ltr'><code>Flex</code></bdi>. - <bdi dir='ltr'><code>center-position</code></bdi> لتوسيط العنصر نفسه داخل العنصر الأب بالطول والعرض. - <bdi dir='ltr'><code>circle-100</code></bdi> و<bdi dir='ltr'><code>circle-200</code></bdi> لجعل العنصر دائريًا بقياسي <bdi dir='ltr'><code>100×100px</code></bdi> و<bdi dir='ltr'><code>200×200px</code></bdi>.</p></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section id=&quot;task-01&quot;&gt;
+      &lt;h2&gt;التكليف 01 — Utility Classes&lt;/h2&gt;
+      &lt;p class=&quot;desc&quot;&gt;يحتاج العنصر الأب إلى &lt;code&gt;position: relative&lt;/code&gt; عند توسيط عنصر باستخدام &lt;code&gt;center-position&lt;/code&gt;.&lt;/p&gt;
+      &lt;div class=&quot;utility-demo&quot;&gt;
+        &lt;div class=&quot;demo center-flex&quot;&gt;&lt;span class=&quot;demo-title&quot;&gt;center-flex&lt;/span&gt;&lt;b&gt;المحتوى في المنتصف&lt;/b&gt;&lt;/div&gt;
+        &lt;div class=&quot;demo&quot;&gt;&lt;span class=&quot;demo-title&quot;&gt;center-position&lt;/span&gt;&lt;b class=&quot;center-position&quot;&gt;عنصر متمركز&lt;/b&gt;&lt;/div&gt;
+        &lt;div class=&quot;demo circle-row&quot;&gt;&lt;div class=&quot;circle-100&quot;&gt;100 × 100&lt;/div&gt;&lt;div class=&quot;circle-200&quot;&gt;200 × 200&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;.center-flex { display: flex; justify-content: center; align-items: center; }
+.center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.circle-100 { width: 100px; height: 100px; border-radius: 50%; }
+.circle-200 { width: 200px; height: 200px; border-radius: 50%; }&lt;/pre&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f2f5f9; color: #1e293b; font: 16px/1.7 &quot;Segoe UI&quot;, Tahoma, Arial, sans-serif; }
+    header { padding: 30px max(20px, calc((100% - 960px) / 2)); background: #17212b; color: white; }
+    header p { margin: 0; color: #cbd5e1; }
+    main { width: min(960px, calc(100% - 32px)); margin: 26px auto; }
+    section { margin-bottom: 22px; padding: 24px; border: 1px solid #dbe3ee; border-radius: 14px; background: white; box-shadow: 0 10px 28px rgb(15 23 42 / 6%); }
+    h1 { margin: 0 0 6px; font-size: 30px; }
+    h2 { margin: 0 0 8px; font-size: 22px; }
+    .desc { color: #64748b; }
+    .utility-demo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .demo { position: relative; min-height: 155px; border: 1px dashed #94a3b8; border-radius: 10px; background: #f8fafc; }
+    .center-flex { display: flex; justify-content: center; align-items: center; }
+    .center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .circle-100, .circle-200 { display: grid; place-items: center; border-radius: 50%; background: #147d73; color: white; }
+    .circle-100 { width: 100px; height: 100px; }
+    .circle-200 { width: 200px; height: 200px; }
+    .demo-title { position: absolute; top: 8px; right: 12px; color: #64748b; font-size: 12px; }
+    .circle-row { display: flex; min-height: 240px; align-items: center; justify-content: space-around; grid-column: 1 / -1; overflow: hidden; }
+    .arrow-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 20px; direction: ltr; }
+    .arrow {
+      --arrow-color: #e91e63;
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 110px;
+      place-items: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+    .arrow::before { position: absolute; top: 50%; left: 50%; width: 0; height: 0; border: 14px solid transparent; content: &quot;&quot;; transform: translate(-50%, -50%); }
+    .arrow.top::before { border-bottom-color: var(--arrow-color); }
+    .arrow.right::before { border-left-color: var(--arrow-color); }
+    .arrow.bottom::before { border-top-color: var(--arrow-color); }
+    .arrow.left::before { border-right-color: var(--arrow-color); }
+    .label { position: absolute; top: 6px; left: 8px; color: #64748b; font-size: 11px; }
+    pre { overflow: auto; margin: 16px 0 0; padding: 14px; border-radius: 8px; background: #1e293b; color: #e2e8f0; direction: ltr; text-align: left; font: 12px/1.6 Consolas, monospace; }
+    @media (max-width: 680px) { .utility-demo { grid-template-columns: 1fr; } .arrow-row { grid-template-columns: repeat(2, 1fr); } .circle-row { grid-column: auto; } }
+  &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section id=&quot;task-01&quot;&gt;
+      &lt;h2&gt;التكليف 01 — Utility Classes&lt;/h2&gt;
+      &lt;p class=&quot;desc&quot;&gt;يحتاج العنصر الأب إلى &lt;code&gt;position: relative&lt;/code&gt; عند توسيط عنصر باستخدام &lt;code&gt;center-position&lt;/code&gt;.&lt;/p&gt;
+      &lt;div class=&quot;utility-demo&quot;&gt;
+        &lt;div class=&quot;demo center-flex&quot;&gt;&lt;span class=&quot;demo-title&quot;&gt;center-flex&lt;/span&gt;&lt;b&gt;المحتوى في المنتصف&lt;/b&gt;&lt;/div&gt;
+        &lt;div class=&quot;demo&quot;&gt;&lt;span class=&quot;demo-title&quot;&gt;center-position&lt;/span&gt;&lt;b class=&quot;center-position&quot;&gt;عنصر متمركز&lt;/b&gt;&lt;/div&gt;
+        &lt;div class=&quot;demo circle-row&quot;&gt;&lt;div class=&quot;circle-100&quot;&gt;100 × 100&lt;/div&gt;&lt;div class=&quot;circle-200&quot;&gt;200 × 200&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;.center-flex { display: flex; justify-content: center; align-items: center; }
+.center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.circle-100 { width: 100px; height: 100px; border-radius: 50%; }
+.circle-200 { width: 200px; height: 200px; border-radius: 50%; }&lt;/pre&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>CSS
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-100 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.circle-200 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>أضف <bdi dir='ltr'><code>position: relative</code></bdi> إلى الأب الذي يحتوي العنصر ذي <bdi dir='ltr'><code>center-position</code></bdi>؛ عندها تكون نقطة المنتصف محسوبة داخل هذا الأب. يوسّط <bdi dir='ltr'><code>center-flex</code></bdi> العناصر الداخلية، بينما يوسّط <bdi dir='ltr'><code>center-position</code></bdi> العنصر الذي أُضيف إليه الصنف. تجعل النسبة <bdi dir='ltr'><code>50%</code></bdi> الحافتين دائريتين تمامًا بعد مساواة العرض والارتفاع.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>.center-flex</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.center-position</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.circle-100</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.circle-200</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>display</code></h4><p>تحدد طريقة عرض العنصر. مثال القيمة: <bdi dir='ltr'>flex</bdi></p></article><article class='symbol'><h4><code>justify-content</code></h4><p>توزع العناصر على المحور الرئيسي. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article><article class='symbol'><h4><code>align-items</code></h4><p>تحاذي العناصر عرضيًا. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article><article class='symbol'><h4><code>position</code></h4><p>تحدد طريقة التموضع. مثال القيمة: <bdi dir='ltr'>absolute</bdi></p></article><article class='symbol'><h4><code>top</code></h4><p>تحدد المسافة من أعلى مرجع التموضع. مثال القيمة: <bdi dir='ltr'>50%</bdi></p></article><article class='symbol'><h4><code>left</code></h4><p>تحدد المسافة من اليسار. مثال القيمة: <bdi dir='ltr'>50%</bdi></p></article><article class='symbol'><h4><code>transform</code></h4><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. مثال القيمة: <bdi dir='ltr'>translate(-50%, -50%)</bdi></p></article><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>100px</bdi></p></article><article class='symbol'><h4><code>height</code></h4><p>تحدد ارتفاع العنصر. مثال القيمة: <bdi dir='ltr'>100px</bdi></p></article><article class='symbol'><h4><code>border-radius</code></h4><p>تدوّر زوايا العنصر. مثال القيمة: <bdi dir='ltr'>50%</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>translate()</code></h4><p>تحرك العنصر أفقيًا أو رأسيًا بالقيم المحددة.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>CSS
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-100 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.circle-200 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>.center-flex {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  display: flex;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>flex</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>  justify-content: center;</code></pre><p>توزع العناصر على المحور الرئيسي. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>  align-items: center;</code></pre><p>تحاذي العناصر عرضيًا. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>.center-position {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>  top: 50%;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>  left: 50%;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>  transform: translate(-50%, -50%);</code></pre><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. والقيمة هنا <bdi dir='ltr'>translate(-50%, -50%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>.circle-100 {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>  width: 100px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>100px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>  height: 100px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>100px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>  border-radius: 50%;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>.circle-200 {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>  width: 200px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>200px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>  height: 200px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>200px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  border-radius: 50%;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-86-to-88/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

@@ -19,7 +19,14 @@ aliases:
 - [[vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/01 - CSS Float and Opacity - Dynamic Float Grid with Calc|التكليف 01 — Dynamic Float Grid with Calc]]
 - [[vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/02 - CSS Float and Opacity - Transparent Background without Fading Text|التكليف 02 — Transparent Background without Fading Text]]
 
-## المعاينة
+## صفحات الشرح المستقلة
+
+لكل تكليف صفحة HTML مستقلة، مع الإبقاء على معاينة المجموعة الأصلية.
+
+- [[01 - CSS Float and Opacity - Dynamic Float Grid with Calc.html|التكليف 01 — Dynamic Float Grid with calc()]]
+- [[02 - CSS Float and Opacity - Transparent Background without Fading Text.html|التكليف 02 — Transparent Background without Fading Text]]
+
+## معاينة المجموعة
 
 [[vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/CSS Float and Opacity Assignments 27–29 Demo.html|افتح صفحة المعاينة]]
 

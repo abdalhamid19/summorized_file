@@ -26,3 +26,12 @@ tags:
 ## المصدر
 
 [تكليفات CSS للدروس 74–77](https://elzero.org/css-assignments-lesson-from-74-to-77/)
+
+## صفحات الشرح المستقلة
+
+صفحة مستقلة لكل تكليف مع الإبقاء على معاينة المجموعة.
+
+- [[01 - CSS Animation — Pause on Hover.html|01 - CSS Animation — Pause on Hover]]
+- [[02 - CSS Animation — Animate on Hover.html|02 - CSS Animation — Animate on Hover]]
+- [[03 - CSS Animation — One-Second Motion.html|03 - CSS Animation — One-Second Motion]]
+- [[04 - CSS Animation — EL Letters Challenge.html|04 - CSS Animation — EL Letters Challenge]]

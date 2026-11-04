@@ -22,19 +22,62 @@ aliases:
 
 > [!success]- الإجابة وشرح الحل — اضغط لفتحه
 >
+> ### الكود الكامل للحل
+>
 > ```css
 > body > div:first-of-type > h3:nth-of-type(3) + div { color: #f00; font-weight: 700; }
 > ```
 >
+> ### الفكرة الأساسية
+>
 > يختار `:first-of-type` أول `div` بين أبناء `body`، ثم `:nth-of-type(3)` العنوان الثالث من نوع `h3`، ويصل `+` إلى `div` الملاصق له مباشرة.
 >
-> تتبع صفحة المعاينة بنية HTML المنشورة في المصدر كما هي.
+> > [!info]- معاني الرموز المستخدمة في الحل
+> >
+> > ### الدوال والوحدات
+> >
+> > #### `nth-of-type()`
+> >
+> > تختار عنصرًا بحسب ترتيبه بين إخوته من نوع `HTML` نفسه.
+> >
+> > ### بنية القاعدة
+> >
+> > #### `{`
+> >
+> > يفتح مجموعة التصريحات.
+> >
+> > #### `}`
+> >
+> > يغلق مجموعة التصريحات.
+> >
+> > #### `:`
+> >
+> > يفصل الخاصية عن القيمة.
+> >
+> > #### `;`
+> >
+> > ينهي تصريح `CSS`.
+> >
+> > [!info]- شرح الحل سطرًا بسطر
+> >
+> > يبقى الكود الكامل أعلى الإجابة، ويأتي كل سطر مستقلًا مع شرحه العربي تحته.
+> >
+> > #### السطر 01 — `css`
+> >
+> > ```css
+> > body > div:first-of-type > h3:nth-of-type(3) + div { color: #f00; font-weight: 700; }
+> > ```
+> >
+> > يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته. ويجمع السطر خصائص `color` وfont-`weight`.
+> >
 >
-> **معاينة الحل**
+> **لقطة صفحة الشرح**
 >
-> ![[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/assets/solution-task-07.png|500]]
+> ![[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/assets/solution-page-task-08.png|1200]]
 >
-> [[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/CSS Selectors Assignments 78-82.html|افتح صفحة معاينة الحلول 78–82]]
+> **صفحة الشرح المستقلة**
+>
+> [[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/08 - CSS Selectors - Third Heading and Next Sibling.html|افتح صفحة التكليف 08]]
 
 ## المصدر
 

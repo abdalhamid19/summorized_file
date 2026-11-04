@@ -21,6 +21,8 @@ tags:
 
 > [!success]- الإجابة وشرح الحل — اضغط لفتحه
 >
+> ### الكود الكامل للحل
+>
 > ```css
 > html, body { min-height: 100%; margin: 0; }
 > body { min-height: 100vh; display: grid; place-items: center; }
@@ -28,13 +30,100 @@ tags:
 > @keyframes spin { to { transform: rotate(360deg); } }
 > ```
 >
-> يجعل `body` نافذة العرض كاملة ويضع العنصر في منتصفها. تضمن `box-sizing` أن يكون القياس الخارجي للحلقة 50×50px رغم الحد. تدور الحلقة باستمرار دورة كل ثانية.
+> ### الفكرة الأساسية
 >
-> **معاينة الحل**
+> يجعل `body` نافذة العرض كاملة ويضع العنصر في منتصفها. تضمن `box-sizing` أن يكون القياس الخارجي للحلقة 50×`50px` رغم الحد. تدور الحلقة باستمرار دورة كل ثانية.
 >
-> ![[vibe_coding/Elzero Frontend/CSS/17 - CSS Animations/assets/solution-task-03.png|900]]
+> > [!info]- معاني الرموز المستخدمة في الحل
+> >
+> > ### الدوال والوحدات
+> >
+> > #### `rotate()`
+> >
+> > تدير العنصر بالزاوية المحددة.
+> >
+> > #### `vh`
+> >
+> > نسبة من ارتفاع نافذة العرض.
+> >
+> > #### `px`
+> >
+> > وحدة بكسل `CSS`.
+> >
+> > #### `s`
+> >
+> > ثانية.
+> >
+> > #### `deg`
+> >
+> > درجة زاوية.
+> >
+> > ### بنية القاعدة
+> >
+> > #### `{`
+> >
+> > يفتح مجموعة التصريحات.
+> >
+> > #### `}`
+> >
+> > يغلق مجموعة التصريحات.
+> >
+> > #### `:`
+> >
+> > يفصل الخاصية عن القيمة.
+> >
+> > #### `;`
+> >
+> > ينهي تصريح `CSS`.
+> >
+> > #### `,`
+> >
+> > يفصل بين محددات أو قيم.
+> >
+> > [!info]- شرح الحل سطرًا بسطر
+> >
+> > يبقى الكود الكامل أعلى الإجابة، ويأتي كل سطر مستقلًا مع شرحه العربي تحته.
+> >
+> > #### السطر 01 — `css`
+> >
+> > ```css
+> > html, body { min-height: 100%; margin: 0; }
+> > ```
+> >
+> > يحدد العنصر الذي ستطبق عليه قواعد `CSS`. ويجمع السطر خصائص `min-height` وmargin.
+> >
+> > #### السطر 02 — `css`
+> >
+> > ```css
+> > body { min-height: 100vh; display: grid; place-items: center; }
+> > ```
+> >
+> > يحدد العنصر الذي ستطبق عليه قواعد `CSS`. ويجمع السطر خصائص `min-height` وdisplay وplace-`items`.
+> >
+> > #### السطر 03 — `css`
+> >
+> > ```css
+> > .box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #222; border-top-color: #aaa; border-radius: 50%; animation: spin 1s linear infinite; }
+> > ```
+> >
+> > يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص `box-sizing` وwidth وheight وborder وborder-`top-color` وborder-`radius` وanimation.
+> >
+> > #### السطر 04 — `css`
+> >
+> > ```css
+> > @keyframes spin { to { transform: rotate(360deg); } }
+> > ```
+> >
+> > يعرّف مراحل الحركة التي يمكن تشغيلها.
+> >
 >
-> [[vibe_coding/Elzero Frontend/CSS/17 - CSS Animations/CSS Animation Assignments 74-77.html|افتح صفحة الحل]]
+> **لقطة صفحة الشرح**
+>
+> ![[vibe_coding/Elzero Frontend/CSS/17 - CSS Animations/assets/solution-page-task-03.png|1200]]
+>
+> **صفحة الشرح المستقلة**
+>
+> [[vibe_coding/Elzero Frontend/CSS/17 - CSS Animations/03 - CSS Animation — One-Second Motion.html|افتح صفحة التكليف 03]]
 
 ## المصدر
 

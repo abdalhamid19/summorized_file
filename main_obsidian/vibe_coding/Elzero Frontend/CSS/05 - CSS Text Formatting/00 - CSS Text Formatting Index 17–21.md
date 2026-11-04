@@ -21,7 +21,16 @@ aliases:
 - [[vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/03 - CSS Text Formatting - Text Overflow Ellipsis|التكليف 03 — Text Overflow Ellipsis]]
 - [[vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/04 - CSS Text Formatting - Centered Styled Link|التكليف 04 — Centered Styled Link]]
 
-## المعاينة
+## صفحات الشرح المستقلة
+
+لكل تكليف صفحة HTML مستقلة، مع الإبقاء على معاينة المجموعة الأصلية.
+
+- [[01 - CSS Text Formatting - Multiple Text Shadows.html|التكليف 01 — Multiple Text Shadows]]
+- [[02 - CSS Text Formatting - Text Transform.html|التكليف 02 — Text Transform]]
+- [[03 - CSS Text Formatting - Text Overflow Ellipsis.html|التكليف 03 — Text Overflow Ellipsis]]
+- [[04 - CSS Text Formatting - Centered Styled Link.html|التكليف 04 — Centered Styled Link]]
+
+## معاينة المجموعة
 
 [[vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/CSS Text Formatting Assignments 17–21 Demo.html|افتح صفحة المعاينة]]
 

@@ -26,3 +26,11 @@ aliases:
 ## المصدر
 
 [تكليفات CSS للدروس 65–67](https://elzero.org/css-assignments-lesson-from-65-to-67/)
+
+## صفحات الشرح المستقلة
+
+صفحة مستقلة لكل تكليف مع الإبقاء على معاينة المجموعة.
+
+- [[01 - CSS Transform - Layered Rotated Cards.html|01 - CSS Transform - Layered Rotated Cards]]
+- [[02 - CSS Transform - Two Colored Ring Arcs.html|02 - CSS Transform - Two Colored Ring Arcs]]
+- [[03 - CSS Transform - Rotate Rings on Hover.html|03 - CSS Transform - Rotate Rings on Hover]]

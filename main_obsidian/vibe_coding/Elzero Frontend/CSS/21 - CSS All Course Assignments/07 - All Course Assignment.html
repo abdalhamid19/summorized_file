@@ -1,35 +1,281 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Course Assignment 07</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 13px 18px 18px; background: #eee; color: #000; font: 28px/1.2 Arial, sans-serif; }
-    body > ul { margin: 0; padding: 0; list-style: none; counter-reset: main-item; }
-    body > ul > li { min-height: 80px; margin-bottom: 10px; padding: 10px; background: #fff; line-height: 60px; counter-increment: main-item; }
-    body > ul > li::before { content: counter(main-item); display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; margin-right: 20px; background: #ddd; font-weight: 700; vertical-align: top; line-height: 1; }
-    body > ul > li:nth-child(4) { padding-bottom: 40px; background: #ddd; }
-    body > ul > li:nth-child(4)::before { background: #fff; }
-    body > ul > li > ul { margin: 30px 0 0 30px; padding: 0; list-style: none; counter-reset: sub-item; }
-    body > ul > li > ul > li { height: 80px; margin: 10px 0; padding: 10px; background: #fff; line-height: 60px; counter-increment: sub-item; }
-    body > ul > li > ul > li::before { content: counter(main-item) "." counter(sub-item); display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; margin-right: 20px; color: #fff; background: #009688; font-weight: 700; vertical-align: top; line-height: 1; }
-  </style>
-</head>
-<body>
-<ul>
-  <li>List item</li>
-  <li>List item</li>
-  <li>List item</li>
-  <li>
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>07 - All Course Assignment — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 07</p><h1>All Course Assignment</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> الأصلي الوارد في السؤال</h3><pre dir='ltr'><code>&lt;ul&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;
     List item
-    <ul>
-      <li>Sub List item</li>
-      <li>Sub List item</li>
-      <li>Sub List item</li>
-    </ul>
-  </li>
-</ul>
-</body>
-</html>
+    &lt;ul&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>المطلوب — تحدي نسّق القائمة المرقّمة وعناصرها الفرعية لتطابق الصورة، مع الحفاظ على <bdi dir='ltr'>HTML</bdi> كما هو.</p><figure><h3>صورة السؤال المرجعية</h3><img src='assets/assignment-07-reference.png' alt='مرجع التكليف 07' style='display:block;max-width:100%;max-height:460px;margin:10px auto'></figure></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;
+    List item
+    &lt;ul&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 13px 18px 18px;
+  background: #eee;
+  color: #000;
+  font: 28px/1.2 Arial, sans-serif;
+}
+
+body &gt; ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: main-item;
+}
+
+body &gt; ul &gt; li {
+  min-height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #fff;
+  line-height: 60px;
+  counter-increment: main-item;
+}
+
+body &gt; ul &gt; li::before {
+  content: counter(main-item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  background: #ddd;
+  font-weight: 700;
+  vertical-align: top;
+  line-height: 1;
+}
+
+body &gt; ul &gt; li:nth-child(4) {
+  padding-bottom: 40px;
+  background: #ddd;
+}
+
+body &gt; ul &gt; li:nth-child(4)::before {
+  background: #fff;
+}
+
+body &gt; ul &gt; li &gt; ul {
+  margin: 30px 0 0 30px;
+  padding: 0;
+  list-style: none;
+  counter-reset: sub-item;
+}
+
+body &gt; ul &gt; li &gt; ul &gt; li {
+  height: 80px;
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  line-height: 60px;
+  counter-increment: sub-item;
+}
+
+body &gt; ul &gt; li &gt; ul &gt; li::before {
+  content: counter(main-item) &quot;.&quot; counter(sub-item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  color: #fff;
+  background: #009688;
+  font-weight: 700;
+  vertical-align: top;
+  line-height: 1;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;ul&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;List item&lt;/li&gt;
+  &lt;li&gt;
+    List item
+    &lt;ul&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+      &lt;li&gt;Sub List item&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>CSS
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 13px 18px 18px;
+  background: #eee;
+  color: #000;
+  font: 28px/1.2 Arial, sans-serif;
+}
+
+body &gt; ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: main-item;
+}
+
+body &gt; ul &gt; li {
+  min-height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #fff;
+  line-height: 60px;
+  counter-increment: main-item;
+}
+
+body &gt; ul &gt; li::before {
+  content: counter(main-item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  background: #ddd;
+  font-weight: 700;
+  vertical-align: top;
+  line-height: 1;
+}
+
+body &gt; ul &gt; li:nth-child(4) {
+  padding-bottom: 40px;
+  background: #ddd;
+}
+
+body &gt; ul &gt; li:nth-child(4)::before {
+  background: #fff;
+}
+
+body &gt; ul &gt; li &gt; ul {
+  margin: 30px 0 0 30px;
+  padding: 0;
+  list-style: none;
+  counter-reset: sub-item;
+}
+
+body &gt; ul &gt; li &gt; ul &gt; li {
+  height: 80px;
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  line-height: 60px;
+  counter-increment: sub-item;
+}
+
+body &gt; ul &gt; li &gt; ul &gt; li::before {
+  content: counter(main-item) &quot;.&quot; counter(sub-item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  color: #fff;
+  background: #009688;
+  font-weight: 700;
+  vertical-align: top;
+  line-height: 1;
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>خاصية <bdi dir='ltr'><code>counter-reset</code></bdi> تبدأ العدّاد، و<bdi dir='ltr'><code>counter-increment</code></bdi> تزيده لكل عنصر. وتضيف <bdi dir='ltr'><code>::before</code></bdi> (عنصرًا وهميًا) رقمًا قبل النص من دون إدخال أرقام أو تغيير بنية <bdi dir='ltr'><code>HTML</code></bdi>. العدّاد <bdi dir='ltr'><code>main-item</code></bdi> يعطي رقم العنصر الأب، و<bdi dir='ltr'><code>sub-item</code></bdi> يكوّن الأرقام مثل <bdi dir='ltr'><code>4.1</code></bdi> و<bdi dir='ltr'><code>4.2</code></bdi> و<bdi dir='ltr'><code>4.3</code></bdi>.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>*</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>body</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>body &gt; ul</code></h4><p>يختار الابن المباشر للعنصر السابق.</p></article><article class='symbol'><h4><code>body &gt; ul &gt; li</code></h4><p>يختار الابن المباشر للعنصر السابق.</p></article><article class='symbol'><h4><code>body &gt; ul &gt; li::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='symbol'><h4><code>body &gt; ul &gt; li:nth-child(4)</code></h4><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='symbol'><h4><code>body &gt; ul &gt; li:nth-child(4)::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='symbol'><h4><code>body &gt; ul &gt; li &gt; ul</code></h4><p>يختار الابن المباشر للعنصر السابق.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>box-sizing</code></h4><p>تحدد حساب أبعاد الصندوق. مثال القيمة: <bdi dir='ltr'>border-box</bdi></p></article><article class='symbol'><h4><code>margin</code></h4><p>تضيف مسافة خارجية. مثال القيمة: 0</p></article><article class='symbol'><h4><code>padding</code></h4><p>تضيف مساحة داخلية. مثال القيمة: <bdi dir='ltr'>13px</bdi> <bdi dir='ltr'>18px</bdi> <bdi dir='ltr'>18px</bdi></p></article><article class='symbol'><h4><code>background</code></h4><p>تضبط الخلفية. مثال القيمة: <bdi dir='ltr'>#eee</bdi></p></article><article class='symbol'><h4><code>color</code></h4><p>تحدد لون النص. مثال القيمة: <bdi dir='ltr'>#000</bdi></p></article><article class='symbol'><h4><code>font</code></h4><p>تجمع إعدادات الخط. مثال القيمة: <bdi dir='ltr'>28px</bdi>/1.2 <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi></p></article><article class='symbol'><h4><code>list-style</code></h4><p>تحدد علامة القائمة. مثال القيمة: <bdi dir='ltr'>none</bdi></p></article><article class='symbol'><h4><code>counter-reset</code></h4><p>تبدأ عداد <bdi dir='ltr'>CSS</bdi>. مثال القيمة: <bdi dir='ltr'>main-item</bdi></p></article><article class='symbol'><h4><code>min-height</code></h4><p>تحدد أقل ارتفاع. مثال القيمة: <bdi dir='ltr'>80px</bdi></p></article><article class='symbol'><h4><code>margin-bottom</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>margin-bottom</bdi>. مثال القيمة: <bdi dir='ltr'>10px</bdi></p></article><article class='symbol'><h4><code>line-height</code></h4><p>تحدد المسافة بين الأسطر. مثال القيمة: <bdi dir='ltr'>60px</bdi></p></article><article class='symbol'><h4><code>counter-increment</code></h4><p>تزيد عداد <bdi dir='ltr'>CSS</bdi>. مثال القيمة: <bdi dir='ltr'>main-item</bdi></p></article><article class='symbol'><h4><code>content</code></h4><p>تحدد محتوى العنصر الزائف. مثال القيمة: <bdi dir='ltr'>counter(main-item)</bdi></p></article><article class='symbol'><h4><code>display</code></h4><p>تحدد طريقة عرض العنصر. مثال القيمة: <bdi dir='ltr'>inline-flex</bdi></p></article><article class='symbol'><h4><code>align-items</code></h4><p>تحاذي العناصر عرضيًا. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article><article class='symbol'><h4><code>justify-content</code></h4><p>توزع العناصر على المحور الرئيسي. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>counter()</code></h4><p>تعرض القيمة الحالية لعداد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>counter()</code></h4><p>تعرض القيمة الحالية لعداد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>counter()</code></h4><p>تعرض القيمة الحالية لعداد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>CSS
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 13px 18px 18px;
+  background: #eee;
+  color: #000;
+  font: 28px/1.2 Arial, sans-serif;
+}
+
+body &gt; ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: main-item;
+}
+
+body &gt; ul &gt; li {
+  min-height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #fff;
+  line-height: 60px;
+  counter-increment: main-item;
+}
+
+body &gt; ul &gt; li::before {
+  content: counter(main-item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  background: #ddd;
+  font-weight: 700;
+  vertical-align: top;
+  line-height: 1;
+}
+
+body &gt; ul &gt; li:nth-child(4) {
+  padding-bottom: 40px;
+  background: #ddd;
+}
+
+body &gt; ul &gt; li:nth-child(4)::before {
+  background: #fff;
+}
+
+body &gt; ul &gt; li &gt; ul {
+  margin: 30px 0 0 30px;
+  padding: 0;
+  list-style: none;
+  counter-reset: sub-item;
+}
+
+body &gt; ul &gt; li &gt; ul &gt; li {
+  height: 80px;
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  line-height: 60px;
+  counter-increment: sub-item;
+}
+
+body &gt; ul &gt; li &gt; ul &gt; li::before {
+  content: counter(main-item) &quot;.&quot; counter(sub-item);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  color: #fff;
+  background: #009688;
+  font-weight: 700;
+  vertical-align: top;
+  line-height: 1;
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>* {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  box-sizing: border-box;</code></pre><p>تحدد حساب أبعاد الصندوق. والقيمة هنا <bdi dir='ltr'>border-box</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>body {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>  margin: 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>  padding: 13px 18px 18px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>13px</bdi> <bdi dir='ltr'>18px</bdi> <bdi dir='ltr'>18px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>  background: #eee;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>  color: #000;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#000</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>  font: 28px/1.2 Arial, sans-serif;</code></pre><p>تجمع إعدادات الخط. والقيمة هنا <bdi dir='ltr'>28px</bdi>/1.2 <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>body &gt; ul {</code></pre><p>يختار الابن المباشر للعنصر السابق.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>  margin: 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>  padding: 0;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>  list-style: none;</code></pre><p>تحدد علامة القائمة. والقيمة هنا <bdi dir='ltr'>none</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>  counter-reset: main-item;</code></pre><p>تبدأ عداد <bdi dir='ltr'>CSS</bdi>. والقيمة هنا <bdi dir='ltr'>main-item</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>body &gt; ul &gt; li {</code></pre><p>يختار الابن المباشر للعنصر السابق.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>  min-height: 80px;</code></pre><p>تحدد أقل ارتفاع. والقيمة هنا <bdi dir='ltr'>80px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>  margin-bottom: 10px;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>margin-bottom</bdi>. والقيمة هنا <bdi dir='ltr'>10px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  padding: 10px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>10px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>  background: #fff;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>  line-height: 60px;</code></pre><p>تحدد المسافة بين الأسطر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>23</span><pre dir='ltr'><code>  counter-increment: main-item;</code></pre><p>تزيد عداد <bdi dir='ltr'>CSS</bdi>. والقيمة هنا <bdi dir='ltr'>main-item</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>24</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>25</span><pre dir='ltr'><code>body &gt; ul &gt; li::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>26</span><pre dir='ltr'><code>  content: counter(main-item);</code></pre><p>تحدد محتوى العنصر الزائف. والقيمة هنا <bdi dir='ltr'>counter(main-item)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>27</span><pre dir='ltr'><code>  display: inline-flex;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>inline-flex</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>28</span><pre dir='ltr'><code>  align-items: center;</code></pre><p>تحاذي العناصر عرضيًا. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>29</span><pre dir='ltr'><code>  justify-content: center;</code></pre><p>توزع العناصر على المحور الرئيسي. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>30</span><pre dir='ltr'><code>  width: 60px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>31</span><pre dir='ltr'><code>  height: 60px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>32</span><pre dir='ltr'><code>  margin-right: 20px;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>margin-right</bdi>. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>33</span><pre dir='ltr'><code>  background: #ddd;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#ddd</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>34</span><pre dir='ltr'><code>  font-weight: 700;</code></pre><p>تحدد سُمك الخط. والقيمة هنا 700.</p></article><article class='line'><span class='num' dir='ltr'>35</span><pre dir='ltr'><code>  vertical-align: top;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>vertical-align</bdi>. والقيمة هنا <bdi dir='ltr'>top</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>36</span><pre dir='ltr'><code>  line-height: 1;</code></pre><p>تحدد المسافة بين الأسطر. والقيمة هنا 1.</p></article><article class='line'><span class='num' dir='ltr'>37</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>38</span><pre dir='ltr'><code>body &gt; ul &gt; li:nth-child(4) {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>39</span><pre dir='ltr'><code>  padding-bottom: 40px;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>padding-bottom</bdi>. والقيمة هنا <bdi dir='ltr'>40px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>40</span><pre dir='ltr'><code>  background: #ddd;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#ddd</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>41</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>42</span><pre dir='ltr'><code>body &gt; ul &gt; li:nth-child(4)::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>43</span><pre dir='ltr'><code>  background: #fff;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>44</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>45</span><pre dir='ltr'><code>body &gt; ul &gt; li &gt; ul {</code></pre><p>يختار الابن المباشر للعنصر السابق.</p></article><article class='line'><span class='num' dir='ltr'>46</span><pre dir='ltr'><code>  margin: 30px 0 0 30px;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا <bdi dir='ltr'>30px</bdi> 0 0 <bdi dir='ltr'>30px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>47</span><pre dir='ltr'><code>  padding: 0;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>48</span><pre dir='ltr'><code>  list-style: none;</code></pre><p>تحدد علامة القائمة. والقيمة هنا <bdi dir='ltr'>none</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>49</span><pre dir='ltr'><code>  counter-reset: sub-item;</code></pre><p>تبدأ عداد <bdi dir='ltr'>CSS</bdi>. والقيمة هنا <bdi dir='ltr'>sub-item</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>50</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>51</span><pre dir='ltr'><code>body &gt; ul &gt; li &gt; ul &gt; li {</code></pre><p>يختار الابن المباشر للعنصر السابق.</p></article><article class='line'><span class='num' dir='ltr'>52</span><pre dir='ltr'><code>  height: 80px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>80px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>53</span><pre dir='ltr'><code>  margin: 10px 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا <bdi dir='ltr'>10px</bdi> 0.</p></article><article class='line'><span class='num' dir='ltr'>54</span><pre dir='ltr'><code>  padding: 10px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>10px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>55</span><pre dir='ltr'><code>  background: #fff;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>56</span><pre dir='ltr'><code>  line-height: 60px;</code></pre><p>تحدد المسافة بين الأسطر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>57</span><pre dir='ltr'><code>  counter-increment: sub-item;</code></pre><p>تزيد عداد <bdi dir='ltr'>CSS</bdi>. والقيمة هنا <bdi dir='ltr'>sub-item</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>58</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>59</span><pre dir='ltr'><code>body &gt; ul &gt; li &gt; ul &gt; li::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>60</span><pre dir='ltr'><code>  content: counter(main-item) &quot;.&quot; counter(sub-item);</code></pre><p>تحدد محتوى العنصر الزائف. والقيمة هنا <bdi dir='ltr'>counter(main-item)</bdi> &<bdi dir='ltr'>quot</bdi>;.&<bdi dir='ltr'>quot</bdi>; <bdi dir='ltr'>counter(sub-item)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>61</span><pre dir='ltr'><code>  display: inline-flex;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>inline-flex</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>62</span><pre dir='ltr'><code>  align-items: center;</code></pre><p>تحاذي العناصر عرضيًا. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>63</span><pre dir='ltr'><code>  justify-content: center;</code></pre><p>توزع العناصر على المحور الرئيسي. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>64</span><pre dir='ltr'><code>  width: 60px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>65</span><pre dir='ltr'><code>  height: 60px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>66</span><pre dir='ltr'><code>  margin-right: 20px;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>margin-right</bdi>. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>67</span><pre dir='ltr'><code>  color: #fff;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>68</span><pre dir='ltr'><code>  background: #009688;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#009688</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>69</span><pre dir='ltr'><code>  font-weight: 700;</code></pre><p>تحدد سُمك الخط. والقيمة هنا 700.</p></article><article class='line'><span class='num' dir='ltr'>70</span><pre dir='ltr'><code>  vertical-align: top;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>vertical-align</bdi>. والقيمة هنا <bdi dir='ltr'>top</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>71</span><pre dir='ltr'><code>  line-height: 1;</code></pre><p>تحدد المسافة بين الأسطر. والقيمة هنا 1.</p></article><article class='line'><span class='num' dir='ltr'>72</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-1-to-88/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

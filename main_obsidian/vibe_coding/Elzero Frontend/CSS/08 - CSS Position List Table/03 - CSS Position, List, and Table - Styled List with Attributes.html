@@ -1,0 +1,142 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>03 - CSS Position, List, and Table - Styled List with Attributes — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1c2b42;--muted:#56657a;--line:#d7e1ed;--teal:#078679;--paper:#f4f7fb;--navy:#1e2a3d;--mint:#eaf7f4}*{box-sizing:border-box}
+body{margin:0;padding:26px;background:var(--paper);color:var(--ink);font:16px/1.75 Arial,"Segoe UI",sans-serif;direction:rtl}main{max-width:1260px;margin:0 auto}
+.hero{padding:24px 28px;margin:0 0 22px;background:#fff;border:1px solid var(--line);border-radius:18px;border-top:5px solid var(--teal);box-shadow:0 10px 30px #102c4810}
+.eyebrow{display:block;color:var(--teal);font-weight:700;margin-bottom:6px}h1{margin:0;font-size:clamp(24px,3vw,36px);line-height:1.25;text-align:left;direction:ltr;color:#15243a}.hero p{margin:12px 0 0;color:var(--muted)}
+.page{margin:22px 0;padding:24px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px #102c4809}.major-title{margin:0 0 18px;padding:10px 14px;border-right:5px solid var(--teal);border-radius:8px;background:var(--mint);font-size:23px;line-height:1.35;color:#17344b}
+.sub-title{margin:24px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:19px;color:var(--teal)}.group-label{margin:17px 0 8px;font-size:16px;color:#34546c}
+.request-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;direction:ltr;align-items:start}.request-card{min-width:0;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe;direction:rtl}.request-card h3{margin:0 0 10px;font-size:18px;color:#1b3950}.request-card p{margin:8px 0}
+.request-card pre,.complete-code,.line-code{direction:ltr;text-align:left;unicode-bidi:plaintext;margin:12px auto 0 0;max-width:100%;overflow:auto;padding:16px;border-radius:10px;background:var(--navy);color:#f3f6fc;font:14px/1.65 Consolas,"Courier New",monospace;white-space:pre}.request-card.original-html pre{max-height:380px}
+code[dir="ltr"]{direction:ltr;text-align:left;unicode-bidi:plaintext;font-family:Consolas,"Courier New",monospace}code:not(pre code){padding:2px 5px;border-radius:4px;background:#eff3f8;color:#163b5a;font-size:.92em}.source-link a,.source-footer a{overflow-wrap:anywhere}
+.preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.preview-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe;direction:rtl}.preview-card h3{margin:0 0 4px;text-align:left;font-size:17px;color:#157e77;direction:ltr}.preview-card p{margin:2px 0 10px}.demo-frame{display:block;width:100%;height:360px;border:1px solid #d7e1ed;border-radius:8px;background:#fff}
+.reference,.result-image{margin:18px 0 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe}.reference img,.result-image img{display:block;max-width:100%;height:auto;max-height:520px;margin:0 auto;border-radius:8px}.reference figcaption,.result-image figcaption{margin-top:8px;color:var(--muted);text-align:right}
+.idea{border-right:5px solid var(--teal)}.idea p{margin:0;font-size:17px}.complete-code{max-height:none}
+details.accordion{margin:20px 0;padding:0;border:1px solid var(--line);border-radius:13px;background:#fff;overflow:clip}details.accordion>summary{padding:17px 20px;cursor:pointer;list-style:none;background:#f5f9fc;color:#1a374e;font-size:20px;font-weight:700;border-bottom:1px solid transparent}details.accordion>summary::-webkit-details-marker{display:none}details.accordion[open]>summary{border-bottom-color:var(--line)}details.accordion>summary::before{content:"+";display:inline-block;margin-left:12px;color:var(--teal);font-size:22px;line-height:1}details.accordion[open]>summary::before{content:"−"}
+.accordion-body{padding:20px}.symbol-list{margin:0;padding-right:20px}.symbol-list li{padding:8px 0;border-bottom:1px solid #e7edf4}.symbol-list li p{margin:5px 0 0}dl.symbol-list{padding:0}dl.symbol-list>div{display:grid;grid-template-columns:minmax(210px,1fr) 2fr;gap:14px;padding:9px 0;border-bottom:1px solid #e7edf4}dl.symbol-list dt{direction:ltr;text-align:left;font-weight:700}dl.symbol-list dd{margin:0}
+.line-layout{display:grid;grid-template-columns:minmax(330px,.95fr) minmax(0,1.05fr);gap:22px;align-items:start;direction:ltr}.full-code-panel{position:sticky;top:14px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;direction:ltr}.full-code-panel h3{margin:0;text-align:left;direction:ltr;color:#17344b;font-size:18px}.line-code{max-height:calc(100vh - 100px);margin-left:0;margin-right:auto}
+.line-explanations{direction:rtl;min-width:0}.line-row{position:relative;margin:0 0 12px;padding:15px 18px 15px 50px;border:1px solid #e4ebf3;border-radius:11px;background:#fff}.line-no{position:absolute;top:14px;left:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-size:13px;font-weight:bold}
+.snippet{display:block;max-width:100%;width:max-content;margin:0 auto 8px 0;padding:9px 12px;border-radius:8px;background:var(--navy);color:#f3f6fc;font:13px/1.55 Consolas,"Courier New",monospace;white-space:pre-wrap;overflow-wrap:anywhere;direction:ltr;text-align:left;unicode-bidi:plaintext}.line-row p{margin:0;direction:rtl}.source-footer{padding:20px;text-align:right;color:var(--muted)}.muted{color:var(--muted);font-size:14px}
+@media(max-width:850px){body{padding:14px}.request-grid,.preview-grid{grid-template-columns:1fr}.line-layout{grid-template-columns:1fr}.full-code-panel{position:static;max-height:none;grid-row:1}.line-code{max-height:420px}dl.symbol-list>div{grid-template-columns:1fr;gap:3px}.major-title{font-size:20px}}
+@media(max-width:520px){.page{padding:15px}.hero{padding:20px}.line-row{padding:13px 14px 13px 44px}.demo-frame{height:330px}}
+.request-grid{grid-template-columns:1fr!important;direction:rtl!important}</style></head><body><main><header class="hero"><span class="eyebrow">شرح تكليف واحد — CSS</span><h1 dir="ltr">03 - CSS Position, List, and Table - Styled List with Attributes</h1><p dir="rtl">المطلوب بجوار HTML المعاينة، ثم مقارنة النتيجة قبل قواعد CSS وبعدها. الشرح العربي من اليمين إلى اليسار، وكل HTML وCSS إنجليزي من اليسار إلى اليمين.</p></header><section class="page"><h2 class="major-title" dir="rtl">المطلوب وHTML المستخدم في المعاينة</h2><div class="request-grid"><article class="request-card" dir="rtl"><h3>المطلوب في التكليف</h3><p>أنشئ قائمة بعرض 400px ووسّطها أفقيًا. يمكنك إضافة <code dir="ltr">class</code> أو <code dir="ltr">attribute</code> لتحقيق الشكل، مع الحفاظ على الألوان كما في الصورة.</p><p class="source-link" dir="rtl">المصدر الرسمي: <a href="https://elzero.org/css-assignments-lesson-from-30-to-33/" dir="ltr">https://elzero.org/css-assignments-lesson-from-30-to-33/</a></p></article><article class="request-card original-html" dir="rtl"><h3>HTML المعروض في صفحة المعاينة</h3><p class="muted">تحدد صفحة التكليف قائمة بعرض <code dir="ltr">400px</code> وتوسيطها، وتسمح باستخدام <code dir="ltr">class</code> أو <code dir="ltr">attribute</code>. تعذّر علي قراءة تفاصيل الصورة المرجعية؛ لذلك القائمة والألوان في المعاينة مثال توضيحي، ولا أؤكد مطابقتها للصورة.</p><pre dir="ltr"><code>&lt;section class=&quot;task&quot; id=&quot;task-03&quot;&gt;
+  &lt;h2&gt;التكليف 03: Styled List with Attributes&lt;/h2&gt;
+  &lt;div class=&quot;stage&quot;&gt;&lt;ul class=&quot;menu&quot;&gt;&lt;li data-number=&quot;01&quot;&gt;Position&lt;/li&gt;&lt;li data-number=&quot;02&quot;&gt;Lists&lt;/li&gt;&lt;li data-number=&quot;03&quot;&gt;Tables&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+&lt;/section&gt;</code></pre></article></div></section><section class="page"><h2 class="major-title" dir="rtl">المعاينة البصرية قبل الحل وبعده</h2><div class="preview-grid" dir="ltr"><section class="preview-card"><h3 dir="ltr">Before CSS</h3><p dir="rtl">البنية المحلية نفسها قبل إضافة قواعد حل هذا التكليف.</p><iframe class="demo-frame" title="معاينة التكليف" sandbox="allow-same-origin" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;body{margin:0;padding:20px;font:16px Arial,sans-serif;color:#222}&lt;/style&gt;&lt;body&gt;&lt;section class=&quot;task&quot; id=&quot;task-03&quot;&gt;
+  &lt;h2&gt;التكليف 03: Styled List with Attributes&lt;/h2&gt;
+  &lt;div class=&quot;stage&quot;&gt;&lt;ul class=&quot;menu&quot;&gt;&lt;li data-number=&quot;01&quot;&gt;Position&lt;/li&gt;&lt;li data-number=&quot;02&quot;&gt;Lists&lt;/li&gt;&lt;li data-number=&quot;03&quot;&gt;Tables&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></section><section class="preview-card"><h3 dir="ltr">After CSS</h3><p dir="rtl">البنية المحلية نفسها بعد تطبيق تنسيق المعاينة.</p><iframe class="demo-frame" title="معاينة التكليف" sandbox="allow-same-origin" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 24px; background: #edf1f5; color: #222; font-family: Arial, sans-serif; }
+    main { max-width: 1100px; margin: auto; }
+    h1 { margin: 0 0 24px; }
+    .task { margin: 18px 0; padding: 20px; background: white; border: 1px solid #ccd3dc; border-radius: 12px; overflow: auto; }
+    .task h2 { font-size: 18px; margin: 0 0 16px; }
+    .stage { min-height: 130px; display: flow-root; }
+    p { margin: 10px; }
+    .task .stage { direction: ltr; text-align: left; }
+#task-01 { overflow: visible; }
+#task-01 .stage { position: static; min-height: 280px; }
+#task-01 .square {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+#task-01 .red { top: 80px; left: 80px; background: #e91e63; z-index: 1; }
+#task-01 .green { top: 50px; left: 50px; background: #4caf50; z-index: 2; }
+#task-01 .blue { top: 20px; left: 20px; background: #2196f3; z-index: 3; }
+
+#task-02 .panel {
+  position: relative;
+  box-sizing: border-box;
+  width: 400px;
+  min-height: 180px;
+  margin: 30px auto;
+  padding: 28px;
+  border: 3px solid #e91e63;
+  background: #f5f5f5;
+  color: #222;
+}
+#task-02 .badge { position: absolute; top: -14px; right: 18px; padding: 4px 10px; background: #2196f3; color: white; }
+
+#task-03 .menu {
+  box-sizing: border-box;
+  width: 400px;
+  margin: 24px auto;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #2196f3;
+}
+#task-03 .menu li {
+  position: relative;
+  padding: 14px 18px 14px 64px;
+  border-bottom: 1px solid #bbb;
+  background: #f5f5f5;
+}
+#task-03 .menu li:last-child { border-bottom: 0; }
+#task-03 .menu li::before {
+  content: attr(data-number);
+  position: absolute;
+  left: 14px;
+  font-weight: 700;
+  color: #e91e63;
+}
+
+#task-04 table {
+  width: 700px;
+  margin: 24px auto;
+  border-collapse: collapse;
+  font: 16px Arial, sans-serif;
+}
+#task-04 caption { padding: 12px; background: #222; color: #fff; font-weight: 700; }
+#task-04 th, #task-04 td { padding: 12px; border: 2px solid #444; text-align: left; }
+#task-04 th { background: #2196f3; color: #fff; }
+#task-04 td { background: #eee; color: #222; }
+  &lt;/style&gt;&lt;body&gt;&lt;section class=&quot;task&quot; id=&quot;task-03&quot;&gt;
+  &lt;h2&gt;التكليف 03: Styled List with Attributes&lt;/h2&gt;
+  &lt;div class=&quot;stage&quot;&gt;&lt;ul class=&quot;menu&quot;&gt;&lt;li data-number=&quot;01&quot;&gt;Position&lt;/li&gt;&lt;li data-number=&quot;02&quot;&gt;Lists&lt;/li&gt;&lt;li data-number=&quot;03&quot;&gt;Tables&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;"></iframe></section></div><figure class="result-image"><img src="assets/solution-overview.png" alt="صورة النتيجة المحفوظة"><figcaption dir="rtl">صورة النتيجة المحفوظة للتكليف</figcaption></figure></section><section class="page complete"><h2 class="major-title" dir="rtl">الكود الكامل للحل</h2><p dir="rtl">CSS الكامل لهذا التكليف، مستقل وباتجاه القراءة من اليسار إلى اليمين.</p><pre class="complete-code" dir="ltr"><code>#task-03 .menu {
+  box-sizing: border-box;
+  width: 400px;
+  margin: 24px auto;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #2196f3;
+}
+#task-03 .menu li {
+  position: relative;
+  padding: 14px 18px 14px 64px;
+  border-bottom: 1px solid #bbb;
+  background: #f5f5f5;
+}
+#task-03 .menu li:last-child { border-bottom: 0; }
+#task-03 .menu li::before {
+  content: attr(data-number);
+  position: absolute;
+  left: 14px;
+  font-weight: 700;
+  color: #e91e63;
+}</code></pre></section><section class="page idea"><h2 class="major-title" dir="rtl">الفكرة الأساسية</h2><p dir="rtl">نستخدم العنصر <bdi dir="ltr">li</bdi> مرجعًا لموضع الرقم، وننشئ الرقم قبل النص من قيمة <bdi dir="ltr">data-number</bdi>. هكذا تبقى الأرقام مرتبطة بعناصر القائمة من دون إضافة عنصر <bdi dir="ltr">HTML</bdi> مستقل لكل رقم.</p></section><details class="accordion" id="symbols"><summary dir="rtl">معاني الرموز المستخدمة في الحل</summary><div class="accordion-body"><h2 class="major-title" dir="rtl">معاني الرموز المستخدمة في الحل</h2><h3 class="sub-title" dir="rtl">المحددات في CSS</h3><ul class="symbol-list" dir="rtl"><li><code dir="ltr">#task-03 .menu</code><p dir="rtl">يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></li><li><code dir="ltr">#task-03 .menu li</code><p dir="rtl">يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></li><li><code dir="ltr">#task-03 .menu li::before</code><p dir="rtl">يختار عنصرًا زائفًا ينشأ قبل المحتوى لإضافة علامة أو نص. يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></li><li><code dir="ltr">#task-03 .menu li:last-child</code><p dir="rtl">يختار آخر ابن داخل الحاوية. يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></li></ul><h3 class="sub-title" dir="ltr">CSS Positioning</h3><h4 class="group-label" dir="ltr">Dimensions and Spacing</h4><dl class="symbol-list" dir="rtl"><div><dt><code dir="ltr">box-sizing: border-box</code></dt><dd dir="rtl">تحدد طريقة حساب العرض والارتفاع بالنسبة إلى الحشو والحدود.</dd></div><div><dt><code dir="ltr">width: 400px</code></dt><dd dir="rtl">تحدد عرض العنصر.</dd></div><div><dt><code dir="ltr">margin: 24px auto</code></dt><dd dir="rtl">تحدد المسافة خارج الحد؛ و<bdi dir="ltr">auto</bdi> توسّط العنصر أفقيًا عند توفر عرض محدد.</dd></div><div><dt><code dir="ltr">padding: 0</code></dt><dd dir="rtl">تحدد المساحة الداخلية بين المحتوى والحد.</dd></div></dl><h4 class="group-label" dir="ltr">Color and Typography</h4><dl class="symbol-list" dir="rtl"><div><dt><code dir="ltr">list-style: none</code></dt><dd dir="rtl">تتحكم في علامة القائمة الافتراضية.</dd></div><div><dt><code dir="ltr">background: #f5f5f5</code></dt><dd dir="rtl">تحدد خلفية العنصر، ومنها اللون أو التدرج.</dd></div><div><dt><code dir="ltr">font-weight: 700</code></dt><dd dir="rtl">تحدد سماكة الحروف.</dd></div><div><dt><code dir="ltr">color: #e91e63</code></dt><dd dir="rtl">تحدد لون النص أو المحتوى.</dd></div></dl><h4 class="group-label" dir="ltr">Borders and Shadows</h4><dl class="symbol-list" dir="rtl"><div><dt><code dir="ltr">border: 2px solid #2196f3</code></dt><dd dir="rtl">ترسم حدًا وتحدد سمكه ونمطه ولونه.</dd></div><div><dt><code dir="ltr">border-bottom: 1px solid #bbb</code></dt><dd dir="rtl">ترسم الحد السفلي.</dd></div></dl><h4 class="group-label" dir="ltr">CSS Positioning</h4><dl class="symbol-list" dir="rtl"><div><dt><code dir="ltr">position: relative</code></dt><dd dir="rtl">تختار طريقة التموضع؛ تستخدم هنا لإخراج العنصر من التدفق أو جعله مرجعًا للعناصر داخله.</dd></div><div><dt><code dir="ltr">left: 14px</code></dt><dd dir="rtl">تحدد المسافة من الحافة اليسرى.</dd></div></dl><h4 class="group-label" dir="ltr">Pseudo-elements and Counters</h4><dl class="symbol-list" dir="rtl"><div><dt><code dir="ltr">content: attr(data-number)</code></dt><dd dir="rtl">يضيف إلى العنصر الزائف قيمة خاصية <bdi dir="ltr">HTML</bdi> <bdi dir="ltr">data-number</bdi>.</dd></div></dl><h3 class="sub-title" dir="rtl">علامات صياغة CSS</h3><ul class="symbol-list" dir="rtl"><li><code dir="ltr">{}</code><p dir="rtl">تجمع الأقواس قواعد المحدد وتحدد بداية القاعدة ونهايتها.</p></li><li><code dir="ltr">:</code><p dir="rtl">تفصل النقطتان بين اسم الخاصية وقيمتها.</p></li><li><code dir="ltr">;</code><p dir="rtl">تنهي الفاصلة المنقوطة تصريح <bdi dir="ltr">CSS</bdi>.</p></li><li><code dir="ltr">::</code><p dir="rtl">تشير إلى عنصر زائف تنشئه <bdi dir="ltr">CSS</bdi> مثل <bdi dir="ltr">before</bdi>.</p></li><li><code dir="ltr">px</code><p dir="rtl">وحدات للمقاس أو النسبة أو الزمن؛ مثل <bdi dir="ltr">px</bdi> للبكسل و<bdi dir="ltr">fr</bdi> لجزء من المساحة المتاحة.</p></li></ul></div></details><details class="accordion" id="line-by-line"><summary dir="rtl">شرح الحل سطرًا بسطر</summary><div class="accordion-body"><div class="line-layout"><aside class="full-code-panel"><h3 dir="ltr">Complete CSS Code</h3><pre class="line-code" dir="ltr"><code>#task-03 .menu {
+  box-sizing: border-box;
+  width: 400px;
+  margin: 24px auto;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #2196f3;
+}
+#task-03 .menu li {
+  position: relative;
+  padding: 14px 18px 14px 64px;
+  border-bottom: 1px solid #bbb;
+  background: #f5f5f5;
+}
+#task-03 .menu li:last-child { border-bottom: 0; }
+#task-03 .menu li::before {
+  content: attr(data-number);
+  position: absolute;
+  left: 14px;
+  font-weight: 700;
+  color: #e91e63;
+}</code></pre></aside><div class="line-explanations"><article class="line-row"><span class="line-no" dir="ltr">01</span><pre class="snippet" dir="ltr"><code>#task-03 .menu {</code></pre><p dir="rtl">يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></article><article class="line-row"><span class="line-no" dir="ltr">02</span><pre class="snippet" dir="ltr"><code>box-sizing: border-box;</code></pre><p dir="rtl">تحدد طريقة حساب العرض والارتفاع بالنسبة إلى الحشو والحدود.</p></article><article class="line-row"><span class="line-no" dir="ltr">03</span><pre class="snippet" dir="ltr"><code>width: 400px;</code></pre><p dir="rtl">تحدد عرض العنصر.</p></article><article class="line-row"><span class="line-no" dir="ltr">04</span><pre class="snippet" dir="ltr"><code>margin: 24px auto;</code></pre><p dir="rtl">تحدد المسافة خارج الحد؛ و<bdi dir="ltr">auto</bdi> توسّط العنصر أفقيًا عند توفر عرض محدد.</p></article><article class="line-row"><span class="line-no" dir="ltr">05</span><pre class="snippet" dir="ltr"><code>padding: 0;</code></pre><p dir="rtl">تحدد المساحة الداخلية بين المحتوى والحد.</p></article><article class="line-row"><span class="line-no" dir="ltr">06</span><pre class="snippet" dir="ltr"><code>list-style: none;</code></pre><p dir="rtl">تتحكم في علامة القائمة الافتراضية.</p></article><article class="line-row"><span class="line-no" dir="ltr">07</span><pre class="snippet" dir="ltr"><code>border: 2px solid #2196f3;</code></pre><p dir="rtl">ترسم حدًا وتحدد سمكه ونمطه ولونه.</p></article><article class="line-row"><span class="line-no" dir="ltr">08</span><pre class="snippet" dir="ltr"><code>}</code></pre><p dir="rtl">يغلق كتلة قواعد <bdi dir="ltr">CSS</bdi> التي بدأها المحدد السابق.</p></article><article class="line-row"><span class="line-no" dir="ltr">09</span><pre class="snippet" dir="ltr"><code>#task-03 .menu li {</code></pre><p dir="rtl">يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></article><article class="line-row"><span class="line-no" dir="ltr">10</span><pre class="snippet" dir="ltr"><code>position: relative;</code></pre><p dir="rtl">تختار طريقة التموضع؛ تستخدم هنا لإخراج العنصر من التدفق أو جعله مرجعًا للعناصر داخله.</p></article><article class="line-row"><span class="line-no" dir="ltr">11</span><pre class="snippet" dir="ltr"><code>padding: 14px 18px 14px 64px;</code></pre><p dir="rtl">تحدد المساحة الداخلية بين المحتوى والحد.</p></article><article class="line-row"><span class="line-no" dir="ltr">12</span><pre class="snippet" dir="ltr"><code>border-bottom: 1px solid #bbb;</code></pre><p dir="rtl">ترسم الحد السفلي.</p></article><article class="line-row"><span class="line-no" dir="ltr">13</span><pre class="snippet" dir="ltr"><code>background: #f5f5f5;</code></pre><p dir="rtl">تحدد خلفية العنصر، ومنها اللون أو التدرج.</p></article><article class="line-row"><span class="line-no" dir="ltr">14</span><pre class="snippet" dir="ltr"><code>}</code></pre><p dir="rtl">يغلق كتلة قواعد <bdi dir="ltr">CSS</bdi> التي بدأها المحدد السابق.</p></article><article class="line-row"><span class="line-no" dir="ltr">15</span><pre class="snippet" dir="ltr"><code>#task-03 .menu li:last-child { border-bottom: 0; }</code></pre><p dir="rtl">يختار آخر ابن داخل الحاوية. يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد. ترسم الحد السفلي. يغلق القاعدة في نهاية السطر.</p></article><article class="line-row"><span class="line-no" dir="ltr">16</span><pre class="snippet" dir="ltr"><code>#task-03 .menu li::before {</code></pre><p dir="rtl">يختار عنصرًا زائفًا ينشأ قبل المحتوى لإضافة علامة أو نص. يستهدف المعرّف ويحصر القاعدة في ذلك العنصر. يستهدف العناصر التي تحمل اسم الفئة في المحدد.</p></article><article class="line-row"><span class="line-no" dir="ltr">17</span><pre class="snippet" dir="ltr"><code>content: attr(data-number);</code></pre><p dir="rtl">يضيف إلى العنصر الزائف قيمة خاصية <bdi dir="ltr">HTML</bdi> <bdi dir="ltr">data-number</bdi>.</p></article><article class="line-row"><span class="line-no" dir="ltr">18</span><pre class="snippet" dir="ltr"><code>position: absolute;</code></pre><p dir="rtl">تختار طريقة التموضع؛ تستخدم هنا لإخراج العنصر من التدفق أو جعله مرجعًا للعناصر داخله.</p></article><article class="line-row"><span class="line-no" dir="ltr">19</span><pre class="snippet" dir="ltr"><code>left: 14px;</code></pre><p dir="rtl">تحدد المسافة من الحافة اليسرى.</p></article><article class="line-row"><span class="line-no" dir="ltr">20</span><pre class="snippet" dir="ltr"><code>font-weight: 700;</code></pre><p dir="rtl">تحدد سماكة الحروف.</p></article><article class="line-row"><span class="line-no" dir="ltr">21</span><pre class="snippet" dir="ltr"><code>color: #e91e63;</code></pre><p dir="rtl">تحدد لون النص أو المحتوى.</p></article><article class="line-row"><span class="line-no" dir="ltr">22</span><pre class="snippet" dir="ltr"><code>}</code></pre><p dir="rtl">يغلق كتلة قواعد <bdi dir="ltr">CSS</bdi> التي بدأها المحدد السابق.</p></article></div></div></div></details><footer class="source-footer" dir="rtl">المصدر: <a href="https://elzero.org/css-assignments-lesson-from-30-to-33/" dir="ltr">https://elzero.org/css-assignments-lesson-from-30-to-33/</a></footer></main></body></html>

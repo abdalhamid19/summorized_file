@@ -28,3 +28,13 @@ aliases:
 ## المصدر
 
 [تكليفات CSS للدروس 68–73](https://elzero.org/css-assignments-lesson-from-68-to-73/)
+
+## صفحات الشرح المستقلة
+
+صفحة مستقلة لكل تكليف مع الإبقاء على معاينة المجموعة.
+
+- [[01 - CSS Transform - Variable Color Skew Shape.html|01 - CSS Transform - Variable Color Skew Shape]]
+- [[02 - CSS Transform - Skewed Green Banner.html|02 - CSS Transform - Skewed Green Banner]]
+- [[03 - CSS Transform - Full Transform Declarations.html|03 - CSS Transform - Full Transform Declarations]]
+- [[04 - CSS Transform - 3D Diamond Card.html|04 - CSS Transform - 3D Diamond Card]]
+- [[05 - CSS Transform - Flip Card on Both Axes.html|05 - CSS Transform - Flip Card on Both Axes]]

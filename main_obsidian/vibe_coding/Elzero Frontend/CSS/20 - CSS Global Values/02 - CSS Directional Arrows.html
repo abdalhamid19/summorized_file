@@ -1,0 +1,168 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>02 - CSS Directional Arrows — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 02</p><h1>CSS Directional Arrows</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> مأخوذ من المعاينة المحلية</h3><pre dir='ltr'><code>&lt;section id=&quot;task-02&quot;&gt;
+      &lt;h2&gt;التكليف 02 — Directional Arrows&lt;/h2&gt;
+      &lt;p class=&quot;desc&quot;&gt;تتوسط الأسهم صناديقها، ويُطبَّق كل اتجاه مع الصنف الأساسي &lt;code&gt;arrow&lt;/code&gt;.&lt;/p&gt;
+      &lt;div class=&quot;arrow-row&quot;&gt;
+        &lt;div class=&quot;arrow top&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow top&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow right&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow right&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow bottom&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow bottom&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow left&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow left&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;.arrow.top::before { border-bottom-color: var(--arrow-color); }
+.arrow.right::before { border-left-color: var(--arrow-color); }
+.arrow.bottom::before { border-top-color: var(--arrow-color); }
+.arrow.left::before { border-right-color: var(--arrow-color); }&lt;/pre&gt;
+    &lt;/section&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>أنشئ صنفًا أساسيًا اسمه <bdi dir='ltr'><code>arrow</code></bdi> وأصناف اتجاه <bdi dir='ltr'><code>top</code></bdi> و<bdi dir='ltr'><code>right</code></bdi> و<bdi dir='ltr'><code>bottom</code></bdi> و<bdi dir='ltr'><code>left</code></bdi>. لا يظهر السهم إلا عند الجمع بين <bdi dir='ltr'><code>arrow</code></bdi> وصنف الاتجاه، ويظل في منتصف العنصر مهما اختلف عرضه أو ارتفاعه.</p><p dir='rtl'>![الصورة المرجعية للتكليف](<bdi dir='ltr'>https</bdi>://<bdi dir='ltr'>elzero</bdi>.<bdi dir='ltr'>org</bdi>/<bdi dir='ltr'>wp-content</bdi>/<bdi dir='ltr'>uploads</bdi>/2021/03/<bdi dir='ltr'>css-assignments-lessons-86-88-1</bdi>.<bdi dir='ltr'>png</bdi>)</p></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section id=&quot;task-02&quot;&gt;
+      &lt;h2&gt;التكليف 02 — Directional Arrows&lt;/h2&gt;
+      &lt;p class=&quot;desc&quot;&gt;تتوسط الأسهم صناديقها، ويُطبَّق كل اتجاه مع الصنف الأساسي &lt;code&gt;arrow&lt;/code&gt;.&lt;/p&gt;
+      &lt;div class=&quot;arrow-row&quot;&gt;
+        &lt;div class=&quot;arrow top&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow top&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow right&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow right&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow bottom&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow bottom&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow left&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow left&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;.arrow.top::before { border-bottom-color: var(--arrow-color); }
+.arrow.right::before { border-left-color: var(--arrow-color); }
+.arrow.bottom::before { border-top-color: var(--arrow-color); }
+.arrow.left::before { border-right-color: var(--arrow-color); }&lt;/pre&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f2f5f9; color: #1e293b; font: 16px/1.7 &quot;Segoe UI&quot;, Tahoma, Arial, sans-serif; }
+    header { padding: 30px max(20px, calc((100% - 960px) / 2)); background: #17212b; color: white; }
+    header p { margin: 0; color: #cbd5e1; }
+    main { width: min(960px, calc(100% - 32px)); margin: 26px auto; }
+    section { margin-bottom: 22px; padding: 24px; border: 1px solid #dbe3ee; border-radius: 14px; background: white; box-shadow: 0 10px 28px rgb(15 23 42 / 6%); }
+    h1 { margin: 0 0 6px; font-size: 30px; }
+    h2 { margin: 0 0 8px; font-size: 22px; }
+    .desc { color: #64748b; }
+    .utility-demo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .demo { position: relative; min-height: 155px; border: 1px dashed #94a3b8; border-radius: 10px; background: #f8fafc; }
+    .center-flex { display: flex; justify-content: center; align-items: center; }
+    .center-position { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .circle-100, .circle-200 { display: grid; place-items: center; border-radius: 50%; background: #147d73; color: white; }
+    .circle-100 { width: 100px; height: 100px; }
+    .circle-200 { width: 200px; height: 200px; }
+    .demo-title { position: absolute; top: 8px; right: 12px; color: #64748b; font-size: 12px; }
+    .circle-row { display: flex; min-height: 240px; align-items: center; justify-content: space-around; grid-column: 1 / -1; overflow: hidden; }
+    .arrow-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 20px; direction: ltr; }
+    .arrow {
+      --arrow-color: #e91e63;
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 110px;
+      place-items: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+    .arrow::before { position: absolute; top: 50%; left: 50%; width: 0; height: 0; border: 14px solid transparent; content: &quot;&quot;; transform: translate(-50%, -50%); }
+    .arrow.top::before { border-bottom-color: var(--arrow-color); }
+    .arrow.right::before { border-left-color: var(--arrow-color); }
+    .arrow.bottom::before { border-top-color: var(--arrow-color); }
+    .arrow.left::before { border-right-color: var(--arrow-color); }
+    .label { position: absolute; top: 6px; left: 8px; color: #64748b; font-size: 11px; }
+    pre { overflow: auto; margin: 16px 0 0; padding: 14px; border-radius: 8px; background: #1e293b; color: #e2e8f0; direction: ltr; text-align: left; font: 12px/1.6 Consolas, monospace; }
+    @media (max-width: 680px) { .utility-demo { grid-template-columns: 1fr; } .arrow-row { grid-template-columns: repeat(2, 1fr); } .circle-row { grid-column: auto; } }
+  &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section id=&quot;task-02&quot;&gt;
+      &lt;h2&gt;التكليف 02 — Directional Arrows&lt;/h2&gt;
+      &lt;p class=&quot;desc&quot;&gt;تتوسط الأسهم صناديقها، ويُطبَّق كل اتجاه مع الصنف الأساسي &lt;code&gt;arrow&lt;/code&gt;.&lt;/p&gt;
+      &lt;div class=&quot;arrow-row&quot;&gt;
+        &lt;div class=&quot;arrow top&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow top&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow right&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow right&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow bottom&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow bottom&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;arrow left&quot;&gt;&lt;span class=&quot;label&quot;&gt;arrow left&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;.arrow.top::before { border-bottom-color: var(--arrow-color); }
+.arrow.right::before { border-left-color: var(--arrow-color); }
+.arrow.bottom::before { border-top-color: var(--arrow-color); }
+.arrow.left::before { border-right-color: var(--arrow-color); }&lt;/pre&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>HTML
+&lt;div class=&quot;arrow top&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;arrow right&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;arrow bottom&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;arrow left&quot;&gt;&lt;/div&gt;
+
+CSS
+.arrow {
+  --arrow-color: #e91e63;
+  position: relative;
+  width: 160px;
+  height: 110px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+}
+
+.arrow.top::before,
+.arrow.right::before,
+.arrow.bottom::before,
+.arrow.left::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  content: &quot;&quot;;
+  transform: translate(-50%, -50%);
+}
+
+.arrow.top::before {
+  border-bottom-color: var(--arrow-color);
+}
+
+.arrow.right::before {
+  border-left-color: var(--arrow-color);
+}
+
+.arrow.bottom::before {
+  border-top-color: var(--arrow-color);
+}
+
+.arrow.left::before {
+  border-right-color: var(--arrow-color);
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>تقصر المحددات على وجود <bdi dir='ltr'><code>arrow</code></bdi> مع الاتجاه؛ لذلك لا يعمل <bdi dir='ltr'><code>top</code></bdi> وحده. يرسم العنصر الوهمي <bdi dir='ltr'><code>::before</code></bdi> مثلثًا بالحدود الشفافة، ثم يلوّن الحد الموافق للاتجاه المطلوب. تحدد نسبتا <bdi dir='ltr'><code>top</code></bdi> و<bdi dir='ltr'><code>left</code></bdi> المنتصف اعتمادًا على أبعاد الصندوق لا على رقم ثابت.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>.arrow</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.arrow.left::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='symbol'><h4><code>.arrow.top::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='symbol'><h4><code>.arrow.right::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='symbol'><h4><code>.arrow.bottom::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>--arrow-color</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>--arrow-color</bdi>. مثال القيمة: <bdi dir='ltr'>#e91e63</bdi></p></article><article class='symbol'><h4><code>position</code></h4><p>تحدد طريقة التموضع. مثال القيمة: <bdi dir='ltr'>relative</bdi></p></article><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>160px</bdi></p></article><article class='symbol'><h4><code>height</code></h4><p>تحدد ارتفاع العنصر. مثال القيمة: <bdi dir='ltr'>110px</bdi></p></article><article class='symbol'><h4><code>border</code></h4><p>ترسم الحد وتحدد سمكه ونمطه ولونه. مثال القيمة: <bdi dir='ltr'>1px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#cbd5e1</bdi></p></article><article class='symbol'><h4><code>background</code></h4><p>تضبط الخلفية. مثال القيمة: <bdi dir='ltr'>#f8fafc</bdi></p></article><article class='symbol'><h4><code>top</code></h4><p>تحدد المسافة من أعلى مرجع التموضع. مثال القيمة: <bdi dir='ltr'>50%</bdi></p></article><article class='symbol'><h4><code>left</code></h4><p>تحدد المسافة من اليسار. مثال القيمة: <bdi dir='ltr'>50%</bdi></p></article><article class='symbol'><h4><code>content</code></h4><p>تحدد محتوى العنصر الزائف. مثال القيمة: &<bdi dir='ltr'>quot</bdi>;&<bdi dir='ltr'>quot</bdi>;</p></article><article class='symbol'><h4><code>transform</code></h4><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. مثال القيمة: <bdi dir='ltr'>translate(-50%, -50%)</bdi></p></article><article class='symbol'><h4><code>border-bottom-color</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-bottom-color</bdi>. مثال القيمة: <bdi dir='ltr'>var(--arrow-color)</bdi></p></article><article class='symbol'><h4><code>border-left-color</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-left-color</bdi>. مثال القيمة: <bdi dir='ltr'>var(--arrow-color)</bdi></p></article><article class='symbol'><h4><code>border-top-color</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-top-color</bdi>. مثال القيمة: <bdi dir='ltr'>var(--arrow-color)</bdi></p></article><article class='symbol'><h4><code>border-right-color</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-right-color</bdi>. مثال القيمة: <bdi dir='ltr'>var(--arrow-color)</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>translate()</code></h4><p>تحرك العنصر أفقيًا أو رأسيًا بالقيم المحددة.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>علامات HTML</h3><div class='symbols'><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>HTML
+&lt;div class=&quot;arrow top&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;arrow right&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;arrow bottom&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;arrow left&quot;&gt;&lt;/div&gt;
+CSS
+.arrow {
+  --arrow-color: #e91e63;
+  position: relative;
+  width: 160px;
+  height: 110px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+}
+
+.arrow.top::before,
+.arrow.right::before,
+.arrow.bottom::before,
+.arrow.left::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  content: &quot;&quot;;
+  transform: translate(-50%, -50%);
+}
+
+.arrow.top::before {
+  border-bottom-color: var(--arrow-color);
+}
+
+.arrow.right::before {
+  border-left-color: var(--arrow-color);
+}
+
+.arrow.bottom::before {
+  border-top-color: var(--arrow-color);
+}
+
+.arrow.left::before {
+  border-right-color: var(--arrow-color);
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>&lt;div class=&quot;arrow top&quot;&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>&lt;div class=&quot;arrow right&quot;&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>&lt;div class=&quot;arrow bottom&quot;&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>&lt;div class=&quot;arrow left&quot;&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>.arrow {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>  --arrow-color: #e91e63;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>--arrow-color</bdi>. والقيمة هنا <bdi dir='ltr'>#e91e63</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>  position: relative;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>relative</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>  width: 160px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>160px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>  height: 110px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>110px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>  border: 1px solid #cbd5e1;</code></pre><p>ترسم الحد وتحدد سمكه ونمطه ولونه. والقيمة هنا <bdi dir='ltr'>1px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#cbd5e1</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>  background: #f8fafc;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#f8fafc</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>.arrow.top::before,</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>.arrow.right::before,</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>.arrow.bottom::before,</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>.arrow.left::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>  top: 50%;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>  left: 50%;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  width: 0;</code></pre><p>تحدد عرض العنصر. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>  height: 0;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>  border: 14px solid transparent;</code></pre><p>ترسم الحد وتحدد سمكه ونمطه ولونه. والقيمة هنا <bdi dir='ltr'>14px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>transparent</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>23</span><pre dir='ltr'><code>  content: &quot;&quot;;</code></pre><p>تحدد محتوى العنصر الزائف. والقيمة هنا &<bdi dir='ltr'>quot</bdi>;&<bdi dir='ltr'>quot</bdi>;.</p></article><article class='line'><span class='num' dir='ltr'>24</span><pre dir='ltr'><code>  transform: translate(-50%, -50%);</code></pre><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. والقيمة هنا <bdi dir='ltr'>translate(-50%, -50%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>25</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>26</span><pre dir='ltr'><code>.arrow.top::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>27</span><pre dir='ltr'><code>  border-bottom-color: var(--arrow-color);</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-bottom-color</bdi>. والقيمة هنا <bdi dir='ltr'>var(--arrow-color)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>28</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>29</span><pre dir='ltr'><code>.arrow.right::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>30</span><pre dir='ltr'><code>  border-left-color: var(--arrow-color);</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-left-color</bdi>. والقيمة هنا <bdi dir='ltr'>var(--arrow-color)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>31</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>32</span><pre dir='ltr'><code>.arrow.bottom::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>33</span><pre dir='ltr'><code>  border-top-color: var(--arrow-color);</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-top-color</bdi>. والقيمة هنا <bdi dir='ltr'>var(--arrow-color)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>34</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>35</span><pre dir='ltr'><code>.arrow.left::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>36</span><pre dir='ltr'><code>  border-right-color: var(--arrow-color);</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-right-color</bdi>. والقيمة هنا <bdi dir='ltr'>var(--arrow-color)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>37</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/wp-content/uploads/2021/03/css-assignments-lessons-86-88-1.png' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>
