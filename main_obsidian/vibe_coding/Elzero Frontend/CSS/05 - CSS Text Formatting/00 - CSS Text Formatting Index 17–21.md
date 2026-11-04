@@ -21,6 +21,10 @@ aliases:
 - [[vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/03 - CSS Text Formatting - Text Overflow Ellipsis|التكليف 03 — Text Overflow Ellipsis]]
 - [[vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/04 - CSS Text Formatting - Centered Styled Link|التكليف 04 — Centered Styled Link]]
 
+## الدرس التفاعلي
+
+- [[vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/Text Spacing Lesson|Text – Spacing — الشرح والتجربة التفاعلية]]
+
 ## صفحات الشرح المستقلة
 
 لكل تكليف صفحة HTML مستقلة، مع الإبقاء على معاينة المجموعة الأصلية.
