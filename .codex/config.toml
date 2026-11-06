@@ -1,2 +1,6 @@
+model_verbosity = "high"
+model_reasoning_summary = "detailed"
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
 [mcp_servers.tldraw]
 url = "https://tldraw-mcp-app.tldraw.workers.dev/mcp"
