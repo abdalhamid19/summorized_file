@@ -39,10 +39,6 @@ python tests\test_quality.py                      # فحص جودة الناتج
 | `OCR_WORK_ROOT` | `main_obsidian/دين/التزكية/البركة` |
 | `OCR_TEMP_ROOT` | `%TEMP%\opencode\ocr_tmp` |
 
-## transcribe_audio.py
-
-تفريغ صوتي عربي عبر Whisper API مع تقسيم الملفات الطويلة إلى مقاطع.
-
 ## أدوات الأتمتة
 
 نُقلت أدوات أتمتة المتصفح وواجهات Windows وتعليماتها إلى [مشروع Automation of B-Connect](https://github.com/abdalhamid19/automation-of-b-connect).

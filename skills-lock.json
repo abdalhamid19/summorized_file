@@ -109,12 +109,6 @@
       "skillPath": "skills/personal/obsidian-vault/SKILL.md",
       "computedHash": "6c8409ce9dd8419abc38f2a665e862e2a22758fe98e1cdd42e16ecab4f562e23"
     },
-    "openai-whisper": {
-      "source": "steipete/clawdis",
-      "sourceType": "github",
-      "skillPath": "skills/openai-whisper/SKILL.md",
-      "computedHash": "91dfa3149f593d2e794aadc9f78cffd5d274ff1366f01b777b77abfd2b5474d8"
-    },
     "pdf": {
       "source": "anthropics/skills",
       "sourceType": "github",

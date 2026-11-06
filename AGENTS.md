@@ -20,7 +20,6 @@ python tests\test_quality.py                  # فحص جودة الناتج ا�
 
 - `arabic_pdf_ocr/` — حزمة OCR (config / renderer / preprocessing / ocr / mistral_engine / postprocessing / quality / pipeline)
 - `tests/` — اختبارات الوحدة وفحص الجودة
-- `transcribe_audio.py` — تفريغ صوتي عبر Whisper API
 - `main_obsidian/` — ملفات العمل (PDF + النواتج)
 
 ## قواعد

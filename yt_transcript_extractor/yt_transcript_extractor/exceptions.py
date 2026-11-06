@@ -19,7 +19,7 @@ class SubtitlesDisabledByOwner(TranscriptExtractionError):
         super().__init__(
             f"Subtitles are disabled by the channel owner for video '{video_id}'.\n"
             "The video owner has explicitly disabled this feature.\n"
-            "The only possible solution: Use Whisper to convert audio to text directly."
+            "No captions are available through YouTube. Check for a published transcript or contact the uploader."
         )
 
 
@@ -33,7 +33,7 @@ class NoTranscriptAvailable(TranscriptExtractionError):
         super().__init__(
             f"No transcripts are available in any language for video '{video_id}'.\n"
             "YouTube did not generate automatic captions for this content.\n"
-            "Possible solution: Use Whisper to convert audio to text."
+            "Check for a published transcript or contact the uploader."
         )
 
 
