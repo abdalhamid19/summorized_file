@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تجربة وحدات حجم الخط في CSS</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 1rem; color: #17324d; font: 16px/1.5 Arial, sans-serif; }
+    main { max-width: 760px; margin: auto; }
+    h1 { margin: 0 0 1rem; font-size: 1.4rem; }
+    .controls { display: grid; gap: 0.75rem; margin-bottom: 1rem; }
+    label { display: grid; gap: 0.25rem; }
+    input { width: 100%; }
+    .example { padding: 1rem; border: 2px solid #2563eb; border-radius: 0.5rem; background: #dbeafe; color: #142b4a; }
+    .body-line { font-size: 40px; }
+    #viewport-sample { font-size: 64px; overflow-wrap: anywhere; }
+    #rem-sample { font-size: 32px; }
+    output { font-weight: 700; }
+    @media (max-width: 420px) { .body-line { font-size: 28px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>قارن بين <bdi>px</bdi> و<bdi>vw</bdi> و<bdi>rem</bdi></h1>
+    <div class="controls">
+      <label for="viewport">عرض نافذة افتراضي: <output id="viewport-value">1280px</output>
+        <input id="viewport" type="range" min="320" max="1920" value="1280">
+      </label>
+      <label for="root-size">حجم خط <bdi>html</bdi>: <output id="root-value">16px</output>
+        <input id="root-size" type="range" min="12" max="24" value="16">
+      </label>
+    </div>
+    <section class="example" aria-live="polite">
+      <div class="body-line"><bdi>body</bdi>: <bdi>40px</bdi></div>
+      <div id="viewport-sample"><bdi>div</bdi>: Elzero Web School</div>
+      <div id="rem-sample"><bdi>span</bdi>: Test</div>
+    </section>
+    <p id="calculation">5vw من 1280px = 64px، و2rem من جذر 16px = 32px.</p>
+  </main>
+  <script>
+    const viewport = document.getElementById('viewport');
+    const rootSize = document.getElementById('root-size');
+    const update = () => {
+      const width = Number(viewport.value);
+      const root = Number(rootSize.value);
+      const vw = width * 0.05;
+      const rem = root * 2;
+      document.getElementById('viewport-value').value = `${width}px`;
+      document.getElementById('root-value').value = `${root}px`;
+      document.getElementById('viewport-sample').style.fontSize = `${vw}px`;
+      document.getElementById('rem-sample').style.fontSize = `${rem}px`;
+      document.getElementById('calculation').textContent = `5vw من ${width}px = ${vw}px، و2rem من جذر ${root}px = ${rem}px.`;
+    };
+    viewport.addEventListener('input', update);
+    rootSize.addEventListener('input', update);
+    update();
+  </script>
+</body>
+</html>

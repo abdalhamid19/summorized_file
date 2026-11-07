@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تجربة خاصية cursor في CSS</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 1rem; color: #17324d; font: 16px/1.5 Arial, sans-serif; }
+    main { max-width: 680px; margin: auto; }
+    h1 { margin-top: 0; font-size: 1.4rem; }
+    label { display: grid; gap: 0.4rem; margin-bottom: 1rem; }
+    select { padding: 0.65rem; font: inherit; }
+    #target { display: inline-block; background: transparent; border: 2px solid #b42318; color: #b42318; font-weight: bold; padding: 1rem; }
+    code { display: block; margin-top: 0.75rem; }
+    .note { background: #e8f1ff; padding: 0.75rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>جرّب خاصية <bdi>cursor</bdi></h1>
+    <label for="cursor-kind">اختر شكل المؤشر ثم حرّكه فوق الزر
+      <select id="cursor-kind">
+        <option value="pointer">pointer — يد تشير للنقر</option>
+        <option value="text">text — مؤشر تحديد النص</option>
+        <option value="help">help — مؤشر مساعدة</option>
+        <option value="wait">wait — مؤشر انتظار</option>
+        <option value="not-allowed">not-allowed — إجراء غير مسموح</option>
+        <option value="grab">grab — يوحي بإمكانية السحب</option>
+      </select>
+    </label>
+    <button id="target" type="button">حرّك المؤشر فوقي</button>
+    <code id="rule" dir="ltr">cursor: pointer;</code>
+    <p class="note">شكل المؤشر تلميح بصري؛ اختياره وحده لا يضيف وظيفة نقر أو سحب.</p>
+  </main>
+  <script>
+    const picker = document.getElementById('cursor-kind');
+    const target = document.getElementById('target');
+    const rule = document.getElementById('rule');
+    picker.addEventListener('change', () => {
+      target.style.cursor = picker.value;
+      rule.textContent = `cursor: ${picker.value};`;
+    });
+  </script>
+</body>
+</html>

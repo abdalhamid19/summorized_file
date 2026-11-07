@@ -14,6 +14,11 @@ aliases:
 
 حلول منظمة لتكليفات هذه المجموعة مع شيفرات قابلة للتجربة.
 
+## شروحات الدروس
+
+- [[Mouse Cursor Lesson|Mouse Cursor — مؤشر الفأرة في CSS]]
+- [[Float And Clear Lesson|Float And Clear — تعويم العناصر وإزالته]]
+
 ## التكليفات
 
 - [[vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/01 - CSS Float and Opacity - Dynamic Float Grid with Calc|التكليف 01 — Dynamic Float Grid with Calc]]
