@@ -1,0 +1,295 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>03 - CSS Media Queries - Responsive Product Rows — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 03</p><h1>CSS Media Queries - Responsive Product Rows</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> مأخوذ من المعاينة المحلية</h3><pre dir='ltr'><code>&lt;section class=&quot;task&quot; data-task=&quot;03&quot;&gt;
+      &lt;h1 class=&quot;task-label&quot;&gt;Task 03 — Responsive Product Rows&lt;/h1&gt;
+      &lt;div class=&quot;products products-rows&quot;&gt;
+        &lt;article class=&quot;product product-one&quot;&gt;&lt;h2&gt;Product One&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-two&quot;&gt;&lt;h2&gt;Product Two&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-three&quot;&gt;&lt;h2&gt;Product Three&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-four&quot;&gt;&lt;h2&gt;Product Four&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>اعمل نفس الشكل والألوان، ووزّع العناصر بالعدد الظاهر في كل مقاس شاشة. استخدم <bdi dir='ltr'><code>Media Queries</code></bdi> من دون إطار عمل.</p><p dir='rtl'>صورة السؤال للشاشات الكبيرة:</p><p dir='rtl'>صورة السؤال للشاشات المتوسطة:</p><p dir='rtl'>صورة السؤال للشاشات الصغيرة والجوالات:</p><figure><h3>صورة السؤال المرجعية</h3><img src='assets/reference-task-03-large.png' alt='مرجع التكليف 03' style='display:block;max-width:100%;max-height:460px;margin:10px auto'></figure></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section class=&quot;task&quot; data-task=&quot;03&quot;&gt;
+      &lt;h1 class=&quot;task-label&quot;&gt;Task 03 — Responsive Product Rows&lt;/h1&gt;
+      &lt;div class=&quot;products products-rows&quot;&gt;
+        &lt;article class=&quot;product product-one&quot;&gt;&lt;h2&gt;Product One&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-two&quot;&gt;&lt;h2&gt;Product Two&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-three&quot;&gt;&lt;h2&gt;Product Three&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-four&quot;&gt;&lt;h2&gt;Product Four&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .task {
+      padding: 24px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .task-label {
+      margin: 0 30px 18px;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .print-sample {
+      margin: 0 30px;
+      font-size: 24px;
+    }
+
+    .products {
+      display: grid;
+      gap: 30px;
+      margin: 0 auto;
+    }
+
+    .products-four {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: 93%;
+      max-width: 1200px;
+    }
+
+    .products-rows {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-areas:
+        &quot;one one&quot;
+        &quot;two three&quot;
+        &quot;four four&quot;;
+      width: calc(100% - 60px);
+      max-width: 1050px;
+    }
+
+    .product {
+      min-height: 92px;
+      display: grid;
+      align-content: center;
+      gap: 8px;
+      border: 1px solid #ddd;
+      background: #eee;
+      text-align: center;
+    }
+
+    .product h2 {
+      margin: 0;
+      color: #009688;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .product p {
+      margin: 0;
+      color: #333;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .product-one {
+      grid-area: one;
+    }
+
+    .product-two {
+      grid-area: two;
+    }
+
+    .product-three {
+      grid-area: three;
+    }
+
+    .product-four {
+      grid-area: four;
+    }
+
+    @media (max-width: 1099px) {
+      .products-four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .products-four .product h2,
+      .products-rows .product h2 {
+        color: #f00;
+      }
+    }
+
+    @media (max-width: 1099px) and (min-width: 900px) {
+      .products-rows {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-areas:
+          &quot;one one one&quot;
+          &quot;two three four&quot;;
+      }
+    }
+
+    @media (max-width: 899px) {
+      .products-four {
+        grid-template-columns: 1fr;
+      }
+
+      .products-four .product h2,
+      .products-rows .product h2 {
+        color: #000;
+      }
+
+      .products-rows {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          &quot;one&quot;
+          &quot;two&quot;
+          &quot;three&quot;
+          &quot;four&quot;;
+      }
+    }
+
+    @media print {
+      .print-sample {
+        font-size: 40px;
+      }
+    }
+  &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section class=&quot;task&quot; data-task=&quot;03&quot;&gt;
+      &lt;h1 class=&quot;task-label&quot;&gt;Task 03 — Responsive Product Rows&lt;/h1&gt;
+      &lt;div class=&quot;products products-rows&quot;&gt;
+        &lt;article class=&quot;product product-one&quot;&gt;&lt;h2&gt;Product One&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-two&quot;&gt;&lt;h2&gt;Product Two&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-three&quot;&gt;&lt;h2&gt;Product Three&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+        &lt;article class=&quot;product product-four&quot;&gt;&lt;h2&gt;Product Four&lt;/h2&gt;&lt;p&gt;This Is Product&lt;/p&gt;&lt;/article&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>CSS
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    &quot;one one&quot;
+    &quot;two three&quot;
+    &quot;four four&quot;;
+  gap: 30px;
+  width: calc(100% - 60px);
+  max-width: 1050px;
+  margin: 45px auto;
+}
+
+.product {
+  min-height: 92px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  background: #eee;
+  text-align: center;
+}
+
+.product h2 {
+  margin: 0;
+  color: #009688;
+  font-size: 20px;
+}
+
+.product p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.product-one { grid-area: one; }
+.product-two { grid-area: two; }
+.product-three { grid-area: three; }
+.product-four { grid-area: four; }
+
+@media (max-width: 1099px) and (min-width: 900px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+      &quot;one one one&quot;
+      &quot;two three four&quot;;
+  }
+
+  .product h2 {
+    color: #f00;
+  }
+}
+
+@media (max-width: 899px) {
+  .products {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      &quot;one&quot;
+      &quot;two&quot;
+      &quot;three&quot;
+      &quot;four&quot;;
+  }
+
+  .product h2 {
+    color: #000;
+  }
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>في العرض الواسع يشغل العنصر الأول صفًا كاملًا، ويأتي العنصران الثاني والثالث بجانبهما في الصف التالي، ثم يشغل الرابع صفًا كاملًا. في المقاس المتوسط يظهر الأول بعرض كامل ثم تأتي العناصر الثلاثة في صف واحد. على الهاتف يتحول التخطيط إلى عمود واحد. اخترت نقطتي التحول <bdi dir='ltr'><code>1099px</code></bdi> و<bdi dir='ltr'><code>899px</code></bdi> لأنها غير محددة في نص التكليف.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>.products</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.product</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.product h2</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.product p</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>display</code></h4><p>تحدد طريقة عرض العنصر. مثال القيمة: <bdi dir='ltr'>grid</bdi></p></article><article class='symbol'><h4><code>grid-template-columns</code></h4><p>تحدد أعمدة <bdi dir='ltr'>Grid</bdi>. مثال القيمة: <bdi dir='ltr'>repeat(2, minmax(0, 1fr)</bdi>)</p></article><article class='symbol'><h4><code>grid-template-areas</code></h4><p>تسمي مناطق <bdi dir='ltr'>Grid</bdi>. مثال القيمة: </p></article><article class='symbol'><h4><code>gap</code></h4><p>تحدد المسافة بين عناصر التخطيط. مثال القيمة: <bdi dir='ltr'>30px</bdi></p></article><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>calc(100% - 60px)</bdi></p></article><article class='symbol'><h4><code>max-width</code></h4><p>تحدد أقصى عرض. مثال القيمة: <bdi dir='ltr'>1050px</bdi></p></article><article class='symbol'><h4><code>margin</code></h4><p>تضيف مسافة خارجية. مثال القيمة: <bdi dir='ltr'>45px</bdi> <bdi dir='ltr'>auto</bdi></p></article><article class='symbol'><h4><code>min-height</code></h4><p>تحدد أقل ارتفاع. مثال القيمة: <bdi dir='ltr'>92px</bdi></p></article><article class='symbol'><h4><code>align-content</code></h4><p>تحاذي صفوف أو أعمدة التخطيط. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article><article class='symbol'><h4><code>border</code></h4><p>ترسم الحد وتحدد سمكه ونمطه ولونه. مثال القيمة: <bdi dir='ltr'>1px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#ddd</bdi></p></article><article class='symbol'><h4><code>background</code></h4><p>تضبط الخلفية. مثال القيمة: <bdi dir='ltr'>#eee</bdi></p></article><article class='symbol'><h4><code>text-align</code></h4><p>تحاذي النص. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article><article class='symbol'><h4><code>color</code></h4><p>تحدد لون النص. مثال القيمة: <bdi dir='ltr'>#009688</bdi></p></article><article class='symbol'><h4><code>font-size</code></h4><p>تحدد حجم النص. مثال القيمة: <bdi dir='ltr'>20px</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>repeat()</code></h4><p>تكرر مسارًا أو مجموعة مسارات بعدد محدد في تخطيط <bdi dir='ltr'>Grid</bdi>.</p></article><article class='symbol'><h4><code>minmax()</code></h4><p>تحدد حدًا أدنى وحدًا أقصى لحجم مسار في <bdi dir='ltr'>Grid</bdi>.</p></article><article class='symbol'><h4><code>calc()</code></h4><p>تحسب قيمة من تعبير رياضي، ويمكنها الجمع بين وحدات <bdi dir='ltr'>CSS</bdi> المختلفة.</p></article><article class='symbol'><h4><code>repeat()</code></h4><p>تكرر مسارًا أو مجموعة مسارات بعدد محدد في تخطيط <bdi dir='ltr'>Grid</bdi>.</p></article><article class='symbol'><h4><code>minmax()</code></h4><p>تحدد حدًا أدنى وحدًا أقصى لحجم مسار في <bdi dir='ltr'>Grid</bdi>.</p></article><article class='symbol'><h4><code>fr</code></h4><p>جزء من مساحة <bdi dir='ltr'>Grid</bdi>.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>CSS
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    &quot;one one&quot;
+    &quot;two three&quot;
+    &quot;four four&quot;;
+  gap: 30px;
+  width: calc(100% - 60px);
+  max-width: 1050px;
+  margin: 45px auto;
+}
+
+.product {
+  min-height: 92px;
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  background: #eee;
+  text-align: center;
+}
+
+.product h2 {
+  margin: 0;
+  color: #009688;
+  font-size: 20px;
+}
+
+.product p {
+  margin: 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.product-one { grid-area: one; }
+.product-two { grid-area: two; }
+.product-three { grid-area: three; }
+.product-four { grid-area: four; }
+
+@media (max-width: 1099px) and (min-width: 900px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+      &quot;one one one&quot;
+      &quot;two three four&quot;;
+  }
+
+  .product h2 {
+    color: #f00;
+  }
+}
+
+@media (max-width: 899px) {
+  .products {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      &quot;one&quot;
+      &quot;two&quot;
+      &quot;three&quot;
+      &quot;four&quot;;
+  }
+
+  .product h2 {
+    color: #000;
+  }
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>.products {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  display: grid;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>  grid-template-columns: repeat(2, minmax(0, 1fr));</code></pre><p>تحدد أعمدة <bdi dir='ltr'>Grid</bdi>. والقيمة هنا <bdi dir='ltr'>repeat(2, minmax(0, 1fr)</bdi>).</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>  grid-template-areas:</code></pre><p>تسمي مناطق <bdi dir='ltr'>Grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>    &quot;one one&quot;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>    &quot;two three&quot;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>    &quot;four four&quot;;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>  gap: 30px;</code></pre><p>تحدد المسافة بين عناصر التخطيط. والقيمة هنا <bdi dir='ltr'>30px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>  width: calc(100% - 60px);</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>calc(100% - 60px)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>  max-width: 1050px;</code></pre><p>تحدد أقصى عرض. والقيمة هنا <bdi dir='ltr'>1050px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>  margin: 45px auto;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا <bdi dir='ltr'>45px</bdi> <bdi dir='ltr'>auto</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>.product {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>  min-height: 92px;</code></pre><p>تحدد أقل ارتفاع. والقيمة هنا <bdi dir='ltr'>92px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>  display: grid;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>  align-content: center;</code></pre><p>تحاذي صفوف أو أعمدة التخطيط. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>  gap: 8px;</code></pre><p>تحدد المسافة بين عناصر التخطيط. والقيمة هنا <bdi dir='ltr'>8px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>  border: 1px solid #ddd;</code></pre><p>ترسم الحد وتحدد سمكه ونمطه ولونه. والقيمة هنا <bdi dir='ltr'>1px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#ddd</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>  background: #eee;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  text-align: center;</code></pre><p>تحاذي النص. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>.product h2 {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>23</span><pre dir='ltr'><code>  margin: 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>24</span><pre dir='ltr'><code>  color: #009688;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#009688</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>25</span><pre dir='ltr'><code>  font-size: 20px;</code></pre><p>تحدد حجم النص. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>26</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>27</span><pre dir='ltr'><code>.product p {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>28</span><pre dir='ltr'><code>  margin: 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>29</span><pre dir='ltr'><code>  color: #333;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#333</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>30</span><pre dir='ltr'><code>  font-size: 16px;</code></pre><p>تحدد حجم النص. والقيمة هنا <bdi dir='ltr'>16px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>31</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>32</span><pre dir='ltr'><code>.product-one { grid-area: one; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>grid-area</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>33</span><pre dir='ltr'><code>.product-two { grid-area: two; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>grid-area</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>34</span><pre dir='ltr'><code>.product-three { grid-area: three; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>grid-area</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>35</span><pre dir='ltr'><code>.product-four { grid-area: four; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>grid-area</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>36</span><pre dir='ltr'><code>@media (max-width: 1099px) and (min-width: 900px) {</code></pre><p>يبدأ شرطًا يطبق القواعد عند تحقق حجم الشاشة أو نوع الوسيط.</p></article><article class='line'><span class='num' dir='ltr'>37</span><pre dir='ltr'><code>  .products {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>38</span><pre dir='ltr'><code>    grid-template-columns: repeat(3, minmax(0, 1fr));</code></pre><p>تحدد أعمدة <bdi dir='ltr'>Grid</bdi>. والقيمة هنا <bdi dir='ltr'>repeat(3, minmax(0, 1fr)</bdi>).</p></article><article class='line'><span class='num' dir='ltr'>39</span><pre dir='ltr'><code>    grid-template-areas:</code></pre><p>تسمي مناطق <bdi dir='ltr'>Grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>40</span><pre dir='ltr'><code>      &quot;one one one&quot;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>41</span><pre dir='ltr'><code>      &quot;two three four&quot;;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>42</span><pre dir='ltr'><code>  }</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>43</span><pre dir='ltr'><code>  .product h2 {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>44</span><pre dir='ltr'><code>    color: #f00;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#f00</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>45</span><pre dir='ltr'><code>  }</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>46</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>47</span><pre dir='ltr'><code>@media (max-width: 899px) {</code></pre><p>يبدأ شرطًا يطبق القواعد عند تحقق حجم الشاشة أو نوع الوسيط.</p></article><article class='line'><span class='num' dir='ltr'>48</span><pre dir='ltr'><code>  .products {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>49</span><pre dir='ltr'><code>    grid-template-columns: 1fr;</code></pre><p>تحدد أعمدة <bdi dir='ltr'>Grid</bdi>. والقيمة هنا <bdi dir='ltr'>1fr</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>50</span><pre dir='ltr'><code>    grid-template-areas:</code></pre><p>تسمي مناطق <bdi dir='ltr'>Grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>51</span><pre dir='ltr'><code>      &quot;one&quot;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>52</span><pre dir='ltr'><code>      &quot;two&quot;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>53</span><pre dir='ltr'><code>      &quot;three&quot;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>54</span><pre dir='ltr'><code>      &quot;four&quot;;</code></pre><p>يعرض نصًا أو قيمة في المثال.</p></article><article class='line'><span class='num' dir='ltr'>55</span><pre dir='ltr'><code>  }</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>56</span><pre dir='ltr'><code>  .product h2 {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>57</span><pre dir='ltr'><code>    color: #000;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#000</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>58</span><pre dir='ltr'><code>  }</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>59</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-83-to-85/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

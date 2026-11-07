@@ -1,18 +1,80 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Course Assignment 08</title>
-  <style>
-    body { margin: 0; padding: 21px 16px 16px; background: #eee; font-family: Arial, sans-serif; }
-    a { display: block; width: max-content; max-width: 100%; margin-bottom: 20px; padding: 19px 20px; box-sizing: border-box; border-radius: 12px; color: #fff; background: #2196f3; font: 700 32px/1.2 Arial, sans-serif; text-decoration: none; }
-    a::before { content: "Name: " attr(title) " | URL: " attr(href); }
-  </style>
-</head>
-<body>
-<a class="url" href="https://google.com" title="Google"></a>
-<a class="link" href="https://elzero.org/" title="Elzero Academy"></a>
-<a href="https://www.elzero.courses/" title="Elzero Courses"></a>
-</body>
-</html>
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>08 - All Course Assignment — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 08</p><h1>All Course Assignment</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> الأصلي الوارد في السؤال</h3><pre dir='ltr'><code>&lt;a class=&quot;url&quot; href=&quot;https://google.com&quot; title=&quot;Google&quot;&gt;&lt;/a&gt;
+&lt;a class=&quot;link&quot; href=&quot;https://elzero.org/&quot; title=&quot;Elzero Academy&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.elzero.courses/&quot; title=&quot;Elzero Courses&quot;&gt;&lt;/a&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>أنشئ البطاقات الظاهرة في الصورة من روابط فارغة؛ لا تعدّل <bdi dir='ltr'>HTML</bdi>، واستخرج النص المعروض من الخصائص الموجودة في الرابط.</p><figure><h3>صورة السؤال المرجعية</h3><img src='assets/assignment-08-reference.png' alt='مرجع التكليف 08' style='display:block;max-width:100%;max-height:460px;margin:10px auto'></figure></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;a class=&quot;url&quot; href=&quot;https://google.com&quot; title=&quot;Google&quot;&gt;&lt;/a&gt;
+&lt;a class=&quot;link&quot; href=&quot;https://elzero.org/&quot; title=&quot;Elzero Academy&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.elzero.courses/&quot; title=&quot;Elzero Courses&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}body {
+  margin: 0;
+  padding: 21px 16px 16px;
+  background: #eee;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 20px;
+  padding: 19px 20px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: #fff;
+  background: #2196f3;
+  font: 700 32px/1.2 Arial, sans-serif;
+  text-decoration: none;
+}
+
+a::before {
+  content: &quot;Name: &quot; attr(title) &quot; | URL: &quot; attr(href);
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;a class=&quot;url&quot; href=&quot;https://google.com&quot; title=&quot;Google&quot;&gt;&lt;/a&gt;
+&lt;a class=&quot;link&quot; href=&quot;https://elzero.org/&quot; title=&quot;Elzero Academy&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;https://www.elzero.courses/&quot; title=&quot;Elzero Courses&quot;&gt;&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>CSS
+body {
+  margin: 0;
+  padding: 21px 16px 16px;
+  background: #eee;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 20px;
+  padding: 19px 20px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: #fff;
+  background: #2196f3;
+  font: 700 32px/1.2 Arial, sans-serif;
+  text-decoration: none;
+}
+
+a::before {
+  content: &quot;Name: &quot; attr(title) &quot; | URL: &quot; attr(href);
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>العنصر الوهمي <bdi dir='ltr'><code>::before</code></bdi> يضيف نصًا قبل محتوى الرابط. الدالة <bdi dir='ltr'><code>attr(title)</code></bdi> تقرأ اسم الموقع من الخاصية <bdi dir='ltr'><code>title</code></bdi>، و<bdi dir='ltr'><code>attr(href)</code></bdi> تقرأ عنوانه؛ وهكذا تظهر البطاقات رغم أن الروابط لا تحتوي على نص داخل <bdi dir='ltr'><code>HTML</code></bdi>.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>body</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>a</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>a::before</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>margin</code></h4><p>تضيف مسافة خارجية. مثال القيمة: 0</p></article><article class='symbol'><h4><code>padding</code></h4><p>تضيف مساحة داخلية. مثال القيمة: <bdi dir='ltr'>21px</bdi> <bdi dir='ltr'>16px</bdi> <bdi dir='ltr'>16px</bdi></p></article><article class='symbol'><h4><code>background</code></h4><p>تضبط الخلفية. مثال القيمة: <bdi dir='ltr'>#eee</bdi></p></article><article class='symbol'><h4><code>font-family</code></h4><p>تحدد عائلة الخط. مثال القيمة: <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi></p></article><article class='symbol'><h4><code>display</code></h4><p>تحدد طريقة عرض العنصر. مثال القيمة: <bdi dir='ltr'>block</bdi></p></article><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>max-content</bdi></p></article><article class='symbol'><h4><code>max-width</code></h4><p>تحدد أقصى عرض. مثال القيمة: <bdi dir='ltr'>100%</bdi></p></article><article class='symbol'><h4><code>margin-bottom</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>margin-bottom</bdi>. مثال القيمة: <bdi dir='ltr'>20px</bdi></p></article><article class='symbol'><h4><code>box-sizing</code></h4><p>تحدد حساب أبعاد الصندوق. مثال القيمة: <bdi dir='ltr'>border-box</bdi></p></article><article class='symbol'><h4><code>border-radius</code></h4><p>تدوّر زوايا العنصر. مثال القيمة: <bdi dir='ltr'>12px</bdi></p></article><article class='symbol'><h4><code>color</code></h4><p>تحدد لون النص. مثال القيمة: <bdi dir='ltr'>#fff</bdi></p></article><article class='symbol'><h4><code>font</code></h4><p>تجمع إعدادات الخط. مثال القيمة: 700 <bdi dir='ltr'>32px</bdi>/1.2 <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi></p></article><article class='symbol'><h4><code>text-decoration</code></h4><p>تضيف أو تزيل خطًا زخرفيًا. مثال القيمة: <bdi dir='ltr'>none</bdi></p></article><article class='symbol'><h4><code>a</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>a</bdi>. مثال القيمة: <bdi dir='ltr'>:before</bdi> {</p></article><article class='symbol'><h4><code>content</code></h4><p>تحدد محتوى العنصر الزائف. مثال القيمة: &<bdi dir='ltr'>quot</bdi>;<bdi dir='ltr'>Name</bdi>: &<bdi dir='ltr'>quot</bdi>; <bdi dir='ltr'>attr(title)</bdi> &<bdi dir='ltr'>quot</bdi>; | <bdi dir='ltr'>URL</bdi>: &<bdi dir='ltr'>quot</bdi>; <bdi dir='ltr'>attr(href)</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>attr()</code></h4><p>تقرأ قيمة خاصية <bdi dir='ltr'>HTML</bdi> لاستخدامها في محتوى <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>attr()</code></h4><p>تقرأ قيمة خاصية <bdi dir='ltr'>HTML</bdi> لاستخدامها في محتوى <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>CSS
+body {
+  margin: 0;
+  padding: 21px 16px 16px;
+  background: #eee;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 20px;
+  padding: 19px 20px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: #fff;
+  background: #2196f3;
+  font: 700 32px/1.2 Arial, sans-serif;
+  text-decoration: none;
+}
+
+a::before {
+  content: &quot;Name: &quot; attr(title) &quot; | URL: &quot; attr(href);
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>body {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  margin: 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>  padding: 21px 16px 16px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>21px</bdi> <bdi dir='ltr'>16px</bdi> <bdi dir='ltr'>16px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>  background: #eee;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>  font-family: Arial, sans-serif;</code></pre><p>تحدد عائلة الخط. والقيمة هنا <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>a {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>  display: block;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>block</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>  width: max-content;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>max-content</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>  max-width: 100%;</code></pre><p>تحدد أقصى عرض. والقيمة هنا <bdi dir='ltr'>100%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>  margin-bottom: 20px;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>margin-bottom</bdi>. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>  padding: 19px 20px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>19px</bdi> <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>  box-sizing: border-box;</code></pre><p>تحدد حساب أبعاد الصندوق. والقيمة هنا <bdi dir='ltr'>border-box</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>  border-radius: 12px;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>12px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>  color: #fff;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>  background: #2196f3;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#2196f3</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>  font: 700 32px/1.2 Arial, sans-serif;</code></pre><p>تجمع إعدادات الخط. والقيمة هنا 700 <bdi dir='ltr'>32px</bdi>/1.2 <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>  text-decoration: none;</code></pre><p>تضيف أو تزيل خطًا زخرفيًا. والقيمة هنا <bdi dir='ltr'>none</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>a::before {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>  content: &quot;Name: &quot; attr(title) &quot; | URL: &quot; attr(href);</code></pre><p>تحدد محتوى العنصر الزائف. والقيمة هنا &<bdi dir='ltr'>quot</bdi>;<bdi dir='ltr'>Name</bdi>: &<bdi dir='ltr'>quot</bdi>; <bdi dir='ltr'>attr(title)</bdi> &<bdi dir='ltr'>quot</bdi>; | <bdi dir='ltr'>URL</bdi>: &<bdi dir='ltr'>quot</bdi>; <bdi dir='ltr'>attr(href)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://google.com&quot;' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

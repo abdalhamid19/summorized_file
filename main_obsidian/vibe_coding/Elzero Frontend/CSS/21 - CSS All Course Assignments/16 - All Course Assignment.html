@@ -1,0 +1,401 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>16 - All Course Assignment — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 16</p><h1>All Course Assignment</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> الأصلي الوارد في السؤال</h3><pre dir='ltr'><code>&lt;table&gt;
+  &lt;caption&gt;
+    Company Data
+  &lt;/caption&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Company&lt;/th&gt;
+      &lt;th&gt;Contact&lt;/th&gt;
+      &lt;th&gt;Country&lt;/th&gt;
+      &lt;th&gt;Revenue&lt;/th&gt;
+      &lt;th&gt;Cost&lt;/th&gt;
+      &lt;th&gt;Profit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+      &lt;td&gt;Maria Anders&lt;/td&gt;
+      &lt;td&gt;Germany&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+      &lt;td&gt;Francisco Chang&lt;/td&gt;
+      &lt;td&gt;Mexico&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ernst Handel&lt;/td&gt;
+      &lt;td&gt;Roland Mendel&lt;/td&gt;
+      &lt;td&gt;Austria&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Island Trading&lt;/td&gt;
+      &lt;td&gt;Helen Bennett&lt;/td&gt;
+      &lt;td&gt;UK&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Laughing Bacchus Winecellars&lt;/td&gt;
+      &lt;td&gt;Yoshi Tannamuri&lt;/td&gt;
+      &lt;td&gt;Canada&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Magazzini Alimentari Riuniti&lt;/td&gt;
+      &lt;td&gt;Giovanni Rovelli&lt;/td&gt;
+      &lt;td&gt;Italy&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>لديك بنية <bdi dir='ltr'>HTML</bdi> التالية ممنوع التعديل عليها. اكتب <bdi dir='ltr'>CSS</bdi> لعمل الجدول كما في الصورة.</p><figure><h3>صورة السؤال المرجعية</h3><img src='assets/assignment-16-reference.png' alt='مرجع التكليف 16' style='display:block;max-width:100%;max-height:460px;margin:10px auto'></figure></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;table&gt;
+  &lt;caption&gt;
+    Company Data
+  &lt;/caption&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Company&lt;/th&gt;
+      &lt;th&gt;Contact&lt;/th&gt;
+      &lt;th&gt;Country&lt;/th&gt;
+      &lt;th&gt;Revenue&lt;/th&gt;
+      &lt;th&gt;Cost&lt;/th&gt;
+      &lt;th&gt;Profit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+      &lt;td&gt;Maria Anders&lt;/td&gt;
+      &lt;td&gt;Germany&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+      &lt;td&gt;Francisco Chang&lt;/td&gt;
+      &lt;td&gt;Mexico&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ernst Handel&lt;/td&gt;
+      &lt;td&gt;Roland Mendel&lt;/td&gt;
+      &lt;td&gt;Austria&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Island Trading&lt;/td&gt;
+      &lt;td&gt;Helen Bennett&lt;/td&gt;
+      &lt;td&gt;UK&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Laughing Bacchus Winecellars&lt;/td&gt;
+      &lt;td&gt;Yoshi Tannamuri&lt;/td&gt;
+      &lt;td&gt;Canada&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Magazzini Alimentari Riuniti&lt;/td&gt;
+      &lt;td&gt;Giovanni Rovelli&lt;/td&gt;
+      &lt;td&gt;Italy&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #fff;
+  font: 16px Arial, sans-serif;
+}
+
+th:first-child,
+td:first-child {
+  width: 34%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 21%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 14%;
+}
+
+th:nth-child(n + 4),
+td:nth-child(n + 4) {
+  width: 10.33%;
+}
+
+th,
+td {
+  padding: 14px 8px;
+  border: 2px solid #eee;
+  text-align: center;
+}
+
+th {
+  background-color: #ddd;
+}
+
+tfoot td {
+  font-weight: 700;
+}
+
+tfoot td:first-child {
+  background-color: #ffe400;
+}
+
+tfoot td:not(:first-child) {
+  background-color: #009aff;
+  color: #fff;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 14px;
+  background-color: #ccc;
+  font-size: 22px;
+  font-weight: 700;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;table&gt;
+  &lt;caption&gt;
+    Company Data
+  &lt;/caption&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan=&quot;3&quot;&gt;Total&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+      &lt;td&gt;600&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Company&lt;/th&gt;
+      &lt;th&gt;Contact&lt;/th&gt;
+      &lt;th&gt;Country&lt;/th&gt;
+      &lt;th&gt;Revenue&lt;/th&gt;
+      &lt;th&gt;Cost&lt;/th&gt;
+      &lt;th&gt;Profit&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Alfreds Futterkiste&lt;/td&gt;
+      &lt;td&gt;Maria Anders&lt;/td&gt;
+      &lt;td&gt;Germany&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Centro comercial Moctezuma&lt;/td&gt;
+      &lt;td&gt;Francisco Chang&lt;/td&gt;
+      &lt;td&gt;Mexico&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ernst Handel&lt;/td&gt;
+      &lt;td&gt;Roland Mendel&lt;/td&gt;
+      &lt;td&gt;Austria&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Island Trading&lt;/td&gt;
+      &lt;td&gt;Helen Bennett&lt;/td&gt;
+      &lt;td&gt;UK&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Laughing Bacchus Winecellars&lt;/td&gt;
+      &lt;td&gt;Yoshi Tannamuri&lt;/td&gt;
+      &lt;td&gt;Canada&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Magazzini Alimentari Riuniti&lt;/td&gt;
+      &lt;td&gt;Giovanni Rovelli&lt;/td&gt;
+      &lt;td&gt;Italy&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>CSS
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #fff;
+  font: 16px Arial, sans-serif;
+}
+
+th:first-child,
+td:first-child {
+  width: 34%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 21%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 14%;
+}
+
+th:nth-child(n + 4),
+td:nth-child(n + 4) {
+  width: 10.33%;
+}
+
+th,
+td {
+  padding: 14px 8px;
+  border: 2px solid #eee;
+  text-align: center;
+}
+
+th {
+  background-color: #ddd;
+}
+
+tfoot td {
+  font-weight: 700;
+}
+
+tfoot td:first-child {
+  background-color: #ffe400;
+}
+
+tfoot td:not(:first-child) {
+  background-color: #009aff;
+  color: #fff;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 14px;
+  background-color: #ccc;
+  font-size: 22px;
+  font-weight: 700;
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>تضع <bdi dir='ltr'><code>caption-side: bottom</code></bdi> عنوان الجدول أسفله. يلون المحدد <bdi dir='ltr'><code>tfoot td:first-child</code></bdi> خانة <bdi dir='ltr'><code>Total</code></bdi> بالأصفر، وتلون <bdi dir='ltr'><code>tfoot td:not(:first-child)</code></bdi> قيم الإجمالي بالأزرق. يحافظ <bdi dir='ltr'><code>table-layout: fixed</code></bdi> على توزيع الأعمدة.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>table</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>td:first-child</code></h4><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='symbol'><h4><code>td:nth-child(2)</code></h4><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='symbol'><h4><code>td:nth-child(3)</code></h4><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='symbol'><h4><code>td:nth-child(n + 4)</code></h4><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='symbol'><h4><code>td</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>th</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>tfoot td</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>100%</bdi></p></article><article class='symbol'><h4><code>max-width</code></h4><p>تحدد أقصى عرض. مثال القيمة: <bdi dir='ltr'>1000px</bdi></p></article><article class='symbol'><h4><code>margin</code></h4><p>تضيف مسافة خارجية. مثال القيمة: 0 <bdi dir='ltr'>auto</bdi></p></article><article class='symbol'><h4><code>border-collapse</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-collapse</bdi>. مثال القيمة: <bdi dir='ltr'>collapse</bdi></p></article><article class='symbol'><h4><code>table-layout</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>table-layout</bdi>. مثال القيمة: <bdi dir='ltr'>fixed</bdi></p></article><article class='symbol'><h4><code>background-color</code></h4><p>تحدد لون الخلفية. مثال القيمة: <bdi dir='ltr'>#fff</bdi></p></article><article class='symbol'><h4><code>font</code></h4><p>تجمع إعدادات الخط. مثال القيمة: <bdi dir='ltr'>16px</bdi> <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi></p></article><article class='symbol'><h4><code>th</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>th</bdi>. مثال القيمة: <bdi dir='ltr'>first-child</bdi>,</p></article><article class='symbol'><h4><code>td</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>td</bdi>. مثال القيمة: <bdi dir='ltr'>first-child</bdi> {</p></article><article class='symbol'><h4><code>padding</code></h4><p>تضيف مساحة داخلية. مثال القيمة: <bdi dir='ltr'>14px</bdi> <bdi dir='ltr'>8px</bdi></p></article><article class='symbol'><h4><code>border</code></h4><p>ترسم الحد وتحدد سمكه ونمطه ولونه. مثال القيمة: <bdi dir='ltr'>2px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#eee</bdi></p></article><article class='symbol'><h4><code>text-align</code></h4><p>تحاذي النص. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article><article class='symbol'><h4><code>font-weight</code></h4><p>تحدد سُمك الخط. مثال القيمة: 700</p></article><article class='symbol'><h4><code>color</code></h4><p>تحدد لون النص. مثال القيمة: <bdi dir='ltr'>#fff</bdi></p></article><article class='symbol'><h4><code>caption-side</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>caption-side</bdi>. مثال القيمة: <bdi dir='ltr'>bottom</bdi></p></article><article class='symbol'><h4><code>font-size</code></h4><p>تحدد حجم النص. مثال القيمة: <bdi dir='ltr'>22px</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>nth-child()</code></h4><p>تختار عنصرًا بحسب ترتيبه بين إخوته، ويمكن استخدام صيغة مثل <bdi dir='ltr'>n</bdi> + 4 لاختيار ما بعد العنصر الثالث.</p></article><article class='symbol'><h4><code>not()</code></h4><p>تستبعد العناصر التي يطابقها المحدد الموجود بين القوسين.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>CSS
+table {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #fff;
+  font: 16px Arial, sans-serif;
+}
+
+th:first-child,
+td:first-child {
+  width: 34%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: 21%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 14%;
+}
+
+th:nth-child(n + 4),
+td:nth-child(n + 4) {
+  width: 10.33%;
+}
+
+th,
+td {
+  padding: 14px 8px;
+  border: 2px solid #eee;
+  text-align: center;
+}
+
+th {
+  background-color: #ddd;
+}
+
+tfoot td {
+  font-weight: 700;
+}
+
+tfoot td:first-child {
+  background-color: #ffe400;
+}
+
+tfoot td:not(:first-child) {
+  background-color: #009aff;
+  color: #fff;
+}
+
+caption {
+  caption-side: bottom;
+  padding: 14px;
+  background-color: #ccc;
+  font-size: 22px;
+  font-weight: 700;
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>table {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  width: 100%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>100%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>  max-width: 1000px;</code></pre><p>تحدد أقصى عرض. والقيمة هنا <bdi dir='ltr'>1000px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>  margin: 0 auto;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0 <bdi dir='ltr'>auto</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>  border-collapse: collapse;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-collapse</bdi>. والقيمة هنا <bdi dir='ltr'>collapse</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>  table-layout: fixed;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>table-layout</bdi>. والقيمة هنا <bdi dir='ltr'>fixed</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>  background-color: #fff;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>  font: 16px Arial, sans-serif;</code></pre><p>تجمع إعدادات الخط. والقيمة هنا <bdi dir='ltr'>16px</bdi> <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>th:first-child,</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>td:first-child {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>  width: 34%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>34%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>th:nth-child(2),</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>td:nth-child(2) {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>  width: 21%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>21%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>th:nth-child(3),</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>td:nth-child(3) {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  width: 14%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>14%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>th:nth-child(n + 4),</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>23</span><pre dir='ltr'><code>td:nth-child(n + 4) {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>24</span><pre dir='ltr'><code>  width: 10.33%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>10.33%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>25</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>26</span><pre dir='ltr'><code>th,</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>27</span><pre dir='ltr'><code>td {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>28</span><pre dir='ltr'><code>  padding: 14px 8px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>14px</bdi> <bdi dir='ltr'>8px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>29</span><pre dir='ltr'><code>  border: 2px solid #eee;</code></pre><p>ترسم الحد وتحدد سمكه ونمطه ولونه. والقيمة هنا <bdi dir='ltr'>2px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>30</span><pre dir='ltr'><code>  text-align: center;</code></pre><p>تحاذي النص. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>31</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>32</span><pre dir='ltr'><code>th {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>33</span><pre dir='ltr'><code>  background-color: #ddd;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#ddd</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>34</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>35</span><pre dir='ltr'><code>tfoot td {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>36</span><pre dir='ltr'><code>  font-weight: 700;</code></pre><p>تحدد سُمك الخط. والقيمة هنا 700.</p></article><article class='line'><span class='num' dir='ltr'>37</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>38</span><pre dir='ltr'><code>tfoot td:first-child {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>39</span><pre dir='ltr'><code>  background-color: #ffe400;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#ffe400</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>40</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>41</span><pre dir='ltr'><code>tfoot td:not(:first-child) {</code></pre><p>يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته.</p></article><article class='line'><span class='num' dir='ltr'>42</span><pre dir='ltr'><code>  background-color: #009aff;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#009aff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>43</span><pre dir='ltr'><code>  color: #fff;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>44</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>45</span><pre dir='ltr'><code>caption {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>46</span><pre dir='ltr'><code>  caption-side: bottom;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>caption-side</bdi>. والقيمة هنا <bdi dir='ltr'>bottom</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>47</span><pre dir='ltr'><code>  padding: 14px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>14px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>48</span><pre dir='ltr'><code>  background-color: #ccc;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#ccc</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>49</span><pre dir='ltr'><code>  font-size: 22px;</code></pre><p>تحدد حجم النص. والقيمة هنا <bdi dir='ltr'>22px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>50</span><pre dir='ltr'><code>  font-weight: 700;</code></pre><p>تحدد سُمك الخط. والقيمة هنا 700.</p></article><article class='line'><span class='num' dir='ltr'>51</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-1-to-88/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

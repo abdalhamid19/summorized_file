@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تجربة مسافات النص</title>
+  <style>
+    :root {
+      color-scheme: var(--obsidian-color-scheme, light dark);
+      --demo-bg: var(--obsidian-bg, light-dark(#ffffff, #17191d));
+      --demo-surface: var(--obsidian-bg-2, light-dark(#f4f5f7, #22252a));
+      --demo-text: var(--obsidian-text, light-dark(#202124, #e6e8eb));
+      --demo-muted: var(--obsidian-text-muted, light-dark(#5d626b, #a5abb4));
+      --demo-accent: var(--obsidian-accent, light-dark(#6557c8, #b7aaff));
+      --demo-border: var(--obsidian-border, light-dark(#d9dce1, #3a3e45));
+      --demo-font: var(--obsidian-font, system-ui, sans-serif);
+      --demo-mono: var(--obsidian-font-mono, ui-monospace, monospace);
+      font-family: var(--demo-font);
+      background: var(--demo-bg);
+      color: var(--demo-text);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--demo-font);
+      color: var(--demo-text);
+      background: transparent;
+    }
+
+    main {
+      display: grid;
+      gap: 1rem;
+      max-width: 48rem;
+      margin-inline: auto;
+      padding: 1rem;
+    }
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .intro,
+    .label,
+    .value,
+    .sample-title,
+    .code-title {
+      font-size: .9rem;
+    }
+
+    .intro,
+    .sample-title {
+      color: var(--demo-muted);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .9rem 1.25rem;
+    }
+
+    .control {
+      display: grid;
+      gap: .35rem;
+      min-width: 0;
+    }
+
+    .control-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: .6rem;
+    }
+
+    .label {
+      font-weight: 500;
+    }
+
+    .value {
+      color: var(--demo-muted);
+      direction: ltr;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin: .2rem 0;
+      accent-color: var(--demo-accent);
+      direction: ltr;
+    }
+
+    .preview {
+      display: grid;
+      gap: .65rem;
+      padding: .9rem;
+      border: 1px solid var(--demo-border);
+      border-radius: .7rem;
+      background: var(--demo-surface);
+    }
+
+    .sample-text {
+      max-width: 40rem;
+      font-size: 1rem;
+      overflow-wrap: anywhere;
+    }
+
+    .code-title {
+      font-weight: 500;
+    }
+
+    .code-output {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem 1rem;
+      direction: ltr;
+      justify-content: flex-start;
+    }
+
+    code {
+      color: var(--demo-text);
+      font-family: var(--demo-mono);
+      font-size: .85rem;
+      white-space: normal;
+    }
+
+    @media (max-width: 34rem) {
+      main {
+        padding: .75rem;
+      }
+
+      .controls {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main aria-labelledby="title">
+    <h1 id="title">جرّب مسافات النص</h1>
+    <p class="intro">حرّك الأشرطة لترى أثر كل خاصية على العبارة الإنجليزية من مثال الدرس.</p>
+
+    <section class="controls" aria-label="خصائص المسافات">
+      <label class="control" for="word-spacing">
+        <span class="control-heading">
+          <span class="label">المسافة بين الكلمات · word-spacing</span>
+          <output class="value" id="word-value" for="word-spacing">5px</output>
+        </span>
+        <input id="word-spacing" type="range" min="0" max="20" value="5" step="1">
+      </label>
+
+      <label class="control" for="letter-spacing">
+        <span class="control-heading">
+          <span class="label">المسافة بين الحروف · letter-spacing</span>
+          <output class="value" id="letter-value" for="letter-spacing">0px</output>
+        </span>
+        <input id="letter-spacing" type="range" min="0" max="10" value="0" step="1">
+      </label>
+
+      <label class="control" for="line-height">
+        <span class="control-heading">
+          <span class="label">ارتفاع السطر · line-height</span>
+          <output class="value" id="line-value" for="line-height">1.5</output>
+        </span>
+        <input id="line-height" type="range" min="1" max="3" value="1.5" step="0.1">
+      </label>
+
+      <label class="control" for="text-indent">
+        <span class="control-heading">
+          <span class="label">إزاحة بداية الفقرة · text-indent</span>
+          <output class="value" id="indent-value" for="text-indent">0px</output>
+        </span>
+        <input id="text-indent" type="range" min="0" max="60" value="0" step="4">
+      </label>
+    </section>
+
+    <section class="preview" aria-label="معاينة تأثير الخصائص">
+      <p class="sample-title">المعاينة</p>
+      <p class="sample-text" id="sample" lang="en" dir="ltr">Elzero Web School Elzero Web School Elzero Web School Elzero Web School</p>
+    </section>
+
+    <section aria-label="قيم CSS الحالية">
+      <p class="code-title">قيم CSS الحالية</p>
+      <div class="code-output" aria-live="polite">
+        <code>word-spacing: <span id="word-css">5px</span>;</code>
+        <code>letter-spacing: <span id="letter-css">0px</span>;</code>
+        <code>line-height: <span id="line-css">1.5</span>;</code>
+        <code>text-indent: <span id="indent-css">0px</span>;</code>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const sample = document.getElementById("sample");
+    const wordSpacing = document.getElementById("word-spacing");
+    const letterSpacing = document.getElementById("letter-spacing");
+    const lineHeight = document.getElementById("line-height");
+    const textIndent = document.getElementById("text-indent");
+
+    function updateSpacing() {
+      sample.style.wordSpacing = wordSpacing.value + "px";
+      sample.style.letterSpacing = letterSpacing.value + "px";
+      sample.style.lineHeight = lineHeight.value;
+      sample.style.textIndent = textIndent.value + "px";
+
+      document.getElementById("word-value").textContent = wordSpacing.value + "px";
+      document.getElementById("letter-value").textContent = letterSpacing.value + "px";
+      document.getElementById("line-value").textContent = lineHeight.value;
+      document.getElementById("indent-value").textContent = textIndent.value + "px";
+
+      document.getElementById("word-css").textContent = wordSpacing.value + "px";
+      document.getElementById("letter-css").textContent = letterSpacing.value + "px";
+      document.getElementById("line-css").textContent = lineHeight.value;
+      document.getElementById("indent-css").textContent = textIndent.value + "px";
+    }
+
+    [wordSpacing, letterSpacing, lineHeight, textIndent].forEach(function (control) {
+      control.addEventListener("input", updateSpacing);
+    });
+
+    updateSpacing();
+  </script>
+</body>
+</html>

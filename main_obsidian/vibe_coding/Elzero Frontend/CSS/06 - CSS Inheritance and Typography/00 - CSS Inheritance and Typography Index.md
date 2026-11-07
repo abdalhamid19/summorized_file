@@ -20,9 +20,18 @@ aliases:
 - [[02 - CSS Font Families and Weights|02 — CSS Font Families and Weights]]
 - [[03 - CSS Root Font Size and Rem|03 — CSS Root Font Size and Rem]]
 
-## معاينة وحدة rem
+## صفحات الشرح المستقلة
 
-[[vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/CSS Root Font Size Rem Assignment 22-26.html|افتح معاينة أحجام الخط]]
+لكل تكليف صفحة HTML مستقلة، مع الإبقاء على معاينة المجموعة الأصلية.
+
+- [[01 - CSS Inheritance of Padding and Border.html|التكليف 01 — Inheritance of Padding and Border]]
+- [[02 - CSS Font Families and Weights.html|التكليف 02 — Font Families and Weights]]
+- [[CSS Root Font Size Rem Assignment 22-26.html|التكليف 03 — Root Font Size and rem]]
+
+## شروحات الدروس
+
+- [[Typography Font Size And CSS Units Lesson|Typography — Font Size And CSS Units]]
+- [[Typography Font Style Variant And Weight Lesson|Typography — Font Style, Variant, and Weight]]
 
 ## المصدر
 

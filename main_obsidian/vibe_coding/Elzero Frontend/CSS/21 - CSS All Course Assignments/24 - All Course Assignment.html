@@ -1,0 +1,582 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>24 - All Course Assignment — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 24</p><h1>All Course Assignment</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> مأخوذ من المعاينة المحلية</h3><pre dir='ltr'><code>&lt;section class=&quot;assignment&quot; id=&quot;task-24&quot;&gt;
+      &lt;h2&gt;24 — Progress bars with percentage badges&lt;/h2&gt;
+      &lt;div class=&quot;stage task24-stage&quot;&gt;
+        &lt;div class=&quot;progress-panel&quot;&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Money&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;$20.000&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 80%; --color: #1877dc&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Projects&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;24&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 55%; --color: #f5a623&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;55%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Team&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;12&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 75%; --color: #2eaf61&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;75%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>السؤال الرسمي اعمل الشكل المطلوب كما في الصورة.</p><figure><h3>صورة السؤال المرجعية</h3><img src='assets/assignment-24-reference.jpg' alt='مرجع التكليف 24' style='display:block;max-width:100%;max-height:460px;margin:10px auto'></figure></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section class=&quot;assignment&quot; id=&quot;task-24&quot;&gt;
+      &lt;h2&gt;24 — Progress bars with percentage badges&lt;/h2&gt;
+      &lt;div class=&quot;stage task24-stage&quot;&gt;
+        &lt;div class=&quot;progress-panel&quot;&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Money&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;$20.000&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 80%; --color: #1877dc&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Projects&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;24&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 55%; --color: #f5a623&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;55%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Team&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;12&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 75%; --color: #2eaf61&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;75%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}
+    * { box-sizing: border-box; }
+
+    :root {
+      font-family: Arial, sans-serif;
+      color: #171717;
+      background: #171717;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px;
+      background: #171717;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h1, h2 { color: #f5f5f5; }
+
+    h1 {
+      margin: 0 0 32px;
+      font-size: 28px;
+    }
+
+    .assignment { margin: 0 0 52px; }
+
+    .assignment h2 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .stage {
+      margin: 0 auto;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: #eee;
+    }
+
+    .task17-stage { width: 895px; height: 253px; padding: 22px 25px; }
+
+    .task17-stage &gt; div {
+      width: 100%;
+      height: 100%;
+      padding: 15px 20px;
+      background: #fff;
+      columns: 3;
+      column-gap: 30px;
+      column-rule: 2px dashed #222;
+      font: 18px/1.9 Arial, sans-serif;
+    }
+
+    .task18-stage { width: 658px; height: 693px; padding: 30px; }
+
+    .task18-stage ul {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: language 10;
+      background: #fff;
+      font: 24px Arial, sans-serif;
+    }
+
+    .task18-stage li {
+      height: calc(100% / 6);
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #d2d2d2;
+      counter-increment: language 3;
+    }
+
+    .task18-stage li:last-child { border-bottom: 0; }
+
+    .task18-stage li::before {
+      order: 2;
+      content: &quot;(&quot; counter(language) &quot;)&quot;;
+      width: 75px;
+      height: 75px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: #9c27b0;
+      font: bold 16px Arial, sans-serif;
+    }
+
+    .task18-stage li:nth-child(even)::before { background: #f44336; }
+
+    .task19-stage { width: 1035px; height: 442px; }
+
+    .task19-stage &gt; div {
+      --border-size: 16px;
+      width: 683px;
+      height: 130px;
+      display: grid;
+      place-items: center;
+      border: var(--border-size) solid #cddc39;
+      background: #eee;
+      box-shadow:
+        0 0 0 calc(var(--border-size) * 1) #e91e63,
+        0 0 0 calc(var(--border-size) * 2) #9c27b0,
+        0 0 0 calc(var(--border-size) * 3) #4caf50,
+        0 0 0 calc(var(--border-size) * 4) #3f51b5,
+        0 0 0 calc(var(--border-size) * 5) #795548,
+        0 0 0 calc(var(--border-size) * 6) #ffc107,
+        0 0 0 calc(var(--border-size) * 7) #009688;
+      font: bold 24px Arial, sans-serif;
+    }
+
+    .task20-stage { width: 563px; height: 314px; }
+
+    .task20-stage h1 {
+      position: relative;
+      width: 320px;
+      height: 165px;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      border: 5px solid #f44336;
+      border-bottom: 10px solid #111;
+      border-radius: 78px;
+      background: #fff;
+      box-shadow: 0 15px 0 -5px #f44336;
+      color: #111;
+      font: 54px/1 monospace;
+    }
+
+    .task20-stage h1::before,
+    .task20-stage h1::after {
+      content: &quot;&quot;;
+      position: absolute;
+      top: 50%;
+      width: 38px;
+      height: 38px;
+      border: 5px solid #f44336;
+      border-radius: 50%;
+      background: #fff;
+      transform: translateY(-50%);
+    }
+
+    .task20-stage h1::before { left: -55px; }
+    .task20-stage h1::after { right: -55px; }
+
+    .task21-stage {
+      width: 860px;
+      padding: 24px;
+      color: #eee;
+      background: #202020;
+      font: 14px/1.7 Consolas, monospace;
+    }
+
+    .task21-stage pre { margin: 0; white-space: pre-wrap; }
+
+    .task22-stage { width: 1010px; height: 775px; padding: 30px; position: relative; display: block; }
+
+    .task22-stage .gallery {
+      position: absolute;
+      inset: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .task22-stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .task22-stage img:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+    .task22-stage img:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .task22-stage img:nth-child(3) { grid-column: 3 / span 2; grid-row: 1; }
+    .task22-stage img:nth-child(4) { grid-column: 2; grid-row: 2 / span 2; }
+    .task22-stage img:nth-child(5) { grid-column: 3; grid-row: 2; }
+    .task22-stage img:nth-child(6) { grid-column: 4; grid-row: 2; }
+    .task22-stage img:nth-child(7) { grid-column: 1; grid-row: 3; }
+    .task22-stage img:nth-child(8) { grid-column: 3 / span 2; grid-row: 3; }
+
+    .task23-stage { width: 609px; height: 845px; padding: 29px; }
+
+    .task23-stage .the-grid {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-rows: repeat(4, 100px) repeat(6, 46.5px);
+      gap: 12px;
+      counter-reset: grid-item;
+    }
+
+    .task23-stage .the-grid &gt; div {
+      display: grid;
+      place-items: center;
+      background: #fff;
+      counter-increment: grid-item;
+      font: bold 40px Arial, sans-serif;
+    }
+
+    .task23-stage .the-grid &gt; div::before { content: counter(grid-item); }
+    .task23-stage .the-grid &gt; div:nth-child(1) { grid-column: 1 / span 2; grid-row: 1 / span 2; }
+    .task23-stage .the-grid &gt; div:nth-child(2) { grid-column: 3; grid-row: 1; }
+    .task23-stage .the-grid &gt; div:nth-child(3) { grid-column: 4 / span 2; grid-row: 1; }
+    .task23-stage .the-grid &gt; div:nth-child(4) { grid-column: 3 / span 3; grid-row: 2 / span 2; }
+    .task23-stage .the-grid &gt; div:nth-child(5) { grid-column: 1 / span 2; grid-row: 3; }
+    .task23-stage .the-grid &gt; div:nth-child(6) { grid-column: 1 / span 4; grid-row: 4; }
+    .task23-stage .the-grid &gt; div:nth-child(7) { grid-column: 5; grid-row: 4; }
+    .task23-stage .the-grid &gt; div:nth-child(8) { grid-column: 1; grid-row: 5 / span 3; }
+    .task23-stage .the-grid &gt; div:nth-child(9) { grid-column: 2 / span 3; grid-row: 5 / span 3; }
+    .task23-stage .the-grid &gt; div:nth-child(10) { grid-column: 5; grid-row: 5; }
+    .task23-stage .the-grid &gt; div:nth-child(11) { grid-column: 5; grid-row: 6; }
+    .task23-stage .the-grid &gt; div:nth-child(12) { grid-column: 5; grid-row: 7; }
+    .task23-stage .the-grid &gt; div:nth-child(13) { grid-column: 1 / span 5; grid-row: 8; }
+    .task23-stage .the-grid &gt; div:nth-child(14) { grid-column: 1 / span 2; grid-row: 9; }
+    .task23-stage .the-grid &gt; div:nth-child(15) { grid-column: 3 / span 3; grid-row: 9; }
+    .task23-stage .the-grid &gt; div:nth-child(16) { grid-column: 1; grid-row: 10; }
+    .task23-stage .the-grid &gt; div:nth-child(17) { grid-column: 2; grid-row: 10; }
+    .task23-stage .the-grid &gt; div:nth-child(18) { grid-column: 3; grid-row: 10; }
+    .task23-stage .the-grid &gt; div:nth-child(19) { grid-column: 4; grid-row: 10; }
+    .task23-stage .the-grid &gt; div:nth-child(20) { grid-column: 5; grid-row: 10; }
+
+    .task24-stage { width: 1258px; height: 431px; padding: 24px; }
+
+    .task24-stage .progress-panel {
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .task24-stage .metric { height: calc(100% / 3); }
+
+    .task24-stage .label {
+      margin-bottom: 4px;
+      color: #858585;
+      font-size: 16px;
+    }
+
+    .task24-stage .value {
+      margin-bottom: 12px;
+      color: #111;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .task24-stage .track {
+      position: relative;
+      width: 100%;
+      height: 5px;
+      background: #eee;
+    }
+
+    .task24-stage .fill {
+      width: var(--value);
+      height: 100%;
+      background: var(--color);
+    }
+
+    .task24-stage .badge {
+      position: absolute;
+      top: -37px;
+      left: var(--value);
+      padding: 4px 6px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--color);
+      font-size: 14px;
+      font-weight: bold;
+      transform: translateX(-50%);
+    }
+
+    .task24-stage .badge::after {
+      content: &quot;&quot;;
+      position: absolute;
+      left: 50%;
+      bottom: -5px;
+      border-width: 5px 5px 0;
+      border-style: solid;
+      border-color: var(--color) transparent transparent;
+      transform: translateX(-50%);
+    }
+
+    .task25-stage { width: 944px; height: 515px; padding: 24px; }
+
+    .task25-stage .login-card {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .task25-stage .login-title {
+      height: 102px;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: #1479ed;
+      font-size: 36px;
+    }
+
+    .task25-stage .login-content {
+      position: relative;
+      height: calc(100% - 102px);
+      padding: 28px 30px 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .task25-stage .login-content::before {
+      content: &quot;&quot;;
+      position: absolute;
+      top: 35px;
+      bottom: 35px;
+      left: 50%;
+      border-left: 1px solid #eee;
+    }
+
+    .task25-stage .login-form label {
+      display: block;
+      margin: 0 0 14px;
+      color: #777;
+      font-size: 22px;
+    }
+
+    .task25-stage .login-form input {
+      width: 100%;
+      height: 55px;
+      margin: 0 0 28px;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fcfcfc;
+      font: 18px Arial, sans-serif;
+    }
+
+    .task25-stage button {
+      width: 100%;
+      height: 57px;
+      border: 0;
+      border-radius: 10px;
+      color: #fff;
+      font: 20px Arial, sans-serif;
+    }
+
+    .task25-stage .login-button { background: #0879ef; }
+
+    .task25-stage .social h3 {
+      margin: 0 0 26px;
+      color: #777;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .task25-stage .social button { margin-bottom: 17px; }
+    .task25-stage .facebook { background: #1877f2; }
+    .task25-stage .twitter { background: #25a5e8; }
+    .task25-stage .linkedin { background: #087eae; }
+
+    .task25-stage .or {
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      padding: 6px 9px;
+      color: #777;
+      background: #fff;
+      font-size: 20px;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 1100px) {
+      body { padding: 16px; }
+      .stage { transform-origin: top left; }
+    }
+  &lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section class=&quot;assignment&quot; id=&quot;task-24&quot;&gt;
+      &lt;h2&gt;24 — Progress bars with percentage badges&lt;/h2&gt;
+      &lt;div class=&quot;stage task24-stage&quot;&gt;
+        &lt;div class=&quot;progress-panel&quot;&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Money&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;$20.000&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 80%; --color: #1877dc&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Projects&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;24&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 55%; --color: #f5a623&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;55%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;metric&quot;&gt;
+            &lt;div class=&quot;label&quot;&gt;Team&lt;/div&gt;
+            &lt;div class=&quot;value&quot;&gt;12&lt;/div&gt;
+            &lt;div class=&quot;track&quot; style=&quot;--value: 75%; --color: #2eaf61&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;75%&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>HTML
+&lt;div class=&quot;progress-panel&quot;&gt;
+  &lt;div class=&quot;metric&quot;&gt;
+    &lt;div class=&quot;label&quot;&gt;Money&lt;/div&gt;
+    &lt;div class=&quot;value&quot;&gt;$20.000&lt;/div&gt;
+    &lt;div class=&quot;track&quot; style=&quot;--value: 80%; --color: #1877dc&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;metric&quot;&gt;
+    &lt;div class=&quot;label&quot;&gt;Projects&lt;/div&gt;
+    &lt;div class=&quot;value&quot;&gt;24&lt;/div&gt;
+    &lt;div class=&quot;track&quot; style=&quot;--value: 55%; --color: #f5a623&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;55%&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;metric&quot;&gt;
+    &lt;div class=&quot;label&quot;&gt;Team&lt;/div&gt;
+    &lt;div class=&quot;value&quot;&gt;12&lt;/div&gt;
+    &lt;div class=&quot;track&quot; style=&quot;--value: 75%; --color: #2eaf61&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;75%&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+CSS
+.progress-panel {
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.metric { height: 111px; }
+.label { margin-bottom: 4px; color: #858585; font-size: 16px; }
+.value { margin-bottom: 12px; color: #111; font-size: 18px; font-weight: bold; }
+
+.track {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background: #eee;
+}
+
+.fill {
+  width: var(--value);
+  height: 100%;
+  background: var(--color);
+}
+
+.badge {
+  position: absolute;
+  top: -37px;
+  left: var(--value);
+  padding: 4px 6px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--color);
+  font-size: 14px;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+.badge::after {
+  content: &quot;&quot;;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: var(--color) transparent transparent;
+  transform: translateX(-50%);
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>تمثل <bdi dir='ltr'><code>--value</code></bdi> نسبة التقدم، وتملأ <bdi dir='ltr'><code>.fill</code></bdi> هذا الجزء من المسار الرمادي. يضع <bdi dir='ltr'><code>badge</code></bdi> (شارة النسبة) القيمة فوق نهاية الامتلاء، ويصنع <bdi dir='ltr'><code>::after</code></bdi> طرفها السفلي الصغير.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>.progress-panel</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.track</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.fill</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.badge</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.badge::after</code></h4><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>padding</code></h4><p>تضيف مساحة داخلية. مثال القيمة: <bdi dir='ltr'>24px</bdi></p></article><article class='symbol'><h4><code>border-radius</code></h4><p>تدوّر زوايا العنصر. مثال القيمة: <bdi dir='ltr'>16px</bdi></p></article><article class='symbol'><h4><code>background</code></h4><p>تضبط الخلفية. مثال القيمة: <bdi dir='ltr'>#fff</bdi></p></article><article class='symbol'><h4><code>position</code></h4><p>تحدد طريقة التموضع. مثال القيمة: <bdi dir='ltr'>relative</bdi></p></article><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>100%</bdi></p></article><article class='symbol'><h4><code>height</code></h4><p>تحدد ارتفاع العنصر. مثال القيمة: <bdi dir='ltr'>5px</bdi></p></article><article class='symbol'><h4><code>top</code></h4><p>تحدد المسافة من أعلى مرجع التموضع. مثال القيمة: -<bdi dir='ltr'>37px</bdi></p></article><article class='symbol'><h4><code>left</code></h4><p>تحدد المسافة من اليسار. مثال القيمة: <bdi dir='ltr'>var(--value)</bdi></p></article><article class='symbol'><h4><code>color</code></h4><p>تحدد لون النص. مثال القيمة: <bdi dir='ltr'>#fff</bdi></p></article><article class='symbol'><h4><code>font-size</code></h4><p>تحدد حجم النص. مثال القيمة: <bdi dir='ltr'>14px</bdi></p></article><article class='symbol'><h4><code>font-weight</code></h4><p>تحدد سُمك الخط. مثال القيمة: <bdi dir='ltr'>bold</bdi></p></article><article class='symbol'><h4><code>transform</code></h4><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. مثال القيمة: <bdi dir='ltr'>translateX(-50%)</bdi></p></article><article class='symbol'><h4><code>content</code></h4><p>تحدد محتوى العنصر الزائف. مثال القيمة: &<bdi dir='ltr'>quot</bdi>;&<bdi dir='ltr'>quot</bdi>;</p></article><article class='symbol'><h4><code>bottom</code></h4><p>تحدد المسافة من الأسفل. مثال القيمة: -<bdi dir='ltr'>5px</bdi></p></article><article class='symbol'><h4><code>border-width</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-width</bdi>. مثال القيمة: <bdi dir='ltr'>5px</bdi> <bdi dir='ltr'>5px</bdi> 0</p></article><article class='symbol'><h4><code>border-style</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-style</bdi>. مثال القيمة: <bdi dir='ltr'>solid</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>translateX()</code></h4><p>تحرك العنصر أفقيًا على محور <bdi dir='ltr'>X</bdi>.</p></article><article class='symbol'><h4><code>var()</code></h4><p>تستدعي قيمة متغير <bdi dir='ltr'>CSS</bdi> مثل <bdi dir='ltr'>--main-color</bdi>.</p></article><article class='symbol'><h4><code>translateX()</code></h4><p>تحرك العنصر أفقيًا على محور <bdi dir='ltr'>X</bdi>.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>علامات HTML</h3><div class='symbols'><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>HTML
+&lt;div class=&quot;progress-panel&quot;&gt;
+  &lt;div class=&quot;metric&quot;&gt;
+    &lt;div class=&quot;label&quot;&gt;Money&lt;/div&gt;
+    &lt;div class=&quot;value&quot;&gt;$20.000&lt;/div&gt;
+    &lt;div class=&quot;track&quot; style=&quot;--value: 80%; --color: #1877dc&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;metric&quot;&gt;
+    &lt;div class=&quot;label&quot;&gt;Projects&lt;/div&gt;
+    &lt;div class=&quot;value&quot;&gt;24&lt;/div&gt;
+    &lt;div class=&quot;track&quot; style=&quot;--value: 55%; --color: #f5a623&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;55%&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;metric&quot;&gt;
+    &lt;div class=&quot;label&quot;&gt;Team&lt;/div&gt;
+    &lt;div class=&quot;value&quot;&gt;12&lt;/div&gt;
+    &lt;div class=&quot;track&quot; style=&quot;--value: 75%; --color: #2eaf61&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;75%&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+CSS
+.progress-panel {
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.metric { height: 111px; }
+.label { margin-bottom: 4px; color: #858585; font-size: 16px; }
+.value { margin-bottom: 12px; color: #111; font-size: 18px; font-weight: bold; }
+
+.track {
+  position: relative;
+  width: 100%;
+  height: 5px;
+  background: #eee;
+}
+
+.fill {
+  width: var(--value);
+  height: 100%;
+  background: var(--color);
+}
+
+.badge {
+  position: absolute;
+  top: -37px;
+  left: var(--value);
+  padding: 4px 6px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--color);
+  font-size: 14px;
+  font-weight: bold;
+  transform: translateX(-50%);
+}
+
+.badge::after {
+  content: &quot;&quot;;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: var(--color) transparent transparent;
+  transform: translateX(-50%);
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>&lt;div class=&quot;progress-panel&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  &lt;div class=&quot;metric&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>    &lt;div class=&quot;label&quot;&gt;Money&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>    &lt;div class=&quot;value&quot;&gt;$20.000&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>    &lt;div class=&quot;track&quot; style=&quot;--value: 80%; --color: #1877dc&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;80%&lt;/span&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>  &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>  &lt;div class=&quot;metric&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>    &lt;div class=&quot;label&quot;&gt;Projects&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>    &lt;div class=&quot;value&quot;&gt;24&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>    &lt;div class=&quot;track&quot; style=&quot;--value: 55%; --color: #f5a623&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;55%&lt;/span&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>  &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>  &lt;div class=&quot;metric&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>    &lt;div class=&quot;label&quot;&gt;Team&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>    &lt;div class=&quot;value&quot;&gt;12&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>    &lt;div class=&quot;track&quot; style=&quot;--value: 75%; --color: #2eaf61&quot;&gt;&lt;div class=&quot;fill&quot;&gt;&lt;/div&gt;&lt;span class=&quot;badge&quot;&gt;75%&lt;/span&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>  &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>&lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>.progress-panel {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>  padding: 24px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>24px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  border-radius: 16px;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>16px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>  background: #fff;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>23</span><pre dir='ltr'><code>.metric { height: 111px; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>height</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>24</span><pre dir='ltr'><code>.label { margin-bottom: 4px; color: #858585; font-size: 16px; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>margin-bottom</bdi> وcolor وfont-<bdi dir='ltr'>size</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>25</span><pre dir='ltr'><code>.value { margin-bottom: 12px; color: #111; font-size: 18px; font-weight: bold; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>margin-bottom</bdi> وcolor وfont-<bdi dir='ltr'>size</bdi> وfont-<bdi dir='ltr'>weight</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>26</span><pre dir='ltr'><code>.track {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>27</span><pre dir='ltr'><code>  position: relative;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>relative</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>28</span><pre dir='ltr'><code>  width: 100%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>100%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>29</span><pre dir='ltr'><code>  height: 5px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>5px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>30</span><pre dir='ltr'><code>  background: #eee;</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>31</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>32</span><pre dir='ltr'><code>.fill {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>33</span><pre dir='ltr'><code>  width: var(--value);</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>var(--value)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>34</span><pre dir='ltr'><code>  height: 100%;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>100%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>35</span><pre dir='ltr'><code>  background: var(--color);</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>var(--color)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>36</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>37</span><pre dir='ltr'><code>.badge {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>38</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>39</span><pre dir='ltr'><code>  top: -37px;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا -<bdi dir='ltr'>37px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>40</span><pre dir='ltr'><code>  left: var(--value);</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>var(--value)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>41</span><pre dir='ltr'><code>  padding: 4px 6px;</code></pre><p>تضيف مساحة داخلية. والقيمة هنا <bdi dir='ltr'>4px</bdi> <bdi dir='ltr'>6px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>42</span><pre dir='ltr'><code>  border-radius: 8px;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>8px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>43</span><pre dir='ltr'><code>  color: #fff;</code></pre><p>تحدد لون النص. والقيمة هنا <bdi dir='ltr'>#fff</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>44</span><pre dir='ltr'><code>  background: var(--color);</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>var(--color)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>45</span><pre dir='ltr'><code>  font-size: 14px;</code></pre><p>تحدد حجم النص. والقيمة هنا <bdi dir='ltr'>14px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>46</span><pre dir='ltr'><code>  font-weight: bold;</code></pre><p>تحدد سُمك الخط. والقيمة هنا <bdi dir='ltr'>bold</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>47</span><pre dir='ltr'><code>  transform: translateX(-50%);</code></pre><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. والقيمة هنا <bdi dir='ltr'>translateX(-50%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>48</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>49</span><pre dir='ltr'><code>.badge::after {</code></pre><p>ينشئ عنصرًا زائفًا لتنسيقه من دون إضافة وسم جديد إلى <bdi dir='ltr'>HTML</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>50</span><pre dir='ltr'><code>  content: &quot;&quot;;</code></pre><p>تحدد محتوى العنصر الزائف. والقيمة هنا &<bdi dir='ltr'>quot</bdi>;&<bdi dir='ltr'>quot</bdi>;.</p></article><article class='line'><span class='num' dir='ltr'>51</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>52</span><pre dir='ltr'><code>  left: 50%;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>53</span><pre dir='ltr'><code>  bottom: -5px;</code></pre><p>تحدد المسافة من الأسفل. والقيمة هنا -<bdi dir='ltr'>5px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>54</span><pre dir='ltr'><code>  border-width: 5px 5px 0;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-width</bdi>. والقيمة هنا <bdi dir='ltr'>5px</bdi> <bdi dir='ltr'>5px</bdi> 0.</p></article><article class='line'><span class='num' dir='ltr'>55</span><pre dir='ltr'><code>  border-style: solid;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-style</bdi>. والقيمة هنا <bdi dir='ltr'>solid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>56</span><pre dir='ltr'><code>  border-color: var(--color) transparent transparent;</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>border-color</bdi>. والقيمة هنا <bdi dir='ltr'>var(--color)</bdi> <bdi dir='ltr'>transparent</bdi> <bdi dir='ltr'>transparent</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>57</span><pre dir='ltr'><code>  transform: translateX(-50%);</code></pre><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. والقيمة هنا <bdi dir='ltr'>translateX(-50%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>58</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-1-to-88/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

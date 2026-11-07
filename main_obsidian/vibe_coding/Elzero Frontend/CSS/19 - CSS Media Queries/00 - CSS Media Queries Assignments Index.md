@@ -24,3 +24,11 @@ aliases:
 ## صفحة المعاينة
 
 [[CSS Media Queries Assignments 83-85.html|افتح صفحة معاينة الحلول 83–85]]
+
+## صفحات الشرح المستقلة
+
+صفحة مستقلة لكل تكليف مع الإبقاء على معاينة المجموعة.
+
+- [[01 - CSS Media Queries - Print Font Size.html|01 - CSS Media Queries - Print Font Size]]
+- [[02 - CSS Media Queries - Four Responsive Products.html|02 - CSS Media Queries - Four Responsive Products]]
+- [[03 - CSS Media Queries - Responsive Product Rows.html|03 - CSS Media Queries - Responsive Product Rows]]

@@ -16,10 +16,10 @@ aliases:
 
 ## التكليفات
 
-- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/01 - CSS Position, List, and Table - Positioning and Layer Order|التكليف 01 — Positioning and Layer Order]]
-- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/02 - CSS Position, List, and Table - Positioned Content Panel|التكليف 02 — Positioned Content Panel]]
-- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/03 - CSS Position, List, and Table - Styled List with Attributes|التكليف 03 — Styled List with Attributes]]
-- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/04 - CSS Position, List, and Table - Table-only Layout|التكليف 04 — Table-only Layout]]
+- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/01 - CSS Position, List, and Table - Positioning and Layer Order|التكليف 01 — Positioning and Layer Order]] — [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/01 - CSS Position, List, and Table - Positioning and Layer Order.html|صفحة الشرح المرئية]]
+- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/02 - CSS Position, List, and Table - Positioned Content Panel|التكليف 02 — Positioned Content Panel]] — [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/02 - CSS Position, List, and Table - Positioned Content Panel.html|صفحة الشرح المرئية]]
+- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/03 - CSS Position, List, and Table - Styled List with Attributes|التكليف 03 — Styled List with Attributes]] — [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/03 - CSS Position, List, and Table - Styled List with Attributes.html|صفحة الشرح المرئية]]
+- [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/04 - CSS Position, List, and Table - Table-only Layout|التكليف 04 — Table-only Layout]] — [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/04 - CSS Position, List, and Table - Table-only Layout.html|صفحة الشرح المرئية]]
 
 ## المعاينة
 

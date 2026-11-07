@@ -22,19 +22,56 @@ aliases:
 
 > [!success]- الإجابة وشرح الحل — اضغط لفتحه
 >
+> ### الكود الكامل للحل
+>
 > ```css
 > .parent > .baby:only-child { color: #f00; font-weight: 700; }
 > ```
 >
+> ### الفكرة الأساسية
+>
 > يختار `:only-child` العنصر `baby` عندما يكون الابن العنصري الوحيد داخل الأب.
 >
-> تتبع صفحة المعاينة بنية HTML المنشورة في المصدر كما هي.
+> > [!info]- معاني الرموز المستخدمة في الحل
+> >
+> > ### بنية القاعدة
+> >
+> > #### `{`
+> >
+> > يفتح مجموعة التصريحات.
+> >
+> > #### `}`
+> >
+> > يغلق مجموعة التصريحات.
+> >
+> > #### `:`
+> >
+> > يفصل الخاصية عن القيمة.
+> >
+> > #### `;`
+> >
+> > ينهي تصريح `CSS`.
+> >
+> > [!info]- شرح الحل سطرًا بسطر
+> >
+> > يبقى الكود الكامل أعلى الإجابة، ويأتي كل سطر مستقلًا مع شرحه العربي تحته.
+> >
+> > #### السطر 01 — `css`
+> >
+> > ```css
+> > .parent > .baby:only-child { color: #f00; font-weight: 700; }
+> > ```
+> >
+> > يختار عنصرًا بحسب ترتيبه أو علاقته بإخوته. ويجمع السطر خصائص `color` وfont-`weight`.
+> >
 >
-> **معاينة الحل**
+> **لقطة صفحة الشرح**
 >
-> ![[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/assets/solution-task-03.png|500]]
+> ![[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/assets/solution-page-task-04.png|1200]]
 >
-> [[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/CSS Selectors Assignments 78-82.html|افتح صفحة معاينة الحلول 78–82]]
+> **صفحة الشرح المستقلة**
+>
+> [[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/04 - CSS Selectors - Only Child.html|افتح صفحة التكليف 04]]
 
 ## المصدر
 

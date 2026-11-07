@@ -1,0 +1,72 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>01 - CSS Animation — Pause on Hover — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 01</p><h1>CSS Animation — Pause on Hover</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> مأخوذ من المعاينة المحلية</h3><pre dir='ltr'><code>&lt;section id=&quot;task-01&quot; class=&quot;task1&quot;&gt;
+&lt;h2&gt;Assignment 01 — Pause on hover&lt;/h2&gt;
+&lt;p class=&quot;hint&quot;&gt;50 × 50 px; one-second animation; hover pauses it.&lt;/p&gt;
+&lt;div class=&quot;stage&quot;&gt;&lt;div class=&quot;box&quot; aria-label=&quot;Animated spinner&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;pre&gt;html, body { min-height: 100%; margin: 0; }
+body { min-height: 100vh; display: grid; place-items: center; }
+.box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: #1687e8; border-radius: 50%; animation: spin 1s linear infinite; }
+.box:hover { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }&lt;/pre&gt;
+&lt;/section&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>استخدم البنية السابقة دون تعديلها. اجعل العنصر <bdi dir='ltr'><code>50×50px</code></bdi> في مركز الصفحة طولًا وعرضًا، واستعمل الألوان المطلوبة ومدة حركة ثانية واحدة، ثم أوقف الحركة عند <bdi dir='ltr'><code>hover</code></bdi>.</p></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section id=&quot;task-01&quot; class=&quot;task1&quot;&gt;
+&lt;h2&gt;Assignment 01 — Pause on hover&lt;/h2&gt;
+&lt;p class=&quot;hint&quot;&gt;50 × 50 px; one-second animation; hover pauses it.&lt;/p&gt;
+&lt;div class=&quot;stage&quot;&gt;&lt;div class=&quot;box&quot; aria-label=&quot;Animated spinner&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;pre&gt;html, body { min-height: 100%; margin: 0; }
+body { min-height: 100vh; display: grid; place-items: center; }
+.box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: #1687e8; border-radius: 50%; animation: spin 1s linear infinite; }
+.box:hover { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }&lt;/pre&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}
+:root { color-scheme: light; --blue: #1687e8; --ink: #1f2937; --muted: #64748b; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 32px; background: #f1f5f9; color: var(--ink); font: 16px/1.6 system-ui, sans-serif; }
+main { max-width: 980px; margin: 0 auto; }
+h1 { margin: 0 0 24px; }
+section { margin: 20px 0; padding: 24px; border: 1px solid #dbe3ee; border-radius: 14px; background: white; }
+h2 { margin: 0 0 8px; }
+.hint { margin: 0 0 20px; color: var(--muted); }
+.stage { min-height: 190px; display: grid; place-items: center; border-radius: 10px; background: #f8fafc; }
+.task1 .box { width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: var(--blue); border-radius: 50%; animation: spin 1s linear infinite; }
+.task1 .box:hover { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.task2 .box { width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: var(--blue); border-right-color: #e91e63; border-radius: 50%; }
+.task2 .box:hover { animation: spin 1s linear infinite; }
+.task3 .box { width: 50px; height: 50px; border: 7px solid #222; border-top-color: #aaa; border-radius: 50%; animation: spin 1s linear infinite; }
+.letters { min-height: 190px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.letter { width: 110px; height: 166px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); gap: 5px; }
+.letter span { border-radius: 4px; background: transparent; }
+.letter-e span:nth-child(-n+3), .letter-e span:nth-child(4), .letter-e span:nth-child(n+7):nth-child(-n+9), .letter-e span:nth-child(10), .letter-e span:nth-child(n+13) { background: #1477d4; }
+.letter-l span:nth-child(1), .letter-l span:nth-child(4), .letter-l span:nth-child(7), .letter-l span:nth-child(10), .letter-l span:nth-child(n+13) { background: #1477d4; }
+.letter-e { animation: letter-reveal .75s ease-out both; }
+.letter-l { animation: letter-reveal .75s ease-out .75s both; }
+@keyframes letter-reveal { from { opacity: 0; transform: translateY(24px) scale(.7); } to { opacity: 1; transform: translateY(0) scale(1); } }
+body.single-task { padding: 0; }
+body.single-task main { width: 100%; max-width: none; }
+body.single-task main &gt; section[hidden] { display: none !important; }
+body.single-task main &gt; section { margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; }
+body.single-task main &gt; section &gt; h2,
+body.single-task main &gt; section &gt; .hint,
+body.single-task main &gt; section &gt; pre { display: none; }
+body.single-task .stage { position: fixed; inset: 0; min-height: 100vh; border-radius: 0; }
+body.single-task .letters { position: fixed; inset: 0; min-height: 100vh; }
+pre { overflow: auto; padding: 16px; border-radius: 10px; background: #0f172a; color: #e2e8f0; font: 13px/1.55 ui-monospace, Consolas, monospace; }
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section id=&quot;task-01&quot; class=&quot;task1&quot;&gt;
+&lt;h2&gt;Assignment 01 — Pause on hover&lt;/h2&gt;
+&lt;p class=&quot;hint&quot;&gt;50 × 50 px; one-second animation; hover pauses it.&lt;/p&gt;
+&lt;div class=&quot;stage&quot;&gt;&lt;div class=&quot;box&quot; aria-label=&quot;Animated spinner&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;pre&gt;html, body { min-height: 100%; margin: 0; }
+body { min-height: 100vh; display: grid; place-items: center; }
+.box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: #1687e8; border-radius: 50%; animation: spin 1s linear infinite; }
+.box:hover { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }&lt;/pre&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>CSS
+body { min-height: 100vh; margin: 0; display: grid; place-items: center; }
+.box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: #1687e8; border-radius: 50%; animation: spin 1s linear infinite; }
+.box:hover { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>يوسّط <bdi dir='ltr'><code>body</code></bdi> العنصر في نافذة الصفحة، وتضمن <bdi dir='ltr'><code>box-sizing</code></bdi> أن يبقى مقاسه الخارجي 50×<bdi dir='ltr'><code>50px</code></bdi> مع الحد. يكمل دورة كل ثانية ويتوقف عند المرور عليه.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>rotate()</code></h4><p>تدير العنصر بالزاوية المحددة.</p></article><article class='symbol'><h4><code>vh</code></h4><p>نسبة من ارتفاع نافذة العرض.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>s</code></h4><p>ثانية.</p></article><article class='symbol'><h4><code>deg</code></h4><p>درجة زاوية.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>CSS
+body { min-height: 100vh; margin: 0; display: grid; place-items: center; }
+.box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: #1687e8; border-radius: 50%; animation: spin 1s linear infinite; }
+.box:hover { animation-play-state: paused; }
+@keyframes spin { to { transform: rotate(360deg); } }</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>body { min-height: 100vh; margin: 0; display: grid; place-items: center; }</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>. ويجمع السطر خصائص <bdi dir='ltr'>min-height</bdi> وmargin وdisplay وplace-<bdi dir='ltr'>items</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>.box { box-sizing: border-box; width: 50px; height: 50px; border: 7px solid #cbd5e1; border-top-color: #1687e8; border-radius: 50%; animation: spin 1s linear infinite; }</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد. ويجمع السطر خصائص <bdi dir='ltr'>box-sizing</bdi> وwidth وheight وborder وborder-<bdi dir='ltr'>top-color</bdi> وborder-<bdi dir='ltr'>radius</bdi> وanimation.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>.box:hover { animation-play-state: paused; }</code></pre><p>يطبق القاعدة عند مرور المؤشر فوق العنصر. ويجمع السطر خصائص <bdi dir='ltr'>animation-play-state</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>@keyframes spin { to { transform: rotate(360deg); } }</code></pre><p>يعرّف مراحل الحركة التي يمكن تشغيلها.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-74-to-77/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

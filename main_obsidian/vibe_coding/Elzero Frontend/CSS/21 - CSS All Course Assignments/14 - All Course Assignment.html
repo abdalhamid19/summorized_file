@@ -1,0 +1,419 @@
+<!doctype html><html lang='ar' dir='rtl'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>14 - All Course Assignment — شرح الحل</title><style>
+:root{color-scheme:light;--ink:#1e293b;--line:#d8e2ee;--paper:#f2f6fb;--teal:#087f78;--navy:#1e293b;--mint:#edf8f6}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 Segoe UI,Tahoma,Arial,sans-serif;direction:rtl}.wrap{width:min(1180px,calc(100% - 32px));margin:24px auto 55px}.hero,.card,details{border:1px solid var(--line);border-radius:15px;background:#fff;box-shadow:0 8px 26px #1e344909}.hero{padding:24px 28px;border-right:5px solid var(--teal);background:linear-gradient(135deg,#fff,#eef8f6)}.eyebrow{margin:0;color:var(--teal);font-weight:800;direction:ltr;text-align:left}.hero h1{margin:6px 0;font-size:clamp(26px,4vw,38px);direction:ltr;text-align:left}.hero p{margin:12px 0 0;color:#63738a}.card,details{margin-top:18px;padding:22px}.card>h2{margin:0 0 16px;padding:8px 12px;border-right:5px solid var(--teal);background:var(--mint);font-size:23px;color:#153449}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;direction:ltr}.grid article{min-width:0;padding:15px;border:1px solid var(--line);border-radius:11px;background:#fbfcfe;direction:rtl}pre{max-width:100%;margin:0;padding:14px;border-radius:9px;background:var(--navy);color:#f2f6fc;direction:ltr;text-align:left;white-space:pre;overflow:auto;font:13px/1.65 Consolas,monospace}.frame{display:block;width:100%;height:360px;border:1px solid var(--line);border-radius:8px;background:white}.label{display:block;margin-bottom:8px;color:#126e67;font-weight:800}.group{margin:15px 0 20px}.group h3{margin:0 0 9px;border-bottom:1px solid var(--line)}.symbols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.symbol{padding:12px;border:1px solid #e3eaf2;border-radius:9px}.symbol h4{margin:0 0 7px;direction:ltr;text-align:left}.line-layout{display:grid;grid-template-columns:minmax(310px,.95fr) minmax(0,1.05fr);gap:18px;align-items:start;direction:ltr}.sticky{position:sticky;top:12px;max-height:calc(100vh - 24px)}.lines{direction:rtl}.line{display:grid;grid-template-columns:34px minmax(110px,.6fr) minmax(0,1fr);gap:10px;padding:11px 0;border-bottom:1px solid #e6ebf1}.num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal);font-weight:800}.line pre{width:max-content;margin:0 auto 0 0;padding:7px 9px;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}.line p{margin:0}details{padding:0;overflow:clip}summary{cursor:pointer;padding:16px 20px;background:var(--mint);color:#075e59;font-size:19px;font-weight:800}.body{padding:18px}a{color:var(--teal)}.limit{padding:11px;border-right:3px solid #c18b17;background:#fff8e8}@media(max-width:760px){.wrap{width:calc(100% - 18px);margin-top:10px}.hero,.card{padding:15px}.grid,.line-layout{grid-template-columns:1fr}.sticky{position:static;max-height:360px}.frame{height:320px}.line{grid-template-columns:30px minmax(0,1fr)}.line p{grid-column:2}.line pre{margin-left:0;margin-right:auto}}
+.prompt-stack{grid-template-columns:1fr;direction:rtl}</style></head><body><div class='wrap'><header class='hero'><p class='eyebrow'>ELZERO · CSS ASSIGNMENT 14</p><h1>All Course Assignment</h1><p>المطلوب والحل والفكرة ومعاني الرموز وشرح الأسطر في صفحة مستقلة.</p></header><main><section class='card'><h2>المطلوب و<bdi dir='ltr'>HTML</bdi> الأصلي</h2><div class='grid prompt-stack'><article><h3><bdi dir='ltr'>HTML</bdi> مأخوذ من المعاينة المحلية</h3><pre dir='ltr'><code>&lt;section class=&quot;assignment-block&quot; id=&quot;assignment-14&quot;&gt;
+  &lt;div class=&quot;reference&quot;&gt;
+    &lt;h2&gt;Assignment 14 — CSS Camera: المرجع الرسمي&lt;/h2&gt;
+    &lt;img src=&quot;assets/assignment-14-reference.png&quot; alt=&quot;الصورة المرجعية للتكليف 14&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;result&quot;&gt;
+    &lt;h2&gt;المعاينة المحلولة&lt;/h2&gt;
+    &lt;div class=&quot;demo demo14&quot;&gt;
+      &lt;div class=&quot;camera&quot; aria-label=&quot;CSS illustration of a camera&quot;&gt;
+  &lt;div class=&quot;camera__viewfinder&quot;&gt;
+    &lt;span class=&quot;camera__window&quot;&gt;&lt;span class=&quot;camera__screen&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;camera__shutter&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;camera__button&quot;&gt;&lt;/span&gt;
+  &lt;div class=&quot;camera__body&quot;&gt;
+    &lt;div class=&quot;camera__lens&quot;&gt;
+      &lt;div class=&quot;camera__ring&quot;&gt;
+        &lt;div class=&quot;camera__glass&quot;&gt;&lt;span class=&quot;camera__glare&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></article><article><h3>المطلوب</h3><p dir='rtl'>تحدي: ارسم الشكل المعروض بنفسك مع استخدام الألوان نفسها. الفكرة مستوحاة من <bdi dir='ltr'>CodePen</bdi> مع تعديلات.</p><figure><h3>صورة السؤال المرجعية</h3><img src='assets/assignment-14-reference.png' alt='مرجع التكليف 14' style='display:block;max-width:100%;max-height:460px;margin:10px auto'></figure></article></div></section><section class='card'><h2>معاينة قبل وبعد</h2><div class='grid'><article><span class='label'>قبل تطبيق CSS</span><iframe class='frame' title='قبل CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section class=&quot;assignment-block&quot; id=&quot;assignment-14&quot;&gt;
+  &lt;div class=&quot;reference&quot;&gt;
+    &lt;h2&gt;Assignment 14 — CSS Camera: المرجع الرسمي&lt;/h2&gt;
+    &lt;img src=&quot;assets/assignment-14-reference.png&quot; alt=&quot;الصورة المرجعية للتكليف 14&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;result&quot;&gt;
+    &lt;h2&gt;المعاينة المحلولة&lt;/h2&gt;
+    &lt;div class=&quot;demo demo14&quot;&gt;
+      &lt;div class=&quot;camera&quot; aria-label=&quot;CSS illustration of a camera&quot;&gt;
+  &lt;div class=&quot;camera__viewfinder&quot;&gt;
+    &lt;span class=&quot;camera__window&quot;&gt;&lt;span class=&quot;camera__screen&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;camera__shutter&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;camera__button&quot;&gt;&lt;/span&gt;
+  &lt;div class=&quot;camera__body&quot;&gt;
+    &lt;div class=&quot;camera__lens&quot;&gt;
+      &lt;div class=&quot;camera__ring&quot;&gt;
+        &lt;div class=&quot;camera__glass&quot;&gt;&lt;span class=&quot;camera__glare&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article><article><span class='label'>بعد تطبيق الحل</span><iframe class='frame' title='بعد CSS' srcdoc='&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=utf-8&gt;&lt;style&gt;body{font:16px Arial;padding:18px;margin:0}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 22px; background: #eee; color: #222; font-family: Arial, sans-serif; }
+.sheet { max-width: 1500px; margin: 0 auto; }
+.page-header { margin: 0 0 20px; padding: 22px 26px; background: #fff; border: 1px solid #ddd; }
+.page-header h1 { margin: 0 0 8px; font-size: 28px; }
+.page-header p { margin: 0; color: #666; }
+.assignment-block { display: grid; grid-template-columns: minmax(300px, 38%) minmax(0, 1fr); gap: 24px; align-items: start; margin: 20px 0; padding: 22px; background: #fff; border: 1px solid #ddd; }
+.assignment-block h2 { margin: 0 0 14px; font-size: 20px; }
+.reference img { display: block; width: 100%; height: auto; background: #eee; }
+.demo { min-width: 0; overflow: auto; padding: 20px; background: #eee; }
+.demo09 .text { color: transparent; font: 700 clamp(24px, 4.1vw, 68px) / 1 Arial, sans-serif; white-space: nowrap; text-align: center; text-transform: capitalize; background-image: linear-gradient(to bottom, #f0440a, #bd8c0e); -webkit-background-clip: text; background-clip: text; }
+.demo10 .container { display: grid; grid-template-columns: repeat(8, 1fr); width: min(100%, 810px); aspect-ratio: 1; border: 5px solid #000; }
+.demo10 .white { background-color: #fff; }
+.demo10 .black { background-color: #000; }
+.demo11 table { width: min(100%, 600px); margin: 24px auto; border-spacing: 2px; table-layout: fixed; color: #111; font: 16px Arial, sans-serif; }
+.demo11 th, .demo11 td { padding: 18px 10px; border: 1px solid #ccc; text-align: center; }
+.demo11 tr:not(:first-child):has(td:hover) &gt; td { background-color: #f4f4f4; }
+.demo11 table:has(tr:not(:first-child) &gt; td:nth-child(1):hover) tr:not(:first-child) &gt; td:nth-child(1), .demo11 table:has(tr:not(:first-child) &gt; td:nth-child(2):hover) tr:not(:first-child) &gt; td:nth-child(2), .demo11 table:has(tr:not(:first-child) &gt; td:nth-child(3):hover) tr:not(:first-child) &gt; td:nth-child(3) { background-color: #f4f4f4; }
+.demo11 td:hover { border-color: #2196f3; color: #2196f3; }
+.demo12 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 1200px; margin: 50px auto; padding: 0 16px; }
+.demo12 .plan-card { position: relative; display: flex; flex-direction: column; align-items: center; min-height: 548px; padding: 55px 18px 38px; border: 1px solid #ccc; background: #fff; text-align: center; }
+.demo12 .plan-card h3 { margin: 0 0 30px; font-size: 30px; }
+.demo12 .price { display: flex; align-items: baseline; gap: 2px; margin: 0 0 30px; color: #197beb; }
+.demo12 .price span { font-size: 30px; }
+.demo12 .price strong { font-size: 50px; }
+.demo12 .price small { color: #888; font-size: 16px; }
+.demo12 .plan-card ul { display: grid; gap: 22px; width: 100%; margin: 0; padding: 0; color: #888; list-style: none; font-size: 16px; }
+.demo12 .plan-card button { width: 140px; margin-top: auto; padding: 18px 12px; border: 0; border-radius: 32px; background: #197beb; color: #fff; font-weight: 700; }
+.demo12 .ribbon { position: absolute; top: -21px; left: 10%; width: 80%; padding: 15px 8px; background: #197beb; color: #fff; font-weight: 700; }
+.demo12 .ribbon::before { position: absolute; top: 0; left: -18px; border-top: 21px solid #0e67cd; border-left: 18px solid transparent; content: &quot;&quot;; }
+.demo13 .capacity-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; max-width: 860px; margin: 25px auto; font-family: Arial, sans-serif; }
+.demo13 .capacity-card { position: relative; min-height: 170px; padding: 20px; border: 2px solid transparent; border-radius: 12px; background: #fff; box-shadow: 0 7px 17px #0003; color: #555; }
+.demo13 .capacity-card.active, .demo13 .capacity-card:hover { border-color: #3171ff; }
+.demo13 .indicator { position: absolute; top: 16px; right: 16px; width: 20px; height: 20px; border-radius: 50%; background: #ccc; }
+.demo13 .capacity-card.active .indicator, .demo13 .capacity-card:hover .indicator { background: #3171ff; }
+.demo13 .capacity-card h3 { margin: 0 0 12px; font-size: 18px; }
+.demo13 .capacity { margin: 0 0 10px; }
+.demo13 .capacity strong { font-size: 48px; }
+.demo13 .capacity b { font-size: 28px; }
+.demo13 .capacity small { color: #888; font-size: 16px; }
+.demo13 .rate { margin: 0; font-size: 16px; }
+.demo13 .rate strong { font-size: 18px; }
+.demo14 .camera { position: relative; width: min(100%, 600px); height: 460px; margin: 60px auto 0; }
+.demo14 .camera__body { position: absolute; inset: 60px 0 0; border-radius: 20px; background: linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%); }
+.demo14 .camera__viewfinder { position: absolute; z-index: 2; top: 0; left: calc(50% - 97px); width: 194px; height: 60px; border-radius: 24px 24px 0 0; background: #607d8b; clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%); }
+.demo14 .camera__window { position: absolute; top: 14px; left: 37px; display: grid; width: 120px; height: 30px; place-items: center; border-radius: 10px; background: #ccc; }
+.demo14 .camera__screen { width: 40px; height: 15px; border-radius: 3px; background: #607d8b; }
+.demo14 .camera__shutter { position: absolute; z-index: 3; top: 38px; left: 30px; width: 80px; height: 22px; border-radius: 18px 18px 0 0; background: #607d8b; }
+.demo14 .camera__button { position: absolute; z-index: 4; top: 37px; left: 42px; width: 57px; height: 22px; border-radius: 4px 4px 0 0; background: #e91e63; }
+.demo14 .camera__lens { position: absolute; z-index: 5; top: 42px; left: 50%; display: grid; width: 315px; height: 315px; transform: translateX(-50%); place-items: center; border: 20px solid #eee; border-radius: 50%; background: #ccc; box-shadow: 0 4px 16px #0006; }
+.demo14 .camera__ring { display: grid; width: 100%; height: 100%; place-items: center; border-radius: 50%; background: #3e3e3e; }
+.demo14 .camera__glass { position: relative; width: 150px; height: 150px; border-radius: 50%; background: #358fb6; }
+.demo14 .camera__glare { position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: #75c2df; }
+.demo15 h2 { margin: 0; color: #9c27b0; font: 700 clamp(38px, 7vw, 88px) / 1 Arial, sans-serif; -webkit-text-fill-color: transparent; -webkit-text-stroke: 2px #9c27b0; }
+.demo16 table { width: 100%; max-width: 1000px; margin: 0 auto; border-collapse: collapse; table-layout: fixed; background: #fff; font: 16px Arial, sans-serif; }
+.demo16 th:first-child, .demo16 td:first-child { width: 34%; }
+.demo16 th:nth-child(2), .demo16 td:nth-child(2) { width: 21%; }
+.demo16 th:nth-child(3), .demo16 td:nth-child(3) { width: 14%; }
+.demo16 th:nth-child(n + 4), .demo16 td:nth-child(n + 4) { width: 10.33%; }
+.demo16 th, .demo16 td { padding: 14px 8px; border: 2px solid #eee; text-align: center; }
+.demo16 th { background: #ddd; }
+.demo16 tfoot td { font-weight: 700; }
+.demo16 tfoot td:first-child { background: #ffe400; }
+.demo16 tfoot td:not(:first-child) { background: #009aff; color: #fff; }
+.demo16 caption { caption-side: bottom; padding: 14px; background: #ccc; font-size: 22px; font-weight: 700; }
+#assignment-12, #assignment-16 { grid-template-columns: 1fr; }
+#assignment-12 .reference { max-width: 1236px; margin: 0 auto; }
+#assignment-16 .reference { max-width: 1063px; margin: 0 auto; }
+@media (max-width: 900px) {
+  body { padding: 12px; }
+  .assignment-block { grid-template-columns: 1fr; }
+  .reference { max-width: 100%; }
+  .demo12 .plans, .demo13 .capacity-grid { grid-template-columns: 1fr; }
+}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section class=&quot;assignment-block&quot; id=&quot;assignment-14&quot;&gt;
+  &lt;div class=&quot;reference&quot;&gt;
+    &lt;h2&gt;Assignment 14 — CSS Camera: المرجع الرسمي&lt;/h2&gt;
+    &lt;img src=&quot;assets/assignment-14-reference.png&quot; alt=&quot;الصورة المرجعية للتكليف 14&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;result&quot;&gt;
+    &lt;h2&gt;المعاينة المحلولة&lt;/h2&gt;
+    &lt;div class=&quot;demo demo14&quot;&gt;
+      &lt;div class=&quot;camera&quot; aria-label=&quot;CSS illustration of a camera&quot;&gt;
+  &lt;div class=&quot;camera__viewfinder&quot;&gt;
+    &lt;span class=&quot;camera__window&quot;&gt;&lt;span class=&quot;camera__screen&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;camera__shutter&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;camera__button&quot;&gt;&lt;/span&gt;
+  &lt;div class=&quot;camera__body&quot;&gt;
+    &lt;div class=&quot;camera__lens&quot;&gt;
+      &lt;div class=&quot;camera__ring&quot;&gt;
+        &lt;div class=&quot;camera__glass&quot;&gt;&lt;span class=&quot;camera__glare&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;'></iframe></article></div><p class='limit'>تستخدم المقارنة البنية الواردة في السؤال أو معاينة المجموعة المحفوظة. راجع نص المطلوب للتحقق من القيم المحددة.</p></section><section class='card'><h2>الكود الكامل للحل</h2><pre dir='ltr'><code>HTML
+&lt;div class=&quot;camera&quot; aria-label=&quot;CSS illustration of a camera&quot;&gt;
+  &lt;div class=&quot;camera__viewfinder&quot;&gt;
+    &lt;span class=&quot;camera__window&quot;&gt;&lt;span class=&quot;camera__screen&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;camera__shutter&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;camera__button&quot;&gt;&lt;/span&gt;
+  &lt;div class=&quot;camera__body&quot;&gt;
+    &lt;div class=&quot;camera__lens&quot;&gt;
+      &lt;div class=&quot;camera__ring&quot;&gt;
+        &lt;div class=&quot;camera__glass&quot;&gt;&lt;span class=&quot;camera__glare&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+CSS
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+.camera {
+  position: relative;
+  width: min(100%, 600px);
+  height: 460px;
+  margin: 60px auto 0;
+}
+
+.camera__body {
+  position: absolute;
+  inset: 60px 0 0;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%);
+}
+
+.camera__viewfinder {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: calc(50% - 97px);
+  width: 194px;
+  height: 60px;
+  border-radius: 24px 24px 0 0;
+  background-color: #607d8b;
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+}
+
+.camera__window {
+  position: absolute;
+  top: 14px;
+  left: 37px;
+  display: grid;
+  width: 120px;
+  height: 30px;
+  place-items: center;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.camera__screen {
+  width: 40px;
+  height: 15px;
+  border-radius: 3px;
+  background-color: #607d8b;
+}
+
+.camera__shutter {
+  position: absolute;
+  z-index: 3;
+  top: 38px;
+  left: 30px;
+  width: 80px;
+  height: 22px;
+  border-radius: 18px 18px 0 0;
+  background-color: #607d8b;
+}
+
+.camera__button {
+  position: absolute;
+  z-index: 4;
+  top: 37px;
+  left: 42px;
+  width: 57px;
+  height: 22px;
+  border-radius: 4px 4px 0 0;
+  background-color: #e91e63;
+}
+
+.camera__lens {
+  position: absolute;
+  z-index: 5;
+  top: 42px;
+  left: 50%;
+  display: grid;
+  width: 315px;
+  height: 315px;
+  transform: translateX(-50%);
+  place-items: center;
+  border: 20px solid #eee;
+  border-radius: 50%;
+  background-color: #ccc;
+  box-shadow: 0 4px 16px #0006;
+}
+
+.camera__ring {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #3e3e3e;
+}
+
+.camera__glass {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #358fb6;
+}
+
+.camera__glare {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #75c2df;
+}</code></pre></section><section class='card'><h2>الفكرة الأساسية</h2><p>ترسم العناصر المتداخلة جسم الكاميرا والعدسة بطبقات دائرية. تصنع <bdi dir='ltr'><code>border-radius</code></bdi> الدوائر، ويقص <bdi dir='ltr'><code>clip-path</code></bdi> جوانب محدد المنظر إلى شكل شبه منحرف. يضع <bdi dir='ltr'><code>linear-gradient</code></bdi> الشريط الأفقي على جسم الكاميرا.</p></section><details><summary>معاني الرموز المستخدمة في الحل</summary><div class='body'><section class='group'><h3>محددات CSS</h3><div class='symbols'><article class='symbol'><h4><code>*</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>body</code></h4><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>.camera</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.camera__body</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.camera__viewfinder</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.camera__window</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.camera__screen</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='symbol'><h4><code>.camera__shutter</code></h4><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article></div></section><section class='group'><h3>خصائص CSS</h3><div class='symbols'><article class='symbol'><h4><code>box-sizing</code></h4><p>تحدد حساب أبعاد الصندوق. مثال القيمة: <bdi dir='ltr'>border-box</bdi></p></article><article class='symbol'><h4><code>margin</code></h4><p>تضيف مسافة خارجية. مثال القيمة: 0</p></article><article class='symbol'><h4><code>background-color</code></h4><p>تحدد لون الخلفية. مثال القيمة: <bdi dir='ltr'>#eee</bdi></p></article><article class='symbol'><h4><code>font-family</code></h4><p>تحدد عائلة الخط. مثال القيمة: <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi></p></article><article class='symbol'><h4><code>position</code></h4><p>تحدد طريقة التموضع. مثال القيمة: <bdi dir='ltr'>relative</bdi></p></article><article class='symbol'><h4><code>width</code></h4><p>تحدد عرض العنصر. مثال القيمة: <bdi dir='ltr'>min(100%, 600px)</bdi></p></article><article class='symbol'><h4><code>height</code></h4><p>تحدد ارتفاع العنصر. مثال القيمة: <bdi dir='ltr'>460px</bdi></p></article><article class='symbol'><h4><code>inset</code></h4><p>تحدد المسافات من الحواف. مثال القيمة: <bdi dir='ltr'>60px</bdi> 0 0</p></article><article class='symbol'><h4><code>border-radius</code></h4><p>تدوّر زوايا العنصر. مثال القيمة: <bdi dir='ltr'>20px</bdi></p></article><article class='symbol'><h4><code>background</code></h4><p>تضبط الخلفية. مثال القيمة: <bdi dir='ltr'>linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%)</bdi></p></article><article class='symbol'><h4><code>z-index</code></h4><p>تحدد ترتيب الطبقة؛ الأكبر يظهر فوق الأصغر. مثال القيمة: 2</p></article><article class='symbol'><h4><code>top</code></h4><p>تحدد المسافة من أعلى مرجع التموضع. مثال القيمة: 0</p></article><article class='symbol'><h4><code>left</code></h4><p>تحدد المسافة من اليسار. مثال القيمة: <bdi dir='ltr'>calc(50% - 97px)</bdi></p></article><article class='symbol'><h4><code>clip-path</code></h4><p>تحدد قيمة الخاصية <bdi dir='ltr'>clip-path</bdi>. مثال القيمة: <bdi dir='ltr'>polygon(14% 0, 86% 0, 100% 100%, 0 100%)</bdi></p></article><article class='symbol'><h4><code>display</code></h4><p>تحدد طريقة عرض العنصر. مثال القيمة: <bdi dir='ltr'>grid</bdi></p></article><article class='symbol'><h4><code>place-items</code></h4><p>تختصر محاذاة <bdi dir='ltr'>Grid</bdi>. مثال القيمة: <bdi dir='ltr'>center</bdi></p></article></div></section><section class='group'><h3>الدوال والوحدات</h3><div class='symbols'><article class='symbol'><h4><code>min()</code></h4><p>تختار أصغر قيمة من القيم المعطاة.</p></article><article class='symbol'><h4><code>linear-gradient()</code></h4><p>تنشئ تدرجًا لونيًا يسير في اتجاه خطي.</p></article><article class='symbol'><h4><code>calc()</code></h4><p>تحسب قيمة من تعبير رياضي، ويمكنها الجمع بين وحدات <bdi dir='ltr'>CSS</bdi> المختلفة.</p></article><article class='symbol'><h4><code>polygon()</code></h4><p>ترسم شكلًا متعدد الأضلاع من نقاط إحداثية، غالبًا مع <bdi dir='ltr'>clip-path</bdi>.</p></article><article class='symbol'><h4><code>translateX()</code></h4><p>تحرك العنصر أفقيًا على محور <bdi dir='ltr'>X</bdi>.</p></article><article class='symbol'><h4><code>px</code></h4><p>وحدة بكسل <bdi dir='ltr'>CSS</bdi>.</p></article></div></section><section class='group'><h3>علامات HTML</h3><div class='symbols'><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;span&gt;</code></h4><p>عنصر داخل السطر.</p></article><article class='symbol'><h4><code>&lt;div&gt;</code></h4><p>حاوية عامة.</p></article></div></section><section class='group'><h3>بنية القاعدة</h3><div class='symbols'><article class='symbol'><h4><code>{</code></h4><p>يفتح مجموعة التصريحات.</p></article><article class='symbol'><h4><code>}</code></h4><p>يغلق مجموعة التصريحات.</p></article><article class='symbol'><h4><code>:</code></h4><p>يفصل الخاصية عن القيمة.</p></article><article class='symbol'><h4><code>;</code></h4><p>ينهي تصريح <bdi dir='ltr'>CSS</bdi>.</p></article><article class='symbol'><h4><code>,</code></h4><p>يفصل بين محددات أو قيم.</p></article></div></section></div></details><details><summary>شرح الحل سطرًا بسطر</summary><div class='body line-layout'><pre class='sticky' dir='ltr'><code>HTML
+&lt;div class=&quot;camera&quot; aria-label=&quot;CSS illustration of a camera&quot;&gt;
+  &lt;div class=&quot;camera__viewfinder&quot;&gt;
+    &lt;span class=&quot;camera__window&quot;&gt;&lt;span class=&quot;camera__screen&quot;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;span class=&quot;camera__shutter&quot;&gt;&lt;/span&gt;
+  &lt;span class=&quot;camera__button&quot;&gt;&lt;/span&gt;
+  &lt;div class=&quot;camera__body&quot;&gt;
+    &lt;div class=&quot;camera__lens&quot;&gt;
+      &lt;div class=&quot;camera__ring&quot;&gt;
+        &lt;div class=&quot;camera__glass&quot;&gt;&lt;span class=&quot;camera__glare&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+CSS
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #eee;
+  font-family: Arial, sans-serif;
+}
+
+.camera {
+  position: relative;
+  width: min(100%, 600px);
+  height: 460px;
+  margin: 60px auto 0;
+}
+
+.camera__body {
+  position: absolute;
+  inset: 60px 0 0;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%);
+}
+
+.camera__viewfinder {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: calc(50% - 97px);
+  width: 194px;
+  height: 60px;
+  border-radius: 24px 24px 0 0;
+  background-color: #607d8b;
+  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);
+}
+
+.camera__window {
+  position: absolute;
+  top: 14px;
+  left: 37px;
+  display: grid;
+  width: 120px;
+  height: 30px;
+  place-items: center;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.camera__screen {
+  width: 40px;
+  height: 15px;
+  border-radius: 3px;
+  background-color: #607d8b;
+}
+
+.camera__shutter {
+  position: absolute;
+  z-index: 3;
+  top: 38px;
+  left: 30px;
+  width: 80px;
+  height: 22px;
+  border-radius: 18px 18px 0 0;
+  background-color: #607d8b;
+}
+
+.camera__button {
+  position: absolute;
+  z-index: 4;
+  top: 37px;
+  left: 42px;
+  width: 57px;
+  height: 22px;
+  border-radius: 4px 4px 0 0;
+  background-color: #e91e63;
+}
+
+.camera__lens {
+  position: absolute;
+  z-index: 5;
+  top: 42px;
+  left: 50%;
+  display: grid;
+  width: 315px;
+  height: 315px;
+  transform: translateX(-50%);
+  place-items: center;
+  border: 20px solid #eee;
+  border-radius: 50%;
+  background-color: #ccc;
+  box-shadow: 0 4px 16px #0006;
+}
+
+.camera__ring {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #3e3e3e;
+}
+
+.camera__glass {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #358fb6;
+}
+
+.camera__glare {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #75c2df;
+}</code></pre><div class='lines'><p>الكود الكامل ثابت في العمود الأيسر أثناء التمرير، وكل سطر مشروح على حدة.</p><article class='line'><span class='num' dir='ltr'>1</span><pre dir='ltr'><code>&lt;div class=&quot;camera&quot; aria-label=&quot;CSS illustration of a camera&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>2</span><pre dir='ltr'><code>  &lt;div class=&quot;camera__viewfinder&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>3</span><pre dir='ltr'><code>    &lt;span class=&quot;camera__window&quot;&gt;&lt;span class=&quot;camera__screen&quot;&gt;&lt;/span&gt;&lt;/span&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>span</bdi> المستخدم بوصفه عنصر داخل السطر.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>4</span><pre dir='ltr'><code>  &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>5</span><pre dir='ltr'><code>  &lt;span class=&quot;camera__shutter&quot;&gt;&lt;/span&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>span</bdi> المستخدم بوصفه عنصر داخل السطر.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>6</span><pre dir='ltr'><code>  &lt;span class=&quot;camera__button&quot;&gt;&lt;/span&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>span</bdi> المستخدم بوصفه عنصر داخل السطر.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>7</span><pre dir='ltr'><code>  &lt;div class=&quot;camera__body&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>8</span><pre dir='ltr'><code>    &lt;div class=&quot;camera__lens&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>9</span><pre dir='ltr'><code>      &lt;div class=&quot;camera__ring&quot;&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>10</span><pre dir='ltr'><code>        &lt;div class=&quot;camera__glass&quot;&gt;&lt;span class=&quot;camera__glare&quot;&gt;&lt;/span&gt;&lt;/div&gt;</code></pre><p>يفتح وسم <bdi dir='ltr'>div</bdi> المستخدم بوصفه حاوية عامة.؛ <bdi dir='ltr'>class</bdi> يربطه بصنف <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>11</span><pre dir='ltr'><code>      &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>12</span><pre dir='ltr'><code>    &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>13</span><pre dir='ltr'><code>  &lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>14</span><pre dir='ltr'><code>&lt;/div&gt;</code></pre><p>يغلق وسم <bdi dir='ltr'>div</bdi> وينهي العنصر.</p></article><article class='line'><span class='num' dir='ltr'>15</span><pre dir='ltr'><code>* {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>16</span><pre dir='ltr'><code>  box-sizing: border-box;</code></pre><p>تحدد حساب أبعاد الصندوق. والقيمة هنا <bdi dir='ltr'>border-box</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>17</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>18</span><pre dir='ltr'><code>body {</code></pre><p>يحدد العنصر الذي ستطبق عليه قواعد <bdi dir='ltr'>CSS</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>19</span><pre dir='ltr'><code>  margin: 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>20</span><pre dir='ltr'><code>  background-color: #eee;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>21</span><pre dir='ltr'><code>  font-family: Arial, sans-serif;</code></pre><p>تحدد عائلة الخط. والقيمة هنا <bdi dir='ltr'>Arial</bdi>, <bdi dir='ltr'>sans-serif</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>22</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>23</span><pre dir='ltr'><code>.camera {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>24</span><pre dir='ltr'><code>  position: relative;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>relative</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>25</span><pre dir='ltr'><code>  width: min(100%, 600px);</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>min(100%, 600px)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>26</span><pre dir='ltr'><code>  height: 460px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>460px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>27</span><pre dir='ltr'><code>  margin: 60px auto 0;</code></pre><p>تضيف مسافة خارجية. والقيمة هنا <bdi dir='ltr'>60px</bdi> <bdi dir='ltr'>auto</bdi> 0.</p></article><article class='line'><span class='num' dir='ltr'>28</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>29</span><pre dir='ltr'><code>.camera__body {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>30</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>31</span><pre dir='ltr'><code>  inset: 60px 0 0;</code></pre><p>تحدد المسافات من الحواف. والقيمة هنا <bdi dir='ltr'>60px</bdi> 0 0.</p></article><article class='line'><span class='num' dir='ltr'>32</span><pre dir='ltr'><code>  border-radius: 20px;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>33</span><pre dir='ltr'><code>  background: linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%);</code></pre><p>تضبط الخلفية. والقيمة هنا <bdi dir='ltr'>linear-gradient(to bottom, #ccc 0 25%, #607d8b 25% 75%, #ccc 75% 100%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>34</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>35</span><pre dir='ltr'><code>.camera__viewfinder {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>36</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>37</span><pre dir='ltr'><code>  z-index: 2;</code></pre><p>تحدد ترتيب الطبقة؛ الأكبر يظهر فوق الأصغر. والقيمة هنا 2.</p></article><article class='line'><span class='num' dir='ltr'>38</span><pre dir='ltr'><code>  top: 0;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا 0.</p></article><article class='line'><span class='num' dir='ltr'>39</span><pre dir='ltr'><code>  left: calc(50% - 97px);</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>calc(50% - 97px)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>40</span><pre dir='ltr'><code>  width: 194px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>194px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>41</span><pre dir='ltr'><code>  height: 60px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>60px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>42</span><pre dir='ltr'><code>  border-radius: 24px 24px 0 0;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>24px</bdi> <bdi dir='ltr'>24px</bdi> 0 0.</p></article><article class='line'><span class='num' dir='ltr'>43</span><pre dir='ltr'><code>  background-color: #607d8b;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#607d8b</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>44</span><pre dir='ltr'><code>  clip-path: polygon(14% 0, 86% 0, 100% 100%, 0 100%);</code></pre><p>تحدد قيمة الخاصية <bdi dir='ltr'>clip-path</bdi>. والقيمة هنا <bdi dir='ltr'>polygon(14% 0, 86% 0, 100% 100%, 0 100%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>45</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>46</span><pre dir='ltr'><code>.camera__window {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>47</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>48</span><pre dir='ltr'><code>  top: 14px;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>14px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>49</span><pre dir='ltr'><code>  left: 37px;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>37px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>50</span><pre dir='ltr'><code>  display: grid;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>51</span><pre dir='ltr'><code>  width: 120px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>120px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>52</span><pre dir='ltr'><code>  height: 30px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>30px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>53</span><pre dir='ltr'><code>  place-items: center;</code></pre><p>تختصر محاذاة <bdi dir='ltr'>Grid</bdi>. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>54</span><pre dir='ltr'><code>  border-radius: 10px;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>10px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>55</span><pre dir='ltr'><code>  background-color: #ccc;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#ccc</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>56</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>57</span><pre dir='ltr'><code>.camera__screen {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>58</span><pre dir='ltr'><code>  width: 40px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>40px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>59</span><pre dir='ltr'><code>  height: 15px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>15px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>60</span><pre dir='ltr'><code>  border-radius: 3px;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>3px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>61</span><pre dir='ltr'><code>  background-color: #607d8b;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#607d8b</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>62</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>63</span><pre dir='ltr'><code>.camera__shutter {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>64</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>65</span><pre dir='ltr'><code>  z-index: 3;</code></pre><p>تحدد ترتيب الطبقة؛ الأكبر يظهر فوق الأصغر. والقيمة هنا 3.</p></article><article class='line'><span class='num' dir='ltr'>66</span><pre dir='ltr'><code>  top: 38px;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>38px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>67</span><pre dir='ltr'><code>  left: 30px;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>30px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>68</span><pre dir='ltr'><code>  width: 80px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>80px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>69</span><pre dir='ltr'><code>  height: 22px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>22px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>70</span><pre dir='ltr'><code>  border-radius: 18px 18px 0 0;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>18px</bdi> <bdi dir='ltr'>18px</bdi> 0 0.</p></article><article class='line'><span class='num' dir='ltr'>71</span><pre dir='ltr'><code>  background-color: #607d8b;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#607d8b</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>72</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>73</span><pre dir='ltr'><code>.camera__button {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>74</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>75</span><pre dir='ltr'><code>  z-index: 4;</code></pre><p>تحدد ترتيب الطبقة؛ الأكبر يظهر فوق الأصغر. والقيمة هنا 4.</p></article><article class='line'><span class='num' dir='ltr'>76</span><pre dir='ltr'><code>  top: 37px;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>37px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>77</span><pre dir='ltr'><code>  left: 42px;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>42px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>78</span><pre dir='ltr'><code>  width: 57px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>57px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>79</span><pre dir='ltr'><code>  height: 22px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>22px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>80</span><pre dir='ltr'><code>  border-radius: 4px 4px 0 0;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>4px</bdi> <bdi dir='ltr'>4px</bdi> 0 0.</p></article><article class='line'><span class='num' dir='ltr'>81</span><pre dir='ltr'><code>  background-color: #e91e63;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#e91e63</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>82</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>83</span><pre dir='ltr'><code>.camera__lens {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>84</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>85</span><pre dir='ltr'><code>  z-index: 5;</code></pre><p>تحدد ترتيب الطبقة؛ الأكبر يظهر فوق الأصغر. والقيمة هنا 5.</p></article><article class='line'><span class='num' dir='ltr'>86</span><pre dir='ltr'><code>  top: 42px;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>42px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>87</span><pre dir='ltr'><code>  left: 50%;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>88</span><pre dir='ltr'><code>  display: grid;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>89</span><pre dir='ltr'><code>  width: 315px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>315px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>90</span><pre dir='ltr'><code>  height: 315px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>315px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>91</span><pre dir='ltr'><code>  transform: translateX(-50%);</code></pre><p>تطبق دورانًا أو تحريكًا أو تحجيمًا. والقيمة هنا <bdi dir='ltr'>translateX(-50%)</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>92</span><pre dir='ltr'><code>  place-items: center;</code></pre><p>تختصر محاذاة <bdi dir='ltr'>Grid</bdi>. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>93</span><pre dir='ltr'><code>  border: 20px solid #eee;</code></pre><p>ترسم الحد وتحدد سمكه ونمطه ولونه. والقيمة هنا <bdi dir='ltr'>20px</bdi> <bdi dir='ltr'>solid</bdi> <bdi dir='ltr'>#eee</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>94</span><pre dir='ltr'><code>  border-radius: 50%;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>95</span><pre dir='ltr'><code>  background-color: #ccc;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#ccc</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>96</span><pre dir='ltr'><code>  box-shadow: 0 4px 16px #0006;</code></pre><p>ترسم ظل الصندوق. والقيمة هنا 0 <bdi dir='ltr'>4px</bdi> <bdi dir='ltr'>16px</bdi> <bdi dir='ltr'>#0006</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>97</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>98</span><pre dir='ltr'><code>.camera__ring {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>99</span><pre dir='ltr'><code>  display: grid;</code></pre><p>تحدد طريقة عرض العنصر. والقيمة هنا <bdi dir='ltr'>grid</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>100</span><pre dir='ltr'><code>  width: 100%;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>100%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>101</span><pre dir='ltr'><code>  height: 100%;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>100%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>102</span><pre dir='ltr'><code>  place-items: center;</code></pre><p>تختصر محاذاة <bdi dir='ltr'>Grid</bdi>. والقيمة هنا <bdi dir='ltr'>center</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>103</span><pre dir='ltr'><code>  border-radius: 50%;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>104</span><pre dir='ltr'><code>  background-color: #3e3e3e;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#3e3e3e</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>105</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>106</span><pre dir='ltr'><code>.camera__glass {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>107</span><pre dir='ltr'><code>  position: relative;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>relative</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>108</span><pre dir='ltr'><code>  width: 150px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>150px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>109</span><pre dir='ltr'><code>  height: 150px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>150px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>110</span><pre dir='ltr'><code>  border-radius: 50%;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>111</span><pre dir='ltr'><code>  background-color: #358fb6;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#358fb6</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>112</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article><article class='line'><span class='num' dir='ltr'>113</span><pre dir='ltr'><code>.camera__glare {</code></pre><p>يستهدف العناصر التي تحمل اسم الصنف المحدد.</p></article><article class='line'><span class='num' dir='ltr'>114</span><pre dir='ltr'><code>  position: absolute;</code></pre><p>تحدد طريقة التموضع. والقيمة هنا <bdi dir='ltr'>absolute</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>115</span><pre dir='ltr'><code>  top: 20px;</code></pre><p>تحدد المسافة من أعلى مرجع التموضع. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>116</span><pre dir='ltr'><code>  left: 20px;</code></pre><p>تحدد المسافة من اليسار. والقيمة هنا <bdi dir='ltr'>20px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>117</span><pre dir='ltr'><code>  width: 40px;</code></pre><p>تحدد عرض العنصر. والقيمة هنا <bdi dir='ltr'>40px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>118</span><pre dir='ltr'><code>  height: 40px;</code></pre><p>تحدد ارتفاع العنصر. والقيمة هنا <bdi dir='ltr'>40px</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>119</span><pre dir='ltr'><code>  border-radius: 50%;</code></pre><p>تدوّر زوايا العنصر. والقيمة هنا <bdi dir='ltr'>50%</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>120</span><pre dir='ltr'><code>  background-color: #75c2df;</code></pre><p>تحدد لون الخلفية. والقيمة هنا <bdi dir='ltr'>#75c2df</bdi>.</p></article><article class='line'><span class='num' dir='ltr'>121</span><pre dir='ltr'><code>}</code></pre><p>يغلق نطاق القاعدة التي بدأها المحدد.</p></article></div></div></details><footer class='card'><p>المصدر: <a href='https://elzero.org/css-assignments-lesson-from-1-to-88/' target='_blank' rel='noreferrer'>صفحة التكليف الرسمية</a></p></footer></main></div></body></html>

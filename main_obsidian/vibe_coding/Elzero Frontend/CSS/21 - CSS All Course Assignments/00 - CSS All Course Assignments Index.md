@@ -16,37 +16,37 @@ aliases:
 
 ## التكليفات 01–08
 
-- [[01 - All Course Assignment|01 — الخطوط متعددة الألوان والمتغيرات]]
-- [[02 - All Course Assignment|02 — استدعاء ملفات CSS بالمسارات النسبية]]
-- [[03 - All Course Assignment|03 — اختصار خصائص الخط]]
-- [[04 - All Course Assignment|04 — تنسيق حقل الهاتف]]
-- [[05 - All Course Assignment|05 — أيقونة قائمة متحركة]]
-- [[06 - All Course Assignment|06 — اختيار الرابط الذي بلا class]]
-- [[07 - All Course Assignment|07 — قائمة مرقمة وعدّاد CSS]]
-- [[08 - All Course Assignment|08 — توليد نص الرابط من خصائصه]]
+- [[01 - All Course Assignment|01 — الخطوط متعددة الألوان والمتغيرات]] · [[01 - All Course Assignment.html|صفحة الشرح]]
+- [[02 - All Course Assignment|02 — استدعاء ملفات CSS بالمسارات النسبية]] · [[02 - All Course Assignment.html|صفحة الشرح]]
+- [[03 - All Course Assignment|03 — اختصار خصائص الخط]] · [[03 - All Course Assignment.html|صفحة الشرح]]
+- [[04 - All Course Assignment|04 — تنسيق حقل الهاتف]] · [[04 - All Course Assignment.html|صفحة الشرح]]
+- [[05 - All Course Assignment|05 — أيقونة قائمة متحركة]] · [[05 - All Course Assignment.html|صفحة الشرح]]
+- [[06 - All Course Assignment|06 — اختيار الرابط الذي بلا class]] · [[06 - All Course Assignment.html|صفحة الشرح]]
+- [[07 - All Course Assignment|07 — قائمة مرقمة وعدّاد CSS]] · [[07 - All Course Assignment.html|صفحة الشرح]]
+- [[08 - All Course Assignment|08 — توليد نص الرابط من خصائصه]] · [[08 - All Course Assignment.html|صفحة الشرح]]
 
 ## التكليفات 09–16
 
-- [[09 - All Course Assignment|09 — نص بتدرج لوني]]
-- [[10 - All Course Assignment|10 — رقعة الشطرنج]]
-- [[11 - All Course Assignment|11 — تلوين صف وعمود الجدول عند hover]]
-- [[12 - All Course Assignment|12 — بطاقات خطط الأسعار]]
-- [[13 - All Course Assignment|13 — بطاقة سعة تخزين نشطة]]
-- [[14 - All Course Assignment|14 — رسم كاميرا باستخدام CSS]]
-- [[15 - All Course Assignment|15 — نص بإطار دون تعبئة]]
-- [[16 - All Course Assignment|16 — جدول بيانات وإجماليات]]
+- [[09 - All Course Assignment|09 — نص بتدرج لوني]] · [[09 - All Course Assignment.html|صفحة الشرح]]
+- [[10 - All Course Assignment|10 — رقعة الشطرنج]] · [[10 - All Course Assignment.html|صفحة الشرح]]
+- [[11 - All Course Assignment|11 — تلوين صف وعمود الجدول عند hover]] · [[11 - All Course Assignment.html|صفحة الشرح]]
+- [[12 - All Course Assignment|12 — بطاقات خطط الأسعار]] · [[12 - All Course Assignment.html|صفحة الشرح]]
+- [[13 - All Course Assignment|13 — بطاقة سعة تخزين نشطة]] · [[13 - All Course Assignment.html|صفحة الشرح]]
+- [[14 - All Course Assignment|14 — رسم كاميرا باستخدام CSS]] · [[14 - All Course Assignment.html|صفحة الشرح]]
+- [[15 - All Course Assignment|15 — نص بإطار دون تعبئة]] · [[15 - All Course Assignment.html|صفحة الشرح]]
+- [[16 - All Course Assignment|16 — جدول بيانات وإجماليات]] · [[16 - All Course Assignment.html|صفحة الشرح]]
 
 ## التكليفات 17–25
 
-- [[17 - All Course Assignment|17 — تقسيم النص إلى أعمدة]]
-- [[18 - All Course Assignment|18 — عدّاد العناصر دون ::after]]
-- [[19 - All Course Assignment|19 — إطار طبقات لونية دون pseudo-elements أو gradients]]
-- [[20 - All Course Assignment|20 — شارة دائرية]]
-- [[21 - All Course Assignment|21 — اختصار خصائص CSS]]
-- [[22 - All Course Assignment|22 — معرض صور باستخدام Grid]]
-- [[23 - All Course Assignment|23 — توزيع عناصر Grid]]
-- [[24 - All Course Assignment|24 — مؤشرات تقدم]]
-- [[25 - All Course Assignment|25 — بطاقة تسجيل دخول]]
+- [[17 - All Course Assignment|17 — تقسيم النص إلى أعمدة]] · [[17 - All Course Assignment.html|صفحة الشرح]]
+- [[18 - All Course Assignment|18 — عدّاد العناصر دون ::after]] · [[18 - All Course Assignment.html|صفحة الشرح]]
+- [[19 - All Course Assignment|19 — إطار طبقات لونية دون pseudo-elements أو gradients]] · [[19 - All Course Assignment.html|صفحة الشرح]]
+- [[20 - All Course Assignment|20 — شارة دائرية]] · [[20 - All Course Assignment.html|صفحة الشرح]]
+- [[21 - All Course Assignment|21 — اختصار خصائص CSS]] · [[21 - All Course Assignment.html|صفحة الشرح]]
+- [[22 - All Course Assignment|22 — معرض صور باستخدام Grid]] · [[22 - All Course Assignment.html|صفحة الشرح]]
+- [[23 - All Course Assignment|23 — توزيع عناصر Grid]] · [[23 - All Course Assignment.html|صفحة الشرح]]
+- [[24 - All Course Assignment|24 — مؤشرات تقدم]] · [[24 - All Course Assignment.html|صفحة الشرح]]
+- [[25 - All Course Assignment|25 — بطاقة تسجيل دخول]] · [[25 - All Course Assignment.html|صفحة الشرح]]
 
 ## صفحات المعاينة
 

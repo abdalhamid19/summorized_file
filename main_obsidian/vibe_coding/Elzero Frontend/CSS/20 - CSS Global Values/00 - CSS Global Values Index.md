@@ -26,3 +26,10 @@ aliases:
 ## المصدر
 
 [تكليفات CSS للدروس 86–88](https://elzero.org/css-assignments-lesson-from-86-to-88/)
+
+## صفحات الشرح المستقلة
+
+صفحة مستقلة لكل تكليف مع الإبقاء على معاينة المجموعة.
+
+- [[01 - CSS Reusable Utility Classes.html|01 - CSS Reusable Utility Classes]]
+- [[02 - CSS Directional Arrows.html|02 - CSS Directional Arrows]]

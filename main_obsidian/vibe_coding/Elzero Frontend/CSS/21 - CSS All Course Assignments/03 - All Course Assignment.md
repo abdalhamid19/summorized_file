@@ -30,7 +30,9 @@ aliases:
 >
 > ![[vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/assignment-03-reference.png]]
 
-> [!success]- الإجابة وشرح الحل — اضغط لفتحهما
+> [!success]- الإجابة وشرح الحل — اضغط لفتحه
+>
+> ### الكود الكامل للحل
 >
 > ```css
 > .font {
@@ -38,13 +40,89 @@ aliases:
 > }
 > ```
 >
+> ### الفكرة الأساسية
+>
 > اختصار `font` يجمع `font-style` (ميل الخط)، ثم `font-weight` (سماكة الخط)، ثم `font-size` (حجم الخط) و`line-height` (ارتفاع السطر) بعد الشرطة المائلة، ثم `font-family` (عائلة الخط).
 >
-> أضافت صفحة المعاينة عنصرًا بسيطًا يحمل كلمة `Elzero` لأن نص المصدر يعرض خصائص CSS والصورة فقط، ولا يقدّم HTML. هذا افتراض للمعاينة، ولا يغيّر إجابة الاختصار.
+> > [!info]- معاني الرموز المستخدمة في الحل
+> >
+> > ### محددات CSS
+> >
+> > #### `.font`
+> >
+> > يستهدف العناصر التي تحمل اسم الصنف المحدد.
+> >
+> > ### خصائص CSS
+> >
+> > #### `font`
+> >
+> > تجمع إعدادات الخط. مثال القيمة: `italic` `bold` `30px`/`30px` `Arial`, `sans-serif`
+> >
+> > ### الدوال والوحدات
+> >
+> > #### `px`
+> >
+> > وحدة بكسل `CSS`.
+> >
+> > ### بنية القاعدة
+> >
+> > #### `{`
+> >
+> > يفتح مجموعة التصريحات.
+> >
+> > #### `}`
+> >
+> > يغلق مجموعة التصريحات.
+> >
+> > #### `:`
+> >
+> > يفصل الخاصية عن القيمة.
+> >
+> > #### `;`
+> >
+> > ينهي تصريح `CSS`.
+> >
+> > #### `,`
+> >
+> > يفصل بين محددات أو قيم.
+> >
+> > [!info]- شرح الحل سطرًا بسطر
+> >
+> > يبقى الكود الكامل أعلى الإجابة، ويأتي كل سطر مستقلًا مع شرحه العربي تحته.
+> >
+> > #### السطر 01 — `css`
+> >
+> > ```css
+> > .font {
+> > ```
+> >
+> > يستهدف العناصر التي تحمل اسم الصنف المحدد.
+> >
+> > #### السطر 02 — `css`
+> >
+> > ```css
+> >   font: italic bold 30px/30px Arial, sans-serif;
+> > ```
+> >
+> > تجمع إعدادات الخط. والقيمة هنا `italic` `bold` `30px`/`30px` `Arial`, `sans-serif`.
+> >
+> > #### السطر 03 — `css`
+> >
+> > ```css
+> > }
+> > ```
+> >
+> > يغلق نطاق القاعدة التي بدأها المحدد.
+> >
 >
-> ![[vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/assignment-03-solution.png]]
+> **لقطة صفحة الشرح**
+>
+> ![[vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/solution-page-task-03.png|1200]]
+>
+> **صفحة الشرح المستقلة**
+>
+> [[vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/03 - All Course Assignment.html|افتح صفحة التكليف 03]]
 
-المعاينة: [03 - All Course Assignment.html](03%20-%20All%20Course%20Assignment.html).
 ## المصدر
 
 [تكليفات CSS على جميع الدروس — أكاديمية الزيرو](https://elzero.org/css-assignments-lesson-from-1-to-88/)

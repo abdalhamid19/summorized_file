@@ -1,0 +1,4 @@
+interface:
+  display_name: Learning Programming
+  short_description: Teach programming in Arabic with examples and visuals
+  default_prompt: Teach me this programming concept step by step with a clear example and a short practice question.

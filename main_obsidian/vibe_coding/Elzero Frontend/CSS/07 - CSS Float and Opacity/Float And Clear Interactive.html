@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تجربة float و clear في CSS</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 1rem; color: #242424; font: 16px/1.5 Arial, sans-serif; }
+    main { max-width: 780px; margin: auto; }
+    h1 { margin: 0 0 1rem; font-size: 1.4rem; }
+    .controls { display: grid; gap: 0.75rem; margin-bottom: 1rem; }
+    label { display: grid; gap: 0.35rem; }
+    select, input { font: inherit; }
+    input { width: 100%; }
+    #parent { background: #e9a3a3; padding: 10px; color: #321; }
+    .product { float: left; width: 25%; padding: 10px 2px; text-align: center; background: #dbeafe; }
+    .product:nth-child(even) { background: #bfdbfe; }
+    #clear-box { clear: none; }
+    #test-paragraph { background: #fef3c7; padding: 8px; margin: 8px 0 0; }
+    #explanation { padding: 0.75rem; background: #f3f4f6; }
+    @media (max-width: 520px) { .product { overflow-wrap: anywhere; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>تجربة <bdi>float</bdi> و<bdi>clear</bdi></h1>
+    <div class="controls">
+      <label for="mode">طريقة التعامل مع العوامات
+        <select id="mode">
+          <option value="none">بدون clear</option>
+          <option value="clear">clear: both بعد الأب</option>
+          <option value="flow-root">display: flow-root على الأب</option>
+        </select>
+      </label>
+      <label for="item-width">عرض كل منتج: <output id="width-value">25%</output>
+        <input id="item-width" type="range" min="15" max="25" value="25">
+      </label>
+    </div>
+    <div id="parent">
+      <div class="product">Product One</div>
+      <div class="product">Product Two</div>
+      <div class="product">Product Three</div>
+      <div class="product">Product Four</div>
+    </div>
+    <div id="clear-box"></div>
+    <p id="test-paragraph">This Is P For Testing Float</p>
+    <p id="explanation" aria-live="polite">من دون clear، يمكن للنص أن يلتف بجانب العوامات إذا بقي مكان. عرض المنتجات الأربعة 100% هنا.</p>
+  </main>
+  <script>
+    const mode = document.getElementById('mode');
+    const slider = document.getElementById('item-width');
+    const parent = document.getElementById('parent');
+    const clearBox = document.getElementById('clear-box');
+    const explanation = document.getElementById('explanation');
+    const update = () => {
+      const width = Number(slider.value);
+      document.querySelectorAll('.product').forEach(item => item.style.width = width + '%');
+      document.getElementById('width-value').value = width + '%';
+      parent.style.display = mode.value === 'flow-root' ? 'flow-root' : 'block';
+      clearBox.style.clear = mode.value === 'clear' ? 'both' : 'none';
+      clearBox.hidden = mode.value === 'flow-root';
+      explanation.textContent = mode.value === 'clear'
+        ? 'clear: both يضع الفقرة التالية تحت العوامات، لكنه لا يجعل الأب يحتويها؛ عنصر التنظيف خارج الأب.'
+        : mode.value === 'flow-root'
+          ? 'display: flow-root يجعل الأب يحتوي العوامات، فتتمدد خلفيته حول المنتجات وتبدأ الفقرة بعده.'
+          : 'من دون clear، يمكن للنص أن يلتف بجانب العوامات إذا بقي مكان. عرض المنتجات الأربعة ' + (width * 4) + '% من الصف.';
+    };
+    mode.addEventListener('change', update);
+    slider.addEventListener('input', update);
+    update();
+  </script>
+</body>
+</html>

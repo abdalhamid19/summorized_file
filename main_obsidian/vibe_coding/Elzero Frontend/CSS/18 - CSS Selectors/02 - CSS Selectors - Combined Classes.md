@@ -22,19 +22,56 @@ aliases:
 
 > [!success]- الإجابة وشرح الحل — اضغط لفتحه
 >
+> ### الكود الكامل للحل
+>
 > ```css
 > div.main.red { color: #f00; font-weight: 700; }
 > ```
 >
+> ### الفكرة الأساسية
+>
 > يجمع `div` بين اسم الوسم والصنفين؛ لذلك يطابق العنصرين اللذين يحملان `main` و`red` معًا، ولا يطابق فقرة تحمل الصنفين.
 >
-> تتبع صفحة المعاينة بنية HTML الأصلية في التكليف.
+> > [!info]- معاني الرموز المستخدمة في الحل
+> >
+> > ### بنية القاعدة
+> >
+> > #### `{`
+> >
+> > يفتح مجموعة التصريحات.
+> >
+> > #### `}`
+> >
+> > يغلق مجموعة التصريحات.
+> >
+> > #### `:`
+> >
+> > يفصل الخاصية عن القيمة.
+> >
+> > #### `;`
+> >
+> > ينهي تصريح `CSS`.
+> >
+> > [!info]- شرح الحل سطرًا بسطر
+> >
+> > يبقى الكود الكامل أعلى الإجابة، ويأتي كل سطر مستقلًا مع شرحه العربي تحته.
+> >
+> > #### السطر 01 — `css`
+> >
+> > ```css
+> > div.main.red { color: #f00; font-weight: 700; }
+> > ```
+> >
+> > يحدد العنصر الذي ستطبق عليه قواعد `CSS`. ويجمع السطر خصائص `color` وfont-`weight`.
+> >
 >
-> **معاينة الحل**
+> **لقطة صفحة الشرح**
 >
-> ![[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/assets/solution-task-01.png|500]]
+> ![[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/assets/solution-page-task-02.png|1200]]
 >
-> [[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/CSS Selectors Assignments 78-82.html|افتح صفحة معاينة الحلول 78–82]]
+> **صفحة الشرح المستقلة**
+>
+> [[vibe_coding/Elzero Frontend/CSS/18 - CSS Selectors/02 - CSS Selectors - Combined Classes.html|افتح صفحة التكليف 02]]
 
 ## المصدر
 

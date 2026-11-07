@@ -29,3 +29,17 @@ aliases:
 ## صفحة المعاينة
 
 - [[CSS Selectors Assignments 78-82.html|افتح صفحة معاينة الحلول 78–82]]
+
+## صفحات الشرح المستقلة
+
+صفحة مستقلة لكل تكليف مع الإبقاء على معاينة المجموعة.
+
+- [[01 - CSS Selectors - Class, ID, and Type.html|01 - CSS Selectors - Class, ID, and Type]]
+- [[02 - CSS Selectors - Combined Classes.html|02 - CSS Selectors - Combined Classes]]
+- [[03 - CSS Selectors - Direct Child.html|03 - CSS Selectors - Direct Child]]
+- [[04 - CSS Selectors - Only Child.html|04 - CSS Selectors - Only Child]]
+- [[05 - CSS Selectors - Attribute Value.html|05 - CSS Selectors - Attribute Value]]
+- [[06 - CSS Selectors - Fifth Element.html|06 - CSS Selectors - Fifth Element]]
+- [[07 - CSS Selectors - Two Element Positions.html|07 - CSS Selectors - Two Element Positions]]
+- [[08 - CSS Selectors - Third Heading and Next Sibling.html|08 - CSS Selectors - Third Heading and Next Sibling]]
+- [[09 - CSS Selectors - Not Excluded Items.html|09 - CSS Selectors - Not Excluded Items]]
