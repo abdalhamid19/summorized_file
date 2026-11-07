@@ -16,6 +16,8 @@ aliases:
 
 ## شروحات الدروس
 
+- [[Mastering The CSS Calculation|Mastering The CSS Calculation — استخدام calc() لحساب عرض العناصر]]
+
 - [[Mouse Cursor Lesson|Mouse Cursor — مؤشر الفأرة في CSS]]
 - [[Float And Clear Lesson|Float And Clear — تعويم العناصر وإزالته]]
 
