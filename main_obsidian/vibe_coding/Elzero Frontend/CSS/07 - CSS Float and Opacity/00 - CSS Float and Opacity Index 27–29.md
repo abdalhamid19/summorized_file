@@ -18,6 +18,7 @@ aliases:
 
 - [[Mastering The CSS Calculation|Mastering The CSS Calculation — استخدام calc() لحساب عرض العناصر]]
 - [[Opacity Lesson|Opacity — شفافية العنصر والخلفية]]
+- [[Position Lesson|Position — موضع العنصر في الصفحة]]
 
 - [[Mouse Cursor Lesson|Mouse Cursor — مؤشر الفأرة في CSS]]
 - [[Float And Clear Lesson|Float And Clear — تعويم العناصر وإزالته]]
