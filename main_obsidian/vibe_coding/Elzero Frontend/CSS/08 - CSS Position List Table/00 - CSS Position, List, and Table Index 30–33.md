@@ -17,6 +17,7 @@ aliases:
 ## شروحات الدروس
 
 - [[List Styling Lesson|List Styling — تنسيق القوائم]]
+- [[Table Styling Lesson|Table Styling — تنسيق الجداول]]
 
 ## التكليفات
 
