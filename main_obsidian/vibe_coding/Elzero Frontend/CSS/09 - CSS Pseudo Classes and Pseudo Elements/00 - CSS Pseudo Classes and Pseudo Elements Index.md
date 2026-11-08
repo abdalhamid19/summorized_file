@@ -14,6 +14,10 @@ aliases:
 
 حلول تكليفات CSS للدروس 34–37.
 
+## شروحات الدروس
+
+- [[Pseudo Classes Lesson|Pseudo Classes — تحديد العناصر حسب حالتها]]
+
 ## التكليفات
 
 - [[01 - CSS Pseudo Classes — Centered Blocks|01 - CSS Pseudo Classes — Centered Blocks]]
