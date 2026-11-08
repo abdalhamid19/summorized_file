@@ -18,6 +18,7 @@ aliases:
 
 - [[Pseudo Classes Lesson|Pseudo Classes — تحديد العناصر حسب حالتها]]
 - [[Pseudo Elements First Letter First Line Selection Lesson|Pseudo Elements — First Letter, First Line, Selection]]
+- [[Pseudo Elements Before After Content Lesson|Pseudo Elements — Before, After, Content]]
 
 ## التكليفات
 
