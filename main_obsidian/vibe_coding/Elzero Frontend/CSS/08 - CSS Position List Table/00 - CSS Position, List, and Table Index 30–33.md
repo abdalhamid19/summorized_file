@@ -14,6 +14,10 @@ aliases:
 
 حلول منظمة لتكليفات هذه المجموعة مع شيفرات قابلة للتجربة.
 
+## شروحات الدروس
+
+- [[List Styling Lesson|List Styling — تنسيق القوائم]]
+
 ## التكليفات
 
 - [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/01 - CSS Position, List, and Table - Positioning and Layer Order|التكليف 01 — Positioning and Layer Order]] — [[vibe_coding/Elzero Frontend/CSS/08 - CSS Position List Table/01 - CSS Position, List, and Table - Positioning and Layer Order.html|صفحة الشرح المرئية]]
