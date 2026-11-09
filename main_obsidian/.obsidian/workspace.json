@@ -41,30 +41,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "دين/التزكية/خطبة جمعة/القرءان/خطبة الجمعة عن القرآن الكريم وحقيقة التغيير.md",
+                "file": "vibe_coding/Elzero Frontend/CSS/04 - CSS Nesting, Dimensions, and Overflow/01 - CSS Nesting and Grouped Selectors.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "خطبة الجمعة عن القرآن الكريم وحقيقة التغيير"
-            }
-          },
-          {
-            "id": "58b3122d09bcbe98",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "دين/التزكية/خطبة جمعة/القلب السليمة/01 - الخطبة الأولى عن القلب السليم.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "01 - الخطبة الأولى عن القلب السليم"
+              "title": "01 - CSS Nesting and Grouped Selectors"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -123,7 +109,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 389.5
   },
   "right": {
     "id": "d64c7174864d8303",
@@ -228,53 +214,54 @@
       "bases:Create new base": false
     }
   },
-  "active": "58b3122d09bcbe98",
+  "active": "3fe2b932067044ba",
   "lastOpenFiles": [
+    "vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/Opacity Lesson.md",
+    "vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/Mastering The CSS Calculation.md",
+    "vibe_coding/Elzero Frontend/CSS/مراجعات/مراجعة دورة CSS — الدروس 01-26.md",
+    "vibe_coding/Elzero Frontend/CSS/مراجعات",
+    "دين/التزكية/خطبة جمعة/تزكية النفوس/تزكية النفوس.md",
     "دين/التزكية/خطبة جمعة/تزكية النفوس/02 - الخطبة الثانية عن تزكية النفوس.md",
     "دين/التزكية/خطبة جمعة/تزكية النفوس/01 - الخطبة الأولى عن تزكية النفوس.md",
     "دين/التزكية/خطبة جمعة/تزكية النفوس/00 - فهرس خطبة تزكية النفوس.md",
-    "دين/التزكية/خطبة جمعة/تزكية النفوس/تزكية النفوس.md",
-    "دين/التزكية/خطبة جمعة/تزكية النفوس/تزكية النفوس",
     "دين/التزكية/خطبة جمعة/تزكية النفوس",
-    "youtube_extraction/تفريغ التعلق بالله وحده - أحمد السيد.md",
     "دين/التزكية/خطبة جمعة/القلب السليمة/02 - الخطبة الثانية عن القلب السليم.md",
     "دين/التزكية/خطبة جمعة/القلب السليمة/أمسية تربوية 15 - القلب السليم - تفريغ.md",
-    "دين/العقيدة/زاد عقيدة/المحاضرة 17/ملخص المحاضرة 17.md",
     "دين/التزكية/خطبة جمعة/القلب السليمة/01 - الخطبة الأولى عن القلب السليم.md",
     "دين/التزكية/خطبة جمعة/القلب السليمة/00 - فهرس خطبة القلب السليم.md",
     "دين/التزكية/خطبة جمعة/القلب السليمة",
-    "youtube_extraction/أمسية تربوية 15 - القلب السليم - تفريغ.md",
-    "youtube_extraction/دليلك_لفهم_انتخابات_الكونجرس_2026.md",
-    "دين/التزكية/خطبة جمعة/القرءان/خطبة الجمعة عن القرآن الكريم وحقيقة التغيير.md",
-    "إدمان الألعاب/مصادر إدمان الألعاب.md",
-    "إدمان الألعاب",
+    "vibe_coding/Elzero Frontend/CSS/19 - CSS Media Queries/assets/solution-page-task-02.png",
+    "vibe_coding/Elzero Frontend/CSS/19 - CSS Media Queries/assets/solution-page-task-01.png",
+    "Untitled.canvas",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/مراجعة الدروس 01-21 قبل الوراثة.md",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/Typography Font Size And CSS Units Lesson.md",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/Typography Font Style Variant And Weight Lesson.md",
+    "vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/Float And Clear Interactive.html",
+    "vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/Float And Clear Lesson.md",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/Typography Font Style Variant And Weight Interactive.html",
+    "vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/Mouse Cursor Interactive.html",
+    "vibe_coding/Elzero Frontend/CSS/07 - CSS Float and Opacity/Mouse Cursor Lesson.md",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/CSS Inheritance Typography Assignments 22-26.html",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/02 - CSS Font Families and Weights.html",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/01 - CSS Inheritance of Padding and Border.html",
+    "vibe_coding/Elzero Frontend/CSS/05 - CSS Text Formatting/Text Spacing Lesson.md",
+    "vibe_coding/Elzero Frontend/CSS/06 - CSS Inheritance and Typography/Typography Font Size And CSS Units Interactive.html",
+    "vibe_coding/Elzero Frontend/CSS/04 - CSS Nesting, Dimensions, and Overflow/01 - CSS Nesting and Grouped Selectors.md",
+    "vibe_coding/Elzero Frontend/CSS/04 - CSS Nesting, Dimensions, and Overflow/00 - CSS Nesting, Dimensions, and Overflow Index.md",
+    "vibe_coding/Elzero Frontend/CSS/03 - CSS Border, Outline, and Display/02 - CSS Visibility and Preserved Layout Space.md",
+    "vibe_coding/Elzero Frontend/CSS/03 - CSS Border, Outline, and Display/01 - CSS Border Colors and Outline.md",
+    "vibe_coding/Elzero Frontend/CSS/03 - CSS Border, Outline, and Display/00 - CSS Border, Outline, and Display Index.md",
+    "دين/مصطلح الحديث/تيسير مصطلح الحديث/تلخيصات/شرح طاحون/00 - ملخص جامع لتيسير مصطلح الحديث - شرح طاحون.md",
+    "دين/العقيدة/زاد عقيدة/00 - ملخص جامع للعقيدة - المحاضرات 17-24 للطباعة.md",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-08.jpg",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-07.jpg",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-06.jpg",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-05.jpg",
+    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-06.jpg",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-04.jpg",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-03.jpg",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-02.jpg",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/task22-photo-01.jpg",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/solution-task-25.png",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets/solution-task-24.png",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/assets",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/CSS All Course Assignments.html",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/CSS All Course Assignments 17-25.html",
     "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/25 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/24 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/23 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/22 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/21 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/20 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/19 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/18 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/17 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/16 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/15 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/14 - All Course Assignment.md",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/08 - All Course Assignment.html",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/07 - All Course Assignment.html",
-    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/06 - All Course Assignment.html"
+    "vibe_coding/Elzero Frontend/CSS/21 - CSS All Course Assignments/24 - All Course Assignment.md"
   ]
 }
