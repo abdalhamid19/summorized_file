@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import re
 import sys
 import tempfile
 import time
+import unicodedata
 from datetime import date
+from functools import lru_cache
 from pathlib import Path
 
 import requests
@@ -15,6 +18,7 @@ import requests
 API_URL = "https://read.tafsir.one/get.php"
 VIEWER_URL = "https://read.tafsir.one/almukhtasar"
 TERMS_URL = "https://mokhtasr.com/fa/pages/terms-and-conditions"
+QURAN_DATA = Path(__file__).resolve().parents[1] / "arabic_pdf_ocr" / "quran.json"
 DEFAULT_OUTPUT = (
     Path(__file__).resolve().parents[1]
     / "main_obsidian"
@@ -26,6 +30,40 @@ DEFAULT_OUTPUT = (
 
 class DownloadError(Exception):
     pass
+
+
+@lru_cache(maxsize=1)
+def load_quran_verses() -> dict[int, dict[int, str]]:
+    try:
+        data = json.loads(QURAN_DATA.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise DownloadError(f"تعذر تحميل نصوص القرآن المحلية: {exc}") from exc
+    return {
+        surah["id"]: {verse["id"]: verse["text"] for verse in surah["verses"]}
+        for surah in data
+    }
+
+
+def normalize_ayah(text: str) -> str:
+    substitutions = str.maketrans(
+        {
+            "ی": "ي",
+            "ک": "ك",
+            "ى": "ي",
+            "ٱ": "ا",
+            "أ": "ا",
+            "إ": "ا",
+            "آ": "ا",
+            "ؤ": "و",
+            "ئ": "ي",
+        }
+    )
+    normalized = unicodedata.normalize("NFKD", text).translate(substitutions)
+    return "".join(
+        char
+        for char in normalized
+        if unicodedata.category(char).startswith("L") and char != "ـ"
+    )
 
 
 def fetch_payload(session: requests.Session, number: int, ayah: int) -> dict[str, object]:
@@ -97,6 +135,22 @@ def fetch_surah(session: requests.Session, number: int, delay: float) -> dict[st
             raise DownloadError(f"لم يتقدم الترقيم أثناء جلب السورة {number}.")
         requested_ayah = next_ayah
 
+    canonical = load_quran_verses().get(number)
+    if canonical is None or len(canonical) != ayah_count:
+        raise DownloadError(f"عدد آيات السورة {number} لا يطابق قاعدة القرآن المحلية.")
+    for section in sections:
+        start = int(section["start"])
+        verses = section["ayahs"]
+        canonical_verses = [canonical.get(start + offset) for offset in range(len(verses))]
+        if any(verse is None for verse in canonical_verses):
+            raise DownloadError(f"تعذر مطابقة بعض آيات السورة {number} مع قاعدة القرآن المحلية.")
+        if any(
+            normalize_ayah(str(api_verse)) != normalize_ayah(str(canonical_verse))
+            for api_verse, canonical_verse in zip(verses, canonical_verses)
+        ):
+            raise DownloadError(f"نص آية من السورة {number} لا يطابق قاعدة القرآن المحلية.")
+        section["ayahs"] = canonical_verses
+
     return {"sections": sections, "ayah_count": ayah_count}
 
 
@@ -141,10 +195,14 @@ def markdown_for_surah(number: int, payload: dict[str, object], retrieved: date)
         end = start + len(ayahs) - 1
         range_label = arabic_digits(start) if start == end else f"{arabic_digits(start)}–{arabic_digits(end)}"
         content_sections.extend(["", f"## الآيات ({range_label})", ""])
-        content_sections.extend(
-            f"- **[{title}: {arabic_digits(start + offset)}]** ﴿{ayah}﴾"
-            for offset, ayah in enumerate(ayahs)
-        )
+        for offset, ayah in enumerate(ayahs):
+            content_sections.extend(
+                [
+                    f"> ﴿{ayah}﴾",
+                    f"> سورة {title}: {arabic_digits(start + offset)}",
+                    "",
+                ]
+            )
         data = str(section["data"]).strip()
         commentary_match = re.search(r"(?m)^[٠-٩]+-", data)
         commentary = data[commentary_match.start():].strip() if commentary_match else data
@@ -159,6 +217,7 @@ def markdown_for_surah(number: int, payload: dict[str, object], retrieved: date)
             "",
             f"- [التفسير التفاعلي - المختصر]({VIEWER_URL})",
             f"- [أول مقطع من بيانات السورة]({api_url})؛ جُلبت المقاطع التالية بالتتابع.",
+            "- قورنت الآيات بقاعدة القرآن المحلية في المشروع لتوحيد علامات الكتابة وتفادي محارف العرض غير المدعومة.",
             f"- تاريخ الجلب: {retrieved.isoformat()}",
             "- النسخة محلية للاستخدام الشخصي غير التجاري؛ راجع "
             f"[شروط الاستخدام]({TERMS_URL}).",
