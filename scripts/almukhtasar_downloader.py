@@ -66,7 +66,7 @@ def fetch_payload(session: requests.Session, number: int, ayah: int) -> dict[str
 
 
 def fetch_surah(session: requests.Session, number: int, delay: float) -> dict[str, object]:
-    sections: list[str] = []
+    sections: list[dict[str, object]] = []
     seen_starts: dict[int, list[object]] = {}
     requested_ayah = 1
     ayah_count = 0
@@ -90,14 +90,14 @@ def fetch_surah(session: requests.Session, number: int, delay: float) -> dict[st
             raise DownloadError(f"فجوة في ترقيم المقاطع عند السورة {number}، الآية {requested_ayah}.")
 
         seen_starts[start] = ayahs
-        sections.append(str(payload["data"]).strip())
+        sections.append({"start": start, "ayahs": ayahs, "data": str(payload["data"]).strip()})
         ayah_count += len(ayahs)
         next_ayah = start + len(ayahs)
         if next_ayah <= requested_ayah:
             raise DownloadError(f"لم يتقدم الترقيم أثناء جلب السورة {number}.")
         requested_ayah = next_ayah
 
-    return {"data": "\n\n".join(sections), "ayah_count": ayah_count}
+    return {"sections": sections, "ayah_count": ayah_count}
 
 
 def surah_title(data: str, number: int) -> str:
@@ -113,26 +113,59 @@ def safe_filename(title: str) -> str:
     return cleaned or "سورة"
 
 
+def arabic_digits(number: int) -> str:
+    return str(number).translate(str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩"))
+
+
 def markdown_for_surah(number: int, payload: dict[str, object], retrieved: date) -> tuple[str, str]:
-    data = str(payload["data"]).strip()
-    title = surah_title(data, number)
+    sections = payload["sections"]
+    if not isinstance(sections, list) or not sections:
+        raise DownloadError(f"لا توجد مقاطع محفوظة للسورة {number}.")
+    first_data = str(sections[0]["data"])
+    title = surah_title(first_data, number)
     ayah_count = payload.get("ayah_count", "غير متاح")
+    first_commentary = re.search(r"(?m)^[٠-٩]+-", first_data)
+    prelude = first_data[: first_commentary.start()].strip() if first_commentary else ""
+    content_sections = [
+        "---\n"
+        f"title: المختصر في التفسير - سورة {title}\n"
+        "tags:\n  - تفسير\n  - المختصر-في-التفسير\n---\n\n"
+        f"# سورة {title}\n\n"
+        f"عدد الآيات: {ayah_count}\n"
+    ]
+    if prelude:
+        content_sections.extend(["", prelude])
+    for section in sections:
+        start = int(section["start"])
+        ayahs = section["ayahs"]
+        end = start + len(ayahs) - 1
+        range_label = arabic_digits(start) if start == end else f"{arabic_digits(start)}–{arabic_digits(end)}"
+        content_sections.extend(["", f"## الآيات ({range_label})", ""])
+        content_sections.extend(
+            f"- **[{title}: {arabic_digits(start + offset)}]** ﴿{ayah}﴾"
+            for offset, ayah in enumerate(ayahs)
+        )
+        data = str(section["data"]).strip()
+        commentary_match = re.search(r"(?m)^[٠-٩]+-", data)
+        commentary = data[commentary_match.start():].strip() if commentary_match else data
+        content_sections.extend(["", f"### التفسير ({range_label})", "", commentary])
     api_url = requests.Request(
         "GET", API_URL, params={"uth": "", "src": "almukhtasar", "s": number, "a": 1}
     ).prepare().url
-    content = (
-        f"---\ntitle: المختصر في التفسير - سورة {title}\n"
-        "tags:\n  - تفسير\n  - المختصر-في-التفسير\n---\n\n"
-        f"# سورة {title}\n\n"
-        f"عدد الآيات: {ayah_count}\n\n"
-        f"{data}\n\n"
-        "## المصدر\n\n"
-        f"- [التفسير التفاعلي - المختصر]({VIEWER_URL})\n"
-        f"- [أول مقطع من بيانات السورة]({api_url})؛ جُلبت المقاطع التالية بالتتابع.\n"
-        f"- تاريخ الجلب: {retrieved.isoformat()}\n"
-        "- النسخة محلية للاستخدام الشخصي غير التجاري؛ راجع "
-        f"[شروط الاستخدام]({TERMS_URL}).\n"
+    content_sections.extend(
+        [
+            "",
+            "## المصدر",
+            "",
+            f"- [التفسير التفاعلي - المختصر]({VIEWER_URL})",
+            f"- [أول مقطع من بيانات السورة]({api_url})؛ جُلبت المقاطع التالية بالتتابع.",
+            f"- تاريخ الجلب: {retrieved.isoformat()}",
+            "- النسخة محلية للاستخدام الشخصي غير التجاري؛ راجع "
+            f"[شروط الاستخدام]({TERMS_URL}).",
+            "",
+        ]
     )
+    content = "\n".join(content_sections)
     return title, content
 
 
