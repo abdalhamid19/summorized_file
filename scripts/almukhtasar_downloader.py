@@ -196,10 +196,13 @@ def markdown_for_surah(number: int, payload: dict[str, object], retrieved: date)
         range_label = arabic_digits(start) if start == end else f"{arabic_digits(start)}–{arabic_digits(end)}"
         content_sections.extend(["", f"## الآيات ({range_label})", ""])
         for offset, ayah in enumerate(ayahs):
+            reference = f"سورة {title}: {arabic_digits(start + offset)}"
             content_sections.extend(
                 [
-                    f"> ﴿{ayah}﴾",
-                    f"> سورة {title}: {arabic_digits(start + offset)}",
+                    '<div dir="rtl" style="font-family: \'Noto Naskh Arabic\', serif; text-align: right; unicode-bidi: isolate;">'
+                    f"﴿{ayah}﴾</div>",
+                    '<div dir="rtl" style="font-family: \'Noto Naskh Arabic\', serif; text-align: right; font-size: 0.9em;">'
+                    f"{reference}</div>",
                     "",
                 ]
             )
