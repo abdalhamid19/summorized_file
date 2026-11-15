@@ -108,8 +108,11 @@ def fetch_surah(session: requests.Session, number: int, delay: float) -> dict[st
     seen_starts: dict[int, list[object]] = {}
     requested_ayah = 1
     ayah_count = 0
+    canonical = load_quran_verses().get(number)
+    if canonical is None:
+        raise DownloadError(f"لم يُعثر على السورة {number} في قاعدة القرآن المحلية.")
 
-    while True:
+    while requested_ayah <= len(canonical):
         if requested_ayah > 1 and delay:
             time.sleep(delay)
         payload = fetch_payload(session, number, requested_ayah)
@@ -135,8 +138,7 @@ def fetch_surah(session: requests.Session, number: int, delay: float) -> dict[st
             raise DownloadError(f"لم يتقدم الترقيم أثناء جلب السورة {number}.")
         requested_ayah = next_ayah
 
-    canonical = load_quran_verses().get(number)
-    if canonical is None or len(canonical) != ayah_count:
+    if len(canonical) != ayah_count:
         raise DownloadError(f"عدد آيات السورة {number} لا يطابق قاعدة القرآن المحلية.")
     for section in sections:
         start = int(section["start"])
