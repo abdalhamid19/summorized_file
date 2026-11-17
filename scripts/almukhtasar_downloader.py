@@ -1,0 +1,339 @@
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import re
+import sys
+import tempfile
+import time
+import unicodedata
+from datetime import date
+from functools import lru_cache
+from pathlib import Path
+
+import requests
+
+
+API_URL = "https://read.tafsir.one/get.php"
+VIEWER_URL = "https://read.tafsir.one/almukhtasar"
+TERMS_URL = "https://mokhtasr.com/fa/pages/terms-and-conditions"
+QURAN_DATA = Path(__file__).resolve().parents[1] / "arabic_pdf_ocr" / "quran.json"
+DEFAULT_OUTPUT = (
+    Path(__file__).resolve().parents[1]
+    / "main_obsidian"
+    / "دين"
+    / "تفسير"
+    / "المختصر في التفسير - نسخة شخصية"
+)
+
+
+class DownloadError(Exception):
+    pass
+
+
+@lru_cache(maxsize=1)
+def load_quran_verses() -> dict[int, dict[int, str]]:
+    try:
+        data = json.loads(QURAN_DATA.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise DownloadError(f"تعذر تحميل نصوص القرآن المحلية: {exc}") from exc
+    return {
+        surah["id"]: {verse["id"]: verse["text"] for verse in surah["verses"]}
+        for surah in data
+    }
+
+
+def normalize_ayah(text: str) -> str:
+    substitutions = str.maketrans(
+        {
+            "ی": "ي",
+            "ک": "ك",
+            "ى": "ي",
+            "ٱ": "ا",
+            "أ": "ا",
+            "إ": "ا",
+            "آ": "ا",
+            "ؤ": "و",
+            "ئ": "ي",
+        }
+    )
+    normalized = unicodedata.normalize("NFKD", text).translate(substitutions)
+    return "".join(
+        char
+        for char in normalized
+        if unicodedata.category(char).startswith("L") and char != "ـ"
+    )
+
+
+def fetch_payload(session: requests.Session, number: int, ayah: int) -> dict[str, object]:
+    params = {"uth": "", "src": "almukhtasar", "s": number, "a": ayah}
+    for attempt in range(3):
+        try:
+            response = session.get(API_URL, params=params, timeout=30)
+        except requests.RequestException as exc:
+            if attempt == 2:
+                raise DownloadError(f"تعذر الاتصال أثناء جلب السورة {number}: {exc}") from exc
+            time.sleep(2**attempt)
+            continue
+
+        if response.status_code in (403, 429):
+            raise DownloadError(
+                f"رفض الموقع الطلب (HTTP {response.status_code}) عند السورة {number}، الآية {ayah}. "
+                "أوقفت الجلب؛ أعد المحاولة لاحقًا دون تجاوز القيود."
+            )
+        if response.status_code >= 500:
+            if attempt == 2:
+                raise DownloadError(f"تعطل الموقع (HTTP {response.status_code}) عند السورة {number}.")
+            time.sleep(2**attempt)
+            continue
+        if not response.ok:
+            raise DownloadError(f"فشل طلب السورة {number} (HTTP {response.status_code}).")
+
+        try:
+            payload = response.json()
+        except requests.JSONDecodeError as exc:
+            raise DownloadError(f"استجابة غير مفهومة للسورة {number}، الآية {ayah}.") from exc
+        if not isinstance(payload, dict) or not isinstance(payload.get("data"), str):
+            raise DownloadError(f"لم يُعثر على نص التفسير للسورة {number}، الآية {ayah}.")
+        if not payload["data"].strip():
+            raise DownloadError(f"استجابة ناقصة للسورة {number}، الآية {ayah}.")
+        return payload
+
+    raise DownloadError(f"تعذر جلب السورة {number}.")
+
+
+def fetch_surah(session: requests.Session, number: int, delay: float) -> dict[str, object]:
+    sections: list[dict[str, object]] = []
+    seen_starts: dict[int, list[object]] = {}
+    requested_ayah = 1
+    ayah_count = 0
+    canonical = load_quran_verses().get(number)
+    if canonical is None:
+        raise DownloadError(f"لم يُعثر على السورة {number} في قاعدة القرآن المحلية.")
+
+    while requested_ayah <= len(canonical):
+        if requested_ayah > 1 and delay:
+            time.sleep(delay)
+        payload = fetch_payload(session, number, requested_ayah)
+        start = int(payload.get("ayahs_start", requested_ayah))
+        ayahs = payload.get("ayahs")
+        if not isinstance(ayahs, list):
+            ayah = payload.get("ayah")
+            ayahs = [ayah] if isinstance(ayah, str) and ayah else []
+        if not ayahs:
+            raise DownloadError(f"لا توجد آيات في استجابة السورة {number}، الآية {requested_ayah}.")
+        if start in seen_starts:
+            if seen_starts[start] != ayahs:
+                raise DownloadError(f"تكررت بداية المقطع مع اختلاف محتواه في السورة {number}.")
+            break
+        if start != requested_ayah:
+            raise DownloadError(f"فجوة في ترقيم المقاطع عند السورة {number}، الآية {requested_ayah}.")
+
+        seen_starts[start] = ayahs
+        sections.append({"start": start, "ayahs": ayahs, "data": str(payload["data"]).strip()})
+        ayah_count += len(ayahs)
+        next_ayah = start + len(ayahs)
+        if next_ayah <= requested_ayah:
+            raise DownloadError(f"لم يتقدم الترقيم أثناء جلب السورة {number}.")
+        requested_ayah = next_ayah
+
+    if len(canonical) != ayah_count:
+        raise DownloadError(f"عدد آيات السورة {number} لا يطابق قاعدة القرآن المحلية.")
+    for section in sections:
+        start = int(section["start"])
+        verses = section["ayahs"]
+        canonical_verses = [canonical.get(start + offset) for offset in range(len(verses))]
+        if any(verse is None for verse in canonical_verses):
+            raise DownloadError(f"تعذر مطابقة بعض آيات السورة {number} مع قاعدة القرآن المحلية.")
+        if any(
+            normalize_ayah(str(api_verse)) != normalize_ayah(str(canonical_verse))
+            for api_verse, canonical_verse in zip(verses, canonical_verses)
+        ):
+            raise DownloadError(f"نص آية من السورة {number} لا يطابق قاعدة القرآن المحلية.")
+        section["ayahs"] = canonical_verses
+
+    return {"sections": sections, "ayah_count": ayah_count}
+
+
+def surah_title(data: str, number: int) -> str:
+    first_line = data.splitlines()[0] if data.splitlines() else ""
+    match = re.match(r"\*\s*سورة\s+(.+?)(?:\s+(?:مكية|مدنية)\b.*)?$", first_line)
+    if match:
+        return match.group(1).strip()
+    return f"السورة {number}"
+
+
+def safe_filename(title: str) -> str:
+    cleaned = re.sub(r'[\\/:*?"<>|\x00-\x1f]', "-", title).strip(" .-")
+    return cleaned or "سورة"
+
+
+def arabic_digits(number: int) -> str:
+    return str(number).translate(str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩"))
+
+
+def markdown_for_surah(number: int, payload: dict[str, object], retrieved: date) -> tuple[str, str]:
+    sections = payload["sections"]
+    if not isinstance(sections, list) or not sections:
+        raise DownloadError(f"لا توجد مقاطع محفوظة للسورة {number}.")
+    first_data = str(sections[0]["data"])
+    title = surah_title(first_data, number)
+    ayah_count = payload.get("ayah_count", "غير متاح")
+    first_commentary = re.search(r"(?m)^[٠-٩]+-", first_data)
+    prelude = first_data[: first_commentary.start()].strip() if first_commentary else ""
+    content_sections = [
+        "---\n"
+        f"title: المختصر في التفسير - سورة {title}\n"
+        "tags:\n  - تفسير\n  - المختصر-في-التفسير\n---\n\n"
+        f"# سورة {title}\n\n"
+        f"عدد الآيات: {ayah_count}\n"
+    ]
+    if prelude:
+        content_sections.extend(["", prelude])
+    for section in sections:
+        start = int(section["start"])
+        ayahs = section["ayahs"]
+        end = start + len(ayahs) - 1
+        range_label = arabic_digits(start) if start == end else f"{arabic_digits(start)}–{arabic_digits(end)}"
+        content_sections.extend(["", f"## الآيات ({range_label})", ""])
+        for offset, ayah in enumerate(ayahs):
+            reference = f"سورة {title}: {arabic_digits(start + offset)}"
+            content_sections.extend(
+                [
+                    '<div dir="rtl" style="font-family: \'Noto Naskh Arabic\', serif; text-align: right; unicode-bidi: isolate;">'
+                    f"﴿{ayah}﴾</div>",
+                    '<div dir="rtl" style="font-family: \'Noto Naskh Arabic\', serif; text-align: right; font-size: 0.9em;">'
+                    f"{reference}</div>",
+                    "",
+                ]
+            )
+        data = str(section["data"]).strip()
+        commentary_match = re.search(r"(?m)^[٠-٩]+-", data)
+        commentary = data[commentary_match.start():].strip() if commentary_match else data
+        content_sections.extend(["", f"### التفسير ({range_label})", "", commentary])
+    api_url = requests.Request(
+        "GET", API_URL, params={"uth": "", "src": "almukhtasar", "s": number, "a": 1}
+    ).prepare().url
+    content_sections.extend(
+        [
+            "",
+            "## المصدر",
+            "",
+            f"- [التفسير التفاعلي - المختصر]({VIEWER_URL})",
+            f"- [أول مقطع من بيانات السورة]({api_url})؛ جُلبت المقاطع التالية بالتتابع.",
+            "- قورنت الآيات بقاعدة القرآن المحلية في المشروع لتوحيد علامات الكتابة وتفادي محارف العرض غير المدعومة.",
+            f"- تاريخ الجلب: {retrieved.isoformat()}",
+            "- النسخة محلية للاستخدام الشخصي غير التجاري؛ راجع "
+            f"[شروط الاستخدام]({TERMS_URL}).",
+            "",
+        ]
+    )
+    content = "\n".join(content_sections)
+    return title, content
+
+
+def write_file(path: Path, content: str, overwrite: bool) -> bool:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        if path.read_text(encoding="utf-8") == content:
+            return False
+        if not overwrite:
+            return False
+
+    with tempfile.NamedTemporaryFile(
+        "w", encoding="utf-8", newline="\n", dir=path.parent, delete=False
+    ) as temp_file:
+        temp_file.write(content)
+        temp_path = Path(temp_file.name)
+    os.replace(temp_path, path)
+    return True
+
+
+def make_index(entries: list[tuple[int, str, str]], retrieved: date) -> str:
+    lines = [
+        "---",
+        "title: المختصر في التفسير - فهرس النسخة الشخصية",
+        "tags:",
+        "  - تفسير",
+        "  - المختصر-في-التفسير",
+        "---",
+        "",
+        "# المختصر في التفسير",
+        "",
+        "نسخة محلية للاستخدام الشخصي غير التجاري. لا تنشر هذه النسخة أو توزّعها.",
+        "",
+        f"تاريخ الجلب: {retrieved.isoformat()}",
+        "",
+        "## السور",
+        "",
+    ]
+    lines.extend(f"- [[{filename.removesuffix('.md')}|سورة {title}]]" for _, title, filename in entries)
+    lines.extend(
+        [
+            "",
+            "## المصدر",
+            "",
+            f"- [التفسير التفاعلي - المختصر]({VIEWER_URL})",
+            f"- [شروط الاستخدام]({TERMS_URL})",
+            "",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="يحفظ نص المختصر في التفسير محليًا للاستخدام الشخصي غير التجاري."
+    )
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument("--all", action="store_true", help="جلب السور كلها (114 سورة).")
+    selection.add_argument("--surah", type=int, help="رقم سورة واحدة من 1 إلى 114.")
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="مجلد ملفات Markdown.")
+    parser.add_argument("--delay", type=float, default=0.5, help="الفاصل بالثواني بين طلبات المقاطع.")
+    parser.add_argument("--overwrite", action="store_true", help="استبدال الملفات الموجودة.")
+    args = parser.parse_args()
+    if args.surah is not None and not 1 <= args.surah <= 114:
+        parser.error("يجب أن يكون رقم السورة بين 1 و114.")
+    if args.delay < 0:
+        parser.error("يجب ألا يكون --delay سالبًا.")
+    return args
+
+
+def main() -> int:
+    args = parse_args()
+    numbers = range(1, 115) if args.all else [args.surah]
+    retrieved = date.today()
+    entries: list[tuple[int, str, str]] = []
+    session = requests.Session()
+    session.headers.update({"User-Agent": "AlmukhtasarPersonalCopy/1.0"})
+
+    try:
+        for number in numbers:
+            payload = fetch_surah(session, number, args.delay)
+            title, content = markdown_for_surah(number, payload, retrieved)
+            filename = f"{number:03d} - {safe_filename(title)}.md"
+            written = write_file(args.output / filename, content, args.overwrite)
+            entries.append((number, title, filename))
+            action = "حُفظت" if written else "أُبقي الملف الموجود دون تعديل"
+            print(f"{action}: السورة {number} - {title}")
+        if args.all:
+            index_written = write_file(
+                args.output / "00 - فهرس المختصر في التفسير.md",
+                make_index(entries, retrieved),
+                args.overwrite,
+            )
+            if not index_written:
+                print("أُبقي الفهرس الموجود دون تعديل")
+    except (DownloadError, OSError) as exc:
+        print(f"خطأ: {exc}", file=sys.stderr)
+        return 1
+    finally:
+        session.close()
+
+    print(f"اكتمل الحفظ في: {args.output}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
