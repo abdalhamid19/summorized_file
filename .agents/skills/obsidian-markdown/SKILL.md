@@ -16,6 +16,10 @@ Create and edit valid Obsidian Flavored Markdown. Obsidian extends CommonMark an
 5. **Add callouts** for highlighted information using `> [!type]` syntax. See [CALLOUTS.md](references/CALLOUTS.md) for all callout types.
 6. **Verify** the note renders correctly in Obsidian's reading view.
 
+## Preserve Explicit Placeholder Lines (Mandatory)
+
+When editing an existing note, preserve every standalone `؟؟؟؟` line exactly as written and in its existing position. Do not remove, replace, normalize, or move such a line unless the user explicitly asks for that change. Keep edits limited to the requested content, then search the affected note for `؟؟؟؟` before and after editing to confirm each placeholder remains. See [EXAMPLES.md](EXAMPLES.md) for concrete examples from this vault.
+
 > When choosing between wikilinks and Markdown links: use `[[wikilinks]]` for notes within the vault (Obsidian tracks renames automatically) and `[text](url)` for external URLs only.
 
 ## Internal Links (Wikilinks)
